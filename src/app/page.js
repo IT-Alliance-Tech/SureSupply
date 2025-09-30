@@ -9,6 +9,7 @@ import ManufacturingProcesses from "@/components/home/ManufacturingProcesses";
 export default function Home() {
   return (
     <main className="flex flex-col">
+      {/* Added a dummy comment */}
       <Navbar />
       <HeroSection />
       <ManufacturingProcesses />
