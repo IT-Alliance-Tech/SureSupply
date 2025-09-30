@@ -3,7 +3,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { FaBars, FaTimes, FaCube } from "react-icons/fa";
 import LogoImg from "../../../public/logo.png"; // Replace with your logo path
 
 const navLinks = [
@@ -15,22 +15,22 @@ const navLinks = [
 
 const resourcesLinks = {
   Company: [
-    { name: "About", href: "/about" },
-    { name: "Contact", href: "/contact" },
-    { name: "Career", href: "/career" },
-    { name: "Investors", href: "/investors" },
+    { name: "About", href: "/about", desc: "Manufacturing expertise you can trust" },
+    { name: "Contact", href: "/contact", desc: "Get in touch with our team" },
+    { name: "Careers", href: "/career", desc: "Join our innovative manufacturing team" },
+    { name: "Investors", href: "/investors", desc: "Financial performance and insights" },
   ],
   Insights: [
-    { name: "Case Studies", href: "/case-studies" },
-    { name: "Blog", href: "/blog" },
-    { name: "White Papers", href: "/white-papers" },
-    { name: "Webinars", href: "/webinars" },
+    { name: "Case studies", href: "/case-studies", desc: "Explore our successful manufacturing projects" },
+    { name: "Blog", href: "/blog", desc: "Industry trends and expert perspectives" },
+    { name: "White papers", href: "/white-papers", desc: "In-depth manufacturing research" },
+    { name: "Webinars", href: "/webinars", desc: "Expert-led manufacturing discussions" },
   ],
   Support: [
-    { name: "Help Center", href: "/help-center" },
-    { name: "Document", href: "/document" },
-    { name: "Training", href: "/training" },
-    { name: "Community", href: "/community" },
+    { name: "Help center", href: "/help-center", desc: "Technical support resources" },
+    { name: "Documentation", href: "/document", desc: "Comprehensive product guides" },
+    { name: "Training", href: "/training", desc: "Professional development programs" },
+    { name: "Community", href: "/community", desc: "Connect with manufacturing professionals" },
   ],
 };
 
@@ -39,18 +39,17 @@ const Navbar = () => {
   const [isResourcesOpen, setIsResourcesOpen] = useState(false);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-  const toggleResources = () => setIsResourcesOpen(!isResourcesOpen);
 
   return (
-    <nav className="w-full bg-white fixed top-0 left-0 z-50 shadow-md">
-      <div className="container mx-auto flex justify-between items-center py-4 px-6">
+    <nav className="w-full bg-white fixed top-0 left-0 z-50 shadow-sm">
+      <div className="container mx-auto flex justify-between items-center py-4 px-6 relative">
         {/* Logo */}
         <div className="flex items-center">
           <Image src={LogoImg} alt="Logo" width={150} height={50} />
         </div>
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex flex-1 justify-center items-center space-x-8 text-gray-700 font-medium relative">
+        <ul className="hidden md:flex flex-1 justify-center items-center space-x-8 text-gray-700 font-medium">
           {navLinks.map((link) => (
             <li key={link.name} className="hover:text-blue-600">
               <a href={link.href}>{link.name}</a>
@@ -58,30 +57,52 @@ const Navbar = () => {
           ))}
 
           {/* Resources Dropdown */}
-          <li
-            className="relative hover:text-blue-600 cursor-pointer"
+          <div
+            className="group inline-block"
             onMouseEnter={() => setIsResourcesOpen(true)}
             onMouseLeave={() => setIsResourcesOpen(false)}
           >
-            <span onClick={toggleResources}>Resources ▾</span>
+            <button
+              type="button"
+              className="hover:text-blue-600 font-medium"
+              aria-haspopup="true"
+              aria-expanded={isResourcesOpen}
+            >
+              Resources ▾
+            </button>
 
             {isResourcesOpen && (
-              <div className="absolute top-full left-0 bg-white border mt-2 w-72 shadow-lg z-50 p-4 grid grid-cols-3 gap-4">
-                {Object.entries(resourcesLinks).map(([section, items]) => (
-                  <div key={section}>
-                    <h4 className="font-semibold mb-2">{section}</h4>
-                    <ul className="space-y-1 text-gray-600">
-                      {items.map((item) => (
-                        <li key={item.name} className="hover:text-blue-600">
-                          <a href={item.href}>{item.name}</a>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
+              <div className="absolute left-0 top-full w-screen mt-2 bg-white border-t shadow-xl z-50">
+                <div className="container mx-auto p-6 grid grid-cols-3 gap-6">
+                  {Object.entries(resourcesLinks).map(([section, items]) => (
+                    <div key={section}>
+                      <h4 className="font-semibold mb-4">{section}</h4>
+                      <ul>
+                        {items.map((item) => (
+                          <li key={item.name}>
+                            <a
+                              href={item.href}
+                              className="flex items-start gap-4 py-3 hover:bg-gray-50 rounded px-1 transition"
+                            >
+                              {/* ICON WITHOUT CIRCLE, BLACK */}
+                              <FaCube size={16} className="text-black flex-shrink-0 mt-1" />
+
+                              <div>
+                                <div className="text-base font-semibold text-gray-900">
+                                  {item.name}
+                                </div>
+                                <div className="text-sm text-gray-600">{item.desc}</div>
+                              </div>
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
               </div>
             )}
-          </li>
+          </div>
         </ul>
 
         {/* Right-side Buttons */}
@@ -96,7 +117,7 @@ const Navbar = () => {
 
         {/* Mobile Menu Toggle */}
         <div className="md:hidden" onClick={toggleMenu}>
-          {isMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+          {isMenuOpen ? <FaTimes size={22} /> : <FaBars size={22} />}
         </div>
       </div>
 
@@ -106,7 +127,7 @@ const Navbar = () => {
           <ul className="flex flex-col space-y-4 text-gray-700 font-medium items-center">
             {navLinks.map((link) => (
               <li key={link.name} className="hover:text-blue-600">
-                <a href={link.href} onClick={toggleMenu}>
+                <a href={link.href} onClick={() => setIsMenuOpen(false)}>
                   {link.name}
                 </a>
               </li>
@@ -116,20 +137,32 @@ const Navbar = () => {
             <li className="w-full">
               <button
                 className="w-full text-left font-medium hover:text-blue-600"
-                onClick={toggleResources}
+                onClick={() => setIsResourcesOpen((s) => !s)}
               >
                 Resources ▾
               </button>
               {isResourcesOpen && (
-                <div className="mt-2 pl-4">
+                <div className="mt-3 pl-2">
                   {Object.entries(resourcesLinks).map(([section, items]) => (
-                    <div key={section} className="mb-2">
-                      <h4 className="font-semibold mb-1">{section}</h4>
-                      <ul className="space-y-1">
+                    <div key={section} className="mb-3">
+                      <h4 className="font-semibold mb-2">{section}</h4>
+                      <ul className="space-y-2">
                         {items.map((item) => (
-                          <li key={item.name} className="hover:text-blue-600">
-                            <a href={item.href} onClick={toggleMenu}>
-                              {item.name}
+                          <li key={item.name}>
+                            <a
+                              href={item.href}
+                              onClick={() => {
+                                setIsMenuOpen(false);
+                                setIsResourcesOpen(false);
+                              }}
+                              className="flex items-start gap-3"
+                            >
+                              {/* ICON WITHOUT CIRCLE, BLACK */}
+                              <FaCube size={14} className="text-black mt-1 flex-shrink-0" />
+                              <div>
+                                <div className="font-semibold">{item.name}</div>
+                                <div className="text-sm text-gray-600">{item.desc}</div>
+                              </div>
                             </a>
                           </li>
                         ))}
