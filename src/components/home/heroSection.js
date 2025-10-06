@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 import hero1 from "../../../public/Banner1.png";
 import hero2 from "../../../public/Banner2.png";
-import hero3 from "../../../public/Banner3.png";
+import hero3 from "../../../public/banner3.png";
 import hero4 from "../../../public/Banner4.png";
 import hero5 from "../../../public/Banner5.png";
 
