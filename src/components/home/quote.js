@@ -224,7 +224,7 @@ export default function QuoteForm() {
               className="w-4 h-4 text-orange-600 border-gray-300 rounded focus:ring-orange-500"
             />
             <label htmlFor="captchaCheckbox" className="text-[#0a1a4f]">
-              I'm not a robot
+              {`I'm not a robot`}
             </label>
           </div>
 
