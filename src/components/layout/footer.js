@@ -12,7 +12,7 @@ import {
 
 // Import your logo and background image
 import Logo from "../../../public/logo.png"; // replace with actual logo
-import BgImage from "../../../public/bg.png"; // replace with actual background
+import BgImage from "../../../public/Bg.png"; // replace with actual background
 
 export default function Footer() {
   return (
