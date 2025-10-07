@@ -84,16 +84,17 @@ export default function QuoteForm() {
       return;
     }
     console.log("Form Data Submitted:", formData);
-    // Submit to API
+    // Submit to API or backend here
   };
 
   return (
-    <section className="bg-orange-600 py-12 flex justify-center">
-      <div className="bg-white shadow-lg rounded-lg p-8 max-w-3xl w-full">
+    <section className="bg-orange-600 py-12 px-4 sm:px-6 md:px-12 flex justify-center">
+      <div className="bg-white shadow-lg rounded-lg p-6 sm:p-8 md:p-10 max-w-3xl w-full">
         {/* Heading */}
         <h2 className="text-2xl font-bold text-[#0a1a4f] mb-2">Quote form:</h2>
         <p className="text-[#0a1a4f] mb-6">
-          Let’s get the conversation started today! Fill out the form on this page or email us directly to request a quote.
+          Let’s get the conversation started today! Fill out the form on this
+          page or email us directly to request a quote.
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-6">
@@ -161,16 +162,17 @@ export default function QuoteForm() {
             )}
           </div>
 
-          {/* Styled File Upload */}
+          {/* File Upload */}
           <div>
             <label className="block text-sm font-semibold text-[#0a1a4f] mb-1">
               File Upload
             </label>
             <p className="text-sm text-[#0a1a4f] mb-2">
-              Accepts: .pdf, .dwg, .step, .stl, .iges. Other file types can be emailed to contact-nab@zetwerk.com
+              Accepts: .pdf, .dwg, .step, .stl, .iges. Other file types can be
+              emailed to contact-nab@zetwerk.com
             </p>
-            <div className="flex items-center gap-4">
-              <label className="bg-gray-200 hover:bg-gray-300 cursor-pointer px-4 py-2 rounded-md text-[#0a1a4f] font-medium">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
+              <label className="bg-gray-200 hover:bg-gray-300 cursor-pointer px-4 py-2 rounded-md text-[#0a1a4f] font-medium w-fit">
                 Choose File
                 <input
                   type="file"
@@ -179,42 +181,48 @@ export default function QuoteForm() {
                   onChange={handleChange}
                 />
               </label>
-              <span className="text-sm text-[#0a1a4f]">
+              <span className="text-sm text-[#0a1a4f] break-words">
                 {formData.file ? formData.file.name : "No file chosen"}
               </span>
             </div>
           </div>
 
-          {/* Consent Information Paragraph */}
+          {/* Consent Info */}
           <p className="text-sm text-[#0a1a4f] mt-4 mb-2">
-            We need your consent to communicate with you and to store and process your personal data. If you agree, please click the boxes below. You can unsubscribe or ask us to remove your data at any time.
+            We need your consent to communicate with you and to store and
+            process your personal data. If you agree, please click the boxes
+            below. You can unsubscribe or ask us to remove your data at any
+            time.
           </p>
 
           {/* Consent Checkboxes */}
           <div className="space-y-3">
-            <label className="flex items-center space-x-2 text-[#0a1a4f]">
+            <label className="flex items-start space-x-2 text-[#0a1a4f]">
               <input
                 type="checkbox"
                 name="agreeComm"
                 onChange={handleChange}
                 required
+                className="mt-1"
               />
               <span>I agree to receive communications from SureSupply.*</span>
             </label>
-            <label className="flex items-center space-x-2 text-[#0a1a4f]">
+            <label className="flex items-start space-x-2 text-[#0a1a4f]">
               <input
                 type="checkbox"
                 name="agreeData"
                 onChange={handleChange}
                 required
+                className="mt-1"
               />
               <span>
-                I agree to allow SureSupply to store and process my personal data.*
+                I agree to allow SureSupply to store and process my personal
+                data.*
               </span>
             </label>
           </div>
 
-          {/* Custom CAPTCHA */}
+          {/* CAPTCHA */}
           <div className="flex items-center space-x-2 mb-4">
             <input
               type="checkbox"
@@ -228,12 +236,12 @@ export default function QuoteForm() {
             </label>
           </div>
 
-          {/* Submit */}
+          {/* Submit Button */}
           <div>
             <button
               type="submit"
               disabled={!isFormValid()}
-              className={`bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-md font-semibold disabled:opacity-50 disabled:cursor-not-allowed`}
+              className="bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-md font-semibold w-full sm:w-auto disabled:opacity-50 disabled:cursor-not-allowed"
             >
               Get Quote Now
             </button>
