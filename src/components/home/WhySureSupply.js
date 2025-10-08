@@ -1,4 +1,3 @@
-// components/WhySureSupply.js
 "use client";
 
 import { useState } from "react";
@@ -16,87 +15,71 @@ const tabsData = [
   {
     key: "Cost",
     title: "Cost",
-    heading: "Best Manufacturing Cost",
-    points: [
-      "Optimized supplier base ensures competitive pricing without compromising reliability.",
-      "Smart allocation of orders maximizes efficiency and reduces hidden overheads.",
-    ],
+    heading: "Lower manufacturing expenses",
+    desc: "Optimize your production budget with our efficient sourcing strategies.",
     image: costImg,
   },
   {
     key: "LeadTime",
-    title: "Lead Time",
-    heading: "Lower Lead Time",
-    points: [
-      "Agile supplier network enables faster turnaround from RFQ to delivery.",
-      "Proactive production planning and digital tracking minimize delays and bottlenecks.",
-    ],
+    title: "Lead time",
+    heading: "Faster delivery and responsiveness",
+    desc: "Our supplier ecosystem ensures minimal lead time for critical components.",
     image: leadTimeImg,
   },
   {
     key: "Quality",
     title: "Quality",
-    heading: "No Compromise in Quality & Compliance",
-    points: [
-      "Compliance management guarantees parts are manufactured exactly from the supplier who fulfills required customer compliance.",
-      "Total Quality Management (TQM) checks every order before dispatch for absolute reliability.",
-    ],
+    heading: "No compromise in quality & compliance",
+    desc: "Strict supplier compliance and total quality checks before dispatch.",
     image: qualityImg,
   },
   {
     key: "Capabilities",
     title: "Capabilities",
-    heading: "Manufacturing Capabilities & Flexibility",
-    points: [
-      "From prototypes to bulk production, we adapt to every scale of requirement.",
-      "Wide process coverage and multi-partner capacity ensure consistent supply, even during demand spikes.",
-    ],
+    heading: "Enhanced manufacturing capabilities",
+    desc: "Flexible and scalable production for every requirement.",
     image: capabilitiesImg,
   },
   {
     key: "Ecosystem",
     title: "Ecosystem",
-    heading: "Ecosystem Building",
-    points: [
-      "Customers and suppliers receive end-to-end support, beyond just part delivery.",
-      "Our integrated ecosystem includes sourcing, quality assurance & compliance, logistics, and continuous collaboration.",
-    ],
+    heading: "Integrated supplier ecosystem",
+    desc: "Collaboration between suppliers and customers for efficiency.",
     image: ecosystemImg,
   },
   {
     key: "Services",
     title: "Services",
-    heading: "Comprehensive Services",
-    points: [
-      "End-to-end supply chain solutions.",
-      "Dedicated support for every stage of your project.",
-    ],
+    heading: "Comprehensive services",
+    desc: "End-to-end support for your entire supply chain journey.",
     image: servicesImg,
   },
 ];
 
 export default function WhySureSupply() {
   const [activeTab, setActiveTab] = useState("Cost");
+  const [openAccordion, setOpenAccordion] = useState("Cost");
+
   const activeContent = tabsData.find((tab) => tab.key === activeTab);
 
   return (
     <section className="px-6 py-12 md:px-16 lg:px-24 bg-white">
-      {/* Main Heading */}
-      <h2
-        className="text-3xl md:text-4xl font-bold text-center mb-4"
-        style={{ color: "#0A175C" }}
-      >
-        Why <span className="text-[#F05023]">Sure Supply</span>
-      </h2>
+      {/* Heading Section */}
+      <div className="text-center mb-8">
+        <h2
+          className="text-2xl md:text-4xl font-bold"
+          style={{ color: "#0A175C" }}
+        >
+          Why <span className="text-[#F05023]">Sure Supply</span>
+        </h2>
+        <p className="text-gray-600 mt-2 max-w-md mx-auto">
+          We transform manufacturing challenges into strategic opportunities
+          through innovative solutions and comprehensive support.
+        </p>
+      </div>
 
-      {/* Subheading */}
-      <p className="text-center text-gray-600 mb-10 max-w-2xl mx-auto">
-        We transform manufacturing challenges into strategic opportunities
-        through innovative solutions and comprehensive support.
-      </p>
-
-      {/* Tabs and Content Wrapper */}
-      <div className="border rounded-xl overflow-hidden shadow-sm">
+      {/* Desktop View */}
+      <div className="hidden md:block border rounded-xl overflow-hidden shadow-sm">
         {/* Tabs */}
         <div className="flex border-b">
           {tabsData.map((tab, index) => (
@@ -118,17 +101,17 @@ export default function WhySureSupply() {
 
         {/* Tab Content */}
         <div className="grid grid-cols-1 md:grid-cols-5 gap-8 p-8 items-center">
-          {/* Image Section */}
-          <div className="relative w-full h-64 md:h-96 md:col-span-3">
+          {/* Image */}
+          <div className="relative w-full h-64 md:h-96 md:col-span-3 flex items-center justify-center bg-transparent">
             <Image
               src={activeContent.image}
               alt={activeContent.title}
               fill
-              className="object-contain"
+              className="object-contain rounded-xl  bg-transparent"
             />
           </div>
 
-          {/* Text Section */}
+          {/* Text */}
           <div className="md:col-span-2">
             <p className="text-sm text-gray-500 mb-2">{activeContent.title}</p>
             <h3
@@ -137,12 +120,7 @@ export default function WhySureSupply() {
             >
               {activeContent.heading}
             </h3>
-
-            <ol className="list-decimal ml-5 text-gray-700 mb-6 space-y-2">
-              {activeContent.points.map((point, idx) => (
-                <li key={idx}>{point}</li>
-              ))}
-            </ol>
+            <p className="text-gray-700 mb-6">{activeContent.desc}</p>
 
             <a
               href="#"
@@ -152,6 +130,52 @@ export default function WhySureSupply() {
             </a>
           </div>
         </div>
+      </div>
+
+      {/* Mobile Accordion View */}
+      <div className="md:hidden space-y-4">
+        {tabsData.map((tab) => (
+          <div
+            key={tab.key}
+            className="border rounded-xl shadow-sm overflow-hidden"
+          >
+            <button
+              onClick={() =>
+                setOpenAccordion(openAccordion === tab.key ? null : tab.key)
+              }
+              className="w-full text-left px-5 py-4 font-semibold text-[#0A175C]"
+            >
+              {tab.title}
+            </button>
+
+            {openAccordion === tab.key && (
+              <div className="px-5 pb-5">
+                <div className="relative w-full h-48 mb-4 flex items-center justify-center bg-transparent">
+                  <Image
+                    src={tab.image}
+                    alt={tab.title}
+                    fill
+                    className="object-contain rounded-xl shadow-md bg-transparent"
+                  />
+                </div>
+                <p className="text-sm text-gray-500 mb-1">{tab.title}</p>
+                <h3
+                  className="text-xl font-bold mb-2"
+                  style={{ color: "#0A175C" }}
+                >
+                  {tab.heading}
+                </h3>
+                <p className="text-gray-700 mb-3">{tab.desc}</p>
+                <a
+                  href="#"
+                  className="text-[#F05023] font-semibold hover:underline inline-block"
+                >
+                  Get Quote Now →
+                </a>
+              </div>
+            )}
+          </div>
+        ))}
       </div>
     </section>
   );
