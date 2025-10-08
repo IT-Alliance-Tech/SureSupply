@@ -126,7 +126,7 @@ export default function WhySureSupply() {
               href="#"
               className="text-[#F05023] font-semibold hover:underline inline-block"
             >
-              Get Quote Now →
+              {`Get Quote Now →`}
             </a>
           </div>
         </div>
@@ -170,7 +170,7 @@ export default function WhySureSupply() {
                   href="#"
                   className="text-[#F05023] font-semibold hover:underline inline-block"
                 >
-                  Get Quote Now →
+                  {`Get Quote Now →`}
                 </a>
               </div>
             )}

@@ -40,9 +40,7 @@ export default function QuoteForm() {
         break;
       case "email":
         if (!value.trim()) errorMsg = "Email is required";
-        else if (
-          !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value.trim())
-        )
+        else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value.trim()))
           errorMsg = "Invalid email address";
         break;
       case "company":
@@ -80,7 +78,9 @@ export default function QuoteForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!isFormValid()) {
-      alert("Please fill all fields correctly and confirm you are not a robot.");
+      alert(
+        "Please fill all fields correctly and confirm you are not a robot."
+      );
       return;
     }
     console.log("Form Data Submitted:", formData);
@@ -91,10 +91,10 @@ export default function QuoteForm() {
     <section className="bg-orange-600 py-12 px-4 sm:px-6 md:px-12 flex justify-center">
       <div className="bg-white shadow-lg rounded-lg p-6 sm:p-8 md:p-10 max-w-3xl w-full">
         {/* Heading */}
-        <h2 className="text-2xl font-bold text-[#0a1a4f] mb-2">Quote form:</h2>
+        <h2 className="text-2xl font-bold text-[#0a1a4f] mb-2">{`Quote form:`}</h2>
         <p className="text-[#0a1a4f] mb-6">
-          Let’s get the conversation started today! Fill out the form on this
-          page or email us directly to request a quote.
+          {`Let’s get the conversation started today! Fill out the form on this
+          page or email us directly to request a quote.`}
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-6">
@@ -147,7 +147,7 @@ export default function QuoteForm() {
           {/* Message */}
           <div>
             <label className="block text-sm font-semibold text-[#0a1a4f] mb-1">
-              Tell Us About Your Project*
+              {`Tell Us About Your Project*`}
             </label>
             <textarea
               name="message"
@@ -168,8 +168,8 @@ export default function QuoteForm() {
               File Upload
             </label>
             <p className="text-sm text-[#0a1a4f] mb-2">
-              Accepts: .pdf, .dwg, .step, .stl, .iges. Other file types can be
-              emailed to contact-nab@zetwerk.com
+              {`Accepts: .pdf, .dwg, .step, .stl, .iges. Other file types can be
+              emailed to contact-nab@zetwerk.com`}
             </p>
             <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
               <label className="bg-gray-200 hover:bg-gray-300 cursor-pointer px-4 py-2 rounded-md text-[#0a1a4f] font-medium w-fit">
@@ -189,10 +189,10 @@ export default function QuoteForm() {
 
           {/* Consent Info */}
           <p className="text-sm text-[#0a1a4f] mt-4 mb-2">
-            We need your consent to communicate with you and to store and
+            {`We need your consent to communicate with you and to store and
             process your personal data. If you agree, please click the boxes
             below. You can unsubscribe or ask us to remove your data at any
-            time.
+            time.`}
           </p>
 
           {/* Consent Checkboxes */}
@@ -205,7 +205,7 @@ export default function QuoteForm() {
                 required
                 className="mt-1"
               />
-              <span>I agree to receive communications from SureSupply.*</span>
+              <span>{`I agree to receive communications from SureSupply.*`}</span>
             </label>
             <label className="flex items-start space-x-2 text-[#0a1a4f]">
               <input
@@ -216,8 +216,8 @@ export default function QuoteForm() {
                 className="mt-1"
               />
               <span>
-                I agree to allow SureSupply to store and process my personal
-                data.*
+                {`I agree to allow SureSupply to store and process my personal
+                data.*`}
               </span>
             </label>
           </div>
