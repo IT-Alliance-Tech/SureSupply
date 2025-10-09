@@ -3,6 +3,7 @@ import CorePrinciples from "@/components/aboutUs/core";
 import OurTeam from "../../components/aboutUs/ourTeam";
 import HomeJourney from "@/components/aboutUs/homeJourney";
 import HomePlatform from "@/components/aboutUs/homePlatform";
+import PeopleOnGround from "@/components/aboutUs/ourPeople";
 export default function Home() {
   return (
     <main className="flex flex-col">
@@ -12,6 +13,7 @@ export default function Home() {
       <OurTeam />
       <HomeJourney />
       <HomePlatform />
+      <PeopleOnGround />
     </main>
   );
 }

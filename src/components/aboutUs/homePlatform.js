@@ -4,14 +4,14 @@ import Image from "next/image";
 import Button from "@mui/material/Button";
 import WarehouseOutlinedIcon from "@mui/icons-material/WarehouseOutlined";
 
-// ✅ Import background and side image
+// Background and side image (update paths if your structure differs)
 import bgImage from "../../../public/about/aboutbg3.png";
-import sideImage from "../../../public/dummy3.png"; // replace with your actual image
+import sideImage from "../../../public/dummy3.png";
 
 export default function HomePlatform() {
   return (
-    <section className="relative overflow-hidden py-20 px-6 sm:px-10 lg:px-20">
-      {/* ✅ Background Image (no overlay now) */}
+    <section className="relative overflow-hidden py-9.2 px-6 sm:px-10 lg:px-20">
+      {/* Background image */}
       <div className="absolute inset-0 -z-10">
         <Image
           src={bgImage}
@@ -22,36 +22,60 @@ export default function HomePlatform() {
         />
       </div>
 
-      {/* ✅ Content Grid */}
+      {/* Content grid */}
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-10">
-        {/* Left Content */}
+        {/* Left content */}
         <div className="space-y-5">
-          <div className="flex items-center gap-3">
-            <WarehouseOutlinedIcon sx={{ fontSize: 48, color: "#0A175C" }} />
+          {/* Icon wrapper - exact size */}
+          <div
+            className="flex items-center gap-3"
+            style={{ width: 50, height: 50 }}
+            aria-hidden
+          >
+            <WarehouseOutlinedIcon
+              sx={{
+                width: 50,
+                height: 50,
+                color: "#0A175C",
+              }}
+            />
           </div>
 
+          {/* Heading: Outfit, bold, 40px, color #0A175C */}
           <h2
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0A175C] leading-tight"
-            style={{ fontFamily: "Outfit" }}
+            className="leading-tight"
+            style={{
+              fontFamily: "Outfit, system-ui, sans-serif",
+              fontWeight: 800,
+              fontSize: "40px",
+              color: "#0A175C",
+              margin: 0,
+            }}
           >
             DIGITAL PLATFORM THAT POWERS GLOBAL LOGISTICS
           </h2>
 
+          {/* Subheading / description: Lato, 18px */}
           <p
-            className="text-gray-700 text-base sm:text-lg max-w-md"
-            style={{ fontFamily: "Work Sans" }}
+            className="max-w-md"
+            style={{
+              fontFamily: "Lato, Work Sans, system-ui, sans-serif",
+              fontSize: "18px",
+              color: "#374151",
+              marginTop: "6px",
+            }}
           >
             Our technology connects complex supply chains with seamless precision
             and real-time insights
           </p>
 
-          {/* ✅ Buttons */}
+          {/* Buttons */}
           <div className="flex flex-wrap items-center gap-3 pt-4">
             <Button
               variant="outlined"
               sx={{
                 borderColor: "#0A175C",
-                color: "#0A175C",
+                color: "#F05023",
                 textTransform: "none",
                 fontFamily: "Work Sans",
                 fontWeight: 600,
@@ -60,7 +84,7 @@ export default function HomePlatform() {
                 borderRadius: "6px",
                 transition: "all 0.3s ease",
                 "&:hover": {
-                  backgroundColor: "#0A175C",
+                  backgroundColor: "#F05023",
                   color: "#fff",
                 },
               }}
@@ -68,18 +92,21 @@ export default function HomePlatform() {
               Explore platform
             </Button>
 
+            {/* Instant Quote - text button, orange text (#F05023) */}
             <Button
               variant="text"
               sx={{
-                color: "#E65100",
+                color: "#F05023",
                 textTransform: "none",
-                fontFamily: "Work Sans",
+                fontFamily: "Outfit, system-ui, sans-serif",
                 fontWeight: 600,
                 display: "flex",
                 alignItems: "center",
                 gap: 0.5,
+                height: "40px",
                 "&:hover": {
                   textDecoration: "underline",
+                  backgroundColor: "transparent",
                 },
               }}
             >
@@ -88,14 +115,18 @@ export default function HomePlatform() {
           </div>
         </div>
 
-        {/* ✅ Right Side Image (no white background now) */}
+        {/* Right image: exact 600x600 */}
         <div className="flex justify-center">
-          <Image
-            src={sideImage}
-            alt="Platform visual"
-            className="object-contain rounded-2xl shadow-none w-[90%] sm:w-[80%] md:w-[85%] h-auto"
-            priority
-          />
+          <div className="w-[600px] h-[600px] flex items-center justify-center">
+            <Image
+              src={sideImage}
+              alt="Platform visual"
+              width={600}
+              height={600}
+              className="object-contain rounded-2xl shadow-none"
+              priority
+            />
+          </div>
         </div>
       </div>
     </section>
