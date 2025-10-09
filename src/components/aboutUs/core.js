@@ -44,11 +44,11 @@ export default function CorePrinciples() {
 
       {/* Content */}
       <div className="relative z-10 container mx-auto text-center px-6 md:px-12">
-        <p className="text-sm text-gray-300 mb-2">Our approach</p>
+        <p className="text-sm text-gray-300 mb-2">{`Our approach`}</p>
         <h2 className="text-4xl md:text-5xl font-bold text-white mb-2">
-          CORE PRINCIPLES
+         {` CORE PRINCIPLES`}
         </h2>
-        <p className="text-gray-300 mb-12">Driving global logistics forward</p>
+        <p className="text-gray-300 mb-12">{`Driving global logistics forward`}</p>
 
         {/* Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
