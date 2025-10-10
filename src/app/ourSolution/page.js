@@ -6,7 +6,7 @@ import Link from "next/link";
 
 // ====== IMAGES ======
 import bannerImg from "../../../public/bannerC.png";
-import helpBg from "../../../public/industries/bg4.png";
+import helpBg from "../../../public/solutions/bg4.png";
 import logo from "../../../public/logo.png";
 
 // ====== SOLUTION ICONS ======
@@ -102,7 +102,7 @@ We help businesses define clear project objectives, milestones, and KPIs. Resour
   return (
     <div className="flex flex-col font-outfit">
       {/* ================= BANNER ================= */}
-      <section className="relative w-full h-[500px] flex items-center justify-center overflow-hidden">
+      <section className="relative w-full h-[400px] sm:h-[500px] md:h-[600px] flex items-center justify-center overflow-hidden">
         <Image
           src={bannerImg}
           alt="Custom Solution Banner"
@@ -110,14 +110,12 @@ We help businesses define clear project objectives, milestones, and KPIs. Resour
           priority
           className="object-cover object-left absolute inset-0 -z-10"
         />
-        <div className="text-left text-white z-10 px-6 lg:px-24">
-          <h1 className="text-[48px] font-bold tracking-wide mb-4 leading-tight">
+        <div className="text-left text-white z-10 px-6 sm:px-12 lg:px-24">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[48px] font-bold tracking-wide mb-4 leading-tight">
             OUR <span className="text-white">CUSTOM SOLUTION</span>
           </h1>
-          <div className="text-base font-medium flex items-center gap-2">
-            <Link href="/" className="hover:text-white transition-colors">
-              Home
-            </Link>
+          <div className="text-sm sm:text-base font-medium flex items-center gap-2">
+            <Link href="/" className="hover:text-white transition-colors">Home</Link>
             <span className="text-[#F05023]">/</span>
             <span className="text-[#F05023]">Our Custom Solution</span>
           </div>
@@ -125,10 +123,10 @@ We help businesses define clear project objectives, milestones, and KPIs. Resour
       </section>
 
       {/* ================= SOLUTIONS + HELP (30/70) ================= */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-6 md:px-12 lg:px-20 grid grid-cols-1 md:grid-cols-10 gap-8">
+      <section className="py-12 sm:py-16 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-20 grid grid-cols-1 md:grid-cols-10 gap-6 md:gap-8">
           {/* Left-side (30%) */}
-          <div className="col-span-3 flex flex-col gap-6">
+          <div className="col-span-1 md:col-span-3 flex flex-col gap-6">
             {/* Solution Categories */}
             <div className="bg-[#F05023] text-white px-4 py-2 rounded-t-md font-semibold">
               Solution Category
@@ -160,22 +158,16 @@ We help businesses define clear project objectives, milestones, and KPIs. Resour
 
             {/* Need Help */}
             <div className="relative mt-6">
-              <Image
-                src={helpBg}
-                alt="Need Help Background"
-                width={900}
-                height={300}
-                className="object-cover rounded-xl"
-              />
+              <Image src={helpBg} alt="Need Help Background" width={900} height={300} className="object-cover rounded-xl" />
               <div className="absolute inset-0 flex flex-col justify-center items-center p-6 gap-3 text-white text-center">
                 <div className="w-16 h-16 relative">
                   <Image src={logo} alt="Logo" fill className="object-contain" />
                 </div>
-                <h4 className="text-xl font-semibold">Need help!</h4>
-                <p className="text-sm">
+                <h4 className="text-lg sm:text-xl font-semibold">Need help!</h4>
+                <p className="text-xs sm:text-sm">
                   Got questions or need assistance with <br /> your Industry needs?
                 </p>
-                <div className="text-sm flex flex-col gap-1">
+                <div className="text-xs sm:text-sm flex flex-col gap-1">
                   <span>📞 +1 840 841 256</span>
                   <span>✉️ info@domain.com</span>
                 </div>
@@ -184,8 +176,8 @@ We help businesses define clear project objectives, milestones, and KPIs. Resour
           </div>
 
           {/* Right-side (70%) */}
-          <div className="col-span-7 flex flex-col gap-6 justify-center">
-            <div className="relative w-[600px] h-[400px] ml-20">
+          <div className="col-span-1 md:col-span-7 flex flex-col gap-6 justify-center">
+            <div className="relative w-full h-64 sm:h-80 md:h-[400px]">
               <Image
                 src={solutions[activeSolution].image}
                 alt={solutions[activeSolution].title}
@@ -194,76 +186,67 @@ We help businesses define clear project objectives, milestones, and KPIs. Resour
               />
             </div>
 
-            <p className="text-gray-600 leading-relaxed text-lg whitespace-pre-line">
+            <p className="text-gray-600 leading-relaxed text-sm sm:text-base md:text-lg whitespace-pre-line">
               {solutions[activeSolution].paragraph}
             </p>
 
             {/* ================= WHY CHOOSE OUR SOLUTIONS ================= */}
-            <section className="mt-12 bg-gray-50 py-12 px-6 rounded-xl">
-              <h2 className="text-3xl font-bold text-[#0A175C] mb-6">
+            <section className="mt-12 bg-gray-50 py-8 sm:py-12 px-4 sm:px-6 rounded-xl">
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#0A175C] mb-6">
                 WHY CHOOSE <span className="text-[#F05023]">OUR SOLUTIONS</span>
               </h2>
-              <p className="text-gray-600 mb-10 max-w-3xl">
-                We provide end-to-end supply chain solutions designed to simplify
-                operations, reduce costs, and ensure timely delivery. Our solutions
-                are built to address the critical challenges businesses face in
-                managing production, inventory, logistics, and quality. By
-                streamlining every step of the process, we help organizations
-                achieve efficiency, reliability, and long-term growth.
+              <p className="text-gray-600 mb-8 sm:mb-10 max-w-full sm:max-w-3xl text-sm sm:text-base">
+                We provide end-to-end supply chain solutions designed to simplify operations, reduce costs, and ensure timely delivery. Our solutions are built to address the critical challenges businesses face in managing production, inventory, logistics, and quality. By streamlining every step of the process, we help organizations achieve efficiency, reliability, and long-term growth.
               </p>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                 {solutions.map((sol, idx) => (
-                  <div
-                    key={idx}
-                    className={`flex flex-col gap-3 p-4 rounded-lg shadow-sm transition-all ${
-                      idx === activeSolution ? "border-2 border-[#F05023]" : "border border-gray-200"
-                    }`}
-                  >
+                  <div key={idx} className={`flex flex-col gap-2 sm:gap-3 p-4 rounded-lg shadow-sm transition-all ${
+                    idx === activeSolution ? "border-2 border-[#F05023]" : "border border-gray-200"
+                  }`}>
                     <Image src={sol.icon} alt={sol.title} width={50} height={50} />
-                    <h4 className="text-[#0A175C] font-semibold">{sol.title}</h4>
-                    <p className="text-gray-600 text-sm">{sol.description}</p>
+                    <h4 className="text-[#0A175C] font-semibold text-sm sm:text-base">{sol.title}</h4>
+                    <p className="text-gray-600 text-xs sm:text-sm">{sol.description}</p>
                   </div>
                 ))}
               </div>
             </section>
 
-            {/* ================= PLANNING & STRATEGY (MAPPED) ================= */}
-            <section className="mt-10 bg-white py-10 rounded-xl">
-              <div className="max-w-5xl mx-auto px-6">
-                <h2 className="text-4xl font-bold tracking-tight text-[#0A175C] mb-3">
+            {/* ================= PLANNING & STRATEGY (MAPPED RESPONSIVE) ================= */}
+            <section className="mt-10 bg-white py-8 sm:py-10 rounded-xl px-4 sm:px-6">
+              <div className="max-w-5xl mx-auto">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-[#0A175C] mb-3">
                   PLANNING & <span className="text-[#F05023]">STRATEGY</span>
                 </h2>
-                <p className="mb-8 max-w-3xl text-[#0A175C]">
-                  Our Industrial Automation and Robotics planning and strategy services focus on designing tailored automation
-                  solutions that align with your business goals.
+                <p className="mb-6 sm:mb-8 max-w-full sm:max-w-3xl text-sm sm:text-base text-[#0A175C]">
+                  Our Industrial Automation and Robotics planning and strategy services focus on designing tailored automation solutions that align with your business goals.
                 </p>
 
                 {/* Six points grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-6">
                   {planningSteps.map((step, idx) => (
                     <div key={idx} className="flex items-start gap-3">
                       <div className="w-10 h-10 rounded-full bg-[#FFF4F0] flex items-center justify-center shrink-0">
                         {step.icon}
                       </div>
                       <div>
-                        <h4 className="text-sm font-semibold text-[#0A175C]">{step.title}</h4>
+                        <h4 className="text-xs sm:text-sm font-semibold text-[#0A175C]">{step.title}</h4>
                       </div>
                     </div>
                   ))}
                 </div>
 
                 {/* Two large image placeholders */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="bg-gray-50 rounded-2xl p-6 flex items-center justify-center min-h-[220px] shadow-sm">
-                    <div className="w-full max-w-[360px] h-48 bg-white rounded-lg flex items-center justify-center">
-                      <Image src={solutionImg1} alt="planning placeholder 1" width={320} height={260} className="object-contain" />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                  <div className="bg-gray-50 rounded-2xl p-4 sm:p-6 flex items-center justify-center min-h-[180px] sm:min-h-[220px] shadow-sm">
+                    <div className="w-full max-w-[360px] h-40 sm:h-48 bg-white rounded-lg flex items-center justify-center">
+                      <Image src={solutionImg1} alt="planning placeholder 1" width={320} height={200} className="object-contain" />
                     </div>
                   </div>
 
-                  <div className="bg-gray-50 rounded-2xl p-6 flex items-center justify-center min-h-[220px] shadow-sm">
-                    <div className="w-full max-w-[360px] h-48 bg-white rounded-lg flex items-center justify-center">
-                      <Image src={solutionImg2} alt="planning placeholder 2" width={320} height={260} className="object-contain" />
+                  <div className="bg-gray-50 rounded-2xl p-4 sm:p-6 flex items-center justify-center min-h-[180px] sm:min-h-[220px] shadow-sm">
+                    <div className="w-full max-w-[360px] h-40 sm:h-48 bg-white rounded-lg flex items-center justify-center">
+                      <Image src={solutionImg2} alt="planning placeholder 2" width={320} height={200} className="object-contain" />
                     </div>
                   </div>
                 </div>
