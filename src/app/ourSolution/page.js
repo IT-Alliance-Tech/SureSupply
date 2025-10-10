@@ -6,7 +6,7 @@ import Link from "next/link";
 
 // ====== IMAGES ======
 import bannerImg from "../../../public/bannerC.png";
-import helpBg from "../../../public/industries/bg4.png";
+import helpBg from "../../../public/solutions/bg4.png";
 import logo from "../../../public/logo.png";
 
 // ====== SOLUTION ICONS ======
