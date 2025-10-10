@@ -10,18 +10,18 @@ import helpBg from "../../../public/industries/bg4.png";
 import logo from "../../../public/logo.png";
 
 // ====== SOLUTION ICONS ======
-import icon1 from "../../../public/industries/icon1.svg";
-import icon2 from "../../../public/industries/icon2.svg";
-import icon3 from "../../../public/industries/icon3.svg";
-import icon4 from "../../../public/industries/icon4.svg";
-import icon5 from "../../../public/industries/icon5.svg";
+import icon1 from "../../../public/solutions/icon1.svg";
+import icon2 from "../../../public/solutions/icon2.svg";
+import icon3 from "../../../public/solutions/icon3.svg";
+import icon4 from "../../../public/solutions/icon4.svg";
+import icon5 from "../../../public/solutions/icon5.svg";
 
 // ====== SOLUTION IMAGES ======
-import solutionImg1 from "../../../public/industries/dummy1.png";
-import solutionImg2 from "../../../public/industries/dummy1.png";
-import solutionImg3 from "../../../public/industries/dummy1.png";
-import solutionImg4 from "../../../public/industries/dummy1.png";
-import solutionImg5 from "../../../public/industries/dummy1.png";
+import solutionImg1 from "../../../public/solutions/dummy1.png";
+import solutionImg2 from "../../../public/solutions/dummy1.png";
+import solutionImg3 from "../../../public/solutions/dummy1.png";
+import solutionImg4 from "../../../public/solutions/dummy1.png";
+import solutionImg5 from "../../../public/solutions/dummy1.png";
 
 // ====== MUI ICONS FOR PLANNING & STRATEGY ======
 import AssessmentIcon from "@mui/icons-material/Assessment";
