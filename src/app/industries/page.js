@@ -69,111 +69,121 @@ export default function IndustriesNetworksPage() {
   return (
     <div className="flex flex-col font-outfit">
       {/* ================= HERO SECTION ================= */}
-      <section className="relative w-full h-[500px] flex items-center overflow-hidden">
-        <Image
-          src={bannerImg}
-          alt="Industries Banner"
-          fill
-          priority
-          className="object-cover object-left absolute inset-0 -z-10"
-        />
+     <section className="relative w-full h-[500px] flex items-center justify-center overflow-hidden">
+  {/* Background Image */}
+  <Image
+    src={bannerImg}
+    alt="Industries Banner"
+    fill
+    priority
+    className="object-cover object-left absolute inset-0 -z-10"
+  />
 
-        <div className="text-left text-white z-10 px-6 lg:px-24">
-          <h1 className="text-5xl font-bold tracking-wide mb-4">
-            OUR{" "}
-            <span className="text-[#05023]">
-              INDUSTRIES AND <br /> NETWORKS
-            </span>
-          </h1>
+  {/* Dark Overlay for Readability */}
+  {/* <div className="absolute inset-0 bg-gradient-to-r from-[#0A175C]/90 via-[#0A175C]/70 to-transparent -z-10" /> */}
 
-          <div className="text-sm font-medium flex items-center gap-2">
-            <Link href="/" className="hover:text-[#05023] transition-colors">
-              Home
-            </Link>
-            <span className="text-[#05023]">/</span>
-            <span className="text-[#05023]">Our Industries & Networks</span>
-          </div>
-        </div>
-      </section>
+  {/* Content */}
+  <div className="text-left text-white z-10 px-6 lg:px-24">
+    <h1 className="text-[48px] font-bold tracking-wide mb-4 leading-tight">
+      OUR{" "}
+      <span className="text-white">
+        INDUSTRIES AND <br /> NETWORKS
+      </span>
+    </h1>
+
+    <div className="text-base font-medium flex items-center gap-2">
+      <Link href="/" className="hover:text-white transition-colors">
+        Home
+      </Link>
+      <span className="text-[#F05023]">/</span>
+      <span className="text-[#F05023]">Our Industries & Networks</span>
+    </div>
+  </div>
+</section>
+
 
       {/* ================= OUR SUCCESSFUL PROJECT INITIATIVES ================= */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-6 md:px-12 lg:px-20">
-          {/* Heading + Paragraph side by side */}
-          <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-10 gap-10">
-            {/* Left Side - Heading */}
-            <div className="md:w-1/2 max-w-md">
-              <div className="flex items-center gap-2 mb-2">
-                <Image src={iconWork} alt="Icon" width={20} height={20} />
-                <h5 className="text-sm font-semibold text-[#0A175C] uppercase">
-                  Our Work
-                </h5>
-              </div>
-
-              <h2 className="text-3xl md:text-4xl font-bold text-[#0A175C]">
-                Our Successful Project <br />
-                <span className="text-[#F05023]">Initiatives</span>
-              </h2>
-            </div>
-
-            {/* Right Side - Paragraph */}
-            <div className="md:w-1/2 max-w-lg text-[#0A175C] text-left mt-10">
-              <p>
-                We help businesses across industries manage their supplies
-                smarter. From vendor management to seamless delivery tracking,
-                our work revolves around creating a smooth and reliable
-                experience.
-              </p>
-            </div>
-          </div>
-
-          {/* Filter Buttons */}
-          <div className="flex flex-wrap justify-center items-center gap-8 mb-10 text-sm font-medium">
-            {categories.map((cat, idx) => (
-              <span key={cat} className="flex items-center gap-9">
-                <button
-                  onClick={() => setActiveCategory(cat)}
-                  className={`transition-colors pb-1 ${
-                    activeCategory === cat
-                      ? "text-[#F05023] border-b-2 border-[#05023]"
-                      : "text-[#0A175C] border-b-2 border-transparent hover:text-[#F05023]"
-                  }`}
-                >
-                  {cat}
-                </button>
-                {idx < categories.length - 1 && (
-                  <span className="text-[#0A175C]">/</span>
-                )}
-              </span>
-            ))}
-          </div>
-
-          {/* Projects Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 justify-items-center">
-            {filteredProjects.map((project) => (
-              <div
-                key={project.id}
-                className="w-full max-w-sm flex flex-col items-center"
-              >
-                <div className="relative w-full h-64 rounded-2xl overflow-hidden">
-                  <Image
-                    src={project.image || "/placeholder.png"}
-                    alt={project.title}
-                    fill
-                    className="object-cover"
-                  />
-                  <span className="absolute top-3 left-3 bg-white/80 text-[#0A175C] text-xs px-3 py-1 rounded shadow-sm font-outfit">
-                    {project.category}
-                  </span>
-                </div>
-                <h4 className="text-sm font-semibold text-[#0A175C] mt-4 text-center font-outfit">
-                  {project.title}
-                </h4>
-              </div>
-            ))}
-          </div>
+     <section className="py-16 bg-white">
+  <div className="container mx-auto px-6 md:px-12 lg:px-20">
+    
+    {/* Heading + Paragraph side by side */}
+    <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-10 gap-10">
+      
+      {/* Left Side - Heading */}
+      <div className="md:w-1/2 max-w-md">
+        <div className="flex items-center gap-2 mb-2">
+          <Image src={iconWork} alt="Icon" width={20} height={20} />
+          <h5 className="text-sm font-semibold text-[#0A175C] uppercase">
+            Our Work
+          </h5>
         </div>
-      </section>
+
+        <h2 className="text-3xl md:text-4xl font-bold text-[#0A175C] leading-snug mb-4">
+          Our Successful Project <br />
+          <span className="text-[#F05023] block mt-2">Initiatives</span>
+        </h2>
+      </div>
+
+      {/* Right Side - Paragraph */}
+      <div className="md:w-1/2 max-w-lg text-[#0A175C] text-left flex flex-col justify-start">
+  <div className="mt-6 md:mt-12">
+    <p className="leading-relaxed">
+      We help businesses across industries manage their supplies smarter. From vendor management to seamless delivery tracking, our work revolves around creating a smooth and reliable experience.
+    </p>
+  </div>
+</div>
+
+
+    </div>
+
+    {/* Filter Buttons */}
+    <div className="flex flex-wrap justify-center items-center gap-8 mb-10 text-sm font-medium">
+      {categories.map((cat, idx) => (
+        <span key={cat} className="flex items-center gap-9">
+          <button
+            onClick={() => setActiveCategory(cat)}
+            className={`transition-colors pb-1 ${
+              activeCategory === cat
+                ? "text-[#F05023] border-b-2 border-[#F05023]"
+                : "text-[#0A175C] border-b-2 border-transparent hover:text-[#F05023]"
+            }`}
+          >
+            {cat}
+          </button>
+          {idx < categories.length - 1 && (
+            <span className="text-[#0A175C]">/</span>
+          )}
+        </span>
+      ))}
+    </div>
+
+    {/* Projects Grid */}
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-10 justify-items-center">
+      {filteredProjects.map((project) => (
+        <div
+          key={project.id}
+          className="w-full max-w-sm flex flex-col items-center"
+        >
+          <div className="relative w-full h-64 rounded-2xl overflow-hidden">
+            <Image
+              src={project.image || "/placeholder.png"}
+              alt={project.title}
+              fill
+              className="object-cover"
+            />
+            <span className="absolute top-3 left-3 bg-white/80 text-[#0A175C] text-xs px-3 py-1 rounded shadow-sm font-outfit">
+              {project.category}
+            </span>
+          </div>
+          <h4 className="text-sm font-semibold text-[#0A175C] mt-4 text-center font-outfit">
+            {project.title}
+          </h4>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
 
       {/* ================= SUPPLIER NETWORK SECTION ================= */}
       <section className="py-20 bg-white font-outfit">
@@ -199,8 +209,8 @@ export default function IndustriesNetworksPage() {
 
             {/* Right Side (Text + Buttons) */}
             <div className="space-y-6 md:mt-12 lg:mt-16">
-              <h2 className="text-3xl font-bold text-[#0A175C] leading-snug">
-                Why Partner with{" "}
+              <h2 className="text-[40px] font-bold font-outfit text-[#0A175C] leading-snug">
+                Why Partner with{" "} <br />
                 <span className="text-[#0A175C] font-extrabold">
                   suresupply
                 </span>
