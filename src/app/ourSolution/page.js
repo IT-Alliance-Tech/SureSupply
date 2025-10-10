@@ -11,7 +11,7 @@ import logo from "../../../public/logo.png";
 
 // ====== SOLUTION ICONS ======
 import icon1 from "../../../public/solutions/icon1.svg";
-import icon2 from "../../../public/solutions/icon2.svg";
+import icon2 from "../../../public/solutions/icon2.svg"; 
 import icon3 from "../../../public/solutions/icon3.svg";
 import icon4 from "../../../public/solutions/icon4.svg";
 import icon5 from "../../../public/solutions/icon5.svg";
