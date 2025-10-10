@@ -79,11 +79,13 @@ export default function OurTeam() {
   return (
     <section className="py-20 bg-white">
       <div className="container mx-auto px-6 md:px-12 text-center">
-        <p className="text-sm text-gray-500 mb-2">Leadership</p>
+        <p className="text-sm mb-2" style={{ color: "#0A175C" }}>
+          Leadership
+        </p>
         <h2 className="text-4xl md:text-5xl font-bold text-[#0A175C] mb-2">
           OUR TEAM
         </h2>
-        <p className="text-gray-500 mb-12">
+        <p className="mb-12" style={{ color: "#0A175C" }}>
           Experienced professionals driving global logistics innovation
         </p>
 
@@ -91,31 +93,38 @@ export default function OurTeam() {
           {teamMembers.map((member, index) => (
             <div
               key={index}
-              className="bg-white rounded-lg shadow-md p-6 flex flex-col items-center text-center transform transition duration-300 hover:scale-105 hover:shadow-xl"
+              className="bg-white rounded-lg p-6 flex flex-col items-center text-center transition-transform duration-300 hover:scale-[1.02]"
             >
               {/* Image */}
-              <div className="w-36 h-36 mb-4 relative rounded-lg overflow-hidden">
+              <div className="w-70 h-70 mb-4 relative rounded-lg overflow-hidden">
                 <Image
                   src={member.img}
                   alt={member.name}
-                  className="object-cover w-full h-full"
-                  width={144}
-                  height={144}
+                  className="object-cover !w-full !h-full"
+                  width={224}
+                  height={200}
+                  unoptimized
                 />
               </div>
 
-              <h3 className="text-lg font-bold text-[#0A175C]">{member.name}</h3>
-              <p className="text-sm text-gray-500 mb-2">{member.role}</p>
-              <p className="text-gray-600 text-sm mb-4">{member.description}</p>
+              <h3 className="text-lg font-bold text-[#0A175C]">
+                {member.name}
+              </h3>
+              <p className="text-sm mb-2" style={{ color: "#0A175C" }}>
+                {member.role}
+              </p>
+              <p className="text-sm mb-4" style={{ color: "#0A175C" }}>
+                {member.description}
+              </p>
 
               <div className="flex space-x-4">
-                <a href="#" className="text-gray-600 hover:text-blue-700">
+                <a href="#" className="hover:text-blue-700" style={{ color: "#0A175C" }}>
                   <LinkedInIcon fontSize="small" />
                 </a>
-                <a href="#" className="text-gray-600 hover:text-blue-500">
+                <a href="#" className="hover:text-blue-500" style={{ color: "#0A175C" }}>
                   <TwitterIcon fontSize="small" />
                 </a>
-                <a href="#" className="text-gray-600 hover:text-green-600">
+                <a href="#" className="hover:text-green-600" style={{ color: "#0A175C" }}>
                   <LanguageIcon fontSize="small" />
                 </a>
               </div>
