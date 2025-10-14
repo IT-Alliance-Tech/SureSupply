@@ -3,6 +3,7 @@
 import { useState } from "react";
 
 export default function QuoteForm() {
+  const [userType, setUserType] = useState("buyer"); // buyer or supplier
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -13,7 +14,6 @@ export default function QuoteForm() {
     agreeComm: false,
     agreeData: false,
   });
-
   const [isHuman, setIsHuman] = useState(false);
   const [errors, setErrors] = useState({});
 
@@ -21,10 +21,8 @@ export default function QuoteForm() {
     const { name, value, type, checked, files } = e.target;
     setFormData((prev) => ({
       ...prev,
-      [name]:
-        type === "checkbox" ? checked : type === "file" ? files[0] : value,
+      [name]: type === "checkbox" ? checked : type === "file" ? files[0] : value,
     }));
-
     validateField(name, type === "file" ? files[0] : value);
   };
 
@@ -59,13 +57,7 @@ export default function QuoteForm() {
   };
 
   const isFormValid = () => {
-    const requiredFields = [
-      "firstName",
-      "lastName",
-      "email",
-      "company",
-      "message",
-    ];
+    const requiredFields = ["firstName", "lastName", "email", "company", "message"];
     return (
       requiredFields.every((field) => formData[field].trim() !== "") &&
       Object.values(errors).every((err) => !err) &&
@@ -78,30 +70,52 @@ export default function QuoteForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!isFormValid()) {
-      alert(
-        "Please fill all fields correctly and confirm you are not a robot."
-      );
+      alert("Please fill all fields correctly and confirm you are not a robot.");
       return;
     }
-    console.log("Form Data Submitted:", formData);
+    console.log("Form Data Submitted:", { ...formData, userType });
     // Submit to API or backend here
   };
 
   return (
     <section className="bg-orange-600 py-12 px-4 sm:px-6 md:px-12 flex justify-center">
       <div className="bg-white shadow-lg rounded-lg p-6 sm:p-8 md:p-10 max-w-3xl w-full">
-        {/* Heading */}
-        <h2 className="text-2xl font-bold text-[#0a1a4f] mb-2">{`Quote form:`}</h2>
+        <h2 className="text-2xl font-bold text-[#0a1a4f] mb-2">Quote Form</h2>
         <p className="text-[#0a1a4f] mb-6">
-          {`Let’s get the conversation started today! Fill out the form on this
-          page or email us directly to request a quote.`}
+          Let’s get the conversation started! Select your type and fill out the form below.
         </p>
 
+        {/* Radio Selection */}
+        <div className="mb-6 flex space-x-4">
+          <label className="flex items-center space-x-2 text-[#0a1a4f]">
+            <input
+              type="radio"
+              name="userType"
+              value="buyer"
+              checked={userType === "buyer"}
+              onChange={(e) => setUserType(e.target.value)}
+              className="w-4 h-4"
+            />
+            <span>Buyer</span>
+          </label>
+          <label className="flex items-center space-x-2 text-[#0a1a4f]">
+            <input
+              type="radio"
+              name="userType"
+              value="supplier"
+              checked={userType === "supplier"}
+              onChange={(e) => setUserType(e.target.value)}
+              className="w-4 h-4"
+            />
+            <span>Supplier</span>
+          </label>
+        </div>
+
         <form onSubmit={handleSubmit} className="space-y-6">
-          {/* Name Fields */}
+          {/* Common Fields */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {["firstName", "lastName"].map((field, idx) => (
-              <div key={idx}>
+            {["firstName", "lastName"].map((field) => (
+              <div key={field}>
                 <label className="block text-sm font-semibold text-[#0a1a4f] mb-1">
                   {field === "firstName" ? "First Name*" : "Last Name*"}
                 </label>
@@ -113,86 +127,94 @@ export default function QuoteForm() {
                   onChange={handleChange}
                   required
                 />
-                {errors[field] && (
-                  <p className="text-red-500 text-sm mt-1">{errors[field]}</p>
-                )}
+                {errors[field] && <p className="text-red-500 text-sm mt-1">{errors[field]}</p>}
               </div>
             ))}
           </div>
 
-          {/* Email + Company */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {["email", "company"].map((field, idx) => (
-              <div key={idx}>
+            {["email", "company"].map((field) => (
+              <div key={field}>
                 <label className="block text-sm font-semibold text-[#0a1a4f] mb-1">
                   {field === "email" ? "Email*" : "Company Name*"}
                 </label>
                 <input
                   type={field === "email" ? "email" : "text"}
                   name={field}
-                  placeholder={
-                    field === "email" ? "eg: john@email.com" : "eg: ABC Ltd."
-                  }
+                  placeholder={field === "email" ? "eg: john@email.com" : "eg: ABC Ltd."}
                   className="w-full border rounded-md px-4 py-2 bg-gray-50 placeholder-gray-400 text-black focus:outline-none focus:ring-2 focus:ring-orange-500"
                   onChange={handleChange}
                   required
                 />
-                {errors[field] && (
-                  <p className="text-red-500 text-sm mt-1">{errors[field]}</p>
-                )}
+                {errors[field] && <p className="text-red-500 text-sm mt-1">{errors[field]}</p>}
               </div>
             ))}
           </div>
 
-          {/* Message */}
-          <div>
-            <label className="block text-sm font-semibold text-[#0a1a4f] mb-1">
-              {`Tell Us About Your Project*`}
-            </label>
-            <textarea
-              name="message"
-              rows="4"
-              placeholder="Message"
-              className="w-full border rounded-md px-4 py-2 bg-gray-50 placeholder-gray-400 text-black focus:outline-none focus:ring-2 focus:ring-orange-500"
-              onChange={handleChange}
-              required
-            />
-            {errors.message && (
-              <p className="text-red-500 text-sm mt-1">{errors.message}</p>
-            )}
-          </div>
-
-          {/* File Upload */}
-          <div>
-            <label className="block text-sm font-semibold text-[#0a1a4f] mb-1">
-              File Upload
-            </label>
-            <p className="text-sm text-[#0a1a4f] mb-2">
-              {`Accepts: .pdf, .dwg, .step, .stl, .iges. Other file types can be
-              emailed to contact-nab@zetwerk.com`}
-            </p>
-            <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
-              <label className="bg-gray-200 hover:bg-gray-300 cursor-pointer px-4 py-2 rounded-md text-[#0a1a4f] font-medium w-fit">
-                Choose File
-                <input
-                  type="file"
-                  name="file"
-                  className="hidden"
-                  onChange={handleChange}
-                />
+          {/* Buyer / Supplier Specific */}
+          {userType === "buyer" && (
+            <div>
+              <label className="block text-sm font-semibold text-[#0a1a4f] mb-1">
+                {`Tell Us About Your Project*`}
               </label>
-              <span className="text-sm text-[#0a1a4f] break-words">
-                {formData.file ? formData.file.name : "No file chosen"}
-              </span>
+              <textarea
+                name="message"
+                rows="4"
+                placeholder="Message"
+                className="w-full border rounded-md px-4 py-2 bg-gray-50 placeholder-gray-400 text-black focus:outline-none focus:ring-2 focus:ring-orange-500"
+                onChange={handleChange}
+                required
+              />
+              {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
             </div>
-          </div>
+          )}
+
+          {userType === "supplier" && (
+            <>
+              <div>
+                <label className="block text-sm font-semibold text-[#0a1a4f] mb-1">
+                  {`Tell Us About Your Services*`}
+                </label>
+                <textarea
+                  name="message"
+                  rows="4"
+                  placeholder="Describe your services"
+                  className="w-full border rounded-md px-4 py-2 bg-gray-50 placeholder-gray-400 text-black focus:outline-none focus:ring-2 focus:ring-orange-500"
+                  onChange={handleChange}
+                  required
+                />
+                {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
+              </div>
+
+              {/* Optional File Upload for Supplier */}
+              <div>
+                <label className="block text-sm font-semibold text-[#0a1a4f] mb-1">
+                  File Upload
+                </label>
+                <p className="text-sm text-[#0a1a4f] mb-2">
+                  Accepts: .pdf, .dwg, .step, .stl, .iges. Other file types can be emailed.
+                </p>
+                <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
+                  <label className="bg-gray-200 hover:bg-gray-300 cursor-pointer px-4 py-2 rounded-md text-[#0a1a4f] font-medium w-fit">
+                    Choose File
+                    <input
+                      type="file"
+                      name="file"
+                      className="hidden"
+                      onChange={handleChange}
+                    />
+                  </label>
+                  <span className="text-sm text-[#0a1a4f] break-words">
+                    {formData.file ? formData.file.name : "No file chosen"}
+                  </span>
+                </div>
+              </div>
+            </>
+          )}
 
           {/* Consent Info */}
           <p className="text-sm text-[#0a1a4f] mt-4 mb-2">
-            {`We need your consent to communicate with you and to store and
-            process your personal data. If you agree, please click the boxes
-            below. You can unsubscribe or ask us to remove your data at any
-            time.`}
+            We need your consent to communicate with you and to store your data.
           </p>
 
           {/* Consent Checkboxes */}
@@ -205,7 +227,7 @@ export default function QuoteForm() {
                 required
                 className="mt-1"
               />
-              <span>{`I agree to receive communications from SureSupply.*`}</span>
+              <span>I agree to receive communications.*</span>
             </label>
             <label className="flex items-start space-x-2 text-[#0a1a4f]">
               <input
@@ -215,10 +237,7 @@ export default function QuoteForm() {
                 required
                 className="mt-1"
               />
-              <span>
-                {`I agree to allow SureSupply to store and process my personal
-                data.*`}
-              </span>
+              <span>I agree to allow storing and processing my data.*</span>
             </label>
           </div>
 
@@ -232,7 +251,7 @@ export default function QuoteForm() {
               className="w-4 h-4 text-orange-600 border-gray-300 rounded focus:ring-orange-500"
             />
             <label htmlFor="captchaCheckbox" className="text-[#0a1a4f]">
-              {`I'm not a robot`}
+              I'm not a robot
             </label>
           </div>
 

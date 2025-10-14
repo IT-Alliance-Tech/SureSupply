@@ -9,8 +9,8 @@ import LogoImg from "../../../public/logo.png"; // Replace with your logo path
 const navLinks = [
   { name: "Home", href: "/" },
   { name: "Services", href: "/services" },
-  { name: "Capabilities", href: "/capabilities" },
-  { name: "Solutions", href: "/solutions" },
+  { name: "Capabilities", href: "/ourCapabilities" },
+  { name: "Solutions", href: "/ourSolution" },
 ];
 
 const resourcesLinks = {
