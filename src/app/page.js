@@ -3,6 +3,7 @@ import HomeAbout from "../components/home/homeAbout";
 import WhySureSupply from "../components/home/WhySureSupply";
 import QuoteForm from "../components/home/quote";
 import ManufacturingProcesses from "../components/home/ManufacturingProcesses";
+import HowSureSupplyWorks from "@/components/home/howSureSupplyWorks";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <HomeAbout />
       <WhySureSupply />
       <QuoteForm />
+      <HowSureSupplyWorks />
     </main>
   );
 }
