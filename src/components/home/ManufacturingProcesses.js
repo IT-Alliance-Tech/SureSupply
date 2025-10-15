@@ -38,7 +38,7 @@ function Card({ title, image, imgWidth = 80, imgHeight = 80, minHeight = 200 }) 
         transition={{ type: "spring", stiffness: 200 }}
         className="mt-4 flex items-center text-orange-500 hover:text-orange-400 font-medium group"
       >
-        Learn
+       {` Learn`}
         <ArrowRight className="ml-1 w-5 h-5 transition-transform group-hover:translate-x-1" />
       </motion.button>
     </div>
@@ -66,11 +66,11 @@ export default function OurExpertise() {
             className="text-4xl md:text-5xl font-bold mb-4"
             style={{ color: "#0A175C" }}
           >
-            Our <span className="text-orange-500">Expertise</span>
+           {` Our `}<span className="text-orange-500">Expertise</span>
           </h2>
           <p className="text-gray-700 text-lg max-w-3xl mx-auto">
-            Explore our advanced manufacturing capabilities designed to meet
-            your unique production needs.
+            {`Explore our advanced manufacturing capabilities designed to meet
+            your unique production needs.`}
           </p>
         </div>
 
