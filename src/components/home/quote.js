@@ -82,7 +82,7 @@ export default function QuoteForm() {
       <div className="bg-white shadow-lg rounded-lg p-6 sm:p-8 md:p-10 max-w-3xl w-full">
         <h2 className="text-2xl font-bold text-[#0a1a4f] mb-2">Quote Form</h2>
         <p className="text-[#0a1a4f] mb-6">
-          Let’s get the conversation started! Select your type and fill out the form below.
+         {` Let’s get the conversation started! Select your type and fill out the form below.`}
         </p>
 
         {/* Radio Selection */}
@@ -189,14 +189,14 @@ export default function QuoteForm() {
               {/* Optional File Upload for Supplier */}
               <div>
                 <label className="block text-sm font-semibold text-[#0a1a4f] mb-1">
-                  File Upload
+                  {`File Upload`}
                 </label>
                 <p className="text-sm text-[#0a1a4f] mb-2">
-                  Accepts: .pdf, .dwg, .step, .stl, .iges. Other file types can be emailed.
+                  {`Accepts: .pdf, .dwg, .step, .stl, .iges. Other file types can be emailed.`}
                 </p>
                 <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
                   <label className="bg-gray-200 hover:bg-gray-300 cursor-pointer px-4 py-2 rounded-md text-[#0a1a4f] font-medium w-fit">
-                    Choose File
+                    {`Choose File`}
                     <input
                       type="file"
                       name="file"
@@ -214,7 +214,7 @@ export default function QuoteForm() {
 
           {/* Consent Info */}
           <p className="text-sm text-[#0a1a4f] mt-4 mb-2">
-            We need your consent to communicate with you and to store your data.
+           {` We need your consent to communicate with you and to store your data.`}
           </p>
 
           {/* Consent Checkboxes */}
@@ -227,7 +227,7 @@ export default function QuoteForm() {
                 required
                 className="mt-1"
               />
-              <span>I agree to receive communications.*</span>
+              <span>{`I agree to receive communications.*`}</span>
             </label>
             <label className="flex items-start space-x-2 text-[#0a1a4f]">
               <input
@@ -237,7 +237,7 @@ export default function QuoteForm() {
                 required
                 className="mt-1"
               />
-              <span>I agree to allow storing and processing my data.*</span>
+              <span>{`I agree to allow storing and processing my data.*`}</span>
             </label>
           </div>
 
@@ -251,7 +251,7 @@ export default function QuoteForm() {
               className="w-4 h-4 text-orange-600 border-gray-300 rounded focus:ring-orange-500"
             />
             <label htmlFor="captchaCheckbox" className="text-[#0a1a4f]">
-              I'm not a robot
+              {`I'm not a robot`}
             </label>
           </div>
 
@@ -262,7 +262,7 @@ export default function QuoteForm() {
               disabled={!isFormValid()}
               className="bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-md font-semibold w-full sm:w-auto disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Get Quote Now
+              {`Get Quote Now`}
             </button>
           </div>
         </form>

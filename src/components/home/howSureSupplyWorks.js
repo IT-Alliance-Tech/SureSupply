@@ -20,7 +20,7 @@ export default function HowSureSupplyHeading() {
 
         {/* Subtitle */}
         <p className="text-gray-300 mt-4 text-base md:text-lg max-w-3xl mx-auto">
-          Navigate our comprehensive manufacturing journey from initial concept to final delivery.
+          {`Navigate our comprehensive manufacturing journey from initial concept to final delivery.`}
         </p>
 
         {/* Roadmap */}
@@ -38,7 +38,7 @@ export default function HowSureSupplyHeading() {
           <div className="absolute top-[10%] -left-10 w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-4 border-white flex flex-col items-center justify-center text-center text-[10px] md:text-xs font-semibold text-black">
             <Image src={Step1Img} alt="Step 1" className="object-cover" fill />
             <span className="absolute z-10 px-2 text-black">
-              Customer request initiation
+              {`Customer request initiation`}
             </span>
           </div>
 
@@ -55,7 +55,7 @@ export default function HowSureSupplyHeading() {
   <div>
     <p className="font-semibold text-lg text-white">Customer request initiation</p>
     <p className="text-gray-300 text-xs max-w-[180px] mx-auto">
-      Detailed project requirements and specifications gathering.
+      {`Detailed project requirements and specifications gathering.`}
     </p>
   </div>
 </div>
@@ -65,7 +65,7 @@ export default function HowSureSupplyHeading() {
           <div className="absolute top-[22%] left-[13%] w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-4 border-white flex flex-col items-center justify-center text-center text-[10px] md:text-xs font-semibold text-black">
             <Image src={Step2Img} alt="Step 2" className="object-cover" fill />
             <span className="absolute z-10 px-2 text-black">
-              Engineering support
+              {`Engineering support`}
             </span>
           </div>
 
@@ -76,7 +76,7 @@ export default function HowSureSupplyHeading() {
   <div className="mb-1">
     <p className="font-semibold text-sm text-white">Engineering support</p>
     <p className="text-gray-300 text-xs max-w-[180px] mx-auto">
-      Technical consultation and design optimization.
+      {`Technical consultation and design optimization.`}
     </p>
   </div>
 
@@ -94,7 +94,7 @@ export default function HowSureSupplyHeading() {
           <div className="absolute top-[35%] left-[40%] w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-4 border-white flex flex-col items-center justify-center text-center text-[10px] md:text-xs font-semibold text-black">
             <Image src={Step3Img} alt="Step 3" className="object-cover" fill />
             <span className="absolute z-10 px-2 text-black">
-              Strategic supplier matching
+             {` Strategic supplier matching`}
             </span>
           </div>
 
@@ -107,7 +107,7 @@ export default function HowSureSupplyHeading() {
             <div>
               <p className="font-semibold text-sm">Strategic supplier matching</p>
               <p className="text-gray-300 text-xs max-w-[180px]">
-                Identifying optimal manufacturing partners.
+                {`Identifying optimal manufacturing partners.`}
               </p>
             </div>
           </div>
@@ -116,7 +116,7 @@ export default function HowSureSupplyHeading() {
           <div className="absolute top-[58%] left-[45%] w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-4 border-white flex flex-col items-center justify-center text-center text-[10px] md:text-xs font-semibold text-black">
             <Image src={Step4Img} alt="Step 4" className="object-cover" fill />
             <span className="absolute z-10 px-2 text-black">
-              Production Planning
+              {`Production Planning`}
             </span>
           </div>
 
@@ -126,7 +126,7 @@ export default function HowSureSupplyHeading() {
   <div>
     <p className="font-semibold text-sm">Strategic supplier matching</p>
     <p className="text-gray-300 text-xs max-w-[180px]">
-      Identifying optimal manufacturing partners.
+      {`Identifying optimal manufacturing partners.`}
     </p>
   </div>
 
@@ -143,7 +143,7 @@ export default function HowSureSupplyHeading() {
           <div className="absolute top-[58%] left-[69%] w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-4 border-white flex flex-col items-center justify-center text-center text-[10px] md:text-xs font-semibold text-black">
             <Image src={Step5Img} alt="Step 5" className="object-cover" fill />
             <span className="absolute z-10 px-2 text-black">
-              Quality Checking
+              {`Quality Checking`}
             </span>
           </div>
 
@@ -156,7 +156,7 @@ export default function HowSureSupplyHeading() {
             <div>
               <p className="font-semibold text-sm">Quality Checking</p>
               <p className="text-gray-300 text-xs max-w-[180px]">
-                Refining designs for efficient production.
+                {`Refining designs for efficient production.`}
               </p>
             </div>
           </div>
@@ -165,7 +165,7 @@ export default function HowSureSupplyHeading() {
           <div className="absolute top-[75%] left-[90%] w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-4 border-white flex flex-col items-center justify-center text-center text-[10px] md:text-xs font-semibold text-black">
             <Image src={Step6Img} alt="Step 6" className="object-cover" fill />
             <span className="absolute z-10 px-2 text-black">
-              Delivery & After Sales Service
+              {`Delivery & After Sales Service`}
             </span>
           </div>
 
@@ -177,10 +177,10 @@ export default function HowSureSupplyHeading() {
             </div>
             <div>
               <p className="font-semibold text-sm">
-                Delivery & After Sales Service
+                {`Delivery & After Sales Service`}
               </p>
               <p className="text-gray-300 text-xs max-w-[200px]">
-                Innovative prototyping and iterative design processes.
+               {` Innovative prototyping and iterative design processes.`}
               </p>
             </div>
           </div>
