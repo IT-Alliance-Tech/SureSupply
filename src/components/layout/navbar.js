@@ -65,10 +65,10 @@ const Navbar = () => {
         {/* Right Side */}
         <div className="flex items-center space-x-3">
           <button className="px-5 py-2 text-blue-600 border border-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition">
-            Login
+           {` Login`}
           </button>
           <button className="px-5 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition">
-            Signup
+           {` Signup`}
           </button>
           {/* Menu Icon */}
           <button
@@ -110,7 +110,7 @@ const Navbar = () => {
                   onClick={() => setMenuOpen(false)}
                   className="text-black font-medium hover:text-blue-800"
                 >
-                  Home
+                 {` Home`}
                 </a>
               </li>
               <li>
@@ -119,7 +119,7 @@ const Navbar = () => {
                   onClick={() => setMenuOpen(false)}
                   className="text-black font-medium hover:text-blue-800"
                 >
-                  Services
+                  {`Services`}
                 </a>
               </li>
               <li>
@@ -128,7 +128,7 @@ const Navbar = () => {
                   onClick={() => setMenuOpen(false)}
                   className="text-black font-medium hover:text-blue-800"
                 >
-                  Capabilities
+                 {` Capabilities`}
                 </a>
               </li>
               <li>
@@ -137,7 +137,7 @@ const Navbar = () => {
                   onClick={() => setMenuOpen(false)}
                   className="text-black font-medium hover:text-blue-800"
                 >
-                  Solutions
+                 {` Solutions`}
                 </a>
               </li>
 
@@ -186,10 +186,10 @@ const Navbar = () => {
             {/* Bottom buttons inside menu */}
             <div className="mt-auto flex flex-col gap-2">
               <button className="px-4 py-2 border border-blue-600 text-blue-600 rounded hover:bg-blue-600 hover:text-white transition">
-                Login
+                {`Login`}
               </button>
               <button className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">
-                Signup
+                {`Signup`}
               </button>
             </div>
           </div>
