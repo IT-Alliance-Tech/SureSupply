@@ -17,3 +17,222 @@
   animation: fadeSlide 800ms ease-in-out;
   animation-delay: 800ms; /* After delay */
 }
+
+.roadmapWrapper {
+  position: relative;
+  background: #0b1335;
+  color: white;
+  padding: 4rem 1rem;
+  overflow: hidden;
+  text-align: center;
+}
+
+.heading {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.heading span {
+  color: #f2542d;
+}
+
+.subtext {
+  font-size: 1.1rem;
+  color: #cfd3e0;
+  margin-bottom: 2rem;
+}
+
+.roadmapContainer {
+  position: relative;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.roadImage {
+  width: 100%;
+  height: auto;
+  opacity: 0.9;
+}
+
+/* ---- STEP CONTAINER ---- */
+.step {
+  position: absolute;
+  text-align: center;
+}
+
+/* Step circle */
+.circle {
+  background: white;
+  color: black;
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+/* Connector line */
+.pointer {
+  position: absolute;
+  width: 2px;
+  height: 80px;
+  background: white;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+/* Adjust pointer direction */
+.topText ~ .pointer {
+  bottom: -80px;
+}
+.bottomText ~ .pointer {
+  top: -80px;
+}
+
+/* Step text */
+.stepText {
+  width: 200px;
+  font-size: 0.9rem;
+  color: #e6e7ef;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.topText {
+  bottom: 120px;
+}
+.bottomText {
+  top: 120px;
+}
+
+/* ---- Positions based on road image ---- */
+.step1 {
+  left: 8%;
+  top: 60%;
+}
+.step2 {
+  left: 25%;
+  top: 40%;
+}
+.step3 {
+  left: 43%;
+  top: 65%;
+}
+.step4 {
+  left: 60%;
+  top: 38%;
+}
+.step5 {
+  left: 77%;
+  top: 60%;
+}
+.step6 {
+  left: 91%;
+  top: 35%;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 992px) {
+  .roadImage {
+    display: none;
+  }
+
+  .step {
+    position: relative;
+    margin: 2rem auto;
+  }
+
+  .pointer {
+    display: none;
+  }
+
+  .stepText {
+    position: relative;
+    transform: none;
+    left: 0;
+    text-align: center;
+    margin-top: 1rem;
+  }
+}
+
+.desktop_container {
+  background-image: url("../../public/roadmap.png");
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: center;
+  max-height: 800px;
+  min-height: 800px;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center; /* centers both vertically and horizontally */
+
+}
+
+/* Direction control */
+.column {
+  flex-direction: column;
+}
+
+.row {
+  flex-direction: row;
+}
+
+/* Reverse direction */
+.reverse {
+  flex-direction: column-reverse; /* default fallback for Y */
+}
+
+.row.reverse {
+  flex-direction: row-reverse;
+}
+
+
+.line {
+  background-color: #fff;
+}
+
+.vertical {
+  width: 2px;
+  height: 50px;
+}
+
+.horizontal {
+  height: 2px;
+  width: 50px;
+}
+
+
+.horizontalLine {
+  width: 25px; /* thickness */
+  height: 2px; /* length */
+  background-color: #fff; /* color */
+  margin: 0 auto; /* center if needed */
+}
+
+.verticalLine {
+  width: 2px; /* thickness */
+  height: 40px; /* length */
+  background-color: #fff; /* color */
+  margin: 0 auto; /* center if needed */
+}
+
+.dot {
+  width: 12px; /* diameter */
+  height: 12px;
+  background-color: #fff; /* color of the dot */
+  border-radius: 50%; /* makes it perfectly round */
+  display: inline-block; /* allows it to sit inline if needed */
+}
