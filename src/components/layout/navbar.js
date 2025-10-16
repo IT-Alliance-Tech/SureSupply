@@ -3,13 +3,13 @@
 import { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { FaBars, FaTimes, FaChevronDown } from "react-icons/fa";
+import Link from "next/link";
+import { FaBars, FaTimes } from "react-icons/fa";
 import LogoImg from "../../../public/logo.png";
 import MenuLeftImg from "../../../public/dummy3.png";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [resourcesOpen, setResourcesOpen] = useState(false);
   const router = useRouter();
   const menuRef = useRef();
 
@@ -18,31 +18,7 @@ const Navbar = () => {
   // When ❌ is clicked → close menu & go back
   const closeAndGoBack = () => {
     setMenuOpen(false);
-    setResourcesOpen(false);
     router.back();
-  };
-
-  const toggleResources = () => setResourcesOpen(!resourcesOpen);
-
-  const resourcesLinks = {
-    Company: [
-      { name: "About", href: "/about" },
-      { name: "Contact", href: "/contact" },
-      { name: "Careers", href: "/career" },
-      { name: "Investors", href: "/investors" },
-    ],
-    Insights: [
-      { name: "Case studies", href: "/case-studies" },
-      { name: "Blog", href: "/blog" },
-      { name: "White papers", href: "/white-papers" },
-      { name: "Webinars", href: "/webinars" },
-    ],
-    Support: [
-      { name: "Help center", href: "/help-center" },
-      { name: "Documentation", href: "/document" },
-      { name: "Training", href: "/training" },
-      { name: "Community", href: "/community" },
-    ],
   };
 
   return (
@@ -113,46 +89,44 @@ const Navbar = () => {
 
             <ul className="flex-1 space-y-5">
               <li>
-                <a
+                <Link
                   href="/"
                   className="text-black font-semibold text-lg hover:text-blue-800"
                 >
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="/services"
                   className="text-black font-semibold text-lg hover:text-blue-800"
                 >
                   Services
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="/ourCapabilities"
                   className="text-black font-semibold text-lg hover:text-blue-800"
                 >
                   Capabilities
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="/ourSolution"
                   className="text-black font-semibold text-lg hover:text-blue-800"
                 >
                   Solutions
-                </a>
+                </Link>
               </li>
-
-              {/* Resources moved to left side (no dropdown) */}
               <li>
-                <a
+                <Link
                   href="/resources"
                   className="text-black font-semibold text-lg hover:text-blue-800"
                 >
                   Resources
-                </a>
+                </Link>
               </li>
             </ul>
 
