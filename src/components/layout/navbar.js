@@ -1,18 +1,27 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { FaBars, FaTimes, FaChevronDown } from "react-icons/fa";
-import LogoImg from "../../../public/logo.png"; // Logo import
-import MenuLeftImg from "../../../public/dummy3.png"; // Left image import
+import LogoImg from "../../../public/logo.png";
+import MenuLeftImg from "../../../public/dummy3.png";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [resourcesOpen, setResourcesOpen] = useState(false);
-
+  const router = useRouter();
   const menuRef = useRef();
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
+
+  // When ❌ is clicked → close menu & go back
+  const closeAndGoBack = () => {
+    setMenuOpen(false);
+    setResourcesOpen(false);
+    router.back();
+  };
+
   const toggleResources = () => setResourcesOpen(!resourcesOpen);
 
   const resourcesLinks = {
@@ -36,26 +45,9 @@ const Navbar = () => {
     ],
   };
 
-  // Close menu if click outside
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (menuRef.current && !menuRef.current.contains(event.target)) {
-        setMenuOpen(false);
-        setResourcesOpen(false);
-      }
-    };
-
-    if (menuOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
-    }
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [menuOpen]);
-
   return (
     <header className="w-full bg-white fixed top-0 left-0 z-50 shadow-sm">
+      {/* Top Navbar */}
       <div className="flex justify-between items-center px-6 py-3 border-b border-gray-100">
         {/* Logo */}
         <div className="flex items-center">
@@ -64,12 +56,16 @@ const Navbar = () => {
 
         {/* Right Side */}
         <div className="flex items-center space-x-3">
-          <button className="px-5 py-2 text-blue-600 border border-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition">
-           {` Login`}
-          </button>
-          <button className="px-5 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition">
-           {` Signup`}
-          </button>
+          {/* Desktop Buttons */}
+          <div className="hidden md:flex space-x-3">
+            <button className="px-5 py-2 text-blue-600 border border-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition text-base font-medium">
+              Login
+            </button>
+            <button className="px-5 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition text-base font-medium">
+              Signup
+            </button>
+          </div>
+
           {/* Menu Icon */}
           <button
             onClick={toggleMenu}
@@ -86,130 +82,92 @@ const Navbar = () => {
 
       {/* Slide-Out Menu */}
       {menuOpen && (
-        <div className="fixed inset-0 z-40 flex">
-          {/* Left Image occupies remaining space */}
-          <div className="flex-1 relative">
+        <div className="fixed inset-0 z-40 flex flex-col md:flex-row">
+          {/* Left Image (55%) */}
+          <div className="w-full md:w-[55%] relative bg-black">
             <Image
               src={MenuLeftImg}
               alt="Menu Left Image"
-              layout="fill"
-              objectFit="cover"
+              fill
+              className="object-cover"
+              priority
             />
           </div>
 
-          {/* Right Menu */}
+          {/* Right Menu (45%) */}
           <div
             ref={menuRef}
-            className="w-[300px] bg-white p-6 flex flex-col shadow-2xl overflow-y-auto"
+            className="w-full md:w-[45%] bg-white p-8 flex flex-col shadow-2xl overflow-y-auto relative"
           >
-            <h3 className="text-xl font-semibold mb-4 text-black">Menu</h3>
-            <ul className="flex-1 space-y-4">
+            {/* Cancel Icon (go back only when clicked) */}
+            <button
+              onClick={closeAndGoBack}
+              className="absolute top-4 right-4 text-blue-600 hover:text-blue-800 transition"
+            >
+              <FaTimes size={24} />
+            </button>
+
+            <h3 className="text-2xl font-semibold mb-6 text-black mt-2">
+              Menu
+            </h3>
+
+            <ul className="flex-1 space-y-5">
               <li>
                 <a
                   href="/"
-                  onClick={() => setMenuOpen(false)}
-                  className="text-black font-medium hover:text-blue-800"
+                  className="text-black font-semibold text-lg hover:text-blue-800"
                 >
-                 {` Home`}
+                  Home
                 </a>
               </li>
               <li>
                 <a
                   href="/services"
-                  onClick={() => setMenuOpen(false)}
-                  className="text-black font-medium hover:text-blue-800"
+                  className="text-black font-semibold text-lg hover:text-blue-800"
                 >
-                  {`Services`}
+                  Services
                 </a>
               </li>
               <li>
                 <a
                   href="/ourCapabilities"
-                  onClick={() => setMenuOpen(false)}
-                  className="text-black font-medium hover:text-blue-800"
+                  className="text-black font-semibold text-lg hover:text-blue-800"
                 >
-                 {` Capabilities`}
+                  Capabilities
                 </a>
               </li>
               <li>
                 <a
                   href="/ourSolution"
-                  onClick={() => setMenuOpen(false)}
-                  className="text-black font-medium hover:text-blue-800"
+                  className="text-black font-semibold text-lg hover:text-blue-800"
                 >
-                 {` Solutions`}
+                  Solutions
                 </a>
               </li>
 
-              {/* Resources */}
+              {/* Resources moved to left side (no dropdown) */}
               <li>
-                <button
-                  onClick={toggleResources}
-                  className="flex items-center justify-between w-full font-medium text-black hover:text-blue-800"
+                <a
+                  href="/resources"
+                  className="text-black font-semibold text-lg hover:text-blue-800"
                 >
-                  <span>Resources</span>
-                  <FaChevronDown
-                    size={14}
-                    className={`transition-transform ${
-                      resourcesOpen ? "rotate-180" : ""
-                    }`}
-                  />
-                </button>
-
-                {resourcesOpen && (
-                  <div className="mt-3 pl-2 border-l border-black max-h-52 overflow-y-auto">
-                    {Object.entries(resourcesLinks).map(([section, items]) => (
-                      <div key={section} className="mb-3">
-                        <h4 className="text-black font-semibold text-sm mb-1">
-                          {section}
-                        </h4>
-                        <ul className="ml-3 space-y-1">
-                          {items.map((item) => (
-                            <li key={item.name}>
-                              <a
-                                href={item.href}
-                                onClick={() => setMenuOpen(false)}
-                                className="text-blue-600 text-sm hover:text-blue-800"
-                              >
-                                {item.name}
-                              </a>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    ))}
-                  </div>
-                )}
+                  Resources
+                </a>
               </li>
             </ul>
 
-            {/* Bottom buttons inside menu */}
-            <div className="mt-auto flex flex-col gap-2">
-              <button className="px-4 py-2 border border-blue-600 text-blue-600 rounded hover:bg-blue-600 hover:text-white transition">
-                {`Login`}
+            {/* Buttons inside menu */}
+            <div className="mt-auto flex flex-col gap-3">
+              <button className="px-5 py-3 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition text-base font-medium">
+                Login
               </button>
-              <button className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">
-                {`Signup`}
+              <button className="px-5 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition text-base font-medium">
+                Signup
               </button>
             </div>
           </div>
         </div>
       )}
-
-      {/* Animation */}
-      <style jsx>{`
-        @keyframes slide-left {
-          from {
-            transform: translateX(100%);
-          }
-          to {
-            transform: translateX(0);
-          }
-        }
-        .animate-slide-left {
-          animation: slide-left 0.3s ease forwards;
-        }
-      `}</style>
     </header>
   );
 };
