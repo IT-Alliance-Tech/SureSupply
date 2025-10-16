@@ -78,7 +78,7 @@ function Card({ title, image, minHeight = 200, onLearn, bgColor = "#1E2A5E", tex
       className="relative rounded-2xl overflow-hidden shadow-lg flex flex-col justify-between p-5 text-left cursor-default"
       style={{ minHeight: `${minHeight}px`, backgroundColor: bgColor, color: textColor }}
     >
-      <div className="absolute inset-0">
+      <div className="absolute inset-0"> 
         <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent"></div>
         <div className="flex items-center justify-center opacity-[0.05]">
           <Image src={image} alt={title} width={80} height={80} className="object-contain" />
