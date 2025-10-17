@@ -3,20 +3,11 @@
 import { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import Link from "next/link";
-import {
-  FaBars,
-  FaTimes,
-  FaChevronDown,
-} from "react-icons/fa";
+import { FaBars, FaTimes, FaChevronDown } from "react-icons/fa";
 
 // 🖼️ Your images
 import LogoImg from "../../../public/logo.png";
 import MenuLeftImg from "../../../public/dummy3.png";
-
-// 🧩 You will import your own icons here
-// Example:
-// import { AboutIcon, ContactIcon, CareerIcon } from "@/icons/YourIcons";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -25,13 +16,34 @@ const Navbar = () => {
   const menuRef = useRef();
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
-  const closeAndGoBack = () => {
+  const toggleResources = () => setResourcesOpen(!resourcesOpen);
+
+  const navigateTo = (path) => {
     setMenuOpen(false);
     setResourcesOpen(false);
-    router.back();
+    router.push(path);
   };
 
-  const toggleResources = () => setResourcesOpen(!resourcesOpen);
+  const companyItems = [
+    { title: "About", desc: "Manufacturing expertise you can trust", path: "/about" },
+    { title: "Contact", desc: "Get in touch with our team", path: "/contact" },
+    { title: "Careers", desc: "Join our innovative team", path: "/careers" },
+    { title: "Investors", desc: "Financial insights", path: "/investors" },
+  ];
+
+  const insightsItems = [
+    { title: "Case Studies", desc: "Successful projects", path: "/case-studies" },
+    { title: "Blog", desc: "Industry trends", path: "/blog" },
+    { title: "White Papers", desc: "In-depth research", path: "/white-papers" },
+    { title: "Webinars", desc: "Expert-led discussions", path: "/webinars" },
+  ];
+
+  const supportItems = [
+    { title: "Help Center", desc: "Find quick answers", path: "/help-center" },
+    { title: "Documentation", desc: "Detailed guides & references", path: "/documentation" },
+    { title: "Training", desc: "Hands-on learning resources", path: "/training" },
+    { title: "Community", desc: "Join and connect with peers", path: "/community" },
+  ];
 
   return (
     <header className="w-full bg-white fixed top-0 left-0 z-50 shadow-sm">
@@ -71,200 +83,64 @@ const Navbar = () => {
       {/* ====== SLIDE-OUT MENU ====== */}
       {menuOpen && (
         <div className="fixed inset-0 z-40 flex flex-col md:flex-row">
-          {/* ====== LEFT SIDE (IMAGE + RESOURCES OVERLAY) ====== */}
-          <div className="w-full md:w-[60%] relative bg-black">
-            <Image
-              src={MenuLeftImg}
-              alt="Menu Left Image"
-              fill
-              className="object-cover"
-              priority
-            />
+          {/* ====== LEFT SIDE (IMAGE + DESKTOP RESOURCES OVERLAY) ====== */}
+          <div className="w-full md:w-[60%] relative bg-black flex-shrink-0">
+            {/* Desktop image */}
+            <div className="hidden md:block w-full h-full relative">
+              <Image
+                src={MenuLeftImg}
+                alt="Menu Left Image"
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
 
-            {/* Overlay Content for Resources */}
+            {/* Mobile image on top */}
+            <div className="md:hidden w-full h-48 relative">
+              <Image
+                src={MenuLeftImg}
+                alt="Menu Top Image"
+                fill
+                className="object-cover"
+              />
+            </div>
+
+            {/* Desktop Resources Overlay */}
             {resourcesOpen && (
-              <div className="absolute inset-0 bg-black/70 text-white p-10 overflow-y-auto animate-fadeIn">
+              <div className="hidden md:block absolute inset-0 bg-black/70 text-white p-10 overflow-y-auto animate-fadeIn">
                 <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-12">
-                  {/* ========== COMPANY SECTION ========== */}
                   <div>
-                    <h3 className="text-2xl font-semibold mb-6 text-white">
-                      Company
-                    </h3>
+                    <h3 className="text-2xl font-semibold mb-6 text-white">Company</h3>
                     <ul className="space-y-6">
-                      <li className="flex items-start gap-4">
-                        <span className="text-blue-400 mt-1">
-                          {/* <AboutIcon size={20}/> */}
-                        </span>
-                        <div>
-                          <h5 className="font-semibold text-lg leading-tight">
-                            About
-                          </h5>
-                          <p className="text-gray-300 text-sm leading-snug">
-                            Manufacturing expertise you can trust
-                          </p>
-                        </div>
-                      </li>
-                      <li className="flex items-start gap-4">
-                        <span className="text-blue-400 mt-1">
-                          {/* <ContactIcon size={20}/> */}
-                        </span>
-                        <div>
-                          <h5 className="font-semibold text-lg leading-tight">
-                            Contact
-                          </h5>
-                          <p className="text-gray-300 text-sm leading-snug">
-                            Get in touch with our team
-                          </p>
-                        </div>
-                      </li>
-                      <li className="flex items-start gap-4">
-                        <span className="text-blue-400 mt-1">
-                          {/* <CareerIcon size={20}/> */}
-                        </span>
-                        <div>
-                          <h5 className="font-semibold text-lg leading-tight">
-                            Careers
-                          </h5>
-                          <p className="text-gray-300 text-sm leading-snug">
-                            Join our innovative team
-                          </p>
-                        </div>
-                      </li>
-                      <li className="flex items-start gap-4">
-                        <span className="text-blue-400 mt-1">
-                          {/* <InvestorIcon size={20}/> */}
-                        </span>
-                        <div>
-                          <h5 className="font-semibold text-lg leading-tight">
-                            Investors
-                          </h5>
-                          <p className="text-gray-300 text-sm leading-snug">
-                            Financial insights
-                          </p>
-                        </div>
-                      </li>
+                      {companyItems.map((item, i) => (
+                        <li key={i}>
+                          <h5 className="font-semibold text-lg">{item.title}</h5>
+                          <p className="text-gray-300 text-sm">{item.desc}</p>
+                        </li>
+                      ))}
                     </ul>
                   </div>
-
-                  {/* ========== INSIGHTS SECTION ========== */}
                   <div>
-                    <h3 className="text-2xl font-semibold mb-6 text-white">
-                      Insights
-                    </h3>
+                    <h3 className="text-2xl font-semibold mb-6 text-white">Insights</h3>
                     <ul className="space-y-6">
-                      <li className="flex items-start gap-4">
-                        <span className="text-blue-400 mt-1">
-                          {/* <CaseStudyIcon size={20}/> */}
-                        </span>
-                        <div>
-                          <h5 className="font-semibold text-lg leading-tight">
-                            Case Studies
-                          </h5>
-                          <p className="text-gray-300 text-sm leading-snug">
-                            Successful projects
-                          </p>
-                        </div>
-                      </li>
-                      <li className="flex items-start gap-4">
-                        <span className="text-blue-400 mt-1">
-                          {/* <BlogIcon size={20}/> */}
-                        </span>
-                        <div>
-                          <h5 className="font-semibold text-lg leading-tight">
-                            Blog
-                          </h5>
-                          <p className="text-gray-300 text-sm leading-snug">
-                            Industry trends
-                          </p>
-                        </div>
-                      </li>
-                      <li className="flex items-start gap-4">
-                        <span className="text-blue-400 mt-1">
-                          {/* <WhitePaperIcon size={20}/> */}
-                        </span>
-                        <div>
-                          <h5 className="font-semibold text-lg leading-tight">
-                            White Papers
-                          </h5>
-                          <p className="text-gray-300 text-sm leading-snug">
-                            In-depth research
-                          </p>
-                        </div>
-                      </li>
-                      <li className="flex items-start gap-4">
-                        <span className="text-blue-400 mt-1">
-                          {/* <WebinarIcon size={20}/> */}
-                        </span>
-                        <div>
-                          <h5 className="font-semibold text-lg leading-tight">
-                            Webinars
-                          </h5>
-                          <p className="text-gray-300 text-sm leading-snug">
-                            Expert-led discussions
-                          </p>
-                        </div>
-                      </li>
+                      {insightsItems.map((item, i) => (
+                        <li key={i}>
+                          <h5 className="font-semibold text-lg">{item.title}</h5>
+                          <p className="text-gray-300 text-sm">{item.desc}</p>
+                        </li>
+                      ))}
                     </ul>
                   </div>
-
-                  {/* ========== SUPPORT SECTION ========== */}
                   <div>
-                    <h3 className="text-2xl font-semibold mb-6 text-white">
-                      Support
-                    </h3>
+                    <h3 className="text-2xl font-semibold mb-6 text-white">Support</h3>
                     <ul className="space-y-6">
-                      <li className="flex items-start gap-4">
-                        <span className="text-blue-400 mt-1">
-                          {/* <HelpCenterIcon size={20}/> */}
-                        </span>
-                        <div>
-                          <h5 className="font-semibold text-lg leading-tight">
-                            Help Center
-                          </h5>
-                          <p className="text-gray-300 text-sm leading-snug">
-                            Find quick answers
-                          </p>
-                        </div>
-                      </li>
-                      <li className="flex items-start gap-4">
-                        <span className="text-blue-400 mt-1">
-                          {/* <DocsIcon size={20}/> */}
-                        </span>
-                        <div>
-                          <h5 className="font-semibold text-lg leading-tight">
-                            Documentation
-                          </h5>
-                          <p className="text-gray-300 text-sm leading-snug">
-                            Detailed guides & references
-                          </p>
-                        </div>
-                      </li>
-                      <li className="flex items-start gap-4">
-                        <span className="text-blue-400 mt-1">
-                          {/* <TrainingIcon size={20}/> */}
-                        </span>
-                        <div>
-                          <h5 className="font-semibold text-lg leading-tight">
-                            Training
-                          </h5>
-                          <p className="text-gray-300 text-sm leading-snug">
-                            Hands-on learning resources
-                          </p>
-                        </div>
-                      </li>
-                      <li className="flex items-start gap-4">
-                        <span className="text-blue-400 mt-1">
-                          {/* <CommunityIcon size={20}/> */}
-                        </span>
-                        <div>
-                          <h5 className="font-semibold text-lg leading-tight">
-                            Community
-                          </h5>
-                          <p className="text-gray-300 text-sm leading-snug">
-                            Join and connect with peers
-                          </p>
-                        </div>
-                      </li>
+                      {supportItems.map((item, i) => (
+                        <li key={i}>
+                          <h5 className="font-semibold text-lg">{item.title}</h5>
+                          <p className="text-gray-300 text-sm">{item.desc}</p>
+                        </li>
+                      ))}
                     </ul>
                   </div>
                 </div>
@@ -275,49 +151,46 @@ const Navbar = () => {
           {/* ====== RIGHT SIDE MENU ====== */}
           <div
             ref={menuRef}
-            className="w-full md:w-[40%] bg-white p-8 flex flex-col shadow-2xl overflow-y-auto relative"
+            className="w-full md:w-[40%] bg-white p-8 flex flex-col overflow-y-auto relative"
           >
             {/* Cancel Icon */}
             <button
-              onClick={closeAndGoBack}
+              onClick={() => setMenuOpen(false)}
               className="absolute top-4 right-4 text-blue-600 hover:text-blue-800 transition"
             >
               <FaTimes size={24} />
             </button>
 
-            <h3 className="text-2xl font-semibold mb-6 text-black mt-2">
-              Menu
-            </h3>
+            <h3 className="text-2xl font-semibold mb-6 text-black mt-2">Menu</h3>
 
             <ul className="flex-1 space-y-5">
               <li>
-                <Link
-                  href="/"
-                  onClick={() => setResourcesOpen(false)}
-                  className="text-black font-semibold text-lg hover:text-blue-800"
+                <button
+                  onClick={() => navigateTo("/")}
+                  className="text-black font-semibold text-lg hover:text-blue-800 w-full text-left"
                 >
                   Home
-                </Link>
+                </button>
               </li>
               <li>
-                <Link
-                  href="/services"
-                  onClick={() => setResourcesOpen(false)}
-                  className="text-black font-semibold text-lg hover:text-blue-800"
+                <button
+                  onClick={() => navigateTo("/services")}
+                  className="text-black font-semibold text-lg hover:text-blue-800 w-full text-left"
                 >
                   Services
-                </Link>
+                </button>
               </li>
               <li>
-                <Link
-                  href="/ourCapabilities"
-                  onClick={() => setResourcesOpen(false)}
-                  className="text-black font-semibold text-lg hover:text-blue-800"
+                <button
+                  onClick={() => navigateTo("/ourCapabilities")}
+                  className="text-black font-semibold text-lg hover:text-blue-800 w-full text-left"
                 >
                   Capabilities
-                </Link>
+                </button>
               </li>
-              <li>
+
+              {/* Resources button */}
+              <li className="relative">
                 <button
                   onClick={toggleResources}
                   className="flex items-center justify-between w-full text-left text-black font-semibold text-lg hover:text-blue-800"
@@ -329,6 +202,48 @@ const Navbar = () => {
                     }`}
                   />
                 </button>
+
+                {/* Mobile dropdown */}
+                {resourcesOpen && (
+                  <div className="md:hidden mt-2 pl-2 flex flex-col space-y-4 border-l-2 border-gray-200">
+                    <div>
+                      <h4 className="font-semibold text-lg mb-2">Company</h4>
+                      {companyItems.map((item, i) => (
+                        <button
+                          key={i}
+                          onClick={() => navigateTo(item.path)}
+                          className="text-black font-normal hover:text-blue-600 text-left w-full mb-1"
+                        >
+                          {item.title}
+                        </button>
+                      ))}
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-lg mb-2">Insights</h4>
+                      {insightsItems.map((item, i) => (
+                        <button
+                          key={i}
+                          onClick={() => navigateTo(item.path)}
+                          className="text-black font-normal hover:text-blue-600 text-left w-full mb-1"
+                        >
+                          {item.title}
+                        </button>
+                      ))}
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-lg mb-2">Support</h4>
+                      {supportItems.map((item, i) => (
+                        <button
+                          key={i}
+                          onClick={() => navigateTo(item.path)}
+                          className="text-black font-normal hover:text-blue-600 text-left w-full mb-1"
+                        >
+                          {item.title}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </li>
             </ul>
 
