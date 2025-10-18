@@ -2,9 +2,6 @@
 
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import Image from "next/image";
-import desktopRoad from "../../../public/roadmap.png";
-import mobileRoad from "../../../public/street illustration.png";
 import styles from "../../styles/heroSection.module.css";
 import DotLine from "../ui/lineWithDot";
 
@@ -532,19 +529,9 @@ export default function ProcessFlow() {
       </div>
 
       {/* Mobile View */}
-      <div className="lg:hidden relative min-h-screen">
-        {/* Background Road Image */}
-        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 h-full w-auto opacity-70 z-0">
-          <Image
-            src={mobileRoad}
-            alt="Road background"
-            className="h-full w-auto"
-            style={{ minHeight: "100vh" }}
-          />
-        </div>
-
+      <div className={`lg:hidden relative min-h-screen`}>
         {/* Content */}
-        <div className="relative z-10 px-6 py-8">
+        <div className="z-10 px-6 py-8">
           <div className="text-center mb-12">
             <p className="text-sm text-gray-400 mb-2">Process</p>
             <h1 className="text-3xl font-bold mb-4">
@@ -559,12 +546,17 @@ export default function ProcessFlow() {
           </div>
 
           {/* Vertical Process Flow */}
-          <div className="flex flex-col items-center space-y-16">
+          <div
+            className={`flex flex-col items-center space-y-16 my-4 relative ${styles.mobile_container}`}
+          >
             {/* Customer Request Initiation */}
-            <div className="w-full flex items-start gap-4">
+            <div
+              className=" flex items-start gap-4 absolute"
+              style={{ top: "0%", left: "-5%" }}
+            >
               <div
                 onClick={() => handleProcessClick("customer-request")}
-                className="flex-shrink-0 w-28 h-28 rounded-full cursor-pointer hover:scale-105 transition-transform relative overflow-hidden"
+                className="flex-shrink-0 w-22 h-22 rounded-full cursor-pointer hover:scale-105 transition-transform relative overflow-hidden"
                 style={{
                   background:
                     "linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(240,240,240,0.95) 100%)",
@@ -589,21 +581,30 @@ export default function ProcessFlow() {
                   </h3>
                 </div>
               </div>
-              <div className="flex-1 pt-2">
-                <h4 className="text-sm font-bold mb-1">
-                  Customer request initiation
-                </h4>
-                <p className="text-xs text-gray-300">
-                  Detailed project requirements and specifications gathering.
-                </p>
+              <div
+                className={`absolute flex gap-3`}
+                style={{ top: "0%", left: "-60%" }}
+              >
+                <DotLine axis="x" reverse />
+                <div className="pt-2" style={{ minWidth: "180px" }}>
+                  <h4 className="text-sm font-bold mb-1">
+                    Customer request initiation
+                  </h4>
+                  <p className="text-xs text-gray-300">
+                    Detailed project requirements and specifications gathering.
+                  </p>
+                </div>
               </div>
             </div>
 
             {/* Engineering Support */}
-            <div className="w-full flex items-start gap-4 flex-row-reverse">
+            <div
+              className=" flex items-start gap-4 flex-row-reverse absolute"
+              style={{ top: "18%", left: "25%" }}
+            >
               <div
                 onClick={() => handleProcessClick("engineering-support")}
-                className="flex-shrink-0 w-28 h-28 rounded-full cursor-pointer hover:scale-105 transition-transform relative overflow-hidden"
+                className="flex-shrink-0 w-22 h-22 rounded-full cursor-pointer hover:scale-105 transition-transform relative overflow-hidden"
                 style={{
                   background:
                     "linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(240,240,240,0.95) 100%)",
@@ -626,19 +627,35 @@ export default function ProcessFlow() {
                   </h3>
                 </div>
               </div>
-              <div className="flex-1 pt-2 text-right">
-                <h4 className="text-sm font-bold mb-1">Engineering support</h4>
-                <p className="text-xs text-gray-300">
-                  Technical consultation and design optimization.
-                </p>
+
+              <div className={`absolute`} style={{ top: "-70%", left: "20%" }}>
+                <div className="flex-1 pt-2 text-right">
+                  <h4 className="text-sm font-bold mb-1">
+                    Engineering support
+                  </h4>
+                  <p className="text-xs text-gray-300 no-wrap">
+                    Technical consultation and design optimization.
+                  </p>
+                </div>
+                <div
+                  className={`${styles.horizontalLine} absolute`}
+                  style={{ top: "100%", left: "38.5%" }}
+                ></div>
+                <DotLine
+                  axis="y"
+                  containerStyle={{ maxHeight: "45px", minWidth: "210px" }}
+                />
               </div>
             </div>
 
             {/* Strategic Supplier Matching */}
-            <div className="w-full flex items-start gap-4">
+            <div
+              className=" flex items-start gap-4 absolute"
+              style={{ top: "35%", left: "28%" }}
+            >
               <div
                 onClick={() => handleProcessClick("strategic-matching")}
-                className="flex-shrink-0 w-28 h-28 rounded-full cursor-pointer hover:scale-105 transition-transform relative overflow-hidden"
+                className="flex-shrink-0 w-22 h-22 rounded-full cursor-pointer hover:scale-105 transition-transform relative overflow-hidden"
                 style={{
                   background:
                     "linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(240,240,240,0.95) 100%)",
@@ -663,21 +680,59 @@ export default function ProcessFlow() {
                   </h3>
                 </div>
               </div>
-              <div className="flex-1 pt-2">
-                <h4 className="text-sm font-bold mb-1">
-                  Strategic supplier matching
-                </h4>
-                <p className="text-xs text-gray-300">
-                  Identifying optimal manufacturing partners.
-                </p>
+
+              <div
+                className={`absolute`}
+                style={{ top: "-80%", left: "90%", minWidth: "170px" }}
+              >
+                <div className="flex-1 pt-2 mb-2">
+                  <h4 className="text-sm font-bold mb-1">
+                    Strategic supplier matching
+                  </h4>
+                  <p className="text-xs text-gray-300">
+                    Identifying optimal manufacturing partners.
+                  </p>
+                </div>
+                <div
+                  className={`${styles.horizontalLine} absolute`}
+                  style={{ top: "100%", left: "9%" }}
+                ></div>
+                <DotLine
+                  axis="y"
+                  containerStyle={{ maxHeight: "40px", maxWidth: "80px" }}
+                />
               </div>
             </div>
 
             {/* Production Planning */}
-            <div className="w-full flex items-start gap-4 flex-row-reverse">
+            <div
+              className=" flex items-start gap-4 flex-row-reverse absolute"
+              style={{ top: "47%", left: "55%" }}
+            >
+              <div
+                className={`absolute flex gap-3`}
+                style={{ top: "25%", left: "-230%" }}
+              >
+                <div className="flex-1 pt-2 text-right">
+                  <h4 className="text-sm font-bold mb-1">
+                    Production Planning
+                  </h4>
+                  <p className="text-xs text-gray-300">
+                    Comprehensive production strategy development.
+                  </p>
+                </div>
+                <DotLine
+                  axis="x"
+                  containerStyle={{
+                    maxHeight: "50px",
+                    maxWidth: "210px",
+                    minWidth: "110px",
+                  }}
+                />
+              </div>
               <div
                 onClick={() => handleProcessClick("production-planning")}
-                className="flex-shrink-0 w-28 h-28 rounded-full cursor-pointer hover:scale-105 transition-transform relative overflow-hidden"
+                className="flex-shrink-0 w-22 h-22 rounded-full cursor-pointer hover:scale-105 transition-transform relative overflow-hidden"
                 style={{
                   background:
                     "linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(240,240,240,0.95) 100%)",
@@ -700,19 +755,16 @@ export default function ProcessFlow() {
                   </h3>
                 </div>
               </div>
-              <div className="flex-1 pt-2 text-right">
-                <h4 className="text-sm font-bold mb-1">Production Planning</h4>
-                <p className="text-xs text-gray-300">
-                  Comprehensive production strategy development.
-                </p>
-              </div>
             </div>
 
             {/* Quality Checking */}
-            <div className="w-full flex items-start gap-4">
+            <div
+              className=" flex items-start gap-4 absolute"
+              style={{ top: "65%", left: "57%" }}
+            >
               <div
                 onClick={() => handleProcessClick("quality-checking")}
-                className="flex-shrink-0 w-28 h-28 rounded-full cursor-pointer hover:scale-105 transition-transform relative overflow-hidden"
+                className="flex-shrink-0 w-22 h-22 rounded-full cursor-pointer hover:scale-105 transition-transform relative overflow-hidden"
                 style={{
                   background:
                     "linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(240,240,240,0.95) 100%)",
@@ -735,19 +787,40 @@ export default function ProcessFlow() {
                   </h3>
                 </div>
               </div>
-              <div className="flex-1 pt-2">
-                <h4 className="text-sm font-bold mb-1">Quality Checking</h4>
-                <p className="text-xs text-gray-300">
-                  Refining designs for efficient production.
-                </p>
+
+              <div
+                className={`absolute`}
+                style={{ top: "-60%", left: "-140%", maxWidth: "200px" }}
+              >
+                <div className="flex-1 pt-2">
+                  <h4 className="text-sm font-bold mb-1">Quality Checking</h4>
+                  <p className="text-xs text-gray-300">
+                    Refining designs for efficient production.
+                  </p>
+                </div>
+                <div
+                  className={`${styles.horizontalLine} absolute`}
+                  style={{ top: "100%", left: "49.5%" }}
+                ></div>
+                <DotLine
+                  axis="y"
+                  containerStyle={{
+                    maxHeight: "50px",
+                    maxWidth: "210px",
+                    minWidth: "130px",
+                  }}
+                />
               </div>
             </div>
 
             {/* Delivery & After Sales Service */}
-            <div className="w-full flex items-start gap-4 flex-row-reverse">
+            <div
+              className=" flex items-start gap-4 flex-row-reverse absolute"
+              style={{ top: "90%", left: "74%" }}
+            >
               <div
                 onClick={() => handleProcessClick("delivery-service")}
-                className="flex-shrink-0 w-28 h-28 rounded-full cursor-pointer hover:scale-105 transition-transform relative overflow-hidden"
+                className="flex-shrink-0 w-22 h-22 rounded-full cursor-pointer hover:scale-105 transition-transform relative overflow-hidden"
                 style={{
                   background:
                     "linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(240,240,240,0.95) 100%)",
@@ -771,13 +844,23 @@ export default function ProcessFlow() {
                   </h3>
                 </div>
               </div>
-              <div className="flex-1 pt-2 text-right">
-                <h4 className="text-sm font-bold mb-1">
-                  Delivery & After Sales Service
-                </h4>
-                <p className="text-xs text-gray-300">
-                  Innovative prototyping and iterative design processes.
-                </p>
+              <div
+                className={`absolute`}
+                style={{ top: "-60%", left: "-210%", maxWidth: "220px" }}
+              >
+                <div className="flex-1 pt-2 text-start">
+                  <h4 className="text-sm font-bold mb-1">
+                    Delivery & After Sales Service
+                  </h4>
+                  <p className="text-xs text-gray-300">
+                    Innovative prototyping and iterative design processes.
+                  </p>
+                </div>
+                <div
+                  className={`${styles.horizontalLine} absolute`}
+                  style={{ top: "99.8%", left: "49.5%" }}
+                ></div>
+                <DotLine axis="y" />
               </div>
             </div>
           </div>

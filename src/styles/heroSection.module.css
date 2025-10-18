@@ -175,6 +175,18 @@
   min-height: 800px;
 }
 
+
+
+.mobile_container {
+  background-image: url("../../public/streetIllustration.png");
+  background-size: 330px 690px;
+  background-repeat: no-repeat;
+  background-position: center;
+  max-height: 800px;
+  min-height: 800px;
+  max-width: 350px;
+}
+
 .wrapper {
   display: flex;
   align-items: center; /* centers both vertically and horizontally */

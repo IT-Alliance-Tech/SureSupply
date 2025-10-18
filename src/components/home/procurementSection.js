@@ -158,74 +158,70 @@ const ProcurementSection = () => {
     },
   ]
 
+  const cardImages = [cardImg1, cardImg2, cardImg3, cardImg4]
+
   return (
     <section
-      className={`w-full py-10 px-8 flex justify-center bg-cover bg-center relative ${
-        isMobile ? 'flex-col items-center' : ''
-      }`}
+      className={`w-full py-10 px-8 flex justify-center bg-cover bg-center relative`}
       style={{ backgroundImage: `url(${sectionBg.src})` }}
     >
-      <div className="relative max-w-[1200px] w-full flex flex-col lg:flex-row gap-10 items-center lg:items-stretch z-10">
+      <div className="relative w-full max-w-[1200px] flex flex-col lg:flex-row gap-10 items-center lg:items-stretch z-10">
         {/* Mobile Heading */}
         <div className="w-full lg:hidden mb-6 text-center">
           <h2 className="text-3xl font-extrabold text-[#0A175C] leading-tight">
-           {` Simplifying Procurement,`} <br />
+           {`Simplifying Procurement,`} <br />
             <span>
               From <span className="text-[#F05023]">RFQ</span> to{' '}
               <span className="text-[#F05023]">Delivery</span>
             </span>
           </h2>
           <p className="mt-4 text-[#0A175C]">
-           {` Navigate our comprehensive manufacturing journey from initial concept to final delivery.`}
+           {`Navigate our comprehensive manufacturing journey from initial concept to final delivery.`}
           </p>
         </div>
 
         {/* Cards */}
         <div
-          className={`lg:w-11/20 w-full ${
+          className={`w-full lg:w-11/20 mx-auto ${
             isMobile
               ? 'flex flex-col gap-8 mt-6'
               : 'grid grid-cols-3 grid-rows-2 gap-6'
           }`}
         >
-          {/* Card 1 - left */}
-          <div className={`${isMobile ? 'flex justify-start w-full ml-3' : 'col-start-1 row-start-1 relative top-33'}`}>
-            <Card
-              title={popupData[0].title}
-              imgSrc={cardImg1}
-              onClickPlus={() => setOpenPopup(0)}
-            />
-          </div>
+          {popupData.map((p, i) => {
+            let positionClass = ''
+            if (!isMobile) {
+              switch (i) {
+                case 0:
+                  positionClass = 'col-start-1 row-start-1 relative top-33'
+                  break
+                case 1:
+                  positionClass = 'col-start-2 row-start-1'
+                  break
+                case 2:
+                  positionClass = 'col-start-2 row-start-2'
+                  break
+                case 3:
+                  positionClass = 'col-start-3 row-span-2 flex items-center'
+                  break
+              }
+            } else {
+              positionClass = i % 2 === 0 ? 'flex justify-start w-full ml-3' : 'flex justify-end w-full mr-3'
+            }
 
-          {/* Card 2 - right */}
-          <div className={`${isMobile ? 'flex justify-end w-full mr-3' : 'col-start-2 row-start-1'}`}>
-            <Card
-              title={popupData[1].title}
-              imgSrc={cardImg2}
-              onClickPlus={() => setOpenPopup(1)}
-            />
-          </div>
-
-          {/* Card 3 - left */}
-          <div className={`${isMobile ? 'flex justify-start w-full ml-3' : 'col-start-2 row-start-2'}`}>
-            <Card
-              title={popupData[2].title}
-              imgSrc={cardImg3}
-              onClickPlus={() => setOpenPopup(2)}
-            />
-          </div>
-
-          {/* Card 4 - right */}
-          <div className={`${isMobile ? 'flex justify-end w-full mr-3' : 'col-start-3 row-span-2 flex items-center'}`}>
-            <Card
-              title={popupData[3].title}
-              imgSrc={cardImg4}
-              onClickPlus={() => setOpenPopup(3)}
-            />
-          </div>
+            return (
+              <div key={i} className={positionClass}>
+                <Card
+                  title={p.title}
+                  imgSrc={cardImages[i]}
+                  onClickPlus={() => setOpenPopup(i)}
+                />
+              </div>
+            )
+          })}
         </div>
 
-        {/* Desktop Right Side (unchanged) */}
+        {/* Desktop Right Side */}
         <div className="lg:w-9/20 w-full hidden lg:flex flex-col justify-center">
           <h2 className="text-4xl font-extrabold text-[#0A175C] leading-tight">
             Simplifying Procurement, <br />
@@ -236,11 +232,11 @@ const ProcurementSection = () => {
           </h2>
 
           <p className="mt-6 text-[#0A175C] max-w-md">
-           {` Navigate our comprehensive manufacturing journey from initial concept to final delivery.`}
+           {`Navigate our comprehensive manufacturing journey from initial concept to final delivery.`}
           </p>
 
           <button className="mt-8 bg-[#F05023] text-white px-6 py-3 rounded-lg shadow hover:shadow-md w-max">
-           {` Get Quote Now`}
+           {`Get Quote Now`}
           </button>
         </div>
       </div>
