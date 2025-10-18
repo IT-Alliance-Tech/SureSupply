@@ -1,61 +1,53 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { FaBars, FaTimes, FaChevronDown } from "react-icons/fa";
-import LogoImg from "../../../public/logo.png"; // Logo import
-import MenuLeftImg from "../../../public/dummy3.png"; // Left image import
+
+// 🖼️ Your images
+import LogoImg from "../../../public/logo.png";
+import MenuLeftImg from "../../../public/dummy3.png";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [resourcesOpen, setResourcesOpen] = useState(false);
-
+  const router = useRouter();
   const menuRef = useRef();
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
   const toggleResources = () => setResourcesOpen(!resourcesOpen);
 
-  const resourcesLinks = {
-    Company: [
-      { name: "About", href: "/about" },
-      { name: "Contact", href: "/contact" },
-      { name: "Careers", href: "/career" },
-      { name: "Investors", href: "/investors" },
-    ],
-    Insights: [
-      { name: "Case studies", href: "/case-studies" },
-      { name: "Blog", href: "/blog" },
-      { name: "White papers", href: "/white-papers" },
-      { name: "Webinars", href: "/webinars" },
-    ],
-    Support: [
-      { name: "Help center", href: "/help-center" },
-      { name: "Documentation", href: "/document" },
-      { name: "Training", href: "/training" },
-      { name: "Community", href: "/community" },
-    ],
+  const navigateTo = (path) => {
+    setMenuOpen(false);
+    setResourcesOpen(false);
+    router.push(path);
   };
 
-  // Close menu if click outside
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (menuRef.current && !menuRef.current.contains(event.target)) {
-        setMenuOpen(false);
-        setResourcesOpen(false);
-      }
-    };
+  const companyItems = [
+    { title: "About", desc: "Manufacturing expertise you can trust", path: "/about" },
+    { title: "Contact", desc: "Get in touch with our team", path: "/contact" },
+    { title: "Careers", desc: "Join our innovative team", path: "/careers" },
+    { title: "Investors", desc: "Financial insights", path: "/investors" },
+  ];
 
-    if (menuOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
-    }
+  const insightsItems = [
+    { title: "Case Studies", desc: "Successful projects", path: "/case-studies" },
+    { title: "Blog", desc: "Industry trends", path: "/blog" },
+    { title: "White Papers", desc: "In-depth research", path: "/white-papers" },
+    { title: "Webinars", desc: "Expert-led discussions", path: "/webinars" },
+  ];
 
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [menuOpen]);
+  const supportItems = [
+    { title: "Help Center", desc: "Find quick answers", path: "/help-center" },
+    { title: "Documentation", desc: "Detailed guides & references", path: "/documentation" },
+    { title: "Training", desc: "Hands-on learning resources", path: "/training" },
+    { title: "Community", desc: "Join and connect with peers", path: "/community" },
+  ];
 
   return (
     <header className="w-full bg-white fixed top-0 left-0 z-50 shadow-sm">
+      {/* ====== TOP NAVBAR ====== */}
       <div className="flex justify-between items-center px-6 py-3 border-b border-gray-100">
         {/* Logo */}
         <div className="flex items-center">
@@ -64,12 +56,16 @@ const Navbar = () => {
 
         {/* Right Side */}
         <div className="flex items-center space-x-3">
-          <button className="px-5 py-2 text-blue-600 border border-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition">
-           {` Login`}
-          </button>
-          <button className="px-5 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition">
-           {` Signup`}
-          </button>
+          {/* Desktop Buttons */}
+          <div className="hidden md:flex space-x-3">
+            <button className="px-5 py-2 text-blue-600 border border-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition text-base font-medium">
+              Login
+            </button>
+            <button className="px-5 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition text-base font-medium">
+              Signup
+            </button>
+          </div>
+
           {/* Menu Icon */}
           <button
             onClick={toggleMenu}
@@ -84,130 +80,200 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Slide-Out Menu */}
+      {/* ====== SLIDE-OUT MENU ====== */}
       {menuOpen && (
-        <div className="fixed inset-0 z-40 flex">
-          {/* Left Image occupies remaining space */}
-          <div className="flex-1 relative">
-            <Image
-              src={MenuLeftImg}
-              alt="Menu Left Image"
-              layout="fill"
-              objectFit="cover"
-            />
+        <div className="fixed inset-0 z-40 flex flex-col md:flex-row">
+          {/* ====== LEFT SIDE (IMAGE + DESKTOP RESOURCES OVERLAY) ====== */}
+          <div className="w-full md:w-[60%] relative bg-black flex-shrink-0">
+            {/* Desktop image */}
+            <div className="hidden md:block w-full h-full relative">
+              <Image
+                src={MenuLeftImg}
+                alt="Menu Left Image"
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+
+            {/* Mobile image on top */}
+            <div className="md:hidden w-full h-48 relative">
+              <Image
+                src={MenuLeftImg}
+                alt="Menu Top Image"
+                fill
+                className="object-cover"
+              />
+            </div>
+
+            {/* Desktop Resources Overlay */}
+            {resourcesOpen && (
+              <div className="hidden md:block absolute inset-0 bg-black/70 text-white p-10 overflow-y-auto animate-fadeIn">
+                <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-12">
+                  <div>
+                    <h3 className="text-2xl font-semibold mb-6 text-white">Company</h3>
+                    <ul className="space-y-6">
+                      {companyItems.map((item, i) => (
+                        <li key={i}>
+                          <h5 className="font-semibold text-lg">{item.title}</h5>
+                          <p className="text-gray-300 text-sm">{item.desc}</p>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-semibold mb-6 text-white">Insights</h3>
+                    <ul className="space-y-6">
+                      {insightsItems.map((item, i) => (
+                        <li key={i}>
+                          <h5 className="font-semibold text-lg">{item.title}</h5>
+                          <p className="text-gray-300 text-sm">{item.desc}</p>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-semibold mb-6 text-white">Support</h3>
+                    <ul className="space-y-6">
+                      {supportItems.map((item, i) => (
+                        <li key={i}>
+                          <h5 className="font-semibold text-lg">{item.title}</h5>
+                          <p className="text-gray-300 text-sm">{item.desc}</p>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
 
-          {/* Right Menu */}
+          {/* ====== RIGHT SIDE MENU ====== */}
           <div
             ref={menuRef}
-            className="w-[300px] bg-white p-6 flex flex-col shadow-2xl overflow-y-auto"
+            className="w-full md:w-[40%] bg-white p-8 flex flex-col overflow-y-auto relative"
           >
-            <h3 className="text-xl font-semibold mb-4 text-black">Menu</h3>
-            <ul className="flex-1 space-y-4">
-              <li>
-                <a
-                  href="/"
-                  onClick={() => setMenuOpen(false)}
-                  className="text-black font-medium hover:text-blue-800"
-                >
-                 {` Home`}
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/services"
-                  onClick={() => setMenuOpen(false)}
-                  className="text-black font-medium hover:text-blue-800"
-                >
-                  {`Services`}
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/ourCapabilities"
-                  onClick={() => setMenuOpen(false)}
-                  className="text-black font-medium hover:text-blue-800"
-                >
-                 {` Capabilities`}
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/ourSolution"
-                  onClick={() => setMenuOpen(false)}
-                  className="text-black font-medium hover:text-blue-800"
-                >
-                 {` Solutions`}
-                </a>
-              </li>
+            {/* Cancel Icon */}
+            <button
+              onClick={() => setMenuOpen(false)}
+              className="absolute top-4 right-4 text-blue-600 hover:text-blue-800 transition"
+            >
+              <FaTimes size={24} />
+            </button>
 
-              {/* Resources */}
+            <h3 className="text-2xl font-semibold mb-6 text-black mt-2">Menu</h3>
+
+            <ul className="flex-1 space-y-5">
               <li>
                 <button
+                  onClick={() => navigateTo("/")}
+                  className="text-black font-semibold text-lg hover:text-blue-800 w-full text-left"
+                >
+                  Home
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => navigateTo("/services")}
+                  className="text-black font-semibold text-lg hover:text-blue-800 w-full text-left"
+                >
+                  Services
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => navigateTo("/ourCapabilities")}
+                  className="text-black font-semibold text-lg hover:text-blue-800 w-full text-left"
+                >
+                  Capabilities
+                </button>
+              </li>
+
+              {/* Resources button */}
+              <li className="relative">
+                <button
                   onClick={toggleResources}
-                  className="flex items-center justify-between w-full font-medium text-black hover:text-blue-800"
+                  className="flex items-center justify-between w-full text-left text-black font-semibold text-lg hover:text-blue-800"
                 >
                   <span>Resources</span>
                   <FaChevronDown
-                    size={14}
-                    className={`transition-transform ${
-                      resourcesOpen ? "rotate-180" : ""
+                    className={`ml-2 transform transition-transform ${
+                      resourcesOpen ? "rotate-180" : "rotate-0"
                     }`}
                   />
                 </button>
 
+                {/* Mobile dropdown */}
                 {resourcesOpen && (
-                  <div className="mt-3 pl-2 border-l border-black max-h-52 overflow-y-auto">
-                    {Object.entries(resourcesLinks).map(([section, items]) => (
-                      <div key={section} className="mb-3">
-                        <h4 className="text-black font-semibold text-sm mb-1">
-                          {section}
-                        </h4>
-                        <ul className="ml-3 space-y-1">
-                          {items.map((item) => (
-                            <li key={item.name}>
-                              <a
-                                href={item.href}
-                                onClick={() => setMenuOpen(false)}
-                                className="text-blue-600 text-sm hover:text-blue-800"
-                              >
-                                {item.name}
-                              </a>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    ))}
+                  <div className="md:hidden mt-2 pl-2 flex flex-col space-y-4 border-l-2 border-gray-200">
+                    <div>
+                      <h4 className="font-semibold text-lg mb-2">Company</h4>
+                      {companyItems.map((item, i) => (
+                        <button
+                          key={i}
+                          onClick={() => navigateTo(item.path)}
+                          className="text-black font-normal hover:text-blue-600 text-left w-full mb-1"
+                        >
+                          {item.title}
+                        </button>
+                      ))}
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-lg mb-2">Insights</h4>
+                      {insightsItems.map((item, i) => (
+                        <button
+                          key={i}
+                          onClick={() => navigateTo(item.path)}
+                          className="text-black font-normal hover:text-blue-600 text-left w-full mb-1"
+                        >
+                          {item.title}
+                        </button>
+                      ))}
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-lg mb-2">Support</h4>
+                      {supportItems.map((item, i) => (
+                        <button
+                          key={i}
+                          onClick={() => navigateTo(item.path)}
+                          className="text-black font-normal hover:text-blue-600 text-left w-full mb-1"
+                        >
+                          {item.title}
+                        </button>
+                      ))}
+                    </div>
                   </div>
                 )}
               </li>
             </ul>
 
-            {/* Bottom buttons inside menu */}
-            <div className="mt-auto flex flex-col gap-2">
-              <button className="px-4 py-2 border border-blue-600 text-blue-600 rounded hover:bg-blue-600 hover:text-white transition">
-                {`Login`}
+            {/* Buttons inside menu */}
+            <div className="mt-auto flex flex-col gap-3">
+              <button className="px-5 py-3 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition text-base font-medium">
+                Login
               </button>
-              <button className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">
-                {`Signup`}
+              <button className="px-5 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition text-base font-medium">
+                Signup
               </button>
             </div>
           </div>
         </div>
       )}
 
-      {/* Animation */}
-      <style jsx>{`
-        @keyframes slide-left {
+      {/* ====== ANIMATION ====== */}
+      <style jsx global>{`
+        @keyframes fadeIn {
           from {
-            transform: translateX(100%);
+            opacity: 0;
+            transform: translateY(10px);
           }
           to {
-            transform: translateX(0);
+            opacity: 1;
+            transform: translateY(0);
           }
         }
-        .animate-slide-left {
-          animation: slide-left 0.3s ease forwards;
+        .animate-fadeIn {
+          animation: fadeIn 0.3s ease-in-out forwards;
         }
       `}</style>
     </header>
