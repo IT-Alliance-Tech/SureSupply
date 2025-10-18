@@ -7,7 +7,7 @@ import aboutImage from "../../../public/dummyimg.png"; // adjust path if needed
 
 export default function HomeAbout() {
   return (
-    <section className="bg-[#0A175C80] py-12 px-6 sm:px-8 md:px-16 lg:px-24">
+    <section className="bg-[#0A175C] py-12 px-6 sm:px-8 md:px-16 lg:px-24">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-start gap-10 lg:gap-16">
         {/* Left content */}
         <div className="lg:w-1/2 text-white flex flex-col justify-center text-left">

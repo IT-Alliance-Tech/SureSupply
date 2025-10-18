@@ -174,7 +174,7 @@ export default function WhySureSupply() {
                 </a>
               </div>
             )}
-          </div>
+          </div>  
         ))}
       </div>
     </section>
