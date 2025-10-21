@@ -17,16 +17,17 @@ export default function OurStory() {
               className="text-[40px] font-bold uppercase text-[#0A175C] leading-[120%] mb-6"
               style={{ fontFamily: 'Outfit', letterSpacing: '-0.5%' }}
             >
-              {` OUR STORY OF GLOBAL `}<br /> SUPPLY <br />{`TRANSFORMATION`}
+              {`OUR STORY OF GLOBAL`} <br /> SUPPLY <br /> {`TRANSFORMATION`}
             </h1>
 
             <p
               className="text-[16px] leading-[150%] mb-8 max-w-md"
               style={{ fontFamily: 'Lato', fontWeight: 400, letterSpacing: '0%', color: '#0A175C' }}
             >
-              {`We build networks that connect industries across continents. Our
-              digital platform transforms complex supply chains into seamless,
-              efficient systems.`}
+              {`Founded by IIT and IIM alumni, SureSupply is redefining how products are made by removing manufacturing barriers. 
+We connect creators with India’s most capable suppliers to deliver precision-engineered components reliably and transparently. 
+Backed by engineering expertise, we take full ownership of every RFQ — matching the right supplier, process, and ensuring top-quality outcomes. 
+With a human-first approach, we collaborate on design, technical consulting, and production, empowering innovation without limits.`}
             </p>
 
             {/* Buttons */}
@@ -59,7 +60,7 @@ export default function OurStory() {
                   },
                 }}
               >
-                {` Become a partner`}
+                {`Become a Partner`}
               </Button>
             </div>
           </div>

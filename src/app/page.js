@@ -15,8 +15,8 @@ export default function Home() {
       <HeroSection />
       <ManufacturingProcesses />
       <HomeAbout />
-      {/* <WhySureSupply1 /> */}
-      <WhySureSupply />
+      <WhySureSupply1 />
+      {/* <WhySureSupply /> */}
       <QuoteForm />
      <Roadmap />
      <ProcurementSection />

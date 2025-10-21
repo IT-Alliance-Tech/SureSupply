@@ -13,6 +13,7 @@ import casting1 from "../../../public/dummy2.png";
 import casting2 from "../../../public/dummy2.png";
 import casting3 from "../../../public/dummy2.png";
 import casting4 from "../../../public/dummy2.png";
+import casting5 from "../../../public/dummy2.png";
 import castingExpanded from "../../../public/dummy2.png";
 
 import forging1 from "../../../public/dummy2.png";
@@ -37,12 +38,15 @@ import injection1 from "../../../public/dummy2.png";
 import injection2 from "../../../public/dummy2.png";
 import injection3 from "../../../public/dummy2.png";
 import injection4 from "../../../public/dummy2.png";
+import injection5 from "../../../public/dummy2.png";
+import injection6 from "../../../public/dummy2.png";
 import injectionExpanded from "../../../public/dummy2.png";
 
 import cnc1 from "../../../public/dummy2.png";
 import cnc2 from "../../../public/dummy2.png";
 import cnc3 from "../../../public/dummy2.png";
 import cnc4 from "../../../public/dummy2.png";
+import cnc5 from "../../../public/dummy2.png";
 import cncExpanded from "../../../public/dummy2.png";
 
 import rapid1 from "../../../public/dummy2.png";
@@ -78,7 +82,7 @@ function Card({ title, image, minHeight = 200, onLearn, bgColor = "#1E2A5E", tex
       className="relative rounded-2xl overflow-hidden shadow-lg flex flex-col justify-between p-5 text-left cursor-default"
       style={{ minHeight: `${minHeight}px`, backgroundColor: bgColor, color: textColor }}
     >
-      <div className="absolute inset-0"> 
+      <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent"></div>
         <div className="flex items-center justify-center opacity-[0.05]">
           <Image src={image} alt={title} width={80} height={80} className="object-contain" />
@@ -99,19 +103,24 @@ function Card({ title, image, minHeight = 200, onLearn, bgColor = "#1E2A5E", tex
   );
 }
 
-// ✅ Steps Modal
+// ✅ Steps Modal with animation
 function StepsModal({ isOpen, onClose, stepsData, alignment }) {
   const [expandedStep, setExpandedStep] = useState(null);
   if (!isOpen) return null;
 
-  const justifyClass = alignment === "left" ? "justify-start" : alignment === "right" ? "justify-end" : "justify-center";
+  const justifyClass =
+    alignment === "left" ? "justify-start" : alignment === "right" ? "justify-end" : "justify-center";
 
   return (
-    <div
-      className={`fixed inset-0 z-50 flex ${justifyClass} items-start pt-20 px-4 md:px-0`}
-    >
-      <div className="rounded-2xl p-6 md:p-8 w-full max-w-3xl shadow-2xl bg-[#0A175C] overflow-y-auto max-h-[90vh]">
-        <AnimatePresence>
+    <div className={`fixed inset-0 z-50 flex ${justifyClass} items-start pt-20 px-4 md:px-0`}>
+      <AnimatePresence>
+        <motion.div
+          className="rounded-2xl p-6 md:p-8 w-full max-w-3xl shadow-2xl bg-[#0A175C] overflow-y-auto max-h-[90vh]"
+          initial={{ opacity: 0, y: -50, scale: 0.95 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: -50, scale: 0.95 }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+        >
           {!expandedStep ? (
             <div className="flex flex-col gap-5">
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-5">
@@ -128,10 +137,7 @@ function StepsModal({ isOpen, onClose, stepsData, alignment }) {
                 ))}
               </div>
               <div className="text-right mt-4">
-                <button
-                  onClick={onClose}
-                  className="text-orange-500 font-semibold hover:text-orange-400"
-                >
+                <button onClick={onClose} className="text-orange-500 font-semibold hover:text-orange-400">
                   Back
                 </button>
               </div>
@@ -140,17 +146,14 @@ function StepsModal({ isOpen, onClose, stepsData, alignment }) {
             <div className="flex flex-col gap-5">
               <Card expandedStep={expandedStep} />
               <div className="text-right mt-2">
-                <button
-                  onClick={() => setExpandedStep(null)}
-                  className="text-orange-500 font-semibold hover:text-orange-400"
-                >
+                <button onClick={() => setExpandedStep(null)} className="text-orange-500 font-semibold hover:text-orange-400">
                   Back
                 </button>
               </div>
             </div>
           )}
-        </AnimatePresence>
-      </div>
+        </motion.div>
+      </AnimatePresence>
     </div>
   );
 }
@@ -163,46 +166,55 @@ export default function OurExpertise() {
 
   const cardSteps = {
     Casting: [
-      { title: "Mold Preparation", image: casting1, expandedImage: castingExpanded, details: "Prepare high-precision sand molds for consistency and accuracy." },
-      { title: "Metal Pouring", image: casting2, expandedImage: castingExpanded, details: "Molten metal is carefully poured into pre-heated molds." },
-      { title: "Cooling & Solidification", image: casting3, expandedImage: castingExpanded, details: "Controlled cooling ensures uniform grain structure." },
-      { title: "Finishing & Inspection", image: casting4, expandedImage: castingExpanded, details: "Castings are cleaned, trimmed, and inspected." },
+      { title: "High pressure die casting (HPDC)", image: casting1, expandedImage: castingExpanded, details: "Prepare high-precision sand molds for consistency and accuracy." },
+      { title: "Low pressure die casting (LPDC)", image: casting2, expandedImage: castingExpanded, details: "Molten metal is carefully poured into pre-heated molds." },
+      { title: "Gravity die Casting (GDC)", image: casting3, expandedImage: castingExpanded, details: "Controlled cooling ensures uniform grain structure." },
+      { title: "Investment casting", image: casting4, expandedImage: castingExpanded, details: "Castings are cleaned, trimmed, and inspected." },
+      { title: "Heat Treatment", image: casting5, expandedImage: castingExpanded, details: "Enhances mechanical properties through controlled heating and cooling." },
     ],
     Forging: [
-      { title: "Heating", image: forging1, expandedImage: forgingExpanded, details: "Raw billets are heated uniformly to forging temperature." },
-      { title: "Shaping", image: forging2, expandedImage: forgingExpanded, details: "Metal is shaped using precision dies and hydraulic presses." },
-      { title: "Cooling", image: forging3, expandedImage: forgingExpanded, details: "Controlled cooling enhances structural integrity." },
-      { title: "Finishing", image: forging4, expandedImage: forgingExpanded, details: "Components are machined and inspected." },
+      { title: "Open die forging", image: forging1, expandedImage: forgingExpanded, details: "Forging between flat dies to produce large, custom-shaped components." },
+      { title: "Closed die forging", image: forging2, expandedImage: forgingExpanded, details: "Forging with shaped dies to create precise and repeatable part geometries." },
+      { title: "Upset forging", image: forging3, expandedImage: forgingExpanded, details: "Compression of heated bar stock to increase diameter and form specific features." },
+      { title: "Rolled forging", image: forging4, expandedImage: forgingExpanded, details: "Rolling process to shape metal billets into rings or contoured forms." },
+      { title: "Drop forging", image: forging1, expandedImage: forgingExpanded, details: "Hammer-based forging technique producing high-strength, detailed parts." },
     ],
     Fabrication: [
-      { title: "Material Prep", image: fabrication1, expandedImage: fabricationExpanded, details: "Sheets, tubes, and profiles are cut to size." },
-      { title: "Welding & Assembly", image: fabrication2, expandedImage: fabricationExpanded, details: "Parts are welded using MIG/TIG techniques." },
-      { title: "Surface Treatment", image: fabrication3, expandedImage: fabricationExpanded, details: "Powder coating or painting enhances corrosion resistance." },
-      { title: "Final QA", image: fabrication4, expandedImage: fabricationExpanded, details: "Each assembly is inspected for tolerance and finish." },
+      { title: "Die press", image: fabrication1, expandedImage: fabricationExpanded, details: "Forming metal sheets into components using high-pressure dies and presses." },
+      { title: "Laser cutting", image: fabrication2, expandedImage: fabricationExpanded, details: "High-precision cutting of sheet metal using focused laser beams for intricate profiles." },
+      { title: "Plasma cutting", image: fabrication3, expandedImage: fabricationExpanded, details: "Cutting thick metal sheets using high-temperature plasma arc technology." },
+      { title: "Waterjet cutting", image: fabrication4, expandedImage: fabricationExpanded, details: "Abrasive waterjet cutting for precise, cold-cutting of materials without thermal distortion." },
+      { title: "EDM and wire EDM", image: fabrication1, expandedImage: fabricationExpanded, details: "Electro-discharge machining for intricate metal shapes and high-tolerance features." },
+      { title: "Welding", image: fabrication2, expandedImage: fabricationExpanded, details: "Joining of metal components using TIG, MIG, and spot welding techniques." },
     ],
-    "Sheet Metal Stamping": [
-      { title: "Blanking", image: sheetMetal1, expandedImage: sheetMetalExpanded, details: "Sheets are cut into required shapes using high-speed presses." },
-      { title: "Forming", image: sheetMetal2, expandedImage: sheetMetalExpanded, details: "Dies shape metal into complex geometries." },
-      { title: "Trimming", image: sheetMetal3, expandedImage: sheetMetalExpanded, details: "Excess edges are removed for perfect dimensions." },
-      { title: "Inspection", image: sheetMetal4, expandedImage: sheetMetalExpanded, details: "Each part undergoes quality checks for accuracy." },
+    "Plastic Molding": [
+      { title: "Injection Molding", image: injection1, expandedImage: injectionExpanded, details: "Molten plastic is injected into a closed mold cavity under high pressure for precise, repeatable parts." },
+      { title: "Blow Molding", image: injection2, expandedImage: injectionExpanded, details: "Heated plastic is expanded inside a mold using air pressure to form hollow parts like bottles and containers." },
+      { title: "Vacuum forming", image: injection3, expandedImage: injectionExpanded, details: "A heated plastic sheet is stretched onto a mold and shaped by applying vacuum pressure." },
+      { title: "Compression Molding", image: injection4, expandedImage: injectionExpanded, details: "Preheated plastic is placed in a heated mold cavity and compressed to take its shape." },
+      { title: "Extrusion Molding", image: injection5, expandedImage: injectionExpanded, details: "Molten plastic is forced through a die to create continuous shapes like pipes, sheets, or profiles." },
+      { title: "Reaction Injection Molding (RIM)", image: injection6, expandedImage: injectionExpanded, details: "Two liquid components react chemically inside the mold to form lightweight, durable molded parts." },
     ],
-    "Injection Molding": [
-      { title: "Material Feeding", image: injection1, expandedImage: injectionExpanded, details: "Plastic granules are fed into the heated barrel." },
-      { title: "Injection", image: injection2, expandedImage: injectionExpanded, details: "Molten plastic is injected into the mold cavity." },
-      { title: "Cooling", image: injection3, expandedImage: injectionExpanded, details: "The molded part cools and solidifies." },
-      { title: "Ejection & QA", image: injection4, expandedImage: injectionExpanded, details: "Parts are ejected and quality checked." },
-    ],
-    "CNC Machining": [
-      { title: "Programming", image: cnc1, expandedImage: cncExpanded, details: "CAM software generates tool paths from CAD models." },
-      { title: "Setup", image: cnc2, expandedImage: cncExpanded, details: "Workpieces are mounted securely for precise machining." },
-      { title: "Machining", image: cnc3, expandedImage: cncExpanded, details: "CNC machines perform turning, milling, drilling." },
-      { title: "Inspection", image: cnc4, expandedImage: cncExpanded, details: "Each component is measured to micron-level accuracy." },
+    Machining: [
+      { title: "CNC lathe", image: cnc1, expandedImage: cncExpanded, details: "High-precision turning of cylindrical components using computer-controlled lathes." },
+      { title: "Multi axis VMC", image: cnc2, expandedImage: cncExpanded, details: "Complex milling operations performed on multi-axis vertical machining centers for intricate geometries." },
+      { title: "Grinding", image: cnc3, expandedImage: cncExpanded, details: "Precision surface and cylindrical grinding to achieve tight tolerances and fine finishes." },
+      { title: "Gear cutting", image: cnc4, expandedImage: cncExpanded, details: "Specialized machining for cutting gears using hobbing, shaping, or broaching techniques." },
+      { title: "Super finishing", image: cnc5, expandedImage: cncExpanded, details: "Ultra-fine finishing processes that improve surface quality and reduce friction." },
     ],
     "Rapid Prototyping": [
-      { title: "Design Input", image: rapid1, expandedImage: rapidExpanded, details: "CAD models are analyzed for prototype readiness." },
-      { title: "3D Printing", image: rapid2, expandedImage: rapidExpanded, details: "Layer-by-layer fabrication brings digital models to life." },
-      { title: "Post-Processing", image: rapid3, expandedImage: rapidExpanded, details: "Sanding and polishing improve aesthetics." },
-      { title: "Testing", image: rapid4, expandedImage: rapidExpanded, details: "Functional prototypes undergo fit and performance validation." },
+      { title: "3D printing", image: rapid1, expandedImage: rapidExpanded, details: "Additive manufacturing using polymers for rapid prototyping and design validation." },
+      { title: "Metal 3d printing", image: rapid2, expandedImage: rapidExpanded, details: "Additive process for creating complex metal parts with high precision." },
+      { title: "Vacuum casting", image: rapid3, expandedImage: rapidExpanded, details: "Casting of silicone molds under vacuum to produce functional prototypes." },
+      { title: "CNC pattern", image: rapid4, expandedImage: rapidExpanded, details: "Machined patterns used for mold making and pre-production validation." },
+    ],
+    "Sheet Metal Stamping": [
+      { title: "Die press", image: sheetMetal1, expandedImage: sheetMetalExpanded, details: "Forming metal sheets into components using high-pressure dies and presses." },
+      { title: "Laser cutting", image: sheetMetal2, expandedImage: sheetMetalExpanded, details: "High-precision cutting of sheet metal using focused laser beams for intricate profiles." },
+      { title: "Plasma cutting", image: sheetMetal3, expandedImage: sheetMetalExpanded, details: "Cutting thick metal sheets using high-temperature plasma arc technology." },
+      { title: "Waterjet cutting", image: sheetMetal4, expandedImage: sheetMetalExpanded, details: "Abrasive waterjet cutting for precise, cold-cutting of materials without thermal distortion." },
+      { title: "EDM and wire EDM", image: sheetMetal1, expandedImage: sheetMetalExpanded, details: "Electro-discharge machining for intricate metal shapes and high-tolerance features." },
+      { title: "Welding", image: sheetMetal2, expandedImage: sheetMetalExpanded, details: "Joining of metal components using TIG, MIG, and spot welding techniques." },
     ],
   };
 
@@ -236,11 +248,11 @@ export default function OurExpertise() {
           </div>
           <div className="flex flex-col gap-5 flex-1">
             <Card title="Fabrication" image={dummy} minHeight={150} onLearn={() => handleLearnClick("Fabrication", 2)} />
+            <Card title="Plastic Molding" image={dummy} minHeight={150} onLearn={() => handleLearnClick("Plastic Molding", 2)} />
             <Card title="Sheet Metal Stamping" image={dummy} minHeight={150} onLearn={() => handleLearnClick("Sheet Metal Stamping", 2)} />
-            <Card title="Injection Molding" image={dummy} minHeight={150} onLearn={() => handleLearnClick("Injection Molding", 2)} />
           </div>
           <div className="flex flex-col gap-5 flex-1">
-            <Card title="CNC Machining" image={dummy} minHeight={230} onLearn={() => handleLearnClick("CNC Machining", 3)} />
+            <Card title="Machining" image={dummy} minHeight={230} onLearn={() => handleLearnClick("Machining", 3)} />
             <Card title="Rapid Prototyping" image={dummy} minHeight={240} onLearn={() => handleLearnClick("Rapid Prototyping", 3)} />
           </div>
         </div>
