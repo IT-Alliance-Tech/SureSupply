@@ -8,7 +8,7 @@ import endToEndImg from "../../../public/dummyimg.png";
 import supplierNetworkImg from "../../../public/dummyimg.png";
 import technologyPlatformImg from "../../../public/dummyimg.png";
 import qualityComplianceImg from "../../../public/dummyimg.png";
-import industryExpertiseImg from "../../../public/dummyimg.png";
+import industryExpertiseImg from "../../../public/Banner1.png";
 import flexibleOperationsImg from "../../../public/dummyimg.png";
 import partnershipsImg from "../../../public/dummyimg.png";
 import costEfficiencyImg from "../../../public/dummyimg.png";
@@ -130,94 +130,70 @@ const WhyChooseUs = () => {
       ],
     },
   ];
-
-  const [activeIndex, setActiveIndex] = useState(0);
-  const sliderRef = useRef(null);
+  const [activeIndex, setActiveIndex] = useState(1); // middle item
 
   const settings = {
     dots: false,
     infinite: true,
     autoplay: true,
-    autoplaySpeed: 3000,
-    speed: 800,
+    autoplaySpeed: 2500,
+    speed: 1000,
     slidesToShow: 3,
     slidesToScroll: 1,
     vertical: true,
     verticalSwiping: true,
+    beforeChange: (current, next) => setActiveIndex(next - 1),
+    centerMode: true,
+    centerPadding: 0,
     arrows: false,
-    beforeChange: (current, next) => setActiveIndex(next),
   };
 
-  useEffect(() => {
-    if (sliderRef.current) {
-      sliderRef.current.slickGoTo(activeIndex);
-    }
-  }, [activeIndex]);
-
   return (
-    <section className="w-full bg-gray-50 px-6 md:px-12 py-16">
-      {/* --- TOP HEADING --- */}
-      <div className="text-center mb-20">
-        <h2 className="text-3xl md:text-4xl font-bold" style={{ color: "#0A175C" }}>
-          Why <span className="text-[#F05023]">SureSupply</span>
-        </h2>
-        <p className="text-gray-600 mt-3 max-w-2xl mx-auto text-lg">
-          Your Trusted Partner for Precision Manufacturing & Supply Chain Excellence.
-          End-to-end solutions, advanced technology, and a vetted supplier network
-          to bring your projects to life—on time, every time.
-        </p>
+      <section className="w-full flex flex-col md:flex-row items-center justify-center min-h-[90vh] bg-gray-50 px-6 md:px-12 py-10">
+      {/* LEFT - Image Slider */}
+      <div className="w-full md:w-1/2 flex justify-center">
+        <div className="w-[80%] max-w-[250px] overflow-hidden">
+          <Slider {...settings}>
+            {points.map((point, index) => (
+              <div
+                key={point.id}
+                className={`flex flex-col items-center justify-center transition-all duration-500 ${
+                  index === activeIndex + 1 || // middle slide highlight fix
+                  (activeIndex === points.length - 1 && index === 0)
+                    ? "scale-110 opacity-100"
+                    : "opacity-50 scale-95"
+                }`}
+              >
+                <div className="w-48 h-48 relative rounded-xl overflow-hidden shadow-lg m-5">
+                  <Image
+                    src={point.image}
+                    alt={point.title}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <h3 className="text-lg font-semibold mt-4 text-gray-800 text-center">
+                  {point.title}
+                </h3>
+              </div>
+            ))}
+          </Slider>
+        </div>
       </div>
 
-      {/* --- MAIN CONTENT --- */}
-      <div className="flex flex-col md:flex-row items-start justify-center gap-10">
-        {/* LEFT - Vertical Slider */}
-        <div className="w-full md:w-1/2 flex justify-center">
-          <div className="w-[80%] max-w-[400px]">
-            <Slider ref={sliderRef} {...settings}>
-              {points.map((point, index) => (
-                <div
-                  key={point.id}
-                  className={`flex flex-col items-center justify-center transition-transform duration-500 ${
-                    index === activeIndex
-                      ? "scale-110 opacity-100 z-10"
-                      : "scale-90 opacity-60 z-0"
-                  }`}
-                >
-                  <div className="w-48 h-48 relative rounded-xl overflow-hidden shadow-lg">
-                    <Image
-                      src={point.image}
-                      alt={point.title}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  {/* Title below image */}
-                  <h3 className="text-lg font-semibold mt-4 text-gray-800 text-center">
-                    {point.title}
-                  </h3>
-                </div>
-              ))}
-            </Slider>
-          </div>
-        </div>
-
-        {/* RIGHT - Dynamic Description */}
-        <div className="w-full md:w-1/2 max-w-lg flex flex-col justify-start mt-20 text-center md:text-left">
-          <h3 className="text-3xl md:text-4xl font-semibold text-[#0A175C] mb-4">
-            {points[activeIndex]?.title}
-          </h3>
-          <p className="italic text-[#F05023] mb-4 text-lg md:text-xl">
-            {points[activeIndex]?.headline}
+      {/* RIGHT - Description */}
+      <div className="w-full md:w-1/2 flex justify-center items-center mt-10 md:mt-0">
+        <div className="max-w-md">
+          <h2 className="text-3xl font-bold mb-4 text-gray-900">
+            Why Choose Us
+          </h2>
+          <p className="text-gray-600 leading-relaxed text-lg">
+            {
+              points[
+                (activeIndex + 1) % points.length
+              ]?.description /* ensure center card description */
+            }
           </p>
-          <ul className="list-disc list-inside text-gray-700 space-y-3 text-base md:text-lg mb-6">
-            {points[activeIndex]?.description.map((item, idx) => (
-              <li key={idx}>{item}</li>
-            ))}
-          </ul>
-          {/* Get Quote Button */}
-          <button className="text-[#F05023] font-semibold text-[20px] hover:underline cursor-pointer mt-6 text-left">
-            Get Quote &rarr;
-          </button>
         </div>
       </div>
     </section>
