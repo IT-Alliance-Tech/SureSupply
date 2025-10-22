@@ -4,13 +4,12 @@ import Image from "next/image";
 import Button from "@mui/material/Button";
 import WarehouseOutlinedIcon from "@mui/icons-material/WarehouseOutlined";
 
-// Background and side image (update paths if your structure differs)
 import bgImage from "../../../public/about/aboutbg3.png";
 import sideImage from "../../../public/dummy3.png";
 
 export default function HomePlatform() {
   return (
-    <section className="relative overflow-hidden py-9.2 px-6 sm:px-10 lg:px-20">
+    <section className="relative overflow-hidden py-10 px-6 sm:px-10 lg:px-20">
       {/* Background image */}
       <div className="absolute inset-0 -z-10">
         <Image
@@ -25,12 +24,11 @@ export default function HomePlatform() {
       {/* Content grid */}
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-10">
         {/* Left content */}
-        <div className="space-y-5">
-          {/* Icon wrapper - exact size */}
+        <div className="flex flex-col items-center md:items-start text-center md:text-left space-y-5 order-1">
+          {/* Icon */}
           <div
-            className="flex items-center gap-3"
+            className="flex items-center justify-center md:justify-start"
             style={{ width: 50, height: 50 }}
-            aria-hidden
           >
             <WarehouseOutlinedIcon
               sx={{
@@ -41,13 +39,12 @@ export default function HomePlatform() {
             />
           </div>
 
-          {/* Heading: Outfit, bold, 40px, color #0A175C */}
+          {/* Heading */}
           <h2
-            className="leading-tight"
+            className="leading-tight text-[clamp(24px,5vw,40px)]"
             style={{
               fontFamily: "Outfit, system-ui, sans-serif",
               fontWeight: 800,
-              fontSize: "40px",
               color: "#0A175C",
               margin: 0,
             }}
@@ -55,14 +52,13 @@ export default function HomePlatform() {
             DIGITAL PLATFORM THAT POWERS GLOBAL LOGISTICS
           </h2>
 
-          {/* Subheading / description: Lato, 18px */}
+          {/* Content */}
           <p
-            className="max-w-md"
+            className="text-[clamp(14px,3vw,18px)] leading-relaxed max-w-md"
             style={{
               fontFamily: "Lato, Work Sans, system-ui, sans-serif",
-              fontSize: "18px",
               color: "#374151",
-              marginTop: "6px",
+              margin: 0,
             }}
           >
             Our technology connects complex supply chains with seamless precision
@@ -70,14 +66,14 @@ export default function HomePlatform() {
           </p>
 
           {/* Buttons */}
-          <div className="flex flex-wrap items-center gap-3 pt-4">
+          <div className="flex flex-wrap justify-center md:justify-start items-center gap-3 pt-2 w-full">
             <Button
               variant="outlined"
               sx={{
                 borderColor: "#0A175C",
                 color: "#F05023",
                 textTransform: "none",
-                fontFamily: "Work Sans",
+                fontFamily: "Lato, Work Sans",
                 fontWeight: 600,
                 px: 3,
                 py: 1,
@@ -92,13 +88,12 @@ export default function HomePlatform() {
               Explore platform
             </Button>
 
-            {/* Instant Quote - text button, orange text (#F05023) */}
             <Button
               variant="text"
               sx={{
                 color: "#F05023",
                 textTransform: "none",
-                fontFamily: "Outfit, system-ui, sans-serif",
+                fontFamily: "Lato, Work Sans",
                 fontWeight: 600,
                 display: "flex",
                 alignItems: "center",
@@ -115,15 +110,15 @@ export default function HomePlatform() {
           </div>
         </div>
 
-        {/* Right image: exact 600x600 */}
-        <div className="flex justify-center">
-          <div className="w-[600px] h-[600px] flex items-center justify-center">
+        {/* Right image */}
+        <div className="flex justify-center md:justify-end order-2 w-full">
+          <div className="w-full max-w-[600px] h-auto flex items-center justify-center">
             <Image
               src={sideImage}
               alt="Platform visual"
               width={600}
               height={600}
-              className="object-contain rounded-2xl shadow-none"
+              className="object-contain rounded-2xl"
               priority
             />
           </div>

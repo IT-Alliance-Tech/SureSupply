@@ -75,12 +75,12 @@ export default function Footer() {
               </Link>
             </li>
             <li>
-              <Link href="/capabilities" className="hover:underline">
+              <Link href="/ourCapabilities" className="hover:underline">
                 Capabilities
               </Link>
             </li>
             <li>
-              <Link href="/about" className="hover:underline">
+              <Link href="/aboutUs" className="hover:underline">
                 About Us
               </Link>
             </li>
@@ -97,12 +97,12 @@ export default function Footer() {
           <h3 className="font-bold text-lg mb-4">Investors</h3>
           <ul className="space-y-3">
             <li>
-              <Link href="/case-studies" className="hover:underline">
+              <Link href="/resources" className="hover:underline">
                 Case Studies
               </Link>
             </li>
             <li>
-              <Link href="/blogs" className="hover:underline">
+              <Link href="/resources" className="hover:underline">
                 Blogs
               </Link>
             </li>
@@ -112,7 +112,7 @@ export default function Footer() {
               </Link>
             </li>
             <li>
-              <Link href="/docs" className="hover:underline">
+              <Link href="/resources" className="hover:underline">
                 Documentation
               </Link>
             </li>

@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { useState } from "react";
 
-// ✅ Import your background image
 import bgImage from "../../../public/about/aboutbg2.png";
 
 export default function HomeJourney() {
@@ -33,7 +32,7 @@ export default function HomeJourney() {
   };
 
   return (
-    <section className="relative text-white py-20 px-6 sm:px-10 lg:px-20 overflow-hidden">
+    <section className="relative py-20 px-6 sm:px-10 lg:px-20 overflow-hidden text-white">
       {/* Background Image */}
       <div className="absolute inset-0 -z-10">
         <Image src={bgImage} alt="Journey background" fill className="object-cover" priority />
@@ -41,25 +40,25 @@ export default function HomeJourney() {
       </div>
 
       <div className="max-w-6xl mx-auto text-center">
-        <p className="text-sm mb-2 opacity-90 font-sans">Journey</p>
+        <p className="text-sm mb-2 opacity-90 font-lato">Journey</p>
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 font-outfit">
           OUR GROWTH AND TRANSFORMATION
         </h2>
-        <p className="text-gray-200 mb-8 font-sans">
+        <p className="text-gray-200 mb-8 font-lato">
           A decade of innovation and global expansion
         </p>
 
         {/* Button */}
-        <button className="border border-white text-white text-sm font-semibold px-6 py-2 rounded-md hover:bg-white hover:text-[#0A175C] transition">
+        <button className="border border-white text-white text-sm font-lato font-semibold px-6 py-2 rounded-md hover:bg-white hover:text-[#0A175C] transition">
           Get Instant Quote
         </button>
 
         {/* Timeline */}
-        <div className="relative mt-16 flex items-center justify-center">
+        <div className="relative mt-16 flex items-center justify-center flex-col sm:flex-row">
           {/* Left Arrow */}
           <button
             onClick={prev}
-            className="p-3 bg-white/10 hover:bg-white/20 rounded-md mr-4 transition"
+            className="p-3 bg-white/10 hover:bg-white/20 rounded-md mb-4 sm:mb-0 sm:mr-4 transition"
           >
             &#8592;
           </button>
@@ -80,7 +79,7 @@ export default function HomeJourney() {
                   }`}
                 ></div>
                 <h3 className="text-xl font-bold mt-6 font-outfit">{item.year}</h3>
-                <p className="text-gray-300 text-sm mt-2 max-w-[220px] font-sans">{item.text}</p>
+                <p className="text-gray-300 text-sm mt-2 max-w-[220px] font-lato">{item.text}</p>
               </div>
             ))}
           </div>
@@ -88,7 +87,7 @@ export default function HomeJourney() {
           {/* Right Arrow */}
           <button
             onClick={next}
-            className="p-3 bg-white/10 hover:bg-white/20 rounded-md ml-4 transition"
+            className="p-3 bg-white/10 hover:bg-white/20 rounded-md mt-4 sm:mt-0 sm:ml-4 transition"
           >
             &#8594;
           </button>

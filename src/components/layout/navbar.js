@@ -50,9 +50,11 @@ const Navbar = () => {
       {/* ====== TOP NAVBAR ====== */}
       <div className="flex justify-between items-center px-6 py-3 border-b border-gray-100">
         {/* Logo */}
-        <div className="flex items-center">
-          <Image src={LogoImg} alt="SureSupply" width={160} height={50} />
-        </div>
+       {/* Logo */}
+<div className="flex items-center cursor-pointer" onClick={() => router.push("/")}>
+  <Image src={LogoImg} alt="SureSupply" width={160} height={50} />
+</div>
+
 
         {/* Right Side */}
         <div className="flex items-center space-x-3">
@@ -174,7 +176,7 @@ const Navbar = () => {
               </li>
               <li>
                 <button
-                  onClick={() => navigateTo("/services")}
+                  onClick={() => navigateTo("/ourservices")}
                   className="text-black font-semibold text-lg hover:text-blue-800 w-full text-left"
                 >
                   Services
