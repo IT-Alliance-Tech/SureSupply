@@ -66,12 +66,13 @@ const FloatingSocialIcons = () => {
 
       {/* Toggle Button */}
       <button
-        onClick={() => setOpen(!open)}
-        style={{ backgroundColor: "#0A175C" }}
-        className="w-14 h-14 rounded-full text-white shadow-xl flex items-center justify-center hover:bg-blue-700 transition-all duration-300"
-      >
-        {open ? <IoIosArrowDown size={28} /> : <IoIosArrowUp size={28} />}
-      </button>
+  onClick={() => setOpen(!open)}
+  style={{ backgroundColor: "#0A175C" }}
+  className="w-14 h-14 rounded-full text-white shadow-xl flex items-center justify-center border-2 border-orange-500 hover:bg-blue-700 transition-all duration-300"
+>
+  {open ? <IoIosArrowDown size={28} /> : <IoIosArrowUp size={28} />}
+</button>
+
     </div>
   );
 };
