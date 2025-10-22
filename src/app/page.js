@@ -7,6 +7,7 @@ import HowSureSupplyWorks from "@/components/home/howSureSupplyWorks";
 import Roadmap from "@/components/home/roadmap";
 import ProcurementSection from "@/components/home/procurementSection";
 import WhySureSupply1 from "@/components/home/test";
+import WhyChooseUs from "@/components/home/test2";
 
 export default function Home() {
   return (
@@ -16,7 +17,8 @@ export default function Home() {
       <ManufacturingProcesses />
       <HomeAbout />
       {/* <WhySureSupply1 /> */}
-      <WhySureSupply />
+      {/* <WhySureSupply /> */}
+      <WhyChooseUs />
       <QuoteForm />
      <Roadmap />
      <ProcurementSection />

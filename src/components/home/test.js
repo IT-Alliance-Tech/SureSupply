@@ -42,7 +42,7 @@ export default function WhySureSupply1() {
           Why <span className="text-[#F05023]">Sure Supply</span>
         </h2>
         <p className="text-gray-600 mt-4 max-w-2xl text-base md:text-lg">
-          Transforming manufacturing challenges into strategic opportunities with innovative solutions and end-to-end support.
+          {`Transforming manufacturing challenges into strategic opportunities with innovative solutions and end-to-end support.`}
         </p>
       </div>
 
@@ -80,7 +80,7 @@ export default function WhySureSupply1() {
               href="#"
               className="inline-block px-4 py-2 bg-[#F05023] text-white text-sm md:text-base font-semibold rounded-lg shadow-md hover:bg-[#d9441d] transition duration-300"
             >
-              Get Quote Now →
+              {`Get Quote Now →`}
             </a>
           </div>
         </div>
@@ -111,7 +111,7 @@ export default function WhySureSupply1() {
                 href="#"
                 className="inline-block px-4 py-2 bg-[#F05023] text-white text-sm md:text-base font-semibold rounded-lg shadow-md hover:bg-[#d9441d] transition duration-300"
               >
-                Get Quote Now →
+                {`Get Quote Now →`}
               </a>
             </div>
           </div>
