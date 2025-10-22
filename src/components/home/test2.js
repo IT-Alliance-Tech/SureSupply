@@ -1,14 +1,14 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import Slider from "react-slick";
 import Image from "next/image";
 
-// Import images (replace with your actual images)
+// Import images
 import endToEndImg from "../../../public/dummyimg.png";
 import supplierNetworkImg from "../../../public/dummyimg.png";
 import technologyPlatformImg from "../../../public/dummyimg.png";
 import qualityComplianceImg from "../../../public/dummyimg.png";
-import industryExpertiseImg from "../../../public/Banner1.png";
+import industryExpertiseImg from "../../../public/dummyimg.png";
 import flexibleOperationsImg from "../../../public/dummyimg.png";
 import partnershipsImg from "../../../public/dummyimg.png";
 import costEfficiencyImg from "../../../public/dummyimg.png";
@@ -130,7 +130,8 @@ const WhyChooseUs = () => {
       ],
     },
   ];
-  const [activeIndex, setActiveIndex] = useState(1); // middle item
+
+  const [activeIndex, setActiveIndex] = useState(1);
 
   const settings = {
     dots: false,
@@ -148,8 +149,12 @@ const WhyChooseUs = () => {
     arrows: false,
   };
 
+  // Calculate the highlighted/center index for the right content
+  const centerIndex = (activeIndex + 1) % points.length;
+
   return (
-      <section className="w-full flex flex-col md:flex-row items-center justify-center min-h-[90vh] bg-gray-50 px-6 md:px-12 py-10">
+    <section className="w-full flex flex-col md:flex-row items-center justify-center min-h-[90vh] bg-gray-50 px-6 md:px-12 py-10">
+      
       {/* LEFT - Image Slider */}
       <div className="w-full md:w-1/2 flex justify-center">
         <div className="w-[80%] max-w-[250px] overflow-hidden">
@@ -158,7 +163,7 @@ const WhyChooseUs = () => {
               <div
                 key={point.id}
                 className={`flex flex-col items-center justify-center transition-all duration-500 ${
-                  index === activeIndex + 1 || // middle slide highlight fix
+                  index === activeIndex + 1 ||
                   (activeIndex === points.length - 1 && index === 0)
                     ? "scale-110 opacity-100"
                     : "opacity-50 scale-95"
@@ -181,21 +186,41 @@ const WhyChooseUs = () => {
         </div>
       </div>
 
-      {/* RIGHT - Description */}
-      <div className="w-full md:w-1/2 flex justify-center items-center mt-10 md:mt-0">
-        <div className="max-w-md">
-          <h2 className="text-3xl font-bold mb-4 text-gray-900">
-            Why Choose Us
+      {/* RIGHT - Heading + Subheading + Dynamic Content + Button */}
+      <div className="w-full md:w-1/2 relative mt-10 md:mt-0 flex flex-col">
+        {/* Top-right heading & subheading */}
+        <div className="absolute top-0 right-20 text-center max-w-md">
+          <h2 className="text-3xl md:text-4xl font-bold" style={{ color: "#0A175C" }}>
+            Why <span className="text-[#F05023]">SureSupply</span>
           </h2>
-          <p className="text-gray-600 leading-relaxed text-lg">
-            {
-              points[
-                (activeIndex + 1) % points.length
-              ]?.description /* ensure center card description */
-            }
+          <p className="text-gray-600 mt-3 text-lg">
+            Your Trusted Partner for Precision Manufacturing & Supply Chain Excellence.
           </p>
         </div>
+
+        {/* Dynamic content + button */}
+        {/* Dynamic content + button */}
+<div className="mt-48 min-h-[400px] flex flex-col justify-start">
+  <h3 className="text-3xl md:text-4xl font-semibold text-[#0A175C] mb-4">
+    {points[centerIndex]?.title}
+  </h3>
+  <p className="italic text-[#F05023] mb-4 text-lg md:text-xl">
+    {points[centerIndex]?.headline}
+  </p>
+  <ul className="list-disc list-inside text-gray-700 space-y-3 text-base md:text-lg mb-6 overflow-y-auto">
+    {points[centerIndex]?.description.map((item, idx) => (
+      <li key={idx}>{item}</li>
+    ))}
+  </ul>
+
+  {/* Get Quote Button */}
+  <button className="text-[#F05023] font-semibold text-[20px] hover:underline cursor-pointer mt-6 text-left">
+    Get Quote &rarr;
+  </button>
+</div>
+
       </div>
+
     </section>
   );
 };
