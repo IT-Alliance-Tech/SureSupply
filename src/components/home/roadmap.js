@@ -620,7 +620,7 @@ export default function ProcessFlow() {
       </div>
 
       {/* Mobile View */}
-      <div className={`lg:hidden relative min-h-screen`}>
+      <div className={`lg:hidden relative min-h-screen flex justify-center`}>
         {/* Content */}
         <div className="z-10 px-6 py-8">
           <div className="text-center mb-12">
@@ -949,7 +949,7 @@ export default function ProcessFlow() {
                 </div>
                 <div
                   className={`${styles.horizontalLine} absolute`}
-                  style={{ top: "99.8%", left: "49.5%" }}
+                  style={{ top: "99.8%", left: "49.5%", width: "100%",maxWidth: "75px" }}
                 ></div>
                 <DotLine axis="y" />
               </div>
