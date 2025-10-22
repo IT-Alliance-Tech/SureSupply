@@ -338,7 +338,7 @@ export default function ProcessFlow() {
             </div>
 
             {/* Strategic Supplier Matching */}
-            <div className="absolute" style={{ top: "35%", left: "40%" }}>
+            {/* <div className="absolute" style={{ top: "35%", left: "40%" }}>
               <div
                 onClick={() => handleProcessClick("strategic-matching")}
                 className="w-30 h-30 rounded-full cursor-pointer hover:scale-105 transition-transform relative overflow-hidden"
@@ -385,7 +385,50 @@ export default function ProcessFlow() {
                   </p>
                 </div>
               </div>
-            </div>
+            </div> */}
+
+            <div className="absolute" style={{ top: "35%", left: "40%" }}>
+  <div
+    onClick={() => handleProcessClick("strategic-matching")}
+    className="w-30 h-30 rounded-full cursor-pointer hover:scale-105 transition-transform relative overflow-hidden"
+    style={{
+      background:
+        "linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(240,240,240,0.95) 100%)",
+      boxShadow: "0 8px 30px rgba(0,0,0,0.3)",
+    }}
+  >
+    <div
+      className="absolute inset-0 opacity-15"
+      style={{
+        ...checkerboardStyle,
+        backgroundSize: "25px 25px",
+        backgroundPosition: "0 0, 0 12.5px, 12.5px -12.5px, -12.5px 0px",
+      }}
+    ></div>
+    <div className="relative z-10 h-full flex items-center justify-center p-4">
+      <h3 className="text-sm font-bold text-center text-black leading-tight">
+        Strategic<br />supplier<br />matching
+      </h3>
+    </div>
+  </div>
+
+  {/* Description */}
+  <div
+    className={`absolute flex gap-4`}
+    style={{ top: "5%", left: "-13%", pointerEvents: "none" }}
+  >
+    <DotLine axis="x" reverse />
+    <div className="mt-4 max-w-xs text-center">
+      <h4 className="text-lg font-bold mb-2" style={{ textWrap: "nowrap" }}>
+        Strategic supplier matching
+      </h4>
+      <p className="text-sm text-gray-300">
+        Identifying optimal manufacturing partners.
+      </p>
+    </div>
+  </div>
+</div>
+
 
             {/* Production Planning */}
             <div className="absolute" style={{ top: "54%", left: "45%" }}>
@@ -476,7 +519,7 @@ export default function ProcessFlow() {
             </div>
 
             {/* Delivery & After Sales */}
-            <div className="absolute" style={{ top: "67%", left: "80%" }}>
+            {/* <div className="absolute" style={{ top: "67%", left: "80%" }}>
               <div
                 onClick={() => handleProcessClick("delivery-service")}
                 className="w-30 h-30 rounded-full cursor-pointer hover:scale-105 transition-transform relative overflow-hidden"
@@ -523,7 +566,55 @@ export default function ProcessFlow() {
                 ></div>
                 <DotLine axis="y" />
               </div>
-            </div>
+            </div> */}
+            <div className="absolute" style={{ top: "67%", left: "80%" }}>
+  <div
+    onClick={() => handleProcessClick("delivery-service")}
+    className="w-30 h-30 rounded-full cursor-pointer hover:scale-105 transition-transform relative overflow-hidden"
+    style={{
+      background:
+        "linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(240,240,240,0.95) 100%)",
+      boxShadow: "0 8px 30px rgba(0,0,0,0.3)",
+    }}
+  >
+    <div
+      className="absolute inset-0 opacity-15"
+      style={{
+        ...checkerboardStyle,
+        backgroundSize: "25px 25px",
+        backgroundPosition: "0 0, 0 12.5px, 12.5px -12.5px, -12.5px 0px",
+      }}
+    ></div>
+    <div className="relative z-10 h-full flex items-center justify-center p-4">
+      <h3 className="text-sm font-bold text-center text-black leading-tight">
+        Delivery &<br />
+        After Sales<br />
+        Service
+      </h3>
+    </div>
+  </div>
+
+  {/* Description */}
+  <div
+    className={`absolute`}
+    style={{ top: "-85%", left: "30%", pointerEvents: "none" }}
+  >
+    <div className="mt-4 max-w-xs text-center">
+      <h4 className="text-lg font-bold mb-2" style={{ textWrap: "nowrap" }}>
+        Delivery & After Sales Service
+      </h4>
+      <p className="text-sm text-gray-300">
+        Innovative prototyping and iterative design processes.
+      </p>
+    </div>
+    <div
+      className={`${styles.horizontalLine} absolute`}
+      style={{ top: "100%", left: "40.5%" }}
+    ></div>
+    <DotLine axis="y" />
+  </div>
+</div>
+
           </div>
         </div>
       </div>
