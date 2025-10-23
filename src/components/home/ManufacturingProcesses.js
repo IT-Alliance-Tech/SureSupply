@@ -8,7 +8,7 @@ import { useState } from "react";
 import sectionBg from "../../../public/bg2.png";
 import dummy from "../../../public/dummy2.png";
 
-// Import step images
+// Import step images (you can replace these with actual images)
 import casting1 from "../../../public/dummy2.png";
 import casting2 from "../../../public/dummy2.png";
 import casting3 from "../../../public/dummy2.png";
@@ -59,7 +59,13 @@ import rapidExpanded from "../../../public/dummy2.png";
 function Card({ title, image, minHeight = 200, onLearn, bgColor = "#1E2A5E", textColor = "#FFFFFF", expandedStep }) {
   if (expandedStep) {
     return (
-      <div className="flex flex-col md:flex-row gap-6 rounded-2xl p-6 shadow-lg bg-white">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: 30 }}
+        transition={{ duration: 0.3 }}
+        className="flex flex-col md:flex-row gap-6 rounded-2xl p-6 shadow-lg bg-white"
+      >
         <div className="flex-shrink-0 mx-auto md:mx-0">
           <Image
             src={expandedStep.expandedImage}
@@ -73,12 +79,14 @@ function Card({ title, image, minHeight = 200, onLearn, bgColor = "#1E2A5E", tex
           <h3 className="text-2xl md:text-3xl font-bold text-orange-500">{expandedStep.title}</h3>
           <p className="mt-4 text-gray-700">{expandedStep.details}</p>
         </div>
-      </div>
+      </motion.div>
     );
   }
 
   return (
-    <div
+    <motion.div
+      whileHover={{ scale: 1.03 }}
+      transition={{ type: "spring", stiffness: 200, damping: 15 }}
       className="relative rounded-2xl overflow-hidden shadow-lg flex flex-col justify-between p-5 text-left cursor-default"
       style={{ minHeight: `${minHeight}px`, backgroundColor: bgColor, color: textColor }}
     >
@@ -99,7 +107,7 @@ function Card({ title, image, minHeight = 200, onLearn, bgColor = "#1E2A5E", tex
           <ArrowRight className="ml-1 w-5 h-5 transition-transform group-hover:translate-x-1" />
         </button>
       )}
-    </div>
+    </motion.div>
   );
 }
 
@@ -112,28 +120,50 @@ function StepsModal({ isOpen, onClose, stepsData, alignment }) {
     alignment === "left" ? "justify-start" : alignment === "right" ? "justify-end" : "justify-center";
 
   return (
-    <div className={`fixed inset-0 z-50 flex ${justifyClass} items-start pt-20 px-4 md:px-0`}>
-      <AnimatePresence>
+    <AnimatePresence>
+      {/* Backdrop */}
+      <motion.div
+        key="backdrop"
+        className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.25 }}
+        onClick={onClose}
+      />
+
+      {/* Modal Container */}
+      <motion.div
+        key="modal"
+        className={`fixed inset-0 z-50 flex ${justifyClass} items-start pt-20 px-4 md:px-0`}
+        initial={{ opacity: 0, scale: 0.9, y: 50 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.9, y: 50 }}
+        transition={{ type: "spring", stiffness: 200, damping: 20 }}
+      >
         <motion.div
           className="rounded-2xl p-6 md:p-8 w-full max-w-3xl shadow-2xl bg-[#0A175C] overflow-y-auto max-h-[90vh]"
-          initial={{ opacity: 0, y: -50, scale: 0.95 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: -50, scale: 0.95 }}
-          transition={{ duration: 0.3, ease: "easeInOut" }}
+          layout
         >
           {!expandedStep ? (
             <div className="flex flex-col gap-5">
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-5">
                 {stepsData.map((step, idx) => (
-                  <Card
+                  <motion.div
                     key={idx}
-                    title={step.title}
-                    image={step.image}
-                    minHeight={180}
-                    bgColor="#FFFFFF"
-                    textColor="#0A175C"
-                    onLearn={() => setExpandedStep(step)}
-                  />
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: idx * 0.05 }}
+                  >
+                    <Card
+                      title={step.title}
+                      image={step.image}
+                      minHeight={180}
+                      bgColor="#FFFFFF"
+                      textColor="#0A175C"
+                      onLearn={() => setExpandedStep(step)}
+                    />
+                  </motion.div>
                 ))}
               </div>
               <div className="text-right mt-4">
@@ -143,18 +173,28 @@ function StepsModal({ isOpen, onClose, stepsData, alignment }) {
               </div>
             </div>
           ) : (
-            <div className="flex flex-col gap-5">
+            <motion.div
+              key="expanded"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 30 }}
+              transition={{ duration: 0.3 }}
+              className="flex flex-col gap-5"
+            >
               <Card expandedStep={expandedStep} />
               <div className="text-right mt-2">
-                <button onClick={() => setExpandedStep(null)} className="text-orange-500 font-semibold hover:text-orange-400">
+                <button
+                  onClick={() => setExpandedStep(null)}
+                  className="text-orange-500 font-semibold hover:text-orange-400"
+                >
                   Back
                 </button>
               </div>
-            </div>
+            </motion.div>
           )}
         </motion.div>
-      </AnimatePresence>
-    </div>
+      </motion.div>
+    </AnimatePresence>
   );
 }
 
