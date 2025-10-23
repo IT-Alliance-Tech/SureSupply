@@ -29,7 +29,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative w-full h-[700px] flex items-center justify-start overflow-hidden">
+    <section className="relative w-full h-[600px] flex items-center justify-start overflow-hidden">
       {/* Background Images */}
       <AnimatePresence mode="sync">
         {images.map((img, index) =>
