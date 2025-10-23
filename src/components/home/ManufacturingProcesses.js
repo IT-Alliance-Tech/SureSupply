@@ -248,13 +248,12 @@ export default function OurExpertise() {
       { title: "Vacuum casting", image: rapid3, expandedImage: rapidExpanded, details: "Casting of silicone molds under vacuum to produce functional prototypes." },
       { title: "CNC pattern", image: rapid4, expandedImage: rapidExpanded, details: "Machined patterns used for mold making and pre-production validation." },
     ],
-    "Sheet Metal Stamping": [
-      { title: "Die press", image: sheetMetal1, expandedImage: sheetMetalExpanded, details: "Forming metal sheets into components using high-pressure dies and presses." },
-      { title: "Laser cutting", image: sheetMetal2, expandedImage: sheetMetalExpanded, details: "High-precision cutting of sheet metal using focused laser beams for intricate profiles." },
-      { title: "Plasma cutting", image: sheetMetal3, expandedImage: sheetMetalExpanded, details: "Cutting thick metal sheets using high-temperature plasma arc technology." },
-      { title: "Waterjet cutting", image: sheetMetal4, expandedImage: sheetMetalExpanded, details: "Abrasive waterjet cutting for precise, cold-cutting of materials without thermal distortion." },
-      { title: "EDM and wire EDM", image: sheetMetal1, expandedImage: sheetMetalExpanded, details: "Electro-discharge machining for intricate metal shapes and high-tolerance features." },
-      { title: "Welding", image: sheetMetal2, expandedImage: sheetMetalExpanded, details: "Joining of metal components using TIG, MIG, and spot welding techniques." },
+    Quality: [
+      { title: "Accredited metrology lab", image: dummy, expandedImage: dummy, details: "Precision measurement and verification for all manufactured parts." },
+      { title: "Dimensional inspection", image: dummy, expandedImage: dummy, details: "Ensures all parts meet specified dimensional tolerances." },
+      { title: "Material testing", image: dummy, expandedImage: dummy, details: "Comprehensive testing for material composition, hardness, and durability." },
+      { title: "Surface and finish testing", image: dummy, expandedImage: dummy, details: "Evaluates surface roughness and coating consistency for quality assurance." },
+      { title: "Special gauges and fixtures", image: dummy, expandedImage: dummy, details: "Custom gauges and fixtures for accurate inspection and repeatable testing." },
     ],
   };
 
@@ -289,11 +288,11 @@ export default function OurExpertise() {
           <div className="flex flex-col gap-5 flex-1">
             <Card title="Fabrication" image={dummy} minHeight={150} onLearn={() => handleLearnClick("Fabrication", 2)} />
             <Card title="Plastic Molding" image={dummy} minHeight={150} onLearn={() => handleLearnClick("Plastic Molding", 2)} />
-            <Card title="Sheet Metal Stamping" image={dummy} minHeight={150} onLearn={() => handleLearnClick("Sheet Metal Stamping", 2)} />
+            <Card title="Rapid Prototyping" image={dummy} minHeight={150} onLearn={() => handleLearnClick("Rapid Prototyping", 2)} />
           </div>
           <div className="flex flex-col gap-5 flex-1">
             <Card title="Machining" image={dummy} minHeight={230} onLearn={() => handleLearnClick("Machining", 3)} />
-            <Card title="Rapid Prototyping" image={dummy} minHeight={240} onLearn={() => handleLearnClick("Rapid Prototyping", 3)} />
+            <Card title="Quality" image={dummy} minHeight={240} onLearn={() => handleLearnClick("Quality", 3)} />
           </div>
         </div>
       </div>
