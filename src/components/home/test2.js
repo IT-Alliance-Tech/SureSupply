@@ -157,7 +157,7 @@ const WhyChooseUs = () => {
       
       {/* LEFT - Image Slider */}
       <div className="w-full md:w-1/2 flex justify-center">
-        <div className="w-[80%] max-w-[250px] overflow-hidden">
+        <div className="w-[80%] max-w-[280px] overflow-hidden">
           <Slider {...settings}>
             {points.map((point, index) => (
               <div
@@ -199,7 +199,7 @@ const WhyChooseUs = () => {
         </div>
 
         {/* Dynamic content + button */}
-        {/* Dynamic content + button */}
+       
 <div className="mt-48 min-h-[400px] flex flex-col justify-start">
   <h3 className="text-3xl md:text-4xl font-semibold text-[#0A175C] mb-4">
     {points[centerIndex]?.title}

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -93,6 +93,15 @@ export default function CapabilitiesContent() {
 
   const [active, setActive] = useState(categories[0].id);
   const activeObj = categories.find((c) => c.id === active);
+
+  const contentRef = useRef(null);
+
+  // Scroll to top when category changes
+  useEffect(() => {
+    if (contentRef.current) {
+      contentRef.current.scrollTop = 0;
+    }
+  }, [active]);
 
   const whyChoosePoints = [
     "Tolerances as tight as ±0.003″",
@@ -195,10 +204,20 @@ export default function CapabilitiesContent() {
             </aside>
 
             {/* Main Content */}
-            <main className="col-span-1 md:col-span-1 flex flex-col gap-12">
+            <main
+              ref={contentRef}
+              className="col-span-1 md:col-span-1 flex flex-col gap-12 overflow-y-auto"
+              style={{ maxHeight: "calc(100vh - 150px)" }}
+            >
               {/* Active Image */}
-              <div className="w-full relative h-[260px] sm:h-[320px] md:h-[360px]">
-                <Image src={activeObj.img} alt={activeObj.title} fill className="object-contain" />
+              <div className="w-full relative h-[360px] flex-shrink-0">
+                <Image
+                  src={activeObj.img}
+                  alt={activeObj.title}
+                  fill
+                  className="object-contain"
+                  priority
+                />
               </div>
 
               {/* Active Text */}
@@ -227,20 +246,20 @@ export default function CapabilitiesContent() {
                   ))}
                 </div>
               </section>
-              {/* ================= DIE CASTING TYPES ================= */}
-<section className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-  {dieCastingTypes.map((type, idx) => (
-    <div
-      key={idx}
-      className="bg-[#0E1B4D] text-white rounded-2xl p-6 flex flex-col items-left text-left shadow-lg"
-    >
-      <Image src={type.icon} alt={type.title} className="w-13 h-13 mb-4" />
-      <h3 className="text-[18px] font-semibold mb-1">{type.title}</h3>
-      <p className="text-gray-300 text-sm">{type.description}</p>
-    </div>
-  ))}
-</section>
 
+              {/* ================= DIE CASTING TYPES ================= */}
+              <section className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                {dieCastingTypes.map((type, idx) => (
+                  <div
+                    key={idx}
+                    className="bg-[#0E1B4D] text-white rounded-2xl p-6 flex flex-col items-start shadow-lg"
+                  >
+                    <Image src={type.icon} alt={type.title} width={48} height={48} className="mb-4" />
+                    <h3 className="text-[18px] font-semibold mb-1">{type.title}</h3>
+                    <p className="text-gray-300 text-sm">{type.description}</p>
+                  </div>
+                ))}
+              </section>
 
               {/* ================= POST CASTING & RELIABLE QUALITY ================= */}
               <section className="space-y-12">
@@ -252,30 +271,31 @@ export default function CapabilitiesContent() {
                     backgroundPosition: "center",
                   }}
                 >
-                  <div className="absolute inset-0  rounded-2xl"></div>
+                  <div className="absolute inset-0 rounded-2xl"></div>
                   <div className="relative z-10">
                     <h3 className="text-2xl font-semibold mb-6">
                       Post <span className="font-bold text-white">Casting</span>
                     </h3>
                     <ul className="space-y-4 text-gray-200">
                       <li className="flex items-start gap-3">
-                        <Image src={whyIcon} alt="icon" className="w-5 h-5 mt-1" />
+                        <Image src={whyIcon} alt="icon" width={20} height={20} />
                         <p>CNC Machining (5-axis, Wire EDM, Graphite Machining)</p>
                       </li>
                       <li className="flex items-start gap-3">
-                        <Image src={whyIcon} alt="icon" className="w-5 h-5 mt-1" />
+                        <Image src={whyIcon} alt="icon" width={20} height={20} />
                         <p>Assembly Services: Welding, installation, and component integration</p>
                       </li>
                       <li className="flex items-start gap-3">
-                        <Image src={whyIcon} alt="icon" className="w-5 h-5 mt-1" />
+                        <Image src={whyIcon} alt="icon" width={20} height={20} />
                         <p>3D Scanning & Reverse Engineering for validation and refinement</p>
                       </li>
                       <li className="flex items-start gap-3">
-                        <Image src={whyIcon} alt="icon" className="w-5 h-5 mt-1" />
+                        <Image src={whyIcon} alt="icon" width={20} height={20} />
                         <p>
-                          Surface Finishing Options:{" "}
-                          <span className="font-semibold">Anodizing, Powder</span> Coating, Chem Film, Plating
-                          (Nickel, Copper, Gold, Silver, Titanium Blue, Cadmium), Tumbling, Polishing
+                          {`Surface Finishing Options:`}{" "}
+                          <span className="font-semibold">Anodizing, Powder</span> Coating, Chem
+                          {`Film, Plating (Nickel, Copper, Gold, Silver, Titanium Blue, Cadmium),
+                          Tumbling, Polishing`}
                         </p>
                       </li>
                     </ul>
@@ -284,22 +304,28 @@ export default function CapabilitiesContent() {
 
                 <div>
                   <h2 className="text-[30px] font-semibold mb-4">
-  <span className="text-[#0A175C] font-bold">RELIABLE</span>
-  <span className="text-[#F15A29] font-bold">DIE CASTING QUALITY</span>
-</h2>
+                    <span className="text-[#0A175C] font-bold">RELIABLE</span>
+                    <span className="text-[#F15A29] font-bold">DIE CASTING QUALITY</span>
+                  </h2>
 
                   <p className="text-[#0A175C] leading-relaxed mb-8">
-                    At Sure Supply, we follow the highest global standards to ensure reliability and consistency in every die cast part. Our facilities are ISO 9001:2015 certified, guaranteeing strict quality management throughout the production cycle. We adhere to defined surface roughness specifications (Ra, Rz) for precision finishing and conduct rigorous inspection and testing procedures, including CMM, X-Ray, salt-spray, and hardness testing. All materials are RoHS compliant, with detailed composition reports provided for transparency. To maintain complete quality assurance, every order is delivered with a comprehensive inspection report.
+                    {`At Sure Supply, we follow the highest global standards to ensure reliability and
+                    consistency in every die cast part. Our facilities are ISO 9001:2015 certified,
+                    guaranteeing strict quality management throughout the production cycle. We adhere
+                    to defined surface roughness specifications (Ra, Rz) for precision finishing and
+                    conduct rigorous inspection and testing procedures, including CMM, X-Ray,
+                    salt-spray, and hardness testing. All materials are RoHS compliant, with detailed
+                    composition reports provided for transparency. To maintain complete quality
+                    assurance, every order is delivered with a comprehensive inspection report.`}
                   </p>
                   <div className="flex flex-wrap gap-4">
-  <button className="w-auto border border-[#F15A29] text-[#F15A29] px-2 py-2 rounded-md text-sm font-medium hover:bg-[#F15A29] hover:text-white transition-all">
-    Download Cosmetic Standards PDF
-  </button>
-  <button className="w-auto border border-[#F15A29] text-[#F15A29] px-3 py-2 rounded-md text-sm font-medium hover:bg-[#F15A29] hover:text-white transition-all">
-    Access Supplier’s Handbook
-  </button>
-</div>
-
+                    <button className="w-auto border border-[#F15A29] text-[#F15A29] px-2 py-2 rounded-md text-sm font-medium hover:bg-[#F15A29] hover:text-white transition-all">
+                      Download Cosmetic Standards PDF
+                    </button>
+                    <button className="w-auto border border-[#F15A29] text-[#F15A29] px-3 py-2 rounded-md text-sm font-medium hover:bg-[#F15A29] hover:text-white transition-all">
+                      Access Supplier’s Handbook
+                    </button>
+                  </div>
                 </div>
               </section>
             </main>

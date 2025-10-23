@@ -83,7 +83,7 @@ export default function HeroSection() {
   }}
   whileTap={{ scale: 0.95 }}
 >
-  <span className="relative z-10">Get Quote Now</span>
+  <span className="relative z-10">Let's Talk</span>
   <motion.span
     className="absolute inset-0 bg-gradient-to-r from-[#F05023] to-[#ff7849] opacity-0"
     whileHover={{ opacity: 1 }}
