@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import bgImg from "../../../public/about/aboutbg1.png"; // background image
-import visionImg from "../../../public/dummy2.png"; // same image for all cards
+import visionImg from "../../../public/dummy2.png"; 
 import missionImg from "../../../public/dummy2.png";
 import valuesImg from "../../../public/dummy2.png";
 
@@ -44,18 +44,20 @@ export default function CorePrinciples() {
 
       {/* Content */}
       <div className="relative z-10 container mx-auto text-center px-6 md:px-12">
-        <p className="text-sm text-gray-300 mb-2">{`Our approach`}</p>
-        <h2 className="text-4xl md:text-5xl font-bold text-white mb-2">
-         {` CORE PRINCIPLES`}
+        <p className="text-sm text-gray-300 mb-2 font-lato">Our approach</p>
+        <h2 className="text-4xl md:text-5xl font-bold text-white mb-2 font-outfit">
+          CORE PRINCIPLES
         </h2>
-        <p className="text-gray-300 mb-12">{`Driving global logistics forward`}</p>
+        <p className="text-gray-300 mb-12 font-lato">
+          Driving global logistics forward
+        </p>
 
         {/* Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {principles.map((item, index) => (
             <div
               key={index}
-              className="bg-white rounded-lg overflow-hidden text-left shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-2xl "
+              className="bg-white rounded-lg overflow-hidden text-left shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-2xl"
             >
               <div className="w-full h-[200px] bg-gray-200 relative overflow-hidden">
                 <Image
@@ -67,11 +69,11 @@ export default function CorePrinciples() {
                 />
               </div>
               <div className="p-6">
-                <p className="text-sm text-[#0A175C] mb-1">{item.label}</p>
-                <h3 className="text-xl font-bold text-[#0A175C] mb-2">
+                <p className="text-sm text-[#0A175C] mb-1 font-lato">{item.label}</p>
+                <h3 className="text-xl font-bold text-[#0A175C] mb-2 font-outfit">
                   {item.title}
                 </h3>
-                <p className="text-gray-600 text-sm">{item.description}</p>
+                <p className="text-gray-600 text-sm font-lato">{item.description}</p>
               </div>
             </div>
           ))}

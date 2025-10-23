@@ -78,53 +78,47 @@ const teamMembers = [
 export default function OurTeam() {
   return (
     <section className="py-20 bg-white">
-      <div className="container mx-auto px-6 md:px-12 text-center">
-        <p className="text-sm mb-2" style={{ color: "#0A175C" }}>
-          Leadership
-        </p>
-        <h2 className="text-4xl md:text-5xl font-bold text-[#0A175C] mb-2">
+      <div className="container mx-auto px-4 sm:px-6 md:px-12 text-center">
+        <p className="text-sm mb-2 font-lato text-[#0A175C]">Leadership</p>
+        <h2 className="text-4xl md:text-5xl font-outfit font-bold text-[#0A175C] mb-2">
           OUR TEAM
         </h2>
-        <p className="mb-12" style={{ color: "#0A175C" }}>
+        <p className="mb-12 font-lato text-[#0A175C]">
           Experienced professionals driving global logistics innovation
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
           {teamMembers.map((member, index) => (
             <div
               key={index}
-              className="bg-white rounded-lg p-6 flex flex-col items-center text-center transition-transform duration-300 hover:scale-[1.02]"
+              className="bg-white rounded-lg p-4 sm:p-6 flex flex-col items-center text-center transition-transform duration-300 hover:scale-[1.02]"
             >
               {/* Image */}
-              <div className="w-70 h-70 mb-4 relative rounded-lg overflow-hidden">
+              <div className="w-full max-w-[180px] sm:max-w-[200px] md:max-w-[224px] h-auto mb-4 relative rounded-lg overflow-hidden">
                 <Image
                   src={member.img}
                   alt={member.name}
-                  className="object-cover !w-full !h-full"
+                  className="object-cover w-full h-full"
                   width={224}
                   height={200}
                   unoptimized
                 />
               </div>
 
-              <h3 className="text-lg font-bold text-[#0A175C]">
+              <h3 className="text-lg font-outfit font-bold text-[#0A175C]">
                 {member.name}
               </h3>
-              <p className="text-sm mb-2" style={{ color: "#0A175C" }}>
-                {member.role}
-              </p>
-              <p className="text-sm mb-4" style={{ color: "#0A175C" }}>
-                {member.description}
-              </p>
+              <p className="text-sm mb-2 font-lato text-[#0A175C]">{member.role}</p>
+              <p className="text-sm mb-4 font-lato text-[#0A175C]">{member.description}</p>
 
               <div className="flex space-x-4">
-                <a href="#" className="hover:text-blue-700" style={{ color: "#0A175C" }}>
+                <a href="#" className="hover:text-blue-700 text-[#0A175C]">
                   <LinkedInIcon fontSize="small" />
                 </a>
-                <a href="#" className="hover:text-blue-500" style={{ color: "#0A175C" }}>
+                <a href="#" className="hover:text-blue-500 text-[#0A175C]">
                   <TwitterIcon fontSize="small" />
                 </a>
-                <a href="#" className="hover:text-green-600" style={{ color: "#0A175C" }}>
+                <a href="#" className="hover:text-green-600 text-[#0A175C]">
                   <LanguageIcon fontSize="small" />
                 </a>
               </div>

@@ -19,9 +19,10 @@ export default function Home() {
       {/* <WhySureSupply1 /> */}
       {/* <WhySureSupply /> */}
       <WhyChooseUs />
-      <QuoteForm />
+      
      <Roadmap />
      <ProcurementSection />
+     <QuoteForm />
       {/* <HowSureSupplyWorks /> */}
     </main>
   );

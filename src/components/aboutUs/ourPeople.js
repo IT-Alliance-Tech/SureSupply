@@ -18,7 +18,7 @@ export default function PeopleOnGround() {
       <div className="w-full md:w-1/2 flex flex-col justify-center px-8 lg:px-16 py-16 bg-[#F05023] text-white">
         <span className="font-lato text-[16px] mb-1 block">Our team</span>
 
-        <h2 className="font-houtfit text-[40px] leading-snug mb-2">
+        <h2 className="font-outfit text-[40px] leading-snug mb-2">
           PEOPLE ON THE <br /> GROUND
         </h2>
 
@@ -47,7 +47,7 @@ export default function PeopleOnGround() {
         </div>
 
         {/* Buttons */}
-        <div className="flex items-center gap-4">
+        <div className="flex flex-wrap gap-4">
           <Button
             variant="outlined"
             sx={{
@@ -86,7 +86,7 @@ export default function PeopleOnGround() {
       </div>
 
       {/* Right Section */}
-      <div className="w-full md:w-1/2 relative h-[500px] md:h-auto">
+      <div className="w-full md:w-1/2 relative h-[400px] md:h-auto mt-6 md:mt-0">
         <Image
           src={sideImage}
           alt="Team visual"

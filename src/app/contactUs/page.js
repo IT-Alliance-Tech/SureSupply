@@ -65,7 +65,7 @@ export default function ContactUsPage() {
                 </div>
                 <div>
                   <p className="font-semibold text-gray-800">Contact</p>
-                  <p className="text-gray-600">+91 9287672822</p>
+                  <p className="text-gray-600"> +91 9904963647</p>
                 </div>
               </div>
 
@@ -75,7 +75,7 @@ export default function ContactUsPage() {
                 </div>
                 <div>
                   <p className="font-semibold text-gray-800">E-mail</p>
-                  <p className="text-gray-600">info@domainname.com</p>
+                  <p className="text-gray-600">info@suresupply.in</p>
                 </div>
               </div>
 
