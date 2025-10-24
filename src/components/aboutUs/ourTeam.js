@@ -88,7 +88,7 @@ export default function OurTeam() {
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
-          {teamMembers.map((member, index) => (
+           {teamMembers.slice(0, 4).map((member, index) => (
             <div
               key={index}
               className="bg-white rounded-lg p-4 sm:p-6 flex flex-col items-center text-center transition-transform duration-300 hover:scale-[1.02]"

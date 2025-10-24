@@ -9,21 +9,24 @@ import valuesImg from "../../../public/dummy2.png";
 export default function CorePrinciples() {
   const principles = [
     {
-      title: "GLOBAL SUPPLY SOLUTIONS",
+      title: "OUR VISION",
       label: "Vision",
-      description: "Transforming industries through strategic digital networks",
+      description:
+        "Build a reliable, transparent, and collaborative manufacturing ecosystem that empowers creators, engineers, and suppliers to innovate without barriers.",
       img: visionImg,
     },
     {
-      title: "EMPOWERING BUSINESS GROWTH",
+      title: "OUR MISSION",
       label: "Mission",
-      description: "Delivering innovative logistics solutions worldwide",
+      description:
+        "Simplify manufacturing through technology, trust, and expertise — bridging creators and manufacturers, enabling transparency, and empowering suppliers.",
       img: missionImg,
     },
     {
-      title: "OUR GUIDING PRINCIPLES",
+      title: "OUR VALUES",
       label: "Values",
-      description: "Building trust through integrity and collaborative innovation",
+      description:
+        "Integrity, transparency, purposeful innovation, partnership, excellence, and a human-first approach guide all we do.",
       img: valuesImg,
     },
   ];
