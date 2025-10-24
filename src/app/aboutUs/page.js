@@ -11,7 +11,7 @@ export default function Home() {
       <Ourstory />
       <CorePrinciples />
       <OurTeam />
-      <HomeJourney />
+      {/* <HomeJourney /> */}
       <HomePlatform />
       <PeopleOnGround />
     </main>
