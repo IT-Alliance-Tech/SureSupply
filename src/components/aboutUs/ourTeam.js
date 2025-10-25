@@ -87,8 +87,9 @@ export default function OurTeam() {
           Experienced professionals driving global logistics innovation
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
-           {teamMembers.slice(0, 4).map((member, index) => (
+        {/* Centered single card */}
+        <div className="flex justify-center">
+          {teamMembers.slice(0, 1).map((member, index) => (
             <div
               key={index}
               className="bg-white rounded-lg p-4 sm:p-6 flex flex-col items-center text-center transition-transform duration-300 hover:scale-[1.02]"

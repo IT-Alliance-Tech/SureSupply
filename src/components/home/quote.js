@@ -78,7 +78,7 @@ export default function QuoteForm() {
   };
 
   return (
-    <section className="bg-orange-600 py-12 px-4 sm:px-6 md:px-12 flex justify-center">
+    <section id={`quoteForm`} className="bg-orange-600 py-12 px-4 sm:px-6 md:px-12 flex justify-center">
       <div className="bg-white shadow-lg rounded-lg p-6 sm:p-8 md:p-10 max-w-3xl w-full">
         <h2 className="text-2xl font-bold text-[#0a1a4f] mb-2">Quote Form</h2>
         <p className="text-[#0a1a4f] mb-6">

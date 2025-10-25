@@ -29,7 +29,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative w-full h-[600px] flex items-center justify-start overflow-hidden">
+    <section className="relative w-full h-[650px] flex items-center justify-start overflow-hidden">
       {/* Background Images */}
       <AnimatePresence mode="sync">
         {images.map((img, index) =>
@@ -73,24 +73,27 @@ export default function HeroSection() {
         </h1>
 
         <motion.button
-  className="mt-8 bg-[#F05023] text-white px-8 py-4 rounded-lg font-semibold shadow-lg transition-all duration-300 relative overflow-hidden"
-  initial={{ opacity: 0, y: 20 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ delay: 0.5, duration: 0.8, ease: "easeInOut" }}
-  whileHover={{
-    scale: 1.05,
-    boxShadow: "0 0 20px rgba(240, 80, 35, 0.6)",
-  }}
-  whileTap={{ scale: 0.95 }}
->
-  <span className="relative z-10">{`Let's Talk`}</span>
-  <motion.span
-    className="absolute inset-0 bg-gradient-to-r from-[#F05023] to-[#ff7849] opacity-0"
-    whileHover={{ opacity: 1 }}
-    transition={{ duration: 0.3 }}
-  />
-</motion.button>
-
+          onClick={() => {
+            const element = document.getElementById("quoteForm");
+            element.scrollIntoView();
+          }}
+          className="mt-8 bg-[#F05023] text-white px-8 py-4 rounded-lg font-semibold shadow-lg transition-all duration-300 cursor-pointer relative overflow-hidden"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5, duration: 0.8, ease: "easeInOut" }}
+          whileHover={{
+            scale: 1.05,
+            boxShadow: "0 0 20px rgba(240, 80, 35, 0.6)",
+          }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <span className="relative z-10">{`Let's Talk`}</span>
+          <motion.span
+            className="absolute inset-0 bg-gradient-to-r from-[#F05023] to-[#ff7849] opacity-0"
+            whileHover={{ opacity: 1 }}
+            transition={{ duration: 0.3 }}
+          />
+        </motion.button>
       </div>
     </section>
   );

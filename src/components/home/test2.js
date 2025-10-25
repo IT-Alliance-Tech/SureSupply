@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Slider from "react-slick";
 import Image from "next/image";
 
@@ -132,12 +132,12 @@ const WhyChooseUs = () => {
   ];
 
   const [activeIndex, setActiveIndex] = useState(1);
+  const sliderRef = useRef(null);
 
   const settings = {
     dots: false,
     infinite: true,
-    autoplay: true,
-    autoplaySpeed: 2500,
+    autoplay: false,
     speed: 1000,
     slidesToShow: 3,
     slidesToScroll: 1,
@@ -149,16 +149,18 @@ const WhyChooseUs = () => {
     arrows: false,
   };
 
-  // Calculate the highlighted/center index for the right content
   const centerIndex = (activeIndex + 1) % points.length;
+
+  const nextSlide = () => sliderRef.current.slickNext();
+  const prevSlide = () => sliderRef.current.slickPrev();
 
   return (
     <section className="w-full flex flex-col md:flex-row items-center justify-center min-h-[90vh] bg-gray-50 px-6 md:px-12 py-10">
-      
+
       {/* LEFT - Image Slider */}
       <div className="w-full md:w-1/2 flex justify-center">
         <div className="w-[80%] max-w-[280px] overflow-hidden">
-          <Slider {...settings}>
+          <Slider ref={sliderRef} {...settings}>
             {points.map((point, index) => (
               <div
                 key={point.id}
@@ -186,7 +188,7 @@ const WhyChooseUs = () => {
         </div>
       </div>
 
-      {/* RIGHT - Heading + Subheading + Dynamic Content + Button */}
+      {/* RIGHT - Heading + Dynamic Content + Button */}
       <div className="w-full md:w-1/2 relative mt-10 md:mt-0 flex flex-col">
         {/* Top-right heading & subheading */}
         <div className="absolute top-0 right-20 text-center max-w-md">
@@ -198,29 +200,42 @@ const WhyChooseUs = () => {
           </p>
         </div>
 
-        {/* Dynamic content + button */}
-       
-<div className="mt-48 min-h-[400px] flex flex-col justify-start">
-  <h3 className="text-3xl md:text-4xl font-semibold text-[#0A175C] mb-4">
-    {points[centerIndex]?.title}
-  </h3>
-  <p className="italic text-[#F05023] mb-4 text-lg md:text-xl">
-    {points[centerIndex]?.headline}
-  </p>
-  <ul className="list-disc list-inside text-gray-700 space-y-3 text-base md:text-lg mb-6 overflow-y-auto">
-    {points[centerIndex]?.description.map((item, idx) => (
-      <li key={idx}>{item}</li>
-    ))}
-  </ul>
+        {/* Dynamic content + buttons */}
+        <div className="mt-48 min-h-[400px] flex flex-col justify-start">
+          <h3 className="text-3xl md:text-4xl font-semibold text-[#0A175C] mb-4">
+            {points[centerIndex]?.title}
+          </h3>
+          <p className="italic text-[#F05023] mb-4 text-lg md:text-xl">
+            {points[centerIndex]?.headline}
+          </p>
+          <ul className="list-disc list-inside text-gray-700 space-y-3 text-base md:text-lg mb-6 overflow-y-auto">
+            {points[centerIndex]?.description.map((item, idx) => (
+              <li key={idx}>{item}</li>
+            ))}
+          </ul>
 
-  {/* Get Quote Button */}
-  <button className="text-[#F05023] font-semibold text-[20px] hover:underline cursor-pointer mt-6 text-left">
-    Get Quote &rarr;
-  </button>
-</div>
+          {/* Get Quote Button */}
+          <button className="text-[#F05023] font-semibold text-[20px] hover:underline cursor-pointer mt-6 text-left">
+            Get Quote &rarr;
+          </button>
 
+          {/* Slider Control Buttons below Get Quote */}
+          <div className="flex gap-6 mt-20 ml-[-30px] md:justify-start justify-center">
+            <button
+              onClick={prevSlide}
+              className="px-4 py-2 bg-[#F05023] text-white rounded hover:bg-[#d9431e]"
+            >
+              Prev
+            </button>
+            <button
+              onClick={nextSlide}
+              className="px-4 py-2 bg-[#F05023] text-white rounded hover:bg-[#d9431e]"
+            >
+              Next
+            </button>
+          </div>
+        </div>
       </div>
-
     </section>
   );
 };
