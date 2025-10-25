@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import styles from "../../styles/heroSection.module.css";
 import DotLine from "../ui/lineWithDot";
 
@@ -95,7 +95,15 @@ export default function ProcessFlow() {
       <div className="min-h-screen bg-[#1a1d3f] text-white">
         {/* Desktop View */}
         <div className="hidden md:flex md:flex-col md:items-center md:justify-center min-h-screen px-8 py-12">
-          <div className="max-w-6xl w-full flex items-center justify-between gap-16">
+          <div className="relative max-w-6xl w-full flex items-center justify-between gap-16">
+            {/* Close Button */}
+            <button
+              onClick={handleBack}
+              className="absolute top-2 right-2 w-10 h-10 rounded-full  hover:bg-orange-600 text-white flex items-center justify-center transition-colors z-20"
+            >
+              <X className="w-8 h-8" />
+            </button>
+
             {/* Left Side - Large Circle */}
             <div className="flex-shrink-0">
               <div
@@ -123,7 +131,7 @@ export default function ProcessFlow() {
             </div>
 
             {/* Right Side - Content */}
-            <div className="flex-1 max-w-xl">
+            <div className="flex-1 max-w-xl relative">
               <h1 className="text-5xl font-bold mb-6">
                 How sure supply <span className="text-orange-500">works</span>
               </h1>
@@ -144,21 +152,21 @@ export default function ProcessFlow() {
                     </li>
                   ))}
                 </ol>
-
-                <button
-                  onClick={handleBack}
-                  className="flex items-center gap-2 text-orange-500 hover:text-orange-400 text-lg font-semibold mt-8 transition-colors cursor-pointer"
-                >
-                  <ChevronLeft className="w-5 h-5" />
-                  Back
-                </button>
               </div>
             </div>
           </div>
         </div>
 
         {/* Mobile View */}
-        <div className="md:hidden flex flex-col min-h-screen px-6 py-12">
+        <div className="md:hidden flex flex-col min-h-screen px-6 py-12 relative">
+          {/* Close Button */}
+          <button
+            onClick={handleBack}
+            className="absolute top-4 right-4 w-10 h-10 rounded-full  hover:bg-orange-600 text-white flex items-center justify-center transition-colors z-20"
+          >
+            <X className="w-7 h-7" />
+          </button>
+
           <div className="text-center mb-8">
             <p className="text-sm text-gray-400 mb-2">Process</p>
             <h1 className="text-3xl font-bold mb-4">
@@ -212,14 +220,6 @@ export default function ProcessFlow() {
                 </li>
               ))}
             </ol>
-
-            <button
-              onClick={handleBack}
-              className="flex items-center gap-2 text-orange-500 hover:text-orange-400 font-semibold mt-8 transition-colors"
-            >
-              <ChevronLeft className="w-5 h-5" />
-              Back
-            </button>
           </div>
         </div>
       </div>
@@ -292,7 +292,7 @@ export default function ProcessFlow() {
             </div>
 
             {/* Engineering Support */}
-            <div className="absolute" style={{ top: "24%", left: "23%" }}>
+            {/* <div className="absolute" style={{ top: "24%", left: "23%" }}>
               <div
                 onClick={() => handleProcessClick("engineering-support")}
                 className="w-30 h-30 rounded-full cursor-pointer hover:scale-105 transition-transform relative overflow-hidden"
@@ -335,7 +335,47 @@ export default function ProcessFlow() {
                 ></div>
                 <DotLine axis="y" />
               </div>
-            </div>
+            </div> */}
+
+            <div className="absolute" style={{ top: "24%", left: "23%" }}>
+  {/* Circle */}
+  <div
+    onClick={() => handleProcessClick("engineering-support")}
+    className="w-30 h-30 rounded-full cursor-pointer hover:scale-105 transition-transform relative overflow-hidden"
+    style={{
+      background: "linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(240,240,240,0.95) 100%)",
+      boxShadow: "0 8px 30px rgba(0,0,0,0.3)",
+    }}
+  >
+    <div
+      className="absolute inset-0 opacity-15"
+      style={{
+        ...checkerboardStyle,
+        backgroundSize: "25px 25px",
+        backgroundPosition: "0 0, 0 12.5px, 12.5px -12.5px, -12.5px 0px",
+      }}
+    ></div>
+    <div className="relative z-10 h-full flex items-center justify-center p-4">
+      <h3 className="text-sm font-bold text-center text-black leading-tight">
+        Engineering<br />support
+      </h3>
+    </div>
+  </div>
+
+  {/* Description & line - disable pointer */}
+  <div className="absolute pointer-events-none" style={{ top: "-85%", left: "45%" }}>
+    <div className="mt-4 max-w-xs text-center pointer-events-auto">
+      <h4 className="text-lg font-bold mb-2">Engineering support</h4>
+      <p className="text-sm text-gray-300">Technical consultation and design optimization.</p>
+    </div>
+    <div
+      className={`${styles.horizontalLine} absolute pointer-events-none`}
+      style={{ top: "100%", left: "38.5%" }}
+    ></div>
+    <DotLine axis="y" />
+  </div>
+</div>
+
 
             {/* Strategic Supplier Matching */}
             {/* <div className="absolute" style={{ top: "35%", left: "40%" }}>

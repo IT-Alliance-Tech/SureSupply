@@ -104,16 +104,16 @@ export default function Footer() {
 
         {/* Our Capabilities (hidden on mobile) */}
         <div className="hidden md:flex flex-col items-center -ml-50">
-          <h3 className="font-bold text-lg mb-4 text-center">Our Capabilities</h3>
+          <h3 className="font-bold text-lg mb-4 text-left -ml-20">Our Capabilities</h3>
           <div className="grid grid-cols-2 gap-x-8 gap-y-3">
-            <div className="space-y-5 text-center">
+            <div className="space-y-5 ">
               {firstColumn.map((cap) => (
                 <Link key={cap.href} href={cap.href} className="hover:underline block">
                   {cap.title}
                 </Link>
               ))}
             </div>
-            <div className="space-y-5 text-center">
+            <div className="space-y-5 ">
               {secondColumn.map((cap) => (
                 <Link key={cap.href} href={cap.href} className="hover:underline block">
                   {cap.title}

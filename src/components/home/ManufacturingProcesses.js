@@ -2,13 +2,13 @@
 
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, X } from "lucide-react"; 
 import { useState } from "react";
 
 import sectionBg from "../../../public/bg2.png";
 import dummy from "../../../public/dummy2.png";
 
-// Import step images (you can replace these with actual images)
+// Import step images
 import casting1 from "../../../public/dummy2.png";
 import casting2 from "../../../public/dummy2.png";
 import casting3 from "../../../public/dummy2.png";
@@ -27,12 +27,6 @@ import fabrication2 from "../../../public/dummy2.png";
 import fabrication3 from "../../../public/dummy2.png";
 import fabrication4 from "../../../public/dummy2.png";
 import fabricationExpanded from "../../../public/dummy2.png";
-
-import sheetMetal1 from "../../../public/dummy2.png";
-import sheetMetal2 from "../../../public/dummy2.png";
-import sheetMetal3 from "../../../public/dummy2.png";
-import sheetMetal4 from "../../../public/dummy2.png";
-import sheetMetalExpanded from "../../../public/dummy2.png";
 
 import injection1 from "../../../public/dummy2.png";
 import injection2 from "../../../public/dummy2.png";
@@ -135,18 +129,26 @@ function StepsModal({ isOpen, onClose, stepsData, alignment }) {
       {/* Modal Container */}
       <motion.div
         key="modal"
-        className={`fixed inset-0 z-50 flex ${justifyClass} items-start pt-20 px-4 md:px-0`}
+        className={`fixed inset-0 z-50 flex ${justifyClass} items-start pt-32 md:pt-32 px-4 md:px-0`} // Increased padding-top for visibility
         initial={{ opacity: 0, scale: 0.9, y: 50 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.9, y: 50 }}
         transition={{ type: "spring", stiffness: 200, damping: 20 }}
       >
         <motion.div
-          className="rounded-2xl p-6 md:p-8 w-full max-w-3xl shadow-2xl bg-[#0A175C] overflow-y-auto max-h-[90vh]"
+          className="rounded-2xl p-6 md:p-8 w-full max-w-3xl shadow-2xl bg-[#0A175C] overflow-y-auto max-h-[90vh] relative"
           layout
         >
+          {/* Close button */}
+          <button
+            onClick={expandedStep ? () => setExpandedStep(null) : onClose}
+            className="absolute top-6 right-6 text-white hover:text-orange-500 z-50" // Moved a bit lower and added z-index
+          >
+            <X size={28} />
+          </button>
+
           {!expandedStep ? (
-            <div className="flex flex-col gap-5">
+            <div className="flex flex-col gap-5 mt-5"> {/* Added margin-top to push cards down */}
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-5">
                 {stepsData.map((step, idx) => (
                   <motion.div
@@ -166,11 +168,6 @@ function StepsModal({ isOpen, onClose, stepsData, alignment }) {
                   </motion.div>
                 ))}
               </div>
-              <div className="text-right mt-4">
-                <button onClick={onClose} className="text-orange-500 font-semibold hover:text-orange-400">
-                  Back
-                </button>
-              </div>
             </div>
           ) : (
             <motion.div
@@ -179,17 +176,9 @@ function StepsModal({ isOpen, onClose, stepsData, alignment }) {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 30 }}
               transition={{ duration: 0.3 }}
-              className="flex flex-col gap-5"
+              className="flex flex-col gap-5 mt-5" // Added margin-top
             >
               <Card expandedStep={expandedStep} />
-              <div className="text-right mt-2">
-                <button
-                  onClick={() => setExpandedStep(null)}
-                  className="text-orange-500 font-semibold hover:text-orange-400"
-                >
-                  Back
-                </button>
-              </div>
             </motion.div>
           )}
         </motion.div>

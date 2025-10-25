@@ -6,7 +6,7 @@ import bannerImg from "../../../public/bannerC.png"; // replace with your banner
 
 export default function ResourcesHeroSection() {
   return (
-    <section className="relative w-full h-[250px] sm:h-[350px] md:h-[450px] flex items-center justify-center overflow-hidden">
+    <section className="relative w-full h-[500px] sm:h-[500px] md:h-[550px] flex items-center justify-center overflow-hidden">
       {/* Banner Image */}
       <Image
         src={bannerImg}

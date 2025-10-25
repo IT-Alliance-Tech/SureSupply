@@ -102,7 +102,7 @@ We help businesses define clear project objectives, milestones, and KPIs. Resour
   return (
     <div className="flex flex-col font-outfit">
       {/* ================= BANNER ================= */}
-      <section className="relative w-full h-[400px] sm:h-[500px] md:h-[600px] flex items-center justify-center overflow-hidden">
+      <section className="relative w-full h-[500px] sm:h-[500px] md:h-[600px] flex items-center justify-center overflow-hidden">
         <Image
           src={bannerImg}
           alt="Custom Solution Banner"

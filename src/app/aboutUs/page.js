@@ -4,6 +4,8 @@ import OurTeam from "../../components/aboutUs/ourTeam";
 import HomeJourney from "@/components/aboutUs/homeJourney";
 import HomePlatform from "@/components/aboutUs/homePlatform";
 import PeopleOnGround from "@/components/aboutUs/ourPeople";
+import HiringSection from "@/components/aboutUs/hiringSection";
+
 export default function Home() {
   return (
     <main className="flex flex-col">
@@ -11,6 +13,7 @@ export default function Home() {
       <Ourstory />
       <CorePrinciples />
       <OurTeam />
+      <HiringSection />
       {/* <HomeJourney /> */}
       <HomePlatform />
       <PeopleOnGround />
