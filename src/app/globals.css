@@ -37,3 +37,13 @@ body {
     transform: scale(1);
   }
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Lato:wght@400;600&display=swap');
+
+.font-outfit {
+  font-family: 'Outfit', sans-serif;
+}
+
+.font-lato {
+  font-family: 'Lato', sans-serif;
+}

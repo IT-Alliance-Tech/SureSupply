@@ -97,12 +97,13 @@ export default function ProcessFlow() {
         <div className="hidden md:flex md:flex-col md:items-center md:justify-center min-h-screen px-8 py-12">
           <div className="relative max-w-6xl w-full flex items-center justify-between gap-16">
             {/* Close Button */}
-            <button
-              onClick={handleBack}
-              className="absolute top-2 right-2 w-10 h-10 rounded-full  hover:bg-orange-600 text-white flex items-center justify-center transition-colors z-20"
-            >
-              <X className="w-8 h-8" />
-            </button>
+           <button
+  onClick={handleBack}
+  className="absolute top-2 right-2 w-10 h-10 rounded-full border-2 border-orange-500 text-white hover:bg-orange-500/10 flex items-center justify-center transition-all duration-200 z-20 cursor-pointer"
+>
+  <X className="w-6 h-6" />
+</button>
+
 
             {/* Left Side - Large Circle */}
             <div className="flex-shrink-0">
@@ -161,11 +162,12 @@ export default function ProcessFlow() {
         <div className="md:hidden flex flex-col min-h-screen px-6 py-12 relative">
           {/* Close Button */}
           <button
-            onClick={handleBack}
-            className="absolute top-4 right-4 w-10 h-10 rounded-full  hover:bg-orange-600 text-white flex items-center justify-center transition-colors z-20"
-          >
-            <X className="w-7 h-7" />
-          </button>
+  onClick={handleBack}
+  className="absolute top-4 right-4 w-10 h-10 rounded-full border-2 border-orange-500 text-white flex items-center justify-center transition-all duration-200 cursor-pointer hover:bg-orange-500/10 z-20"
+>
+  <X className="w-7 h-7" />
+</button>
+
 
           <div className="text-center mb-8">
             <p className="text-sm text-gray-400 mb-2">Process</p>

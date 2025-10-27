@@ -3,11 +3,30 @@
 import Image from "next/image";
 import Button from "@mui/material/Button";
 import WarehouseOutlinedIcon from "@mui/icons-material/WarehouseOutlined";
+import { useRouter } from "next/navigation";
+import { Outfit, Lato } from "next/font/google";
 
+// Images
 import bgImage from "../../../public/about/aboutbg3.png";
 import sideImage from "../../../public/dummy3.png";
 
+// ✅ Load fonts
+const outfit = Outfit({ subsets: ["latin"], weight: ["400", "600", "700"] });
+const lato = Lato({ subsets: ["latin"], weight: ["400", "700"] });
+
 export default function HomePlatform() {
+  const router = useRouter();
+
+  // ✅ Navigate to platform page
+  const handlePlatformRedirect = () => {
+    router.push("/platform");
+  };
+
+  // ✅ Navigate to homepage and scroll to quote form
+  const handleQuoteRedirect = () => {
+    router.push("/#quoteForm");
+  };
+
   return (
     <section className="relative overflow-hidden py-10 px-6 sm:px-10 lg:px-20">
       {/* Background image */}
@@ -41,10 +60,8 @@ export default function HomePlatform() {
 
           {/* Heading */}
           <h2
-            className="leading-tight text-[clamp(24px,5vw,40px)]"
+            className={`${outfit.className} leading-tight text-[clamp(24px,5vw,40px)] font-bold`}
             style={{
-              fontFamily: "Outfit, system-ui, sans-serif",
-              fontWeight: 800,
               color: "#0A175C",
               margin: 0,
             }}
@@ -54,26 +71,27 @@ export default function HomePlatform() {
 
           {/* Content */}
           <p
-            className="text-[clamp(14px,3vw,18px)] leading-relaxed max-w-md"
+            className={`${lato.className} text-[clamp(14px,3vw,18px)] leading-relaxed max-w-md`}
             style={{
-              fontFamily: "Lato, Work Sans, system-ui, sans-serif",
               color: "#374151",
               margin: 0,
             }}
           >
             Our technology connects complex supply chains with seamless precision
-            and real-time insights
+            and real-time insights.
           </p>
 
           {/* Buttons */}
           <div className="flex flex-wrap justify-center md:justify-start items-center gap-3 pt-2 w-full">
+            {/* Explore platform */}
             <Button
+              onClick={handlePlatformRedirect}
               variant="outlined"
               sx={{
                 borderColor: "#0A175C",
                 color: "#F05023",
                 textTransform: "none",
-                fontFamily: "Lato, Work Sans",
+                fontFamily: "Lato, sans-serif",
                 fontWeight: 600,
                 px: 3,
                 py: 1,
@@ -88,12 +106,14 @@ export default function HomePlatform() {
               Explore platform
             </Button>
 
+            {/* Get Instant Quote */}
             <Button
+              onClick={handleQuoteRedirect}
               variant="text"
               sx={{
                 color: "#F05023",
                 textTransform: "none",
-                fontFamily: "Lato, Work Sans",
+                fontFamily: "Lato, sans-serif",
                 fontWeight: 600,
                 display: "flex",
                 alignItems: "center",
