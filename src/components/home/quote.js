@@ -113,7 +113,7 @@ export default function ContactForms() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-semibold text-[#0a1a4f] mb-1">
-                    Full Name*
+                    {`Full Name*`}
                   </label>
                   <input
                     type="text"
@@ -128,7 +128,7 @@ export default function ContactForms() {
 
                 <div>
                   <label className="block text-sm font-semibold text-[#0a1a4f] mb-1">
-                    Email Address*
+                    {`Email Address*`}
                   </label>
                   <input
                     type="email"
@@ -145,7 +145,7 @@ export default function ContactForms() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-semibold text-[#0a1a4f] mb-1">
-                    Phone Number*
+                   {` Phone Number*`}
                   </label>
                   <input
                     type="text"
@@ -160,7 +160,7 @@ export default function ContactForms() {
 
                 <div>
                   <label className="block text-sm font-semibold text-[#0a1a4f] mb-1">
-                    Company / Organization*
+                    {`Company / Organization*`}
                   </label>
                   <input
                     type="text"
@@ -176,7 +176,7 @@ export default function ContactForms() {
 
               <div>
                 <label className="block text-sm font-semibold text-[#0a1a4f] mb-1">
-                  Select Service of Interest*
+                  {`Select Service of Interest*`}
                 </label>
                 <select
                   name="service"
@@ -198,7 +198,7 @@ export default function ContactForms() {
 
               <div>
                 <label className="block text-sm font-semibold text-[#0a1a4f] mb-1">
-                  Project Details / Requirements*
+                 {` Project Details / Requirements*`}
                 </label>
                 <textarea
                   name="details"
@@ -213,7 +213,7 @@ export default function ContactForms() {
 
               <div>
                 <label className="block text-sm font-semibold text-[#0a1a4f] mb-1">
-                  Upload Reference File (if any)
+                 {` Upload Reference File (if any)`}
                 </label>
                 <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
                   <label className="bg-gray-200 hover:bg-gray-300 cursor-pointer px-4 py-2 rounded-md text-[#0a1a4f] font-medium w-fit">
@@ -239,7 +239,7 @@ export default function ContactForms() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-semibold text-[#0a1a4f] mb-1">
-                    Vendor / Company Name*
+                   {` Vendor / Company Name*`}
                   </label>
                   <input
                     type="text"
@@ -254,7 +254,7 @@ export default function ContactForms() {
 
                 <div>
                   <label className="block text-sm font-semibold text-[#0a1a4f] mb-1">
-                    Contact Person Name*
+                    {`Contact Person Name*`}
                   </label>
                   <input
                     type="text"
@@ -271,7 +271,7 @@ export default function ContactForms() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-semibold text-[#0a1a4f] mb-1">
-                    Email Address*
+                    {`Email Address*`}
                   </label>
                   <input
                     type="email"
@@ -286,7 +286,7 @@ export default function ContactForms() {
 
                 <div>
                   <label className="block text-sm font-semibold text-[#0a1a4f] mb-1">
-                    Phone Number*
+                   {` Phone Number*`}
                   </label>
                   <input
                     type="text"
@@ -302,7 +302,7 @@ export default function ContactForms() {
 
               <div>
                 <label className="block text-sm font-semibold text-[#0a1a4f] mb-1">
-                  Product / Service You Provide*
+                  {`Product / Service You Provide*`}
                 </label>
                 <textarea
                   name="productService"
@@ -317,7 +317,7 @@ export default function ContactForms() {
 
               <div>
                 <label className="block text-sm font-semibold text-[#0a1a4f] mb-1">
-                  Certifications / Approvals
+                 {` Certifications / Approvals`}
                 </label>
                 <input
                   type="text"
@@ -331,7 +331,7 @@ export default function ContactForms() {
 
               <div>
                 <label className="block text-sm font-semibold text-[#0a1a4f] mb-1">
-                  Upload Company Profile / Brochure*
+                 {` Upload Company Profile / Brochure*`}
                 </label>
                 <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
                   <label className="bg-gray-200 hover:bg-gray-300 cursor-pointer px-4 py-2 rounded-md text-[#0a1a4f] font-medium w-fit">
@@ -386,7 +386,7 @@ export default function ContactForms() {
               className="w-4 h-4 text-orange-600 border-gray-300 rounded focus:ring-orange-500"
             />
             <label htmlFor="captchaCheckbox" className="text-[#0a1a4f]">
-              I'm not a robot
+             {` I'm not a robot`}
             </label>
           </div>
 
