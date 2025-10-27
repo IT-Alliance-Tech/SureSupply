@@ -2,11 +2,16 @@
 
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, X } from "lucide-react"; 
+import { ArrowRight, X } from "lucide-react";
 import { useState } from "react";
+import { Outfit, Lato } from "next/font/google";
 
 import sectionBg from "../../../public/bg2.png";
 import dummy from "../../../public/dummy2.png";
+
+// Fonts
+const outfit = Outfit({ subsets: ["latin"], weight: ["400", "600", "700"] });
+const lato = Lato({ subsets: ["latin"], weight: ["400", "700"] });
 
 // Import step images
 import casting1 from "../../../public/dummy2.png";
@@ -58,7 +63,7 @@ function Card({ title, image, minHeight = 200, onLearn, bgColor = "#1E2A5E", tex
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 30 }}
         transition={{ duration: 0.3 }}
-        className="flex flex-col md:flex-row gap-6 rounded-2xl p-6 shadow-lg bg-white"
+        className={`flex flex-col md:flex-row gap-6 rounded-2xl p-6 shadow-lg bg-white ${lato.className}`}
       >
         <div className="flex-shrink-0 mx-auto md:mx-0">
           <Image
@@ -70,7 +75,9 @@ function Card({ title, image, minHeight = 200, onLearn, bgColor = "#1E2A5E", tex
           />
         </div>
         <div className="flex flex-col justify-center">
-          <h3 className="text-2xl md:text-3xl font-bold text-orange-500">{expandedStep.title}</h3>
+          <h3 className={`text-2xl md:text-3xl font-bold text-orange-500 ${outfit.className}`}>
+            {expandedStep.title}
+          </h3>
           <p className="mt-4 text-gray-700">{expandedStep.details}</p>
         </div>
       </motion.div>
@@ -81,7 +88,7 @@ function Card({ title, image, minHeight = 200, onLearn, bgColor = "#1E2A5E", tex
     <motion.div
       whileHover={{ scale: 1.03 }}
       transition={{ type: "spring", stiffness: 200, damping: 15 }}
-      className="relative rounded-2xl overflow-hidden shadow-lg flex flex-col justify-between p-5 text-left cursor-default"
+      className={`relative rounded-2xl overflow-hidden shadow-lg flex flex-col justify-between p-5 text-left cursor-default ${lato.className}`}
       style={{ minHeight: `${minHeight}px`, backgroundColor: bgColor, color: textColor }}
     >
       <div className="absolute inset-0">
@@ -91,11 +98,11 @@ function Card({ title, image, minHeight = 200, onLearn, bgColor = "#1E2A5E", tex
         </div>
       </div>
 
-      <h3 className="text-xl font-semibold z-10">{title}</h3>
+      <h3 className={`text-xl font-semibold z-10 ${outfit.className}`}>{title}</h3>
       {onLearn && (
         <button
           onClick={onLearn}
-          className="mt-3 flex items-center text-orange-500 hover:text-orange-400 font-medium z-10"
+          className="mt-3 flex items-center text-orange-500 hover:text-orange-400 font-medium z-10 cursor-pointer"
         >
           Learn
           <ArrowRight className="ml-1 w-5 h-5 transition-transform group-hover:translate-x-1" />
@@ -105,13 +112,10 @@ function Card({ title, image, minHeight = 200, onLearn, bgColor = "#1E2A5E", tex
   );
 }
 
-// ✅ Steps Modal with animation
-function StepsModal({ isOpen, onClose, stepsData, alignment }) {
+// ✅ Steps Modal (centered popup)
+function StepsModal({ isOpen, onClose, stepsData }) {
   const [expandedStep, setExpandedStep] = useState(null);
   if (!isOpen) return null;
-
-  const justifyClass =
-    alignment === "left" ? "justify-start" : alignment === "right" ? "justify-end" : "justify-center";
 
   return (
     <AnimatePresence>
@@ -126,29 +130,33 @@ function StepsModal({ isOpen, onClose, stepsData, alignment }) {
         onClick={onClose}
       />
 
-      {/* Modal Container */}
+      {/* Centered Modal */}
       <motion.div
         key="modal"
-        className={`fixed inset-0 z-50 flex ${justifyClass} items-start pt-32 md:pt-32 px-4 md:px-0`} // Increased padding-top for visibility
-        initial={{ opacity: 0, scale: 0.9, y: 50 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
-        exit={{ opacity: 0, scale: 0.9, y: 50 }}
+        className="fixed inset-0 z-50 flex justify-center items-center px-4"
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0.9 }}
         transition={{ type: "spring", stiffness: 200, damping: 20 }}
       >
         <motion.div
-          className="rounded-2xl p-6 md:p-8 w-full max-w-3xl shadow-2xl bg-[#0A175C] overflow-y-auto max-h-[90vh] relative"
+          className={`rounded-2xl p-6 md:p-8 w-full max-w-3xl shadow-2xl bg-[#0A175C] overflow-y-auto max-h-[90vh] relative ${lato.className}`}
           layout
         >
-          {/* Close button */}
+          {/* Close Button */}
           <button
             onClick={expandedStep ? () => setExpandedStep(null) : onClose}
-            className="absolute top-6 right-6 text-white hover:text-orange-500 z-50" // Moved a bit lower and added z-index
+            className="absolute top-5 right-5 text-white hover:text-orange-500 z-50 
+                       w-10 h-10 flex items-center justify-center 
+                       border-2 border-orange-500 rounded-full 
+                       transition-all duration-200 hover:scale-110 hover:border-orange-400 cursor-pointer"
+            aria-label="Close"
           >
-            <X size={28} />
+            <X size={22} />
           </button>
 
           {!expandedStep ? (
-            <div className="flex flex-col gap-5 mt-5"> {/* Added margin-top to push cards down */}
+            <div className="flex flex-col gap-5 mt-8">
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-5">
                 {stepsData.map((step, idx) => (
                   <motion.div
@@ -176,7 +184,7 @@ function StepsModal({ isOpen, onClose, stepsData, alignment }) {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 30 }}
               transition={{ duration: 0.3 }}
-              className="flex flex-col gap-5 mt-5" // Added margin-top
+              className="flex flex-col gap-5 mt-8"
             >
               <Card expandedStep={expandedStep} />
             </motion.div>
@@ -191,7 +199,6 @@ function StepsModal({ isOpen, onClose, stepsData, alignment }) {
 export default function OurExpertise() {
   const [modalOpen, setModalOpen] = useState(false);
   const [stepsData, setStepsData] = useState([]);
-  const [alignment, setAlignment] = useState("center");
 
   const cardSteps = {
     Casting: [
@@ -233,7 +240,7 @@ export default function OurExpertise() {
     ],
     "Rapid Prototyping": [
       { title: "3D printing", image: rapid1, expandedImage: rapidExpanded, details: "Additive manufacturing using polymers for rapid prototyping and design validation." },
-      { title: "Metal 3d printing", image: rapid2, expandedImage: rapidExpanded, details: "Additive process for creating complex metal parts with high precision." },
+      { title: "Metal 3D printing", image: rapid2, expandedImage: rapidExpanded, details: "Additive process for creating complex metal parts with high precision." },
       { title: "Vacuum casting", image: rapid3, expandedImage: rapidExpanded, details: "Casting of silicone molds under vacuum to produce functional prototypes." },
       { title: "CNC pattern", image: rapid4, expandedImage: rapidExpanded, details: "Machined patterns used for mold making and pre-production validation." },
     ],
@@ -246,9 +253,8 @@ export default function OurExpertise() {
     ],
   };
 
-  const handleLearnClick = (type, column) => {
+  const handleLearnClick = (type) => {
     setStepsData(cardSteps[type] || []);
-    setAlignment(column === 1 ? "left" : column === 2 ? "center" : "right");
     setModalOpen(true);
   };
 
@@ -258,9 +264,9 @@ export default function OurExpertise() {
         <Image src={sectionBg} alt="Background gears" fill className="object-cover object-center" priority />
       </div>
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className={`container mx-auto px-6 relative z-10 ${lato.className}`}>
         <div className="text-center mb-10">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: "#0A175C" }}>
+          <h2 className={`text-4xl md:text-5xl font-bold mb-4 ${outfit.className}`} style={{ color: "#0A175C" }}>
             Our <span className="text-orange-500">Expertise</span>
           </h2>
           <p className="text-gray-700 text-lg max-w-3xl mx-auto">
@@ -271,22 +277,22 @@ export default function OurExpertise() {
         {/* Responsive Grid */}
         <div className="flex flex-col md:flex-row gap-6 max-w-6xl mx-auto">
           <div className="flex flex-col gap-5 flex-1">
-            <Card title="Casting" image={dummy} minHeight={230} onLearn={() => handleLearnClick("Casting", 1)} />
-            <Card title="Forging" image={dummy} minHeight={240} onLearn={() => handleLearnClick("Forging", 1)} />
+            <Card title="Casting" image={dummy} minHeight={230} onLearn={() => handleLearnClick("Casting")} />
+            <Card title="Forging" image={dummy} minHeight={240} onLearn={() => handleLearnClick("Forging")} />
           </div>
           <div className="flex flex-col gap-5 flex-1">
-            <Card title="Fabrication" image={dummy} minHeight={150} onLearn={() => handleLearnClick("Fabrication", 2)} />
-            <Card title="Plastic Molding" image={dummy} minHeight={150} onLearn={() => handleLearnClick("Plastic Molding", 2)} />
-            <Card title="Rapid Prototyping" image={dummy} minHeight={150} onLearn={() => handleLearnClick("Rapid Prototyping", 2)} />
+            <Card title="Fabrication" image={dummy} minHeight={150} onLearn={() => handleLearnClick("Fabrication")} />
+            <Card title="Plastic Molding" image={dummy} minHeight={150} onLearn={() => handleLearnClick("Plastic Molding")} />
+            <Card title="Rapid Prototyping" image={dummy} minHeight={150} onLearn={() => handleLearnClick("Rapid Prototyping")} />
           </div>
           <div className="flex flex-col gap-5 flex-1">
-            <Card title="Machining" image={dummy} minHeight={230} onLearn={() => handleLearnClick("Machining", 3)} />
-            <Card title="Quality" image={dummy} minHeight={240} onLearn={() => handleLearnClick("Quality", 3)} />
+            <Card title="Machining" image={dummy} minHeight={230} onLearn={() => handleLearnClick("Machining")} />
+            <Card title="Quality" image={dummy} minHeight={240} onLearn={() => handleLearnClick("Quality")} />
           </div>
         </div>
       </div>
 
-      <StepsModal isOpen={modalOpen} onClose={() => setModalOpen(false)} stepsData={stepsData} alignment={alignment} />
+      <StepsModal isOpen={modalOpen} onClose={() => setModalOpen(false)} stepsData={stepsData} />
     </section>
   );
 }

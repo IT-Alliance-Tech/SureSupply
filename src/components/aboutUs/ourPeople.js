@@ -2,27 +2,52 @@
 
 import Image from "next/image";
 import Button from "@mui/material/Button";
+import { useRouter } from "next/navigation"; // ✅ For navigation
+import { Outfit, Lato } from "next/font/google";
 
+// Import images
 import icon1 from "../../../public/about/logo1.png";
 import icon2 from "../../../public/about/logo2.png";
 import icon3 from "../../../public/about/logo1.png";
 import icon4 from "../../../public/about/logo2.png";
 import sideImage from "../../../public/dummy3.png";
 
+// ✅ Load fonts
+const outfit = Outfit({ subsets: ["latin"], weight: ["400", "600", "700"] });
+const lato = Lato({ subsets: ["latin"], weight: ["400", "700"] });
+
 const icons = [icon1, icon2, icon3, icon4];
 
 export default function PeopleOnGround() {
+  const router = useRouter();
+
+  // ✅ Navigate to Contact Us page
+  const handleContactRedirect = () => {
+    router.push("/contactUs");
+  };
+
+  // ✅ Navigate to homepage and scroll to #quoteForm
+  const handleQuoteRedirect = () => {
+    router.push("/#quoteForm");
+  };
+
   return (
     <section className="flex flex-col md:flex-row w-full min-h-[550px]">
       {/* Left Section */}
-      <div className="w-full md:w-1/2 flex flex-col justify-center px-8 lg:px-16 py-16 bg-[#F05023] text-white">
-        <span className="font-lato text-[16px] mb-1 block">Our team</span>
+      <div
+        className={`w-full md:w-1/2 flex flex-col justify-center px-8 lg:px-16 py-16 bg-[#F05023] text-white`}
+      >
+        <span className={`${lato.className} text-[16px] mb-1 block`}>
+          Our team
+        </span>
 
-        <h2 className="font-outfit text-[40px] leading-snug mb-2">
+        <h2
+          className={`${outfit.className} text-[40px] leading-snug mb-2 font-bold`}
+        >
           PEOPLE ON THE <br /> GROUND
         </h2>
 
-        <p className="font-lato text-[16px] text-white/90 mb-4">
+        <p className={`${lato.className} text-[16px] text-white/90 mb-4`}>
           The human network behind every successful delivery
         </p>
 
@@ -48,7 +73,9 @@ export default function PeopleOnGround() {
 
         {/* Buttons */}
         <div className="flex flex-wrap gap-4">
+          {/* Connect Button */}
           <Button
+            onClick={handleContactRedirect}
             variant="outlined"
             sx={{
               borderColor: "#0A175C",
@@ -67,7 +94,9 @@ export default function PeopleOnGround() {
             Connect
           </Button>
 
+          {/* Get Instant Quote Button */}
           <Button
+            onClick={handleQuoteRedirect}
             variant="text"
             sx={{
               color: "#0A175C",

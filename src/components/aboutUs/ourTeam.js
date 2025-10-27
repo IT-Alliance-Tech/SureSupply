@@ -1,12 +1,10 @@
 "use client";
 
 import Image from "next/image";
-// MUI icons
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import LanguageIcon from "@mui/icons-material/Language";
 
-// Import images
 import team1 from "../../../public/dummy3.png";
 import team2 from "../../../public/dummy3.png";
 import team3 from "../../../public/dummy3.png";
@@ -21,56 +19,56 @@ const teamMembers = [
     name: "ABC",
     role: "Chief Executive Officer",
     description:
-      "Veteran logistics expert with 20 years of global supply chain management experience.",
+      "Veteran logistics expert with 20 years of global supply chain experience.",
     img: team1,
   },
   {
     name: "ABC",
     role: "Chief Technology Officer",
     description:
-      "Digital transformation specialist leading our innovative platform development.",
+      "Digital transformation specialist driving innovative platform solutions.",
     img: team2,
   },
   {
     name: "ABC",
     role: "Chief Operations Officer",
     description:
-      "Strategic leader with deep expertise in global network optimization.",
+      "Strategic leader optimizing global supply networks efficiently.",
     img: team3,
   },
   {
     name: "ABC",
     role: "Chief Sustainability Officer",
     description:
-      "Driving our commitment to sustainable and responsible logistics solutions.",
+      "Leading our commitment to sustainable and responsible logistics.",
     img: team4,
   },
   {
     name: "ABC",
     role: "Chief Marketing Officer",
     description:
-      "Building brand awareness and driving growth through innovative marketing strategies.",
+      "Building brand presence and driving strategic market growth.",
     img: team5,
   },
   {
     name: "ABC",
     role: "Chief Financial Officer",
     description:
-      "Experienced finance professional managing fiscal operations and growth planning.",
+      "Finance professional ensuring strong fiscal operations and planning.",
     img: team6,
   },
   {
     name: "ABC",
     role: "Head of Human Resources",
     description:
-      "Passionate about people and culture, fostering a thriving and inclusive workplace.",
+      "Creating a thriving and inclusive workplace for all teams.",
     img: team7,
   },
   {
     name: "ABC",
     role: "Director of Business Development",
     description:
-      "Expanding partnerships and identifying new market opportunities globally.",
+      "Expanding partnerships and uncovering new market opportunities.",
     img: team8,
   },
 ];
@@ -106,13 +104,24 @@ export default function OurTeam() {
                 />
               </div>
 
-              <h3 className="text-lg font-outfit font-bold text-[#0A175C]">
+              <h3 className="text-lg font-outfit font-bold text-[#0A175C] mb-2">
                 {member.name}
               </h3>
-              <p className="text-sm mb-2 font-lato text-[#0A175C]">{member.role}</p>
-              <p className="text-sm mb-4 font-lato text-[#0A175C]">{member.description}</p>
+              <p className="text-sm mb-1 font-lato text-[#0A175C] mb-2">{member.role}</p>
 
-              <div className="flex space-x-4">
+              {/* Shorter text width + definite visible gap below */}
+              <p
+                className="text-sm font-lato text-[#0A175C] leading-relaxed"
+                style={{
+                  maxWidth: "240px",
+                  margin: "0 auto 20px auto", // ensures visible gap below
+                  lineHeight: "1.5",
+                }}
+              >
+                {member.description}
+              </p>
+
+              <div className="flex space-x-4 mt-2">
                 <a href="#" className="hover:text-blue-700 text-[#0A175C]">
                   <LinkedInIcon fontSize="small" />
                 </a>
