@@ -1,26 +1,38 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-import hero1 from "../../../public/Banner1.png";
-import hero2 from "../../../public/Banner2.png";
-import hero3 from "../../../public/banner3.png";
-import hero4 from "../../../public/Banner4.png";
-import hero5 from "../../../public/Banner5.png";
-
 export default function HeroSection() {
-  const images = [hero1, hero2, hero3, hero4, hero5];
+  // 🎞 Video URLs in /public/videos
+  const videos = [
+    "https://res.cloudinary.com/drqsy21yw/video/upload/v1761647355/welding_kijyqz.mp4",
+    "https://res.cloudinary.com/drqsy21yw/video/upload/v1761647829/foundry_zybgbv.mp4",
+    "https://res.cloudinary.com/drqsy21yw/video/upload/v1761648071/video3.mov_xu8e90.mp4",
+    "https://res.cloudinary.com/drqsy21yw/video/upload/v1761648109/video4_uxgiua.mp4",
+  ];
+
   const words = ["Simple", "Reliable", "Future Ready"];
   const [currentIndex, setCurrentIndex] = useState(0);
+  const videoRefs = useRef([]);
 
+  // 🔄 Cycle through videos every 5s
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % images.length);
-    }, 3000); // Change every 3s
+      setCurrentIndex((prev) => (prev + 1) % videos.length);
+    }, 5000);
 
     return () => clearInterval(interval);
-  }, [images.length]);
+  }, [videos.length]);
+
+  // ⚙️ Preload the *next* video (for smoother transitions)
+  useEffect(() => {
+    const nextIndex = (currentIndex + 1) % videos.length;
+    const nextVideo = videoRefs.current[nextIndex];
+    if (nextVideo && nextVideo.readyState === 0) {
+      nextVideo.load();
+    }
+  }, [currentIndex, videos.length]);
 
   const wordVariants = {
     initial: { opacity: 0, y: 20 },
@@ -30,20 +42,36 @@ export default function HeroSection() {
 
   return (
     <section className="relative w-full h-[650px] flex items-center justify-start overflow-hidden">
-      {/* Background Images */}
+      {/* ===== Background Videos (lazy loaded) ===== */}
       <AnimatePresence mode="sync">
-        {images.map((img, index) =>
+        {videos.map((video, index) =>
           index === currentIndex ? (
-            <motion.div
+            <motion.video
               key={index}
-              className="absolute inset-0 bg-cover bg-center"
-              style={{ backgroundImage: `url(${img.src})` }}
+              ref={(el) => (videoRefs.current[index] = el)}
+              src={video}
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="auto"
+              className="absolute inset-0 w-full h-full object-cover"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 1, ease: "easeInOut" }}
+              transition={{ duration: 1.2, ease: "easeInOut" }}
             />
-          ) : null
+          ) : (
+            <video
+              key={index}
+              ref={(el) => (videoRefs.current[index] = el)}
+              src={video}
+              muted
+              playsInline
+              preload="metadata" // 👈 lightweight lazy load
+              className="hidden"
+            />
+          )
         )}
       </AnimatePresence>
 
@@ -75,7 +103,7 @@ export default function HeroSection() {
         <motion.button
           onClick={() => {
             const element = document.getElementById("quoteForm");
-            element.scrollIntoView();
+            if (element) element.scrollIntoView({ behavior: "smooth" });
           }}
           className="mt-8 bg-[#F05023] text-white px-8 py-4 rounded-lg font-semibold shadow-lg transition-all duration-300 cursor-pointer relative overflow-hidden"
           initial={{ opacity: 0, y: 20 }}

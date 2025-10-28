@@ -196,7 +196,7 @@ const WhyChooseUs = () => {
 
         {/* Vertical Slider (Same as Desktop) */}
         <div className="w-full flex justify-center mb-6">
-          <div className="w-[80%] max-w-[280px] overflow-hidden">
+          <div className="w-[80%] max-w-[280px] overflow-hidden h-[380px] flex items-center justify-center relative">
             <Slider ref={sliderRefMobile} {...settingsMobile}>
               {points.map((point, index) => (
                 <div
