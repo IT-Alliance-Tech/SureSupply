@@ -99,6 +99,10 @@ export default function QuoteForm() {
         autoClose: 4000,
         hideProgressBar: false,
         theme: "colored",
+        style: {
+      backgroundColor: "#000",
+      color: "#fff",
+    },
       }
     );
   };
