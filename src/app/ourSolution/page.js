@@ -11,7 +11,7 @@ import logo from "../../../public/logo.png";
 
 // ====== SOLUTION ICONS ======
 import icon1 from "../../../public/solutions/icon1.svg";
-import icon2 from "../../../public/solutions/icon2.svg"; 
+import icon2 from "../../../public/solutions/icon2.svg";
 import icon3 from "../../../public/solutions/icon3.svg";
 import icon4 from "../../../public/solutions/icon4.svg";
 import icon5 from "../../../public/solutions/icon5.svg";
@@ -48,53 +48,73 @@ export default function CustomSolutionPage() {
     {
       title: "End-to-End Manufacturing",
       description:
-        "Businesses need a seamless manufacturing process to reduce delays, optimize resources, and ensure consistent product quality.",
+        "We manage your entire product journey — from idea to mass production with multi-process capabilities and flexible production scales.",
       image: solutionImg1,
-      paragraph: `At Sure Supply, we recognize that managing a supply chain involves far more than moving products from one point to another—it requires a careful balance of efficiency, quality, and reliability across multiple processes.
+      paragraph: `At SureSupply, we go beyond sourcing and manufacturing — offering complete engineering, production, and project lifecycle support. From concept design to final delivery, our integrated solutions ensure speed, quality, and cost efficiency at every stage.
 
-This solution focuses on streamlining manufacturing operations to reduce delays, optimize resources, and ensure consistent product quality. We help businesses implement systems that monitor production stages, minimize bottlenecks, and maintain high standards at every step.
+We manage your entire product journey — from idea to mass production. 
 
-Our team provides guidance on best practices, workflow optimization, and real-time monitoring. We also integrate automation where possible to reduce human error. By implementing predictive maintenance, businesses can avoid downtime. Additionally, we provide training for staff to improve process efficiency. Finally, our solution ensures scalability so that operations can grow seamlessly with business demand.`,
+What We Offer:
+• Multi-process manufacturing: casting, forging, fabrication, machining, molding, and rapid prototyping. (Linked with capabilities section when clicked)
+• Tooling and fixture development.
+• Flexible batch sizes — from prototypes to full-scale production.
+• Vendor development and cost-optimized process selection.`,
       icon: icon1,
     },
     {
       title: "Inventory Management",
       description:
-        "Efficient inventory systems prevent stock-outs, reduce wastage, and maintain balance between demand and supply.",
+        "We ensure your supply chain stays lean and uninterrupted through real-time tracking, stocking, and inventory optimization.",
       image: solutionImg2,
-      paragraph: `Inventory Management is essential for ensuring smooth operations and reducing waste. Our solution helps businesses track inventory in real-time, forecast demand accurately, and maintain optimal stock levels.
+      paragraph: `We ensure your supply chain stays lean and uninterrupted, maintaining a balance between efficiency and flexibility.
 
-With better inventory control, businesses can avoid stock-outs, reduce excess holding costs, and improve overall operational efficiency. We provide advanced reporting to identify slow-moving stock. Automated alerts notify teams of replenishment needs. Batch tracking improves traceability. Safety stock is calculated dynamically. Integrations with suppliers ensure timely delivery. Historical data analysis supports decision-making.`,
+What We Offer:
+• Just-in-Time (JIT) and Vendor Managed Inventory (VMI) programs.
+• Real-time tracking and warehouse management.
+• Strategic stocking for domestic and export needs.
+• Customized packaging and barcoding solutions.`,
       icon: icon2,
     },
     {
       title: "Logistics & Delivery",
       description:
-        "Reliable logistics ensure products reach customers on time, improving satisfaction and building trust.",
+        "We provide timely, safe, and optimized deliveries worldwide with end-to-end logistics coordination and freight optimization.",
       image: solutionImg3,
-      paragraph: `Reliable Logistics & Delivery is critical for maintaining customer satisfaction. Our solution optimizes shipping routes, monitors deliveries in real-time, and ensures products reach customers promptly.
+      paragraph: `Timely, safe, and optimized deliveries are the backbone of every successful supply chain. Our logistics network ensures reliability, visibility, and cost efficiency across global operations.
 
-We provide route planning tools, automated scheduling, and carrier management. Delivery tracking is transparent for customers. Risk management ensures minimal delays. Inventory is synchronized with transport schedules. Analytics provide insights on delivery performance. Notifications alert teams to potential issues before they escalate. Our approach ensures cost-effective and reliable logistics.`,
+What We Offer:
+• Domestic and international logistics coordination.
+• Consolidated shipments and multi-location dispatch.
+• Freight optimization and packaging design for reduced cost.
+• Transparent tracking and documentation support.`,
       icon: icon3,
     },
     {
       title: "Quality Assurance",
       description:
-        "Ensuring strict quality standards reduces returns, builds credibility, and enhances brand reputation.",
+        "Every part we deliver passes through rigorous in-house and third-party quality checks to meet global standards.",
       image: solutionImg4,
-      paragraph: `Quality Assurance is at the core of every successful operation. Our solution helps companies implement strict quality controls, reduce product defects, and maintain high standards across all processes.
+      paragraph: `Every part we deliver passes through rigorous in-house and third-party quality checks to ensure compliance, consistency, and reliability.
 
-We provide standardized checklists, automated inspections, and real-time reporting. Non-conformance is tracked and analyzed. Root cause analysis reduces recurring issues. Compliance with industry standards is ensured. Staff training is provided for quality best practices. Customer feedback is integrated into improvement plans. Continuous improvement initiatives help sustain long-term quality excellence.`,
+What We Offer:
+• NABL-certified lab reports.
+• Dimensional, metallurgical, and performance testing.
+• PPAP, FMEA, and SPC documentation.
+• Continuous improvement through root cause and CAPA analysis.`,
       icon: icon4,
     },
     {
       title: "Project Management Support",
       description:
-        "Strong project management minimizes risks, keeps projects on schedule, and ensures resources are utilized effectively.",
+        "We provide end-to-end project coordination to meet delivery, cost, and quality targets through dedicated management systems.",
       image: solutionImg5,
-      paragraph: `Project Management Support ensures projects are executed efficiently, on time, and within budget. Our solution provides tools for planning, resource allocation, risk management, and progress tracking.
+      paragraph: `We provide end-to-end project coordination to ensure delivery, cost, and quality targets are achieved without compromise.
 
-We help businesses define clear project objectives, milestones, and KPIs. Resource utilization is monitored to avoid bottlenecks. Risk registers track potential issues. Communication is streamlined across teams. Performance dashboards provide insights into project health. Change management processes ensure smooth adaptation. Finally, lessons learned are documented to improve future project delivery.`,
+What We Offer:
+• Dedicated project managers for each account.
+• Real-time progress tracking and reporting.
+• Cross-functional communication between design, production, and logistics.
+• Change management and technical documentation control.`,
       icon: icon5,
     },
   ];
@@ -126,7 +146,7 @@ We help businesses define clear project objectives, milestones, and KPIs. Resour
       <section className="py-12 sm:py-16 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-20 grid grid-cols-1 md:grid-cols-10 gap-6 md:gap-8">
           {/* Left-side (30%) */}
-          <div className="col-span-1 md:col-span-3 flex flex-col gap-6">
+          <div className="col-span-1 md:col-span-3 flex flex-col gap-6 sticky top-24 h-fit self-start">
             {/* Solution Categories */}
             <div className="bg-[#F05023] text-white px-4 py-2 rounded-t-md font-semibold">
               Solution Category
@@ -196,7 +216,7 @@ We help businesses define clear project objectives, milestones, and KPIs. Resour
                 WHY CHOOSE <span className="text-[#F05023]">OUR SOLUTIONS</span>
               </h2>
               <p className="text-gray-600 mb-8 sm:mb-10 max-w-full sm:max-w-3xl text-sm sm:text-base">
-                We provide end-to-end supply chain solutions designed to simplify operations, reduce costs, and ensure timely delivery. Our solutions are built to address the critical challenges businesses face in managing production, inventory, logistics, and quality. By streamlining every step of the process, we help organizations achieve efficiency, reliability, and long-term growth.
+                We provide end-to-end supply chain and manufacturing solutions designed to simplify operations, improve quality, and optimize costs. Our approach ensures that every stage — from concept to delivery — is seamlessly managed for efficiency, reliability, and customer satisfaction.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
@@ -212,17 +232,16 @@ We help businesses define clear project objectives, milestones, and KPIs. Resour
               </div>
             </section>
 
-            {/* ================= PLANNING & STRATEGY (MAPPED RESPONSIVE) ================= */}
+            {/* ================= PLANNING & STRATEGY ================= */}
             <section className="mt-10 bg-white py-8 sm:py-10 rounded-xl px-4 sm:px-6">
               <div className="max-w-5xl mx-auto">
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-[#0A175C] mb-3">
                   PLANNING & <span className="text-[#F05023]">STRATEGY</span>
                 </h2>
                 <p className="mb-6 sm:mb-8 max-w-full sm:max-w-3xl text-sm sm:text-base text-[#0A175C]">
-                  Our Industrial Automation and Robotics planning and strategy services focus on designing tailored automation solutions that align with your business goals.
+                  Our strategic planning ensures each project — from concept to production — is designed for scalability, quality, and efficiency, helping you stay ahead in a competitive market.
                 </p>
 
-                {/* Six points grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-6">
                   {planningSteps.map((step, idx) => (
                     <div key={idx} className="flex items-start gap-3">
@@ -236,7 +255,6 @@ We help businesses define clear project objectives, milestones, and KPIs. Resour
                   ))}
                 </div>
 
-                {/* Two large image placeholders */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                   <div className="bg-gray-50 rounded-2xl p-4 sm:p-6 flex items-center justify-center min-h-[180px] sm:min-h-[220px] shadow-sm">
                     <div className="w-full max-w-[360px] h-40 sm:h-48 bg-white rounded-lg flex items-center justify-center">

@@ -1,9 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-export default function ContactForms() {
-  const [userType, setUserType] = useState("customer"); // customer or vendor
+export default function QuoteForm() {
+  const [userType, setUserType] = useState("customer");
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -12,28 +14,64 @@ export default function ContactForms() {
     service: "",
     details: "",
     file: null,
+    vendorName: "",
+    contactName: "",
+    productService: "",
+    certifications: "",
     agreeComm: false,
     agreeData: false,
   });
   const [isHuman, setIsHuman] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
+  const [errors, setErrors] = useState({});
 
+  // Handle input changes
   const handleChange = (e) => {
     const { name, value, type, checked, files } = e.target;
     setFormData((prev) => ({
       ...prev,
       [name]: type === "checkbox" ? checked : type === "file" ? files[0] : value,
     }));
+    setErrors((prev) => ({ ...prev, [name]: "" }));
   };
 
+  // Validation
+  const validate = () => {
+    const newErrors = {};
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phoneRegex = /^[0-9]{7,15}$/;
+
+    if (userType === "customer") {
+      if (!formData.fullName.trim()) newErrors.fullName = "Full name is required.";
+      if (!emailRegex.test(formData.email)) newErrors.email = "Enter a valid email address.";
+      if (!phoneRegex.test(formData.phone)) newErrors.phone = "Enter a valid phone number.";
+      if (!formData.company.trim()) newErrors.company = "Company name is required.";
+      if (!formData.service.trim()) newErrors.service = "Please select a service.";
+      if (!formData.details.trim()) newErrors.details = "Please describe your project.";
+      if (!formData.file) newErrors.file = "Please upload a file (drawing, RFQ, etc.).";
+    } else {
+      if (!formData.vendorName.trim()) newErrors.vendorName = "Vendor name is required.";
+      if (!formData.contactName.trim()) newErrors.contactName = "Contact name is required.";
+      if (!emailRegex.test(formData.email)) newErrors.email = "Enter a valid email address.";
+      if (!phoneRegex.test(formData.phone)) newErrors.phone = "Enter a valid phone number.";
+      if (!formData.productService.trim()) newErrors.productService = "Please describe your product/service.";
+      if (!formData.file) newErrors.file = "Company profile file is required.";
+    }
+
+    if (!formData.agreeComm) newErrors.agreeComm = "Please agree to receive communications.";
+    if (!formData.agreeData) newErrors.agreeData = "Please agree to data processing.";
+    if (!isHuman) newErrors.isHuman = "Please confirm you are not a robot.";
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  // Submit
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!validate()) return;
+
     console.log("Form Submitted:", { ...formData, userType });
 
-    // Simulate success message
-    setSubmitted(true);
-
-    // Clear form data
     setFormData({
       fullName: "",
       email: "",
@@ -42,32 +80,32 @@ export default function ContactForms() {
       service: "",
       details: "",
       file: null,
+      vendorName: "",
+      contactName: "",
+      productService: "",
+      certifications: "",
       agreeComm: false,
       agreeData: false,
     });
     setIsHuman(false);
+    setErrors({});
 
-    setTimeout(() => setSubmitted(false), 4000);
-  };
-
-  const isFormValid = () => {
-    const requiredFields =
+    toast.success(
       userType === "customer"
-        ? ["fullName", "email", "phone", "company", "service", "details"]
-        : ["vendorName", "contactName", "email", "phone", "productService", "certifications", "file"];
-    return (
-      Object.keys(formData)
-        .filter((key) => requiredFields.includes(key))
-        .every((key) => formData[key]?.toString().trim() !== "") &&
-      formData.agreeComm &&
-      formData.agreeData &&
-      isHuman
+        ? "Thank you! Our team will contact you shortly."
+        : "Vendor application submitted successfully. We'll get in touch soon!",
+      {
+        position: "bottom-right",
+        autoClose: 4000,
+        hideProgressBar: false,
+        theme: "colored",
+      }
     );
   };
 
   return (
     <section
-      id="contactForms"
+      id="quoteForm"
       className="bg-orange-600 py-12 px-4 sm:px-6 md:px-12 flex justify-center font-[Outfit]"
     >
       <div className="bg-white shadow-lg rounded-lg p-6 sm:p-8 md:p-10 max-w-3xl w-full">
@@ -80,7 +118,7 @@ export default function ContactForms() {
             : "Provide your company details and our procurement team will contact you."}
         </p>
 
-        {/* Type Toggle */}
+        {/* ===== Toggle between forms ===== */}
         <div className="mb-6 flex space-x-4">
           <label className="flex items-center space-x-2 text-[#0a1a4f]">
             <input
@@ -89,7 +127,7 @@ export default function ContactForms() {
               value="customer"
               checked={userType === "customer"}
               onChange={(e) => setUserType(e.target.value)}
-              className="w-4 h-4"
+              className="w-4 h-4 accent-[#F05023]"
             />
             <span>Customer</span>
           </label>
@@ -100,16 +138,18 @@ export default function ContactForms() {
               value="vendor"
               checked={userType === "vendor"}
               onChange={(e) => setUserType(e.target.value)}
-              className="w-4 h-4"
+              className="w-4 h-4 accent-[#F05023]"
             />
             <span>Vendor</span>
           </label>
         </div>
 
+        {/* ===== Form ===== */}
         <form onSubmit={handleSubmit} className="space-y-6 font-[Outfit]">
-          {/* CUSTOMER FORM */}
+          {/* -------- CUSTOMER FORM -------- */}
           {userType === "customer" && (
             <>
+              {/* Full name & Email */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-semibold text-[#0a1a4f] mb-1">
@@ -122,13 +162,12 @@ export default function ContactForms() {
                     onChange={handleChange}
                     placeholder="Enter your full name"
                     className="w-full border rounded-md px-4 py-2 bg-gray-50 text-black focus:ring-2 focus:ring-orange-500"
-                    required
                   />
+                  {errors.fullName && <p className="text-red-600 text-sm">{errors.fullName}</p>}
                 </div>
-
                 <div>
                   <label className="block text-sm font-semibold text-[#0a1a4f] mb-1">
-                    {`Email Address*`}
+                   {` Email Address*`}
                   </label>
                   <input
                     type="email"
@@ -137,15 +176,16 @@ export default function ContactForms() {
                     onChange={handleChange}
                     placeholder="Enter your email"
                     className="w-full border rounded-md px-4 py-2 bg-gray-50 text-black focus:ring-2 focus:ring-orange-500"
-                    required
                   />
+                  {errors.email && <p className="text-red-600 text-sm">{errors.email}</p>}
                 </div>
               </div>
 
+              {/* Phone & Company */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-semibold text-[#0a1a4f] mb-1">
-                   {` Phone Number*`}
+                    {`Phone Number*`}
                   </label>
                   <input
                     type="text"
@@ -154,10 +194,9 @@ export default function ContactForms() {
                     onChange={handleChange}
                     placeholder="Enter your phone number"
                     className="w-full border rounded-md px-4 py-2 bg-gray-50 text-black focus:ring-2 focus:ring-orange-500"
-                    required
                   />
+                  {errors.phone && <p className="text-red-600 text-sm">{errors.phone}</p>}
                 </div>
-
                 <div>
                   <label className="block text-sm font-semibold text-[#0a1a4f] mb-1">
                     {`Company / Organization*`}
@@ -169,11 +208,12 @@ export default function ContactForms() {
                     onChange={handleChange}
                     placeholder="Enter your company name"
                     className="w-full border rounded-md px-4 py-2 bg-gray-50 text-black focus:ring-2 focus:ring-orange-500"
-                    required
                   />
+                  {errors.company && <p className="text-red-600 text-sm">{errors.company}</p>}
                 </div>
               </div>
 
+              {/* Service */}
               <div>
                 <label className="block text-sm font-semibold text-[#0a1a4f] mb-1">
                   {`Select Service of Interest*`}
@@ -183,7 +223,6 @@ export default function ContactForms() {
                   value={formData.service}
                   onChange={handleChange}
                   className="w-full border rounded-md px-4 py-2 bg-gray-50 text-black focus:ring-2 focus:ring-orange-500"
-                  required
                 >
                   <option value="">Select Service</option>
                   <option value="Casting">Casting</option>
@@ -194,8 +233,10 @@ export default function ContactForms() {
                   <option value="Rapid Prototyping">Rapid Prototyping</option>
                   <option value="Others">Others</option>
                 </select>
+                {errors.service && <p className="text-red-600 text-sm">{errors.service}</p>}
               </div>
 
+              {/* Details */}
               <div>
                 <label className="block text-sm font-semibold text-[#0a1a4f] mb-1">
                  {` Project Details / Requirements*`}
@@ -207,13 +248,14 @@ export default function ContactForms() {
                   onChange={handleChange}
                   placeholder="Tell us about your project, quantity, or specifications."
                   className="w-full border rounded-md px-4 py-2 bg-gray-50 text-black focus:ring-2 focus:ring-orange-500"
-                  required
                 />
+                {errors.details && <p className="text-red-600 text-sm">{errors.details}</p>}
               </div>
 
+              {/* File Upload */}
               <div>
                 <label className="block text-sm font-semibold text-[#0a1a4f] mb-1">
-                 {` Upload Reference File (if any)`}
+                  {`Upload File (Drawing / RFQ / Requirement)*`} 
                 </label>
                 <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
                   <label className="bg-gray-200 hover:bg-gray-300 cursor-pointer px-4 py-2 rounded-md text-[#0a1a4f] font-medium w-fit">
@@ -229,29 +271,29 @@ export default function ContactForms() {
                     {formData.file ? formData.file.name : "No file chosen"}
                   </span>
                 </div>
+                {errors.file && <p className="text-red-600 text-sm">{errors.file}</p>}
               </div>
             </>
           )}
 
-          {/* VENDOR FORM */}
+          {/* -------- VENDOR FORM -------- */}
           {userType === "vendor" && (
             <>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-semibold text-[#0a1a4f] mb-1">
-                   {` Vendor / Company Name*`}
+                    {`Vendor / Company Name*`}
                   </label>
                   <input
                     type="text"
                     name="vendorName"
-                    value={formData.vendorName || ""}
+                    value={formData.vendorName}
                     onChange={handleChange}
                     placeholder="Enter company name"
                     className="w-full border rounded-md px-4 py-2 bg-gray-50 text-black focus:ring-2 focus:ring-orange-500"
-                    required
                   />
+                  {errors.vendorName && <p className="text-red-600 text-sm">{errors.vendorName}</p>}
                 </div>
-
                 <div>
                   <label className="block text-sm font-semibold text-[#0a1a4f] mb-1">
                     {`Contact Person Name*`}
@@ -259,12 +301,12 @@ export default function ContactForms() {
                   <input
                     type="text"
                     name="contactName"
-                    value={formData.contactName || ""}
+                    value={formData.contactName}
                     onChange={handleChange}
                     placeholder="Enter contact name"
                     className="w-full border rounded-md px-4 py-2 bg-gray-50 text-black focus:ring-2 focus:ring-orange-500"
-                    required
                   />
+                  {errors.contactName && <p className="text-red-600 text-sm">{errors.contactName}</p>}
                 </div>
               </div>
 
@@ -280,13 +322,12 @@ export default function ContactForms() {
                     onChange={handleChange}
                     placeholder="Enter your email"
                     className="w-full border rounded-md px-4 py-2 bg-gray-50 text-black focus:ring-2 focus:ring-orange-500"
-                    required
                   />
+                  {errors.email && <p className="text-red-600 text-sm">{errors.email}</p>}
                 </div>
-
                 <div>
                   <label className="block text-sm font-semibold text-[#0a1a4f] mb-1">
-                   {` Phone Number*`}
+                    {`Phone Number*`}
                   </label>
                   <input
                     type="text"
@@ -295,8 +336,8 @@ export default function ContactForms() {
                     onChange={handleChange}
                     placeholder="Enter phone number"
                     className="w-full border rounded-md px-4 py-2 bg-gray-50 text-black focus:ring-2 focus:ring-orange-500"
-                    required
                   />
+                  {errors.phone && <p className="text-red-600 text-sm">{errors.phone}</p>}
                 </div>
               </div>
 
@@ -307,28 +348,17 @@ export default function ContactForms() {
                 <textarea
                   name="productService"
                   rows="4"
-                  value={formData.productService || ""}
+                  value={formData.productService}
                   onChange={handleChange}
                   placeholder="List your key products, capabilities, or services."
                   className="w-full border rounded-md px-4 py-2 bg-gray-50 text-black focus:ring-2 focus:ring-orange-500"
-                  required
                 />
+                {errors.productService && (
+                  <p className="text-red-600 text-sm">{errors.productService}</p>
+                )}
               </div>
 
-              <div>
-                <label className="block text-sm font-semibold text-[#0a1a4f] mb-1">
-                 {` Certifications / Approvals`}
-                </label>
-                <input
-                  type="text"
-                  name="certifications"
-                  value={formData.certifications || ""}
-                  onChange={handleChange}
-                  placeholder="e.g., ISO 9001, IATF 16949"
-                  className="w-full border rounded-md px-4 py-2 bg-gray-50 text-black focus:ring-2 focus:ring-orange-500"
-                />
-              </div>
-
+              {/* Vendor File Upload */}
               <div>
                 <label className="block text-sm font-semibold text-[#0a1a4f] mb-1">
                  {` Upload Company Profile / Brochure*`}
@@ -341,18 +371,18 @@ export default function ContactForms() {
                       name="file"
                       className="hidden"
                       onChange={handleChange}
-                      required
                     />
                   </label>
                   <span className="text-sm text-[#0a1a4f] break-words">
                     {formData.file ? formData.file.name : "No file chosen"}
                   </span>
                 </div>
+                {errors.file && <p className="text-red-600 text-sm">{errors.file}</p>}
               </div>
             </>
           )}
 
-          {/* CONSENTS */}
+          {/* Agreements */}
           <div className="space-y-3">
             <label className="flex items-start space-x-2 text-[#0a1a4f]">
               <input
@@ -364,8 +394,10 @@ export default function ContactForms() {
               />
               <span>I agree to receive communications.*</span>
             </label>
+            {errors.agreeComm && <p className="text-red-600 text-sm">{errors.agreeComm}</p>}
+
             <label className="flex items-start space-x-2 text-[#0a1a4f]">
-              <input
+              <input 
                 type="checkbox"
                 name="agreeData"
                 checked={formData.agreeData}
@@ -374,6 +406,7 @@ export default function ContactForms() {
               />
               <span>I agree to allow storing and processing my data.*</span>
             </label>
+            {errors.agreeData && <p className="text-red-600 text-sm">{errors.agreeData}</p>}
           </div>
 
           {/* CAPTCHA */}
@@ -386,31 +419,23 @@ export default function ContactForms() {
               className="w-4 h-4 text-orange-600 border-gray-300 rounded focus:ring-orange-500"
             />
             <label htmlFor="captchaCheckbox" className="text-[#0a1a4f]">
-             {` I'm not a robot`}
+              {`I'm not a robot`}
             </label>
           </div>
+          {errors.isHuman && <p className="text-red-600 text-sm mb-2">{errors.isHuman}</p>}
 
-          {/* SUBMIT */}
           <div>
             <button
               type="submit"
-              disabled={!isFormValid()}
               className="bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-md font-semibold w-full sm:w-auto disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {userType === "customer" ? "Send Inquiry" : "Submit Vendor Application"}
             </button>
           </div>
-
-          {/* SUCCESS MESSAGE */}
-          {submitted && (
-            <p className="text-green-600 font-semibold mt-4">
-              {userType === "customer"
-                ? "✅ Thank you! Our team will review your requirements and contact you shortly."
-                : "✅ Thank you for showing interest in partnering with us. Our procurement team will connect with you soon."}
-            </p>
-          )}
         </form>
       </div>
+
+      <ToastContainer />
     </section>
   );
 }
