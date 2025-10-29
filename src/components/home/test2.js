@@ -2,15 +2,18 @@
 import React, { useState, useRef } from "react";
 import Slider from "react-slick";
 import Image from "next/image";
+import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
 
-// Import images
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 import endToEndImg from "../../../public/dummyimg.png";
 import supplierNetworkImg from "../../../public/dummyimg.png";
 import technologyPlatformImg from "../../../public/dummyimg.png";
 import qualityComplianceImg from "../../../public/dummyimg.png";
 import industryExpertiseImg from "../../../public/dummyimg.png";
-import flexibleOperationsImg from "../../../public/dummyimg.png";
-import partnershipsImg from "../../../public/dummyimg.png";
+import flexibleImg from "../../../public/dummyimg.png";
+import transparentImg from "../../../public/dummyimg.png";
 import costEfficiencyImg from "../../../public/dummyimg.png";
 import projectSupportImg from "../../../public/dummyimg.png";
 import innovationImg from "../../../public/dummyimg.png";
@@ -76,7 +79,7 @@ const WhyChooseUs = () => {
     },
     {
       id: 6,
-      image: flexibleOperationsImg,
+      image: flexibleImg,
       title: "Flexible & Agile Operations",
       headline: "Adaptable Solutions to Meet Your Unique Needs",
       description: [
@@ -87,7 +90,7 @@ const WhyChooseUs = () => {
     },
     {
       id: 7,
-      image: partnershipsImg,
+      image: transparentImg,
       title: "Transparent & Reliable Partnerships",
       headline: "Clear Communication, Trusted Relationships",
       description: [
@@ -131,173 +134,165 @@ const WhyChooseUs = () => {
     },
   ];
 
-  const [activeIndex, setActiveIndex] = useState(1);
+  const [activeIndex, setActiveIndex] = useState(0);
   const sliderRefDesktop = useRef(null);
   const sliderRefMobile = useRef(null);
+
+  const arrowTopOffset = "-5%";
+  const arrowBottomOffset = "-5%";
 
   const settingsDesktop = {
     dots: false,
     infinite: true,
-    autoplay: false,
     speed: 800,
     slidesToShow: 3,
     slidesToScroll: 1,
     vertical: true,
     verticalSwiping: true,
-    beforeChange: (current, next) => setActiveIndex(next - 1),
+    beforeChange: (_, next) => setActiveIndex(next),
     centerMode: true,
     centerPadding: 0,
     arrows: false,
   };
 
-  const settingsMobile = {
-    ...settingsDesktop,
-    slidesToShow: 3,
-    centerMode: true,
-    centerPadding: 0,
-  };
-
-  const centerIndex = (activeIndex + 1) % points.length;
+  const settingsMobile = { ...settingsDesktop, slidesToShow: 3 };
 
   const nextSlide = (isMobile = false) => {
-    if (isMobile) {
-      sliderRefMobile.current?.slickNext();
-    } else {
-      sliderRefDesktop.current?.slickNext();
-    }
+    if (isMobile && sliderRefMobile.current) sliderRefMobile.current.slickNext();
+    else if (!isMobile && sliderRefDesktop.current) sliderRefDesktop.current.slickNext();
   };
 
   const prevSlide = (isMobile = false) => {
-    if (isMobile) {
-      sliderRefMobile.current?.slickPrev();
-    } else {
-      sliderRefDesktop.current?.slickPrev();
-    }
+    if (isMobile && sliderRefMobile.current) sliderRefMobile.current.slickPrev();
+    else if (!isMobile && sliderRefDesktop.current) sliderRefDesktop.current.slickPrev();
   };
 
   return (
     <section
-      className="w-full flex flex-col md:flex-row items-center justify-center min-h-[90vh] bg-gray-50 px-6 md:px-12 py-10"
+      className="relative w-full flex flex-col md:flex-row items-center justify-center min-h-[90vh] bg-gray-50 px-4 sm:px-6 md:px-12 py-10"
       style={{ fontFamily: "Lato, sans-serif" }}
     >
-      {/* Mobile View */}
-      <div className="block md:hidden w-full text-center">
-        <div className="mb-8">
-          <h2
-            className="text-3xl font-bold text-[#0A175C]"
-            style={{ fontFamily: "Outfit, sans-serif" }}
-          >
-            Why <span className="text-[#F05023]">SureSupply</span>
-          </h2>
-          <p className="text-gray-600 mt-2 text-base">
-            {`Your Trusted Partner for Precision Manufacturing & Supply Chain Excellence.`}
-          </p>
-        </div>
+      {/* MOBILE VIEW */}
+      <div className="block md:hidden w-full text-center relative">
+  {/* Header */}
+  <div className="mb-8 px-4">
+    <h2
+      className="text-3xl sm:text-4xl font-bold text-[#0A175C]"
+      style={{ fontFamily: "Outfit, sans-serif" }}
+    >
+      Why <span className="text-[#F05023]">SureSupply</span>
+    </h2>
+    <p className="text-gray-600 mt-3 text-base sm:text-lg leading-relaxed">
+      Your Trusted Partner for Precision Manufacturing & Supply Chain Excellence.
+    </p>
+  </div>
 
-        {/* Vertical Slider (Same as Desktop) */}
-        <div className="w-full flex justify-center mb-6">
-          <div className="w-[80%] max-w-[280px] overflow-hidden h-[380px] flex items-center justify-center relative">
-            <Slider ref={sliderRefMobile} {...settingsMobile}>
-              {points.map((point, index) => (
-                <div
-                  key={point.id}
-                  className={`flex flex-col items-center justify-center transition-all duration-500 ${
-                    index === activeIndex + 1 ||
-                    (activeIndex === points.length - 1 && index === 0)
-                      ? "scale-110 opacity-100"
-                      : "opacity-50 scale-95"
-                  }`}
-                >
-                  <div className="w-40 h-40 relative rounded-xl overflow-hidden shadow-lg m-5">
-                    <Image
-                      src={point.image}
-                      alt={point.title}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <h3
-                    className="text-base font-semibold text-gray-800 text-center"
-                    style={{ fontFamily: "Outfit, sans-serif" }}
-                  >
-                    {point.title}
-                  </h3>
-                </div>
-              ))}
-            </Slider>
+  {/* Slider Section */}
+  <div className="relative flex flex-col items-center justify-center mb-10">
+    {/* Up Arrow */}
+    <IoIosArrowUp
+      onClick={() => prevSlide(true)}
+      className="absolute -top-8 text-white text-4xl cursor-pointer bg-[#F05023] rounded-full p-3 hover:scale-110 hover:bg-[#d9431e] transition shadow-md"
+    />
+
+    {/* Slider */}
+    <div className="w-[90%] max-w-[380px] overflow-hidden flex items-center justify-center">
+      <Slider ref={sliderRefMobile} {...settingsMobile}>
+        {points.map((point, index) => (
+          <div
+            key={point.id}
+            className={`flex flex-col items-center justify-center transition-all duration-500 ${
+              index === activeIndex
+                ? "scale-105 opacity-100"
+                : "opacity-60 scale-95"
+            }`}
+          >
+            <div className="w-44 h-44 relative rounded-xl overflow-hidden shadow-md mb-4">
+              <Image
+                src={point.image}
+                alt={point.title}
+                fill
+                className="object-cover"
+              />
+            </div>
+            <h3
+              className="text-base sm:text-lg font-semibold text-gray-800 text-center px-3 break-words leading-tight"
+              style={{ fontFamily: "Outfit, sans-serif" }}
+            >
+              {point.title}
+            </h3>
           </div>
-        </div>
+        ))}
+      </Slider>
+    </div>
 
-        {/* Buttons */}
-        <div className="flex justify-center gap-4 mb-6">
-          <button
-            onClick={() => prevSlide(true)}
-            className="px-4 py-2 bg-[#F05023] text-white rounded-lg hover:bg-[#d9431e]"
-          >
-            Prev
-          </button>
-          <button
-            onClick={() => nextSlide(true)}
-            className="px-4 py-2 bg-[#F05023] text-white rounded-lg hover:bg-[#d9431e]"
-          >
-            Next
-          </button>
-        </div>
+    {/* Down Arrow */}
+    <IoIosArrowDown
+      onClick={() => nextSlide(true)}
+      className="absolute -bottom-8 text-white text-4xl cursor-pointer bg-[#F05023] rounded-full p-3 hover:scale-110 hover:bg-[#d9431e] transition shadow-md"
+    />
+  </div>
 
-        {/* Dynamic Content */}
-        <div className="text-left w-full max-w-md mx-auto">
-          <h3
-            className="text-xl font-semibold text-[#0A175C] mb-2"
-            style={{ fontFamily: "Outfit, sans-serif" }}
-          >
-            {points[centerIndex]?.title}
-          </h3>
-          <p className=" text-[#F05023] mb-3 text-base">
-            {points[centerIndex]?.headline}
-          </p>
-          <ul className="list-disc list-inside text-gray-700 space-y-2 text-sm mb-6">
-            {points[centerIndex]?.description.map((item, idx) => (
-              <li key={idx}>{item}</li>
-            ))}
-          </ul>
-          <div  onClick={() => {
-            const element = document.getElementById("quoteForm");
-            element.scrollIntoView();
-          }}
-          className="flex justify-center">
-            <button className="bg-[#F05023] text-white px-6 py-2 rounded-lg font-medium hover:bg-[#d9431e] transition">
-             {` Get Quote →`}
-            </button>
-          </div>
-        </div>
-      </div>
+  {/* Dynamic Content */}
+  <div className="text-left w-full max-w-md mx-auto px-6">
+    <h3
+      className="text-xl font-semibold text-[#0A175C] mb-2 text-center"
+      style={{ fontFamily: "Outfit, sans-serif" }}
+    >
+      {points[activeIndex]?.title}
+    </h3>
+    <p className="text-[#F05023] mb-4 text-center text-base leading-snug">
+      {points[activeIndex]?.headline}
+    </p>
+    <ul className="list-disc list-inside text-gray-700 space-y-2 text-sm mb-8 leading-relaxed px-3">
+      {points[activeIndex]?.description.map((item, idx) => (
+        <li key={idx}>{item}</li>
+      ))}
+    </ul>
+    <div className="flex justify-center">
+      <button
+        onClick={() => document.getElementById("quoteForm")?.scrollIntoView()}
+        className="bg-[#F05023] text-white px-8 py-2.5 rounded-lg font-medium hover:bg-[#d9431e] transition"
+      >
+        Get Quote →
+      </button>
+    </div>
+  </div>
+</div>
 
-      {/* Desktop View */}
-      <div className="hidden md:flex w-full md:flex-row items-center justify-center">
+
+      {/* DESKTOP VIEW (UNCHANGED) */}
+      <div className="hidden md:flex w-full md:flex-row items-center justify-center relative">
+        {/* Arrows */}
+        <IoIosArrowUp
+  onClick={() => prevSlide(false)}
+  className="absolute text-white text-5xl cursor-pointer bg-[#F05023] rounded-full p-3 hover:scale-110 hover:bg-[#d9431e] transition z-50 shadow-md"
+  style={{ top: `calc(4% + ${arrowTopOffset})`, left: "25%" }}
+/>
+
+<IoIosArrowDown
+  onClick={() => nextSlide(false)}
+  className="absolute text-white text-5xl cursor-pointer bg-[#F05023] rounded-full p-3 hover:scale-110 hover:bg-[#d9431e] transition z-50 shadow-md"
+  style={{ bottom: `calc(4% + ${arrowBottomOffset})`, left: "25%" }}
+/>
+
+
         {/* LEFT - Image Slider */}
-        <div className="w-full md:w-1/2 flex justify-center">
-          <div className="w-[80%] max-w-[280px] overflow-hidden">
+        <div className="w-full md:w-1/2 flex justify-center items-center">
+          <div className="w-[80%] max-w-[280px] overflow-hidden h-[600px] flex items-center">
             <Slider ref={sliderRefDesktop} {...settingsDesktop}>
               {points.map((point, index) => (
                 <div
                   key={point.id}
                   className={`flex flex-col items-center justify-center transition-all duration-500 ${
-                    index === activeIndex + 1 ||
-                    (activeIndex === points.length - 1 && index === 0)
-                      ? "scale-110 opacity-100"
-                      : "opacity-50 scale-95"
+                    index === activeIndex ? "scale-110 opacity-100" : "opacity-50 scale-95"
                   }`}
                 >
                   <div className="w-48 h-48 relative rounded-xl overflow-hidden shadow-lg m-5">
-                    <Image
-                      src={point.image}
-                      alt={point.title}
-                      fill
-                      className="object-cover"
-                    />
+                    <Image src={point.image} alt={point.title} fill className="object-cover" />
                   </div>
                   <h3
-                    className="text-lg font-semibold mt-4 text-gray-800 text-center"
+                    className="text-[18px] font-semibold mt-4 text-gray-800 text-center"
                     style={{ fontFamily: "Outfit, sans-serif" }}
                   >
                     {point.title}
@@ -308,58 +303,45 @@ const WhyChooseUs = () => {
           </div>
         </div>
 
-        {/* RIGHT - Buttons + Heading + Dynamic Content */}
-        <div className="w-full md:w-1/2 relative mt-10 md:mt-0 flex flex-col">
-          <div className="flex gap-4 absolute top-24 left-0">
-            <button
-              onClick={() => prevSlide(false)}
-              className="px-4 py-2 bg-[#F05023] text-white rounded hover:bg-[#d9431e]"
-            >
-              Prev
-            </button>
-            <button
-              onClick={() => nextSlide(false)}
-              className="px-4 py-2 bg-[#F05023] text-white rounded hover:bg-[#d9431e]"
-            >
-              Next
-            </button>
-          </div>
+        {/* RIGHT - Dynamic Content */}
+        <div className="w-full md:w-1/2 relative flex flex-col justify-center items-start pl-12">
+          <div className="mb-6 max-w-[650px] relative" style={{ top: "-40px" }}>
+  <h2
+    className="text-[46px] font-bold text-[#0A175C] leading-tight"
+    style={{ fontFamily: "Outfit, sans-serif" }}
+  >
+    Why <span className="text-[#F05023]">SureSupply</span>
+  </h2>
+  <p className="text-gray-600 mt-3 text-[20px] leading-relaxed">
+    Your Trusted Partner for Precision Manufacturing & Supply Chain Excellence.
+  </p>
+</div>
 
-          <div className="absolute top-10 right-5 text-center max-w-md">
-            <h2
-              className="text-3xl md:text-4xl font-bold text-[#0A175C]"
-              style={{ fontFamily: "Outfit, sans-serif" }}
-            >
-              Why <span className="text-[#F05023]">SureSupply</span>
-            </h2>
-            <p className="text-gray-600 mt-3 text-lg">
-              {`Your Trusted Partner for Precision Manufacturing & Supply Chain Excellence.`}
-            </p>
-          </div>
 
-          <div className="mt-48 min-h-[400px] flex flex-col justify-start">
-            <h3
-              className="text-3xl font-semibold text-[#0A175C] mb-4"
-              style={{ fontFamily: "Outfit, sans-serif" }}
-            >
-              {points[centerIndex]?.title}
-            </h3>
-            <p className=" text-[#F05023] mb-4 text-lg md:text-xl">
-              {points[centerIndex]?.headline}
-            </p>
-            <ul className="list-disc list-inside text-gray-700 space-y-3 text-base md:text-lg mb-6 overflow-y-auto">
-              {points[centerIndex]?.description.map((item, idx) => (
+          <div className="flex flex-col justify-start max-w-[650px]">
+            <div className="mb-6">
+              <h3
+                className="text-3xl font-semibold text-[#0A175C] mb-2"
+                style={{ fontFamily: "Outfit, sans-serif" }}
+              >
+                {points[activeIndex]?.title}
+              </h3>
+              <p className="text-[#F05023] mb-4 text-lg md:text-xl">
+                {points[activeIndex]?.headline}
+              </p>
+            </div>
+
+            <ul className="list-disc list-inside text-gray-700 space-y-3 text-base md:text-lg mb-6">
+              {points[activeIndex]?.description.map((item, idx) => (
                 <li key={idx}>{item}</li>
               ))}
             </ul>
 
-            <button  onClick={() => {
-            const element = document.getElementById("quoteForm");
-            element.scrollIntoView();
-          }}
-            className="text-[#F05023] font-semibold text-[20px] hover:underline cursor-pointer mt-6 text-left">
-              
-              {`Get Quote →`}
+            <button
+              onClick={() => document.getElementById("quoteForm")?.scrollIntoView()}
+              className="text-[#F05023] font-semibold text-[20px] hover:underline cursor-pointer mt-6 text-left"
+            >
+              Get Quote →
             </button>
           </div>
         </div>
