@@ -254,7 +254,7 @@ const WhyChooseUs = () => {
         onClick={() => document.getElementById("quoteForm")?.scrollIntoView()}
         className="bg-[#F05023] text-white px-8 py-2.5 rounded-lg font-medium hover:bg-[#d9431e] transition"
       >
-        Get Quote →
+        {`Get Quote →`}
       </button>
     </div>
   </div>
@@ -341,7 +341,7 @@ const WhyChooseUs = () => {
               onClick={() => document.getElementById("quoteForm")?.scrollIntoView()}
               className="text-[#F05023] font-semibold text-[20px] hover:underline cursor-pointer mt-6 text-left"
             >
-              Get Quote →
+              {`Get Quote →`}
             </button>
           </div>
         </div>
