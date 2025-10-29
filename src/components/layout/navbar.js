@@ -46,21 +46,34 @@ const Navbar = () => {
   ];
 
   return (
-    <header className="w-full bg-white fixed top-0 left-0 z-50 shadow-sm">
+    <header
+      className="w-full bg-white fixed top-0 left-0 z-50 shadow-sm"
+      style={{ fontFamily: "Lato, sans-serif" }}
+    >
       {/* ====== TOP NAVBAR ====== */}
       <div className="flex justify-between items-center px-6 py-3 border-b border-gray-100">
         {/* Logo */}
-       <div className="flex items-center cursor-pointer" onClick={() => router.push("/")}>
-          <Image className="logoImage" src={LogoImg} alt="SureSupply" width={160} height={50} />
-       </div>
+        <div
+          className="flex items-center cursor-pointer"
+          onClick={() => router.push("/")}
+        >
+          <Image
+            className="logoImage"
+            src={LogoImg}
+            alt="SureSupply"
+            width={160}
+            height={50}
+          />
+        </div>
+
         {/* Right Side */}
         <div className="flex items-center space-x-3">
           {/* Desktop Buttons */}
           <div className="hidden md:flex space-x-3">
-            <button className="px-5 py-2 text-blue-600 border border-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition text-base font-medium">
+            <button className="px-5 py-2 text-blue-600 border border-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition text-base font-medium cursor-pointer">
               Login
             </button>
-            <button className="px-5 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition text-base font-medium">
+            <button className="px-5 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition text-base font-medium cursor-pointer">
               Signup
             </button>
           </div>
@@ -68,7 +81,7 @@ const Navbar = () => {
           {/* Menu Icon */}
           <button
             onClick={toggleMenu}
-            className="p-2 border border-blue-500 rounded-lg hover:bg-blue-50 transition"
+            className="p-2 border border-blue-500 rounded-lg hover:bg-blue-50 transition cursor-pointer"
           >
             {menuOpen ? (
               <FaTimes size={20} className="text-blue-600" />
@@ -95,7 +108,7 @@ const Navbar = () => {
               />
             </div>
 
-            {/* Mobile image on top */}
+            {/* Mobile image */}
             <div className="md:hidden w-full h-48 relative">
               <Image
                 src={MenuLeftImg}
@@ -109,39 +122,37 @@ const Navbar = () => {
             {resourcesOpen && (
               <div className="hidden md:block absolute inset-0 bg-black/70 text-white p-10 overflow-y-auto animate-fadeIn">
                 <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-12">
-                  <div>
-                    <h3 className="text-2xl font-semibold mb-6 text-white">Company</h3>
-                    <ul className="space-y-6">
-                      {companyItems.map((item, i) => (
-                        <li key={i}>
-                          <h5 className="font-semibold text-lg">{item.title}</h5>
-                          <p className="text-gray-300 text-sm">{item.desc}</p>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-semibold mb-6 text-white">Insights</h3>
-                    <ul className="space-y-6">
-                      {insightsItems.map((item, i) => (
-                        <li key={i}>
-                          <h5 className="font-semibold text-lg">{item.title}</h5>
-                          <p className="text-gray-300 text-sm">{item.desc}</p>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-semibold mb-6 text-white">Support</h3>
-                    <ul className="space-y-6">
-                      {supportItems.map((item, i) => (
-                        <li key={i}>
-                          <h5 className="font-semibold text-lg">{item.title}</h5>
-                          <p className="text-gray-300 text-sm">{item.desc}</p>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                  {[ 
+                    { title: "Company", items: companyItems },
+                    { title: "Insights", items: insightsItems },
+                    { title: "Support", items: supportItems },
+                  ].map((section, i) => (
+                    <div key={i}>
+                      <h3
+                        className="text-2xl font-semibold mb-6 text-white"
+                        style={{ fontFamily: "Outfit, sans-serif" }}
+                      >
+                        {section.title}
+                      </h3>
+                      <ul className="space-y-6">
+                        {section.items.map((item, j) => (
+                          <li
+                            key={j}
+                            className="cursor-pointer hover:text-[#F05023] transition"
+                            onClick={() => navigateTo(item.path)}
+                          >
+                            <h5
+                              className="font-semibold text-lg"
+                              style={{ fontFamily: "Outfit, sans-serif" }}
+                            >
+                              {item.title}
+                            </h5>
+                            <p className="text-gray-300 text-sm">{item.desc}</p>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
                 </div>
               </div>
             )}
@@ -155,44 +166,44 @@ const Navbar = () => {
             {/* Cancel Icon */}
             <button
               onClick={() => setMenuOpen(false)}
-              className="absolute top-4 right-4 text-blue-600 hover:text-blue-800 transition"
+              className="absolute top-4 right-4 text-blue-600 hover:text-blue-800 transition cursor-pointer"
             >
               <FaTimes size={24} />
             </button>
 
-            <h3 className="text-2xl font-semibold mb-6 text-black mt-2">Menu</h3>
+            <h3
+              className="text-2xl font-semibold mb-6 text-black mt-2"
+              style={{ fontFamily: "Outfit, sans-serif" }}
+            >
+              Menu
+            </h3>
 
             <ul className="flex-1 space-y-5">
-              <li>
-                <button
-                  onClick={() => navigateTo("/")}
-                  className="text-black font-semibold text-lg hover:text-blue-800 w-full text-left"
-                >
-                  Home
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => navigateTo("/ourservices")}
-                  className="text-black font-semibold text-lg hover:text-blue-800 w-full text-left"
-                >
-                  Services
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => navigateTo("/ourCapabilities")}
-                  className="text-black font-semibold text-lg hover:text-blue-800 w-full text-left"
-                >
-                  Capabilities
-                </button>
-              </li>
+              {[
+                { label: "Home", path: "/" },
+                { label: "Services", path: "/ourservices" },
+                { label: "Capabilities", path: "/ourCapabilities" },
+                { label: "Industries & Network", path: "/industries" },
+                { label: "Our Solutions", path: "/ourSolution" },
+                { label: "Contact Us", path: "/contactUs" },
+              ].map((item, i) => (
+                <li key={i}>
+                  <button
+                    onClick={() => navigateTo(item.path)}
+                    className="text-black font-semibold text-lg hover:text-blue-800 w-full text-left cursor-pointer"
+                    style={{ fontFamily: "Outfit, sans-serif" }}
+                  >
+                    {item.label}
+                  </button>
+                </li>
+              ))}
 
               {/* Resources button */}
               <li className="relative">
                 <button
                   onClick={toggleResources}
-                  className="flex items-center justify-between w-full text-left text-black font-semibold text-lg hover:text-blue-800"
+                  className="flex items-center justify-between w-full text-left text-black font-semibold text-lg hover:text-blue-800 cursor-pointer"
+                  style={{ fontFamily: "Outfit, sans-serif" }}
                 >
                   <span>Resources</span>
                   <FaChevronDown
@@ -205,42 +216,27 @@ const Navbar = () => {
                 {/* Mobile dropdown */}
                 {resourcesOpen && (
                   <div className="md:hidden mt-2 pl-2 flex flex-col space-y-4 border-l-2 border-gray-200">
-                    <div>
-                      <h4 className="font-semibold text-lg mb-2">Company</h4>
-                      {companyItems.map((item, i) => (
-                        <button
-                          key={i}
-                          onClick={() => navigateTo(item.path)}
-                          className="text-black font-normal hover:text-blue-600 text-left w-full mb-1"
-                        >
-                          {item.title}
-                        </button>
-                      ))}
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-lg mb-2">Insights</h4>
-                      {insightsItems.map((item, i) => (
-                        <button
-                          key={i}
-                          onClick={() => navigateTo(item.path)}
-                          className="text-black font-normal hover:text-blue-600 text-left w-full mb-1"
-                        >
-                          {item.title}
-                        </button>
-                      ))}
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-lg mb-2">Support</h4>
-                      {supportItems.map((item, i) => (
-                        <button
-                          key={i}
-                          onClick={() => navigateTo(item.path)}
-                          className="text-black font-normal hover:text-blue-600 text-left w-full mb-1"
-                        >
-                          {item.title}
-                        </button>
-                      ))}
-                    </div>
+                    {[companyItems, insightsItems, supportItems].map(
+                      (group, gi) => (
+                        <div key={gi}>
+                          <h4
+                            className="font-semibold text-lg mb-2"
+                            style={{ fontFamily: "Outfit, sans-serif" }}
+                          >
+                            {["Company", "Insights", "Support"][gi]}
+                          </h4>
+                          {group.map((item, i) => (
+                            <button
+                              key={i}
+                              onClick={() => navigateTo(item.path)}
+                              className="text-black font-normal hover:text-blue-600 text-left w-full mb-1 cursor-pointer"
+                            >
+                              {item.title}
+                            </button>
+                          ))}
+                        </div>
+                      )
+                    )}
                   </div>
                 )}
               </li>
@@ -248,10 +244,10 @@ const Navbar = () => {
 
             {/* Buttons inside menu */}
             <div className="mt-auto flex flex-col gap-3">
-              <button className="px-5 py-3 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition text-base font-medium">
+              <button className="px-5 py-3 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition text-base font-medium cursor-pointer">
                 Login
               </button>
-              <button className="px-5 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition text-base font-medium">
+              <button className="px-5 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition text-base font-medium cursor-pointer">
                 Signup
               </button>
             </div>
