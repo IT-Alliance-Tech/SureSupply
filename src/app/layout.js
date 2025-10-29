@@ -6,6 +6,7 @@ import FloatingSocialIcons from "@/components/ui/floatingSocialIcons"; // ✅ Im
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
