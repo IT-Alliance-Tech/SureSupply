@@ -134,7 +134,7 @@ export default function ProcessFlow() {
             {/* Right Side - Content */}
             <div className="flex-1 max-w-xl relative">
               <h1 className="text-5xl font-bold mb-6">
-                How sure supply <span className="text-orange-500">works</span>
+                How Sure Supply <span className="text-orange-500">works</span>
               </h1>
               <p className="text-lg mb-12 text-gray-300">
                 Navigate our comprehensive manufacturing journey from initial
@@ -170,17 +170,18 @@ export default function ProcessFlow() {
 
 
           <div className="text-center mb-8">
-            <p className="text-sm text-gray-400 mb-2">Process</p>
-            <h1 className="text-3xl font-bold mb-4">
-              How sure supply
-              <br />
-              <span className="text-orange-500">works</span>
-            </h1>
-            <p className="text-sm text-gray-300 max-w-sm mx-auto">
-              Navigate our comprehensive manufacturing journey from initial
-              concept to final delivery.
-            </p>
-          </div>
+  <p className="text-sm text-gray-400 mb-2">Process</p>
+  <h1 className="text-3xl font-bold mb-4">
+    How Sure Supply
+    <br />
+    <span className="text-orange-500">works</span>
+  </h1>
+  <p className="text-sm text-gray-300 max-w-sm mx-auto">
+    Navigate our comprehensive manufacturing journey from initial
+    concept to final delivery.
+  </p>
+</div>
+
 
           {/* Process Circle */}
           <div className="flex justify-center mb-8">
