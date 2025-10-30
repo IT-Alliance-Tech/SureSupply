@@ -170,7 +170,7 @@ const PopupModal = ({ isOpen, onClose, imgSrc, title, bullets, isMobile }) => (
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={onClose}
-                className="text-[#F05023] font-semibold hover:underline"
+                className="text-[#F05023] font-semibold hover:underline cursor-pointer"
               >
                 Back &lt;
               </motion.button>
@@ -303,7 +303,7 @@ export default function ProcurementSection() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={handleScrollToQuote}
-            className="mt-8 bg-[#F05023] text-white px-6 py-3 rounded-lg shadow hover:shadow-md w-max font-outfit"
+            className="mt-8 bg-[#F05023] text-white px-6 py-3 rounded-lg shadow hover:shadow-md w-max font-outfit cursor-pointer"
           >
             Get Quote Now
           </motion.button>

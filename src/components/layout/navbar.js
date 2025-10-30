@@ -181,7 +181,7 @@ const Navbar = () => {
             <ul className="flex-1 space-y-5">
               {[
                 { label: "Home", path: "/" },
-                { label: "Services", path: "/ourservices" },
+                // { label: "Services", path: "/ourservices" },
                 { label: "Capabilities", path: "/ourCapabilities" },
                 { label: "Industries & Network", path: "/industries" },
                 { label: "Our Solutions", path: "/ourSolution" },
@@ -202,12 +202,12 @@ const Navbar = () => {
               <li className="relative">
                 <button
                   onClick={toggleResources}
-                  className="flex items-center justify-between w-full text-left text-black font-semibold text-lg hover:text-blue-800 cursor-pointer"
+                  className="flex items-center w-full text-left text-black font-semibold text-lg hover:text-blue-800 cursor-pointer"
                   style={{ fontFamily: "Outfit, sans-serif" }}
                 >
                   <span>Resources</span>
                   <FaChevronDown
-                    className={`ml-2 transform transition-transform ${
+                    className={`ml-2 w-full transform transition-transform ${
                       resourcesOpen ? "rotate-180" : "rotate-0"
                     }`}
                   />
