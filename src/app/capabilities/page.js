@@ -154,120 +154,230 @@ export default function CapabilitiesPage() {
         },
         {
           id: "casting-precision",
-          title: "Precision Casting",
+          title: "Sand Casting",
           img: sub5,
           content:
-            "Precision casting ensures complex geometry production with superior accuracy and minimal post-processing.",
+            "Suresupply specializes in sand casting, a versatile and cost-effective manufacturing process. This method, which involves creating detailed sand molds around a pattern, allows them to produce a diverse range of components for various industries. They handle projects of all complexities and scales, working with a wide array of ferrous and non-ferrous metals like iron, steel, aluminum, and various alloys. The process starts with designing a pattern, creating a sand mold, pouring molten metal, and then breaking away the mold to reveal the casting, which undergoes further processing. Sand casting offers advantages such as low tooling costs and the ability to produce complex geometries and large components with excellent mechanical properties, making it essential for industries like automotive, aerospace, and heavy machinery. Suresupply's commitment to advanced technology and quality ensures its leadership in providing reliable, high-performance cast components.",
           advantages: [
-            { title: "Complex Shapes", desc: "Accurate reproduction of intricate details." },
-            { title: "Smooth Surface", desc: "Reduced need for finishing operations." },
-            { title: "Dimensional Accuracy", desc: "Perfect for critical components." },
+            { title: "Unmatched Versatility", desc: "From intricate, small-batch components demanding exceptional detail to robust, heavy-duty parts engineered for significant loads, our sand casting process adapts to your exact specifications." },
+            { title: "Economical Production", desc: "Sand casting stands out as one of the most budget-friendly casting methods, particularly beneficial for businesses seeking to optimize production costs without compromising on quality or performance." },
+            { title: "Design Freedom", desc: "We embrace design innovation. Our sand casting process allows for flexible design modifications, enabling us to collaborate closely with your engineering teams to refine and perfect component geometries" },
+            { title: "Broad Material Compatibility", desc: " We work with an extensive range of materials, including almost all ferrous and non-ferrous alloys. This broad compatibility ensures we can select the optimal material for your specific application, guaranteeing durability and peak performance." },
+            { title: "Ability to Produce Large Components:", desc: "Sand casting is exceptionally well-suited for manufacturing very large and heavy components that would be challenging or impossible to produce with other casting methods. " },
           ],
           expertise: [
-            "Expertise in thin-wall casting.",
-            "Custom gating systems for precision fill.",
-            "In-house simulation for mold optimization.",
-          ],
+  "Advanced Molding Facilities: State-of-the-art green sand, resin-bonded, and shell molding setups deliver high-quality castings with excellent finish and accuracy.",
+  "In-House Tooling: Our in-house pattern and core box manufacturing ensures precision, durability, and shorter lead times.",
+  "Versatile Production: Foundries handle castings from 0.5 kg to 500 kg, supporting diverse industrial requirements.",
+  "Integrated Quality Assurance: In-house fettling, heat treatment, and inspection ensure every casting meets strict standards.",
+  "Precision Finishing: From CNC machining to surface finishing, we deliver ready-to-assemble, high-performance components.",
+]
+
         },
       ],
     },
     {
-      id: "processes",
-      title: "Processes",
-      img: main2,
-      content:
-        "Our process portfolio includes CNC machining, welding, finishing, and in-line inspection. We combine automation and advanced tooling to ensure accuracy and efficiency.",
+  id: "processes",
+  title: "Forging",
+  img: main2,
+  content: `
+    <p class="mb-4">
+      At <strong>Suresupply</strong>, our forging division represents the forefront of metallurgical innovation — combining precision, strength, and cutting-edge forming technology. We produce high-performance, defect-free components engineered for demanding industries like aerospace, automotive, and power generation.
+    </p>
+    <p class="mb-4">
+      Our advanced forging processes refine grain structures to enhance tensile strength, ductility, and fatigue resistance — delivering longer service life and reliability under extreme conditions.
+    </p>
+    <p class="mb-4">
+      We offer end-to-end solutions, from CAD/CAM-based die design and billet preparation to open-die, closed-die, and impression die forging. Post-forging, our heat treatment and precision machining ensure exact tolerances and superior surface finish.
+    </p>
+    <p>
+      More than a manufacturer, we are your engineering partner — providing integrated, ready-to-use solutions that minimize downtime and maximize performance.
+    </p>
+  `,
       subs: [
         {
           id: "process-cnc",
-          title: "CNC Machining",
+          title: "Open Die Forging",
           img: sub6,
-          content: "Multi-axis CNC machining for tight tolerances and complex geometries.",
+          content: "At Suresupply, our open die forging process is designed for precision, strength, and reliability. By shaping heated metal between open-faced dies, we achieve superior structural integrity, optimized grain flow, and exceptional mechanical performance.  This method is ideal for producing large, high-strength components such as shafts, rings, blocks, and discs used in heavy machinery, aerospace, and power generation.  We work with a wide range of steels and alloys, tailoring each forging to meet exact performance and durability requirements.",
           advantages: [
-            { title: "High Precision", desc: "Achieves tight tolerances for complex parts." },
-            { title: "Smooth Finish", desc: "Excellent surface quality." },
-            { title: "Repeatable Accuracy", desc: "Consistent results across batches." },
+            { title: "Ideal for Large & Custom Components", desc: "Open die forging shapes heated metal using flat dies, making it ideal for large or custom components like shafts, rings, and blocks used in heavy machinery, power generation, and aerospace." },
+            { title: " Superior Internal Grain Structure & Mechanical Properties", desc: "Open die forging’s controlled deformation refines grain flow, removes internal defects, and enhances strength, toughness, and fatigue resistance — ensuring reliability for components under extreme stress." },
+            { title: "Cost-Effective for Low Volumes & Prototypes", desc: "Open die forging is ideal for prototypes and large or specialized parts, offering cost savings through simple tooling and flexibility for design changes without major retooling costs." },
+             { title: " Enhanced Material Integrity and Reliability", desc: "Open die forging thoroughly works the metal to remove internal defects and achieve full densification, resulting in parts with superior structural integrity and uniform properties — essential for critical, high-reliability applications." },
+              { title: " Versatility Across Material Types", desc: "Open die forging offers exceptional versatility, accommodating a wide range of materials including carbon steel, alloy steel, stainless steel, and superalloys. Its adaptability makes it ideal for industries requiring specialized materials and high-performance components." },
           ],
           expertise: [
-            "CNC 3, 4 & 5-axis machining centers.",
-            "In-process inspection systems.",
-            "Expert operators for custom machining.",
-          ],
+    "Heavy-Duty Forging for large, high-strength components.",
+    "Material versatility — carbon steel, alloy steel, stainless, and copper alloys.",
+    "Precision forming with computer-controlled hydraulic presses.",
+    "Ultrasonic and magnetic particle inspection for superior integrity.",
+    "End-to-end solutions including heat treatment and rough machining.",
+    "CNC 3, 4 & 5-axis machining centers for complex geometries.",
+    "In-process inspection and expert machining support."
+  ],
         },
         {
           id: "process-finishing",
-          title: "Surface Finishing",
+          title: "Closed Die Forging",
           img: sub7,
           content:
-            "Surface finishing enhances durability and appearance through anodizing, coating, or polishing.",
+            "At SureSupply, we specialize in precision Closed Die Forging — a process that combines advanced engineering with exceptional control. Using multi-part dies with pre-cut cavities, heated metal billets are pressed under immense force to achieve exact shapes and dimensions. This method ensures superior grain flow alignment, resulting in components with outstanding strength, fatigue resistance, and dimensional accuracy. Our closed die forgings serve critical applications across automotive, aerospace, and defense industries — where reliability and precision are non-negotiable.",
           advantages: [
-            { title: "Corrosion Resistance", desc: "Improves longevity of parts." },
-            { title: "Aesthetic Appeal", desc: "Polished, consistent visual quality." },
-            { title: "Functional Protection", desc: "Resists wear and environmental impact." },
-          ],
+  {
+    title: "Enhanced Strength & Durability",
+    desc: "Refined grain flow increases tensile strength, fatigue resistance, and toughness for high-performance applications.",
+  },
+  {
+    title: "High Dimensional Accuracy",
+    desc: "Precisely machined dies ensure tight tolerances, consistent repeatability, and reduced need for post-machining.",
+  },
+  {
+    title: "Optimal Material Utilization",
+    desc: "Near-net-shape forging minimizes waste and reduces overall production costs.",
+  },
+  {
+    title: "Superior Surface & Integrity",
+    desc: "Produces dense, defect-free parts with excellent surface finish and uniform structure.",
+  },
+  {
+    title: "Cost-Effective for Volume Production",
+    desc: "Ideal for medium to high-volume runs due to high efficiency and minimal rework requirements.",
+  },
+],
+
           expertise: [
-            "Powder coating and anodizing lines.",
-            "Quality checks for uniformity and color tone.",
-            "Surface inspection and finish validation.",
-          ],
+  "Precision forgings up to 50 kg with exceptional dimensional accuracy.",
+  "Advanced die design using CAD/CAE tools for precise simulation and optimization.",
+  "High-speed friction screw and hydraulic presses for efficient, consistent production.",
+  "Flashless and near-net-shape forging techniques to minimize waste and rework.",
+  "Complete finishing solutions including machining, trimming, and surface finishing.",
+],
+
         },
         {
           id: "process-welding",
-          title: "Welding Process",
+          title: "Upset Forging",
           img: sub8,
           content:
-            "Welding ensures robust structural joints and seamless integration between components.",
+            "At Suresupply, we leverage the advanced technique of Upset Forging as a cornerstone of our manufacturing process. This sophisticated method is absolutely crucial for the creation of high-strength, meticulously shaped metal components that meet the most rigorous industry standards. Our process begins with the careful heating of specialized metal stock to a precisely controlled temperature. Once heated, the metal is subjected to expert compression, a process that strategically increases its cross-sectional area in specific regions. This controlled deformation, known as upsetting, allows us to achieve superior material properties, including enhanced grain flow and improved resistance to fatigue and impact. ",
           advantages: [
-            { title: "Strong Joints", desc: "High mechanical strength." },
-            { title: "Precise Control", desc: "Minimized heat distortion." },
-            { title: "Versatile Process", desc: "Compatible with various alloys." },
-          ],
+  {
+    title: "Superior Grain Flow & Strength",
+    desc: "Enhanced grain alignment boosts tensile strength, impact resistance, and fatigue life for long-lasting performance.",
+  },
+  {
+    title: "Reduced Material Waste",
+    desc: "Near-net-shape forging minimizes flash and scrap, optimizing material use and lowering production costs.",
+  },
+  {
+    title: "Ideal for Complex Geometries",
+    desc: "Perfect for parts with flanges, heads, or thickened sections like shafts and valves requiring high precision.",
+  },
+  {
+    title: "Excellent Surface & Accuracy",
+    desc: "Controlled deformation delivers smooth surfaces and tight tolerances, reducing post-machining needs.",
+  },
+  {
+    title: "High-Volume Efficiency",
+    desc: "Rapid cycle times and repeatable results make upset forging highly cost-effective for mass production.",
+  },
+],
+
           expertise: [
-            "MIG, TIG, and robotic welding setups.",
-            "Certified operators for consistent quality.",
-            "Comprehensive inspection after welding.",
-          ],
+  "Automated multi-station upset forging machines for strong, reliable components.",
+  "High-speed forging for bolts, studs, and axles ensuring precision and efficiency.",
+  "Optimized grain flow techniques enhancing material strength and durability.",
+  "In-house thread rolling, machining, and advanced surface finishing capabilities.",
+  "Comprehensive heat treatment and mechanical testing for consistent quality assurance.",
+],
+
         },
         {
           id: "process-inspection",
-          title: "Inspection Process",
+          title: "Rolled Forging (Ring Rolling)",
           img: sub9,
           content:
-            "Rigorous inspection ensures every part meets global standards with CMM and NDT testing.",
+            "At SureSupply, our expertise in Ring Rolling (Rolled Forging) enables the production of high-performance seamless rings for critical applications. This process precisely shapes a preformed ring between specialized dies, expanding its diameter and refining its grain structure. The result is exceptional strength, uniformity, and dimensional accuracy. Unlike welded or cut rings, our rolled forgings eliminate weak points, ensuring superior fatigue resistance and reliability—making them ideal for demanding industrial applications.",
           advantages: [
-            { title: "100% Accuracy", desc: "Dimensional validation for all parts." },
-            { title: "Defect Detection", desc: "CMM, X-ray, and visual checks." },
-            { title: "Quality Assurance", desc: "Meets ISO 9001:2015 compliance." },
-          ],
+  { 
+    title: "Optimized Grain Structure", 
+    desc: "Rolled forging refines grain flow for superior strength, impact toughness, and fatigue resistance." 
+  },
+  { 
+    title: "Seamless Integrity", 
+    desc: "Eliminates weak points and weld defects for unmatched reliability under demanding conditions." 
+  },
+  { 
+    title: "Dimensional Accuracy", 
+    desc: "Delivers tight tolerances and uniform grain structure, minimizing post-machining needs." 
+  },
+  { 
+    title: "Cost-Effective Production", 
+    desc: "Efficient material use and reduced waste make it ideal for medium to high-volume runs." 
+  },
+  { 
+    title: "Material & Size Versatility", 
+    desc: "Compatible with ferrous and non-ferrous alloys, from small gear blanks to large flanges." 
+  },
+],
+
           expertise: [
-            "In-house CMM & NDT testing.",
-            "Material composition verification.",
-            "Detailed inspection reports per batch.",
-          ],
+  "Seamless Rolled Rings: Precision-engineered from 100 mm to 2000 mm for superior performance.",
+  "Diverse Material Selection: Carbon, alloy, stainless, and nickel-based steels for varied applications.",
+  "Advanced Rolling Technology: Radial and axial mills ensure exceptional quality and consistency.",
+  "Rigorous Quality Assurance: Controlled heat treatment and ultrasonic testing for material integrity.",
+  "Precision Finishing: Advanced CNC machining ensures exact final dimensions.",
+  "In-house CMM & NDT testing for accuracy and reliability.",
+  "Material composition verification and certification.",
+  "Detailed inspection reports provided for every batch.",
+],
+
         },
         {
           id: "process-assembly",
-          title: "Assembly Services",
+          title: "Drop Forging",
           img: sub10,
           content:
-            "End-to-end assembly services ensure smooth integration and delivery-ready components.",
+            "At SureSupply, we excel in advanced drop forging technology, producing high-performance components with unmatched strength and precision. Through controlled deformation using high-tonnage hammers and presses, we refine and align the metal’s grain structure to the part’s geometry, enhancing mechanical properties and fatigue resistance. Our process ensures superior dimensional accuracy, excellent surface finish, and consistency across large production runs. With cutting-edge equipment, metallurgical expertise, and stringent quality checks, we deliver reliable forged parts for the automotive, railway, and heavy industrial sectors.",
           advantages: [
-            { title: "Efficiency", desc: "Streamlined workflow and reduced lead time." },
-            { title: "Consistency", desc: "Precision alignment and torque control." },
-            { title: "Traceability", desc: "Full BOM and production tracking." },
-          ],
+  {
+    title: "Unmatched Strength & Durability",
+    desc: "Drop forging aligns the metal’s grain structure for superior tensile strength, fatigue resistance, and impact toughness, ensuring exceptional reliability in demanding applications.",
+  },
+  {
+    title: "Superior Accuracy & Repeatability",
+    desc: "Precision-engineered closed dies deliver tight tolerances and consistent dimensions, minimizing post-machining and ensuring seamless assembly integration.",
+  },
+  {
+    title: "Optimal Material Utilization",
+    desc: "Near-net-shape forging minimizes waste and optimizes material use, reducing costs while maintaining high-quality production standards.",
+  },
+  {
+    title: "Excellent Surface & Integrity",
+    desc: "Controlled metal flow ensures a smooth finish and defect-free structure, enhancing part integrity and long-term durability.",
+  },
+  {
+    title: "Cost-Effective for High Volumes",
+    desc: "High production rates, reduced waste, and minimal secondary machining make drop forging ideal for medium to large-scale production runs.",
+  },
+],
+
           expertise: [
-            "Sub-assembly integration.",
-            "Fixture-based quality checks.",
-            "Lean production methods for reliability.",
-          ],
+  "Advanced drop hammers up to 10,000 tons for precise, high-strength forging.",
+  "In-house die design and maintenance for optimal tool efficiency.",
+  "High-volume production of critical parts like crankshafts and rods.",
+  "Precision temperature control ensuring material integrity and consistency.",
+  "End-to-end finishing with heat treatment, shot blasting, and CNC machining.",
+],
+
         },
       ],
     },
   ];
 
   const [activeMain, setActiveMain] = useState(categories[0].id);
-  const [openMain, setOpenMain] = useState(null);
+  const [openMain, setOpenMain] = useState(categories[0]?.id || null);
   const [activeSub, setActiveSub] = useState(null);
   
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -301,7 +411,7 @@ const toggleDrawer = (open) => {
 
       {/* KEY ADVANTAGES */}
       <section className="py-10 px-6">
-  <h3 className="text-[16px] font-semibold text-[#0A175C] mb-6 text-center">Key Advantages</h3>
+  <h3 className="text-[40px] font-semibold text-[#0A175C] mb-6 text-center">Key Advantages</h3>
   <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-6">
     {subItem.advantages.map((adv, i) => (
       <div
@@ -318,7 +428,7 @@ const toggleDrawer = (open) => {
 
       {/* OUR EXPERTISE */}
       <section>
-  <h3 className="text-[18px] font-bold text-[#0A175C] mb-5">Our Expertise</h3>
+  <h3 className="text-[40px] font-bold text-[#0A175C] mb-5 text-center">Our Expertise</h3>
 
   <div className="bg-[#F9F9F9] border border-gray-200 rounded-2xl p-8 shadow-md hover:shadow-lg transition-shadow duration-300">
     <ul className="space-y-3">

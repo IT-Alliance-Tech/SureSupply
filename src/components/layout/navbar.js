@@ -182,7 +182,7 @@ const Navbar = () => {
               {[
                 { label: "Home", path: "/" },
                 // { label: "Services", path: "/ourservices" },
-                { label: "Capabilities", path: "/ourCapabilities" },
+                { label: "Capabilities", path: "/capabilities" },
                 { label: "Industries & Network", path: "/industries" },
                 { label: "Our Solutions", path: "/ourSolution" },
                 { label: "Contact Us", path: "/contactUs" },
