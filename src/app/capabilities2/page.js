@@ -3,6 +3,14 @@
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Drawer from "@mui/material/Drawer";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemText from "@mui/material/ListItemText";
+
 
 /* ====== IMAGES ====== */
 import bannerImg from "../../../public/bannerC.png";
@@ -259,8 +267,16 @@ export default function CapabilitiesPage() {
   ];
 
   const [activeMain, setActiveMain] = useState(categories[0].id);
-  const [openMain, setOpenMain] = useState(categories[0].id);
+  const [openMain, setOpenMain] = useState(null);
   const [activeSub, setActiveSub] = useState(null);
+  
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+const toggleDrawer = (open) => {
+  setMobileMenuOpen(open);
+};
+
+
 
   useEffect(() => {
     if (contentRef.current) contentRef.current.scrollTop = 0;
@@ -384,7 +400,7 @@ export default function CapabilitiesPage() {
   return (
     <section className="flex flex-col font-outfit">
       {/* HERO */}
-      <section className="relative w-full min-h-[620px] flex items-center justify-center overflow-hidden pt-[100px] pb-[60px]">
+      <section className="relative w-full min-h-[600px] flex items-center justify-center overflow-hidden pt-[100px] pb-[60px]">
         <Image src={bannerImg} alt="Capabilities Banner" fill priority className="object-cover object-left absolute inset-0 -z-10" />
         <div className="relative text-left text-white z-10 px-6 lg:px-24 max-w-[1200px]">
           <h1 className="text-[42px] sm:text-[48px] font-bold tracking-wide mb-4 leading-tight drop-shadow-md">
@@ -399,6 +415,23 @@ export default function CapabilitiesPage() {
           </div>
         </div>
       </section>
+      {/* MOBILE MENU BUTTON */}
+<div className="flex items-center justify-between mb-4 lg:hidden">
+<Button
+  variant="outlined"
+  onClick={() => toggleDrawer(true)}
+  sx={{
+    borderColor: "#F05023",
+    color: "#F05023",
+    textTransform: "none",
+    fontFamily: "Outfit, sans-serif",
+    fontWeight: 500,
+  }}
+>
+  Menu
+</Button>
+</div>
+
 
       {/* MAIN SECTION */}
       <section className="bg-white py-10 lg:py-16">
@@ -410,14 +443,25 @@ export default function CapabilitiesPage() {
     <div className="bg-[#F05023] text-white px-3 py-2 rounded-md font-semibold mb-4">
       Capabilities Category
     </div>
+
     <nav className="flex flex-col space-y-1">
       {categories.map((cat) => (
         <div key={cat.id}>
           {/* MAIN CATEGORY BUTTON */}
           <button
-            onClick={() =>
-              setOpenMain(openMain === cat.id ? null : cat.id) // toggle open/close
-            }
+            onClick={() => {
+              if (openMain === cat.id) {
+                // Collapse dropdown but keep content visible
+                setOpenMain(null);
+                setActiveMain(cat.id);
+                setActiveSub(null);
+              } else {
+                // Open dropdown and show content
+                setOpenMain(cat.id);
+                setActiveMain(cat.id);
+                setActiveSub(null);
+              }
+            }}
             className={`flex items-center justify-between w-full text-left px-3 py-3 rounded-md transition-all ${
               activeMain === cat.id && !activeSub
                 ? "bg-[#FFF8F6] border border-[#F05023] text-[#F05023] font-semibold"
@@ -426,7 +470,7 @@ export default function CapabilitiesPage() {
           >
             <span className="text-sm">{cat.title}</span>
             <svg
-              className={`w-4 h-4 transform transition-transform ${
+              className={`w-4 h-4 transform transition-transform duration-200 ${
                 openMain === cat.id ? "rotate-90 text-[#F05023]" : "text-[#F05023]"
               }`}
               fill="none"
@@ -440,7 +484,7 @@ export default function CapabilitiesPage() {
 
           {/* SUBCATEGORY DROPDOWN */}
           {openMain === cat.id && (
-            <div className="ml-4 mt-2 flex flex-col space-y-1">
+            <div className="ml-4 mt-2 flex flex-col space-y-1 animate-fadeIn">
               {cat.subs.map((sub) => (
                 <button
                   key={sub.id}
@@ -463,7 +507,51 @@ export default function CapabilitiesPage() {
       ))}
     </nav>
   </div>
+  <Drawer anchor="left" open={mobileMenuOpen} onClose={() => toggleDrawer(false)}>
+  <Box sx={{ width: 280 }} role="presentation">
+    <List>
+      {categories.map((cat) => (
+        <div key={cat.id}>
+          <ListItem disablePadding>
+            <ListItemButton
+              onClick={() => {
+                setActiveMain(cat.id);
+                setActiveSub(null);
+                toggleDrawer(false)();
+              }}
+            >
+              <ListItemText
+                primary={cat.title}
+                sx={{ color: "#F05023", fontWeight: 600 }}
+              />
+            </ListItemButton>
+          </ListItem>
+
+          {/* Subcategories */}
+          {cat.subs.map((sub) => (
+            <ListItem
+              key={sub.id}
+              sx={{ pl: 4 }}
+              disablePadding
+              onClick={() => {
+                setActiveMain(cat.id);
+                setActiveSub(sub.id);
+                toggleDrawer(false)();
+              }}
+            >
+              <ListItemButton>
+                <ListItemText primary={sub.title} sx={{ color: "#0A175C" }} />
+              </ListItemButton>
+            </ListItem>
+          ))}
+        </div>
+      ))}
+    </List>
+  </Box>
+</Drawer>
+
 </aside>
+
 
 
             {/* CONTENT */}
