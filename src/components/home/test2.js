@@ -276,13 +276,13 @@ const WhyChooseUs = () => {
         <IoIosArrowUp
           onClick={() => nextSlide(false)}
           className="absolute text-white text-5xl cursor-pointer bg-[#F05023] rounded-full p-3 hover:scale-110 hover:bg-[#d9431e] transition z-10 shadow-md"
-          style={{ top: `calc(4% + ${arrowTopOffset})`, left: "22%" }}
+          style={{ top: `calc(4% + ${arrowTopOffset})`, left: "24%" }}
         />
 
         <IoIosArrowDown
           onClick={() => prevSlide(false)}
           className="absolute text-white text-5xl cursor-pointer bg-[#F05023] rounded-full p-3 hover:scale-110 hover:bg-[#d9431e] transition z-10 shadow-md"
-          style={{ bottom: `calc(4% + ${arrowBottomOffset})`, left: "22%" }}
+          style={{ bottom: `calc(4% + ${arrowBottomOffset})`, left: "24%" }}
         />
 
         {/* LEFT - Image Slider */}
