@@ -29,16 +29,16 @@ export default function NewsEvents() {
         {/* Heading Section */}
         <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-12">
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-[#1A2A59] uppercase tracking-wide">
+            <h2 className="text-[32px] md:text-6xl font-bold text-[#1A2A59] uppercase tracking-wide">
               NEWS & EVENTS
             </h2>
-            <p className="text-4xl mt-2 text-[#1A2A59] font-light">
+            <p className="text-5xl mt-2 text-[#1A2A59] font-light">
               Insights &{" "}<br />
               <span className="text-[#F15A29] font-semibold">Updates</span>
             </p>
           </div>
 
-          <p className="max-w-md text-sm md:text-base text-[#1A2A59]/70 mt-6 md:mt-15 leading-relaxed">
+          <p className="max-w-md text-sm md:text-base text-[#1A2A59]/70 mt-12 md:mt-15 leading-relaxed font-semiblod">
 
             Stay ahead with the latest insights, updates, and announcements.
             From industry news to our latest initiatives, explore what’s shaping
@@ -51,7 +51,7 @@ export default function NewsEvents() {
           {newsData.map((item) => (
             <div key={item.id} className="flex flex-col items-start">
               {/* Plain Image */}
-              <div className="relative w-full h-64 rounded-2xl overflow-hidden">
+              <div className="relative w-full h-94 rounded-3xl overflow-hidden">
                 <Image
                   src={item.image}
                   alt={item.title}
@@ -68,9 +68,9 @@ export default function NewsEvents() {
                 </h3>
                 <a
                   href={item.link}
-                  className="bg-[#F15A29] hover:bg-[#e14e1d] text-white p-2 rounded-md transition-all flex-shrink-0"
+                  className="bg-[#F15A29] hover:bg-[#e14e1d] text-white p-2 rounded-md transition-all flex-shrink-0 "
                 >
-                  <ArrowUpRight size={18} />
+                  <ArrowUpRight size={30} />
                 </a>
               </div>
             </div>

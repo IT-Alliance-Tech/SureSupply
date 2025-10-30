@@ -138,8 +138,8 @@ const WhyChooseUs = () => {
   const sliderRefDesktop = useRef(null);
   const sliderRefMobile = useRef(null);
 
-  const arrowTopOffset = "-5%";
-  const arrowBottomOffset = "-5%";
+  const arrowTopOffset = "-8%";
+  const arrowBottomOffset = "-8%";
 
   const settingsDesktop = {
     dots: false,
@@ -155,7 +155,7 @@ const WhyChooseUs = () => {
     arrows: false,
   };
 
-  const settingsMobile = { ...settingsDesktop, slidesToShow: 3 };
+  const settingsMobile = { ...settingsDesktop, slidesToShow: 2.5 };
 
   const nextSlide = (isMobile = false) => {
     if (isMobile && sliderRefMobile.current) sliderRefMobile.current.slickNext();
@@ -265,16 +265,16 @@ const WhyChooseUs = () => {
       <div className="hidden md:flex w-full md:flex-row items-center justify-center relative">
         {/* Arrows */}
         <IoIosArrowUp
-  onClick={() => prevSlide(false)}
-  className="absolute text-white text-5xl cursor-pointer bg-[#F05023] rounded-full p-3 hover:scale-110 hover:bg-[#d9431e] transition z-50 shadow-md"
-  style={{ top: `calc(4% + ${arrowTopOffset})`, left: "25%" }}
-/>
+               onClick={() => prevSlide(false)}
+          className="absolute text-white text-5xl cursor-pointer bg-[#F05023] rounded-full p-3 hover:scale-110 hover:bg-[#d9431e] transition z-10 shadow-md"
+            style={{ top: `calc(4% + ${arrowTopOffset})`, left: "22%" }}
+            />
 
-<IoIosArrowDown
-  onClick={() => nextSlide(false)}
-  className="absolute text-white text-5xl cursor-pointer bg-[#F05023] rounded-full p-3 hover:scale-110 hover:bg-[#d9431e] transition z-50 shadow-md"
-  style={{ bottom: `calc(4% + ${arrowBottomOffset})`, left: "25%" }}
-/>
+          <IoIosArrowDown
+             onClick={() => nextSlide(false)}
+             className="absolute text-white text-5xl cursor-pointer bg-[#F05023] rounded-full p-3 hover:scale-110 hover:bg-[#d9431e] transition z-10 shadow-md"
+          style={{ bottom: `calc(4% + ${arrowBottomOffset})`, left: "22%" }}
+             />
 
 
         {/* LEFT - Image Slider */}

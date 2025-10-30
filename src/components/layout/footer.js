@@ -52,7 +52,7 @@ export default function Footer() {
             <Image
               src={Logo}
               alt="SureSupply Logo"
-              className="w-40 h-15 cursor-pointer mb-6"
+              className="w-40 h-auto cursor-pointer mb-6"
             />
           </Link>
           <div>

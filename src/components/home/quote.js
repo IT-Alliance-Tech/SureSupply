@@ -123,7 +123,7 @@ export default function QuoteForm() {
         </p>
 
         {/* ===== Toggle between forms ===== */}
-        <div className="mb-6 flex space-x-4">
+        <div className="mb-6 flex space-x-4 cursor-pointer">
           <label className="flex items-center space-x-2 text-[#0a1a4f]">
             <input
               type="radio"
@@ -131,18 +131,18 @@ export default function QuoteForm() {
               value="customer"
               checked={userType === "customer"}
               onChange={(e) => setUserType(e.target.value)}
-              className="w-4 h-4 accent-[#F05023]"
+              className="w-5 h-5 text-[#F05023] focus:ring-[#F05023] cursor-pointer accent-[#F05023]"
             />
             <span>Customer</span>
           </label>
-          <label className="flex items-center space-x-2 text-[#0a1a4f]">
+          <label className="flex items-center space-x-2 text-[#0a1a4f] cursor-pointer">
             <input
               type="radio"
               name="userType"
               value="vendor"
               checked={userType === "vendor"}
               onChange={(e) => setUserType(e.target.value)}
-              className="w-4 h-4 accent-[#F05023]"
+              className="w-5 h-5 text-[#F05023] focus:ring-[#F05023] cursor-pointer accent-[#F05023]"
             />
             <span>Vendor</span>
           </label>
@@ -219,14 +219,14 @@ export default function QuoteForm() {
 
               {/* Service */}
               <div>
-                <label className="block text-sm font-semibold text-[#0a1a4f] mb-1">
+                <label className="block text-sm font-semibold text-[#0a1a4f] mb-1 cursor-pointer">
                   {`Select Service of Interest*`}
                 </label>
                 <select
                   name="service"
                   value={formData.service}
                   onChange={handleChange}
-                  className="w-full border rounded-md px-4 py-2 bg-gray-50 text-black focus:ring-2 focus:ring-orange-500"
+                  className="w-full border rounded-md px-4 py-2 bg-gray-50 text-black focus:ring-2 focus:ring-orange-500 cursor-pointer"
                 >
                   <option value="">Select Service</option>
                   <option value="Casting">Casting</option>
@@ -237,7 +237,7 @@ export default function QuoteForm() {
                   <option value="Rapid Prototyping">Rapid Prototyping</option>
                   <option value="Others">Others</option>
                 </select>
-                {errors.service && <p className="text-red-600 text-sm">{errors.service}</p>}
+                {errors.service && <p className="text-red-600 text-sm cursor-pointer">{errors.service}</p>}
               </div>
 
               {/* Details */}
@@ -388,25 +388,25 @@ export default function QuoteForm() {
 
           {/* Agreements */}
           <div className="space-y-3">
-            <label className="flex items-start space-x-2 text-[#0a1a4f]">
+            <label className="flex items-start space-x-2 text-[#0a1a4f] cursor-pointer">
               <input
                 type="checkbox"
                 name="agreeComm"
                 checked={formData.agreeComm}
                 onChange={handleChange}
-                className="mt-1"
+                className="w-5 h-5 rounded-md accent-[#F05023] cursor-pointer focus:ring-[#F05023]"
               />
               <span>I agree to receive communications.*</span>
             </label>
             {errors.agreeComm && <p className="text-red-600 text-sm">{errors.agreeComm}</p>}
 
-            <label className="flex items-start space-x-2 text-[#0a1a4f]">
+            <label className="flex items-start space-x-2 text-[#0a1a4f] cursor-pointer">
               <input 
                 type="checkbox"
                 name="agreeData"
                 checked={formData.agreeData}
                 onChange={handleChange}
-                className="mt-1"
+                className="w-5 h-5 rounded-md accent-[#F05023] cursor-pointer focus:ring-[#F05023]"
               />
               <span>I agree to allow storing and processing my data.*</span>
             </label>
@@ -414,15 +414,15 @@ export default function QuoteForm() {
           </div>
 
           {/* CAPTCHA */}
-          <div className="flex items-center space-x-2 mb-4">
+          <div className="flex items-center space-x-2 mb-4 ">
             <input
               type="checkbox"
               id="captchaCheckbox"
               checked={isHuman}
               onChange={(e) => setIsHuman(e.target.checked)}
-              className="w-4 h-4 text-orange-600 border-gray-300 rounded focus:ring-orange-500"
+               className="w-5 h-5 rounded-md accent-[#F05023] cursor-pointer focus:ring-[#F05023]"
             />
-            <label htmlFor="captchaCheckbox" className="text-[#0a1a4f]">
+            <label htmlFor="captchaCheckbox" className="text-[#0a1a4f] cursor-pointer select-none">
               {`I'm not a robot`}
             </label>
           </div>
@@ -431,7 +431,7 @@ export default function QuoteForm() {
           <div>
             <button
               type="submit"
-              className="bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-md font-semibold w-full sm:w-auto disabled:opacity-50 disabled:cursor-not-allowed"
+              className="bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-md font-semibold w-full sm:w-auto disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
             >
               {userType === "customer" ? "Send Inquiry" : "Submit Vendor Application"}
             </button>
