@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function HeroSection() {
-  // 🎞 Video URLs in /public/videos
+  // 🎞 Video URLs
   const videos = [
     "https://res.cloudinary.com/drqsy21yw/video/upload/v1761647355/welding_kijyqz.mp4",
     "https://res.cloudinary.com/drqsy21yw/video/upload/v1761647829/foundry_zybgbv.mp4",
@@ -25,7 +25,7 @@ export default function HeroSection() {
     return () => clearInterval(interval);
   }, [videos.length]);
 
-  // ⚙️ Preload the *next* video (for smoother transitions)
+  // ⚙️ Preload next video
   useEffect(() => {
     const nextIndex = (currentIndex + 1) % videos.length;
     const nextVideo = videoRefs.current[nextIndex];
@@ -42,38 +42,26 @@ export default function HeroSection() {
 
   return (
     <section className="relative w-full h-[650px] flex items-center justify-start overflow-hidden">
-      {/* ===== Background Videos (lazy loaded) ===== */}
-      <AnimatePresence mode="sync">
-        {videos.map((video, index) =>
-          index === currentIndex ? (
-            <motion.video
-              key={index}
-              ref={(el) => (videoRefs.current[index] = el)}
-              src={video}
-              autoPlay
-              loop
-              muted
-              playsInline
-              preload="auto"
-              className="absolute inset-0 w-full h-full object-cover"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 1.2, ease: "easeInOut" }}
-            />
-          ) : (
-            <video
-              key={index}
-              ref={(el) => (videoRefs.current[index] = el)}
-              src={video}
-              muted
-              playsInline
-              preload="metadata" // 👈 lightweight lazy load
-              className="hidden"
-            />
-          )
-        )}
-      </AnimatePresence>
+      {/* ===== Background Videos (fade + rotate animation) ===== */}
+      <div className="absolute inset-0">
+        <AnimatePresence mode="wait">
+          <motion.video
+            key={currentIndex}
+            ref={(el) => (videoRefs.current[currentIndex] = el)}
+            src={videos[currentIndex]}
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            className="absolute inset-0 w-full h-full object-cover"
+            initial={{ opacity: 0, rotate: 5, scale: 5 }}
+            animate={{ opacity: 1, rotate: 0, scale: 1 }}
+            exit={{ opacity: 0, rotate: -5, scale: 0.95 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+          />
+        </AnimatePresence>
+      </div>
 
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/50"></div>
@@ -100,6 +88,7 @@ export default function HeroSection() {
           </span>
         </h1>
 
+        {/* Button */}
         <motion.button
           onClick={() => {
             const element = document.getElementById("quoteForm");
@@ -108,7 +97,7 @@ export default function HeroSection() {
           className="mt-8 bg-[#F05023] text-white px-8 py-4 rounded-lg font-semibold shadow-lg transition-all duration-300 cursor-pointer relative overflow-hidden"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.8, ease: "easeInOut" }}
+          transition={{ delay: 0.5, duration: 0.8, ease: 'easeInOut' }}
           whileHover={{
             scale: 1.05,
             boxShadow: "0 0 20px rgba(240, 80, 35, 0.6)",
