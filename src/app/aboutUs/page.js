@@ -1,20 +1,22 @@
-import Ourstory from "../../components/aboutUs/ourStory";
-import CorePrinciples from "@/components/aboutUs/core";
-import OurTeam from "../../components/aboutUs/ourTeam";
-import HomeJourney from "@/components/aboutUs/homeJourney";
-import HomePlatform from "@/components/aboutUs/homePlatform";
-import PeopleOnGround from "@/components/aboutUs/ourPeople";
-import HiringSection from "@/components/aboutUs/hiringSection";
+"use client";
 
-export default function Home() {
+import dynamic from "next/dynamic";
+
+// Lazy load each section component
+const OurStory = dynamic(() => import("@/components/aboutUs/ourStory"), { ssr: false });
+const CorePrinciples = dynamic(() => import("@/components/aboutUs/core"), { ssr: false });
+const OurTeam = dynamic(() => import("@/components/aboutUs/ourTeam"), { ssr: false });
+const HiringSection = dynamic(() => import("@/components/aboutUs/hiringSection"), { ssr: false });
+const HomePlatform = dynamic(() => import("@/components/aboutUs/homePlatform"), { ssr: false });
+const PeopleOnGround = dynamic(() => import("@/components/aboutUs/ourPeople"), { ssr: false });
+
+export default function AboutUsPage() {
   return (
     <main className="flex flex-col">
-      {/* Added a dummy comment */}
-      <Ourstory />
+      <OurStory />
       <CorePrinciples />
       <OurTeam />
       <HiringSection />
-      {/* <HomeJourney /> */}
       <HomePlatform />
       <PeopleOnGround />
     </main>
