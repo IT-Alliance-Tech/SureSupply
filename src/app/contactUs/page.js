@@ -27,14 +27,14 @@ export default function ContactUsPage() {
         />
         <div className="text-center text-white z-10 px-4">
           <h1 className="text-5xl font-bold tracking-wide mb-4">
-            CONTACT <span className="text-orange-500">US</span>
+            CONTACT US
           </h1>
-          <div className="text-sm font-medium flex justify-center items-center gap-2">
-            <Link href="/" className="hover:text-orange-500 transition-colors">
+          <div className="text-[16px] font-medium flex justify-center items-center gap-2">
+            <Link href="/" className="hover:text-[#F05023] transition-colors">
               Home
             </Link>
-            <span className="text-orange-500">•</span>
-            <span className="text-orange-500">Contact Us</span>
+            <span className="text-[#F05023]">•</span>
+            <span className="text-[#F05023]">Contact Us</span>
           </div>
         </div>
       </section>
@@ -46,11 +46,11 @@ export default function ContactUsPage() {
           {/* ===== Left Section (Contact Info) ===== */}
           <div className="flex flex-col justify-center space-y-6 rounded-2xl p-6">
             <div>
-              <h5 className="text-orange-500 uppercase tracking-wide font-semibold">
+              <h5 className="text-[#F05023] uppercase tracking-wide font-semibold">
                 Contact Us
               </h5>
               <h2 className="text-4xl font-bold text-gray-900 mt-2">
-                Get in Touch <span className="text-orange-500">With Us</span>
+                Get in Touch <span className="text-[#F05023]">With Us</span>
               </h2>
               <p className="text-gray-700 mt-4">
                 Reach out for any inquiries, support, or to discuss how we can
@@ -60,18 +60,18 @@ export default function ContactUsPage() {
 
             <div className="space-y-5">
               <div className="flex items-center space-x-4">
-                <div className="p-3 bg-orange-100 rounded-full">
-                  <Phone className="text-orange-500" />
+                <div className="p-3 bg-[#F0502320] rounded-full">
+                  <Phone className="text-[#F05023]" />
                 </div>
                 <div>
                   <p className="font-semibold text-gray-800">Contact</p>
-                  <p className="text-gray-600"> +91 9904963647</p>
+                  <p className="text-gray-600"> +91 8780952559</p>
                 </div>
               </div>
 
               <div className="flex items-center space-x-4">
-                <div className="p-3 bg-orange-100 rounded-full">
-                  <Mail className="text-orange-500" />
+                <div className="p-3 bg-[#F0502320] rounded-full">
+                  <Mail className="text-[#F05023]" />
                 </div>
                 <div>
                   <p className="font-semibold text-gray-800">E-mail</p>
@@ -80,13 +80,13 @@ export default function ContactUsPage() {
               </div>
 
               <div className="flex items-center space-x-4">
-                <div className="p-3 bg-orange-100 rounded-full">
-                  <MapPin className="text-orange-500" />
+                <div className="p-3 bg-[#F0502320] rounded-full">
+                  <MapPin className="text-[#F05023]" />
                 </div>
                 <div>
                   <p className="font-semibold text-gray-800">Our Address</p>
                   <p className="text-gray-600">
-                    #12 1 Cross Street, ABC 560000
+                    237, Second Floor, Copper crown building, mahavir circle, phase-3 dared, Jamnagar Gujarat (INDIA)-361004
                   </p>
                 </div>
               </div>
@@ -96,7 +96,7 @@ export default function ContactUsPage() {
           {/* ===== Right Section (Form) ===== */}
           <div className="bg-white rounded-2xl shadow-xl p-8">
             <h2 className="text-3xl font-bold text-gray-900 mb-6">
-              Contact <span className="text-orange-500">Me</span>
+              Contact <span className="text-[#F05023]">Me</span>
             </h2>
             <form className="space-y-4" onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -162,14 +162,15 @@ export default function ContactUsPage() {
               <Button
                 type="submit"
                 variant="contained"
-                color="warning"
-                className="!bg-orange-500 hover:!bg-orange-600"
+                sx={{
+                  backgroundColor: "#F05023",
+                  "&:hover": { backgroundColor: "#d9451f" },
+                }}
               >
                 Send Message
               </Button>
             </form>
           </div>
-
         </div>
       </section>
 
