@@ -50,32 +50,31 @@ const CapabilitiesPage = () => {
 
       {/* Key Advantages Section */}
       <section className="py-10 sm:py-16 px-4 sm:px-6 bg-gradient-to-b from-white to-[#f8f9fc]">
-  <h3 className="text-[28px] sm:text-[38px] font-outfit font-semibold text-[#0A175C] mb-10 text-center relative">
-    Quality Forged by SureSupply
-    <span className="absolute left-1/2 -translate-x-1/2 -bottom-2 w-[70px] sm:w-[80px] h-[4px] bg-[#F05023] rounded-full"></span>
-  </h3>
+        <h3 className="text-[28px] sm:text-[38px] font-outfit font-semibold text-[#0A175C] mb-10 text-center relative">
+          Quality Forged by SureSupply
+          <span className="absolute left-1/2 -translate-x-1/2 -bottom-2 w-[70px] sm:w-[80px] h-[4px] bg-[#F05023] rounded-full"></span>
+        </h3>
 
-  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 perspective-[1200px]">
-    {subItem.advantages.map((adv, i) => (
-      <div
-        key={i}
-        className="relative bg-[#0A175C] text-white rounded-2xl p-6 sm:p-8 shadow-lg
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 perspective-[1200px]">
+          {subItem.advantages.map((adv, i) => (
+            <div
+              key={i}
+              className="relative bg-[#0A175C] text-white rounded-2xl p-6 sm:p-8 shadow-lg
         hover:-translate-y-5 hover:scale-[1.08] hover:shadow-2xl transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]"
-      >
-        <h4 className="text-[22px] sm:text-[26px] font-outfit font-bold text-[#F05023] mb-3 sm:mb-4">
-          {adv.title}
-        </h4>
+            >
+              <h4 className="text-[22px] sm:text-[26px] font-outfit font-bold text-[#F05023] mb-3 sm:mb-4">
+                {adv.title}
+              </h4>
 
-        <ul className="list-disc pl-5 space-y-2 text-[16px] sm:text-[18px] font-lato text-gray-200 leading-relaxed">
-          {adv.points?.map((point, idx) => (
-            <li key={idx}>{point}</li>
+              <ul className="list-disc pl-5 space-y-2 text-[16px] sm:text-[18px] font-lato text-gray-200 leading-relaxed">
+                {adv.points?.map((point, idx) => (
+                  <li key={idx}>{point}</li>
+                ))}
+              </ul>
+            </div>
           ))}
-        </ul>
-      </div>
-    ))}
-  </div>
-</section>
-
+        </div>
+      </section>
 
       {/* Our Expertise Section */}
       <section className="px-4 sm:px-0">
@@ -210,30 +209,35 @@ const CapabilitiesPage = () => {
 
   /* ====== MAIN CATEGORY CONTENT ====== */
   const renderMainContent = (item) => (
-    <div className="flex flex-col gap-10 group transition-all duration-500 px-3 sm:px-0">
-      <div className="flex justify-center">
-        <div className="relative h-[240px] sm:h-[360px] w-full sm:w-[80%] rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500">
-          <Image
-            src={item.img}
-            alt={item.title}
-            fill
-            className="object-cover rounded-2xl transition-transform duration-700 group-hover:scale-105"
-          />
-        </div>
-      </div>
-
-      <h3 className="text-[28px] sm:text-[40px] font-outfit font-bold text-[#0A175C] text-center relative inline-block mx-auto">
-        {item.title}
-        <span className="absolute left-1/2 -translate-x-1/2 -bottom-2 w-[70px] sm:w-[80px] h-[4px] bg-[#F05023] rounded-full"></span>
-      </h3>
-
-      <div
-        className="text-[16px] sm:text-[18px] font-lato leading-[1.8] text-[#1A2A6C] space-y-4"
-        dangerouslySetInnerHTML={{ __html: item.content }}
-      ></div>
-
-      {item.qualityAssurance && renderQualityAssurance(item.qualityAssurance)}
+    <div className="flex flex-col gap-10 group transition-all duration-500 px-3 sm:px-0 text-left">
+  {/* Image */}
+  <div className="flex justify-center">
+    <div className="relative h-[240px] sm:h-[360px] w-full sm:w-[80%] rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500">
+      <Image
+        src={item.img}
+        alt={item.title}
+        fill
+        className="object-cover rounded-2xl transition-transform duration-700 group-hover:scale-105"
+      />
     </div>
+  </div>
+
+  {/* Title */}
+  <h3 className="text-[24px] sm:text-[40px] font-outfit font-bold text-[#0A175C] relative inline-block mx-auto text-center">
+  {item.title}
+  <span className="absolute left-1/2 -translate-x-1/2 -bottom-2 w-[70px] sm:w-[80px] h-[4px] bg-[#F05023] rounded-full"></span>
+</h3>
+
+  {/* Content */}
+  <div
+    className="text-[16px] sm:text-[18px] font-lato leading-[1.8] text-[#1A2A6C] space-y-4"
+    dangerouslySetInnerHTML={{ __html: item.content }}
+  ></div>
+
+  {/* Quality Assurance (if exists) */}
+  {item.qualityAssurance && renderQualityAssurance(item.qualityAssurance)}
+</div>
+
   );
 
   return (
@@ -248,89 +252,120 @@ const CapabilitiesPage = () => {
           className="object-cover object-left absolute inset-0 -z-10"
         />
         <div className="relative text-center text-white z-10 px-4 sm:px-6 lg:px-24 max-w-[1200px] mx-auto">
-  <h1 className="text-[42px] sm:text-[64px] font-outfit font-bold tracking-wide mb-6 leading-tight drop-shadow-md">
-    OUR <span className="text-white">CAPABILITIES</span>
-  </h1>
-  <div className="text-[16px] sm:text-[20px] font-outfit flex justify-center items-center gap-2">
-    <Link href="/" className="hover:text-white transition-colors cursor-pointer">
-      Home
-    </Link>
-    <span className="text-[#F05023]">/</span>
-    <span className="text-[#F05023]">Our Capabilities</span>
-  </div>
-</div>
-
+          <h1 className="text-[42px] sm:text-[64px] font-outfit font-bold tracking-wide mb-6 leading-tight drop-shadow-md">
+            OUR <span className="text-white">CAPABILITIES</span>
+          </h1>
+          <div className="text-[16px] sm:text-[20px] font-outfit flex justify-center items-center gap-2">
+            <Link href="/" className="hover:text-white transition-colors cursor-pointer">
+              Home
+            </Link>
+            <span className="text-[#F05023]">/</span>
+            <span className="text-[#F05023]">Our Capabilities</span>
+          </div>
+        </div>
       </section>
 
       {/* MAIN CONTENT SECTION */}
       <section className="bg-white py-8 sm:py-16">
         <div className="max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-12">
-          {/* MOBILE MENU BUTTON */}
-<div className="flex justify-end lg:hidden mb-6">
+          {/* MOBILE MENU BUTTON — moved to LEFT (no desktop change) */}
+          {/* FLOATING MOBILE MENU BUTTON (fixed position) */}
+<div className="lg:hidden">
   <button
-    onClick={() => setMenuOpen(!menuOpen)}
-    className="p-2 rounded-md bg-[#F05023] text-white"
+    onClick={() => setMenuOpen(true)}
+    className="fixed top-24 left-4 z-50 p-3 rounded-full bg-[#F05023] text-white shadow-lg hover:bg-[#d9481f] transition-all duration-300"
+    aria-label="Open menu"
   >
-    {menuOpen ? <X size={22} /> : <Menu size={22} />}
+    <Menu size={24} />
   </button>
 </div>
 
 
-          {/* MOBILE CATEGORY MENU */}
+          {/* FULL-PAGE MOBILE CATEGORY MENU (overlay) */}
           {menuOpen && (
-            <div className="lg:hidden mb-6 bg-white rounded-2xl shadow-md p-4 border border-gray-100">
-              {categories.map((main) => (
-                <div key={main.id} className="mb-2">
-                  <div className="flex flex-col">
-                    <button
-                      className={`w-full flex items-center justify-between px-3 py-2 rounded-md text-left font-outfit text-[17px] ${
-                        activeMain === main.id
-                          ? "bg-[#F05023] text-white"
-                          : "text-[#0A175C] hover:bg-gray-100"
-                      }`}
-                      onClick={() => {
-                        // open main to show subs inline in mobile menu (quick expand)
-                        if (openMain === main.id) {
-                          setOpenMain(null);
-                        } else {
-                          setActiveMain(main.id);
-                          setOpenMain(main.id);
-                        }
-                        setActiveSub(null);
-                        scrollToTop();
-                      }}
-                    >
-                      <span>{main.title}</span>
-                      {openMain === main.id ? <FaChevronUp /> : <FaChevronDown />}
-                    </button>
-
-                    {openMain === main.id && main.subs && (
-                      <div className="mt-2 ml-3 space-y-2 border-l-2 border-gray-200 pl-3">
-                        {main.subs.map((sub) => (
-                          <button
-                            key={sub.id}
-                            className={`w-full text-left text-[16px] font-lato px-3 py-2 rounded-md ${
-                              activeSub === sub.id
-                                ? "bg-[#F05023] text-white"
-                                : "text-gray-700 hover:bg-gray-100"
-                            }`}
-                            onClick={() => {
-                              setActiveSub(sub.id);
-                              setMenuOpen(false);
-                              scrollToTop();
-                            }}
-                          >
-                            {sub.title}
-                          </button>
-                        ))}
-                      </div>
-                    )}
-                  </div>
+            <div className="fixed inset-0 z-50 bg-white overflow-y-auto">
+              <div className="max-w-[900px] mx-auto px-6 py-6">
+                {/* Top bar with title and cancel */}
+                <div className="flex items-center justify-between mb-6">
+                  <h3 className="text-[20px] sm:text-[24px] font-outfit font-semibold text-[#0A175C]">
+                    Capabilities
+                  </h3>
+                  <button
+                    onClick={() => setMenuOpen(false)}
+                    className="p-2 rounded-md text-[#0A175C] hover:bg-gray-100"
+                    aria-label="Close menu"
+                  >
+                    <X size={26} />
+                  </button>
                 </div>
-              ))}
+
+                {/* Menu content area */}
+                <div className="space-y-4">
+                  {categories.map((main) => (
+                    <div key={main.id} className="border-b border-gray-100 pb-4">
+                      <button
+                        className={`w-full flex items-center justify-between text-left py-3 font-outfit text-[18px] ${
+                          activeMain === main.id
+                            ? "text-[#F05023] font-bold"
+                            : "text-[#0A175C]"
+                        }`}
+                        onClick={() => {
+  if (openMain === main.id) {
+    // If already open, just toggle closed
+    setOpenMain(null);
+  } else {
+    // Open new main category and show its content
+    setActiveMain(main.id);
+    setOpenMain(main.id);
+    setActiveSub(null);
+    setMenuOpen(false); // close the menu
+    scrollToTop(); // scroll to top to view main content
+  }
+}}
+
+                      >
+                        <span>{main.title}</span>
+                        <span className="ml-4">
+                          {openMain === main.id ? <FaChevronUp /> : <FaChevronDown />}
+                        </span>
+                      </button>
+
+                      {openMain === main.id && main.subs && (
+                        <div className="mt-3 ml-4 space-y-2">
+                          {main.subs.map((sub) => (
+                            <button
+                              key={sub.id}
+                              className={`block w-full text-left py-2 px-3 rounded-md text-[16px] font-lato ${
+                                activeSub === sub.id
+                                  ? "bg-[#F05023] text-white"
+                                  : "text-[#0A175C] hover:bg-gray-100"
+                              }`}
+                              onClick={() => {
+                                setActiveSub(sub.id);
+                                setMenuOpen(false);
+                                scrollToTop();
+                              }}
+                            >
+                              {sub.title}
+                            </button>
+                          ))}
+                        </div>
+                      )}
+
+                      {/* If this main is active and has content, show a short preview (optional) */}
+                      {openMain === main.id && activeMain === main.id && main.preview && (
+                        <div className="mt-3 px-3 text-sm text-gray-700">
+                          {main.preview}
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           )}
 
+          {/* DESKTOP GRID (unchanged) */}
           <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-8 items-start">
             {/* LEFT SIDEBAR (desktop) */}
             <aside className="hidden lg:block col-span-1 sticky top-28 self-start">
