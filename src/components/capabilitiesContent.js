@@ -6,6 +6,20 @@ import sub2 from "../../public/dummy3.png";
 import sub3 from "../../public/dummy3.png";
 import sub4 from "../../public/dummy3.png";
 import sub5 from "../../public/dummy3.png";
+import main2 from "../../public/dummy3.png";
+import sub6 from "../../public/dummy3.png";
+import sub7 from "../../public/dummy3.png";
+import sub8 from "../../public/dummy3.png";
+import sub9 from "../../public/dummy3.png";
+import sub10 from "../../public/dummy3.png";
+import sub11 from "../../public/dummy3.png";
+import main3 from "../../public/dummy3.png";
+import sub12 from "../../public/dummy3.png";
+import sub13 from "../../public/dummy3.png";
+import sub14 from "../../public/dummy3.png";
+import sub15 from "../../public/dummy3.png";
+import sub16 from "../../public/dummy3.png";
+import sub17 from "../../public/dummy3.png";
 
 export const categories = [
   // ==============================
@@ -731,6 +745,857 @@ expertise: [
     }
   ]
 },
+// ==============================
+// ⚙️ FABRICATION
+// ==============================
+{
+  id: "fabrication",
+  title: "Fabrication",
+  img: main2,
+  content: `
+    <h2 class="text-2xl font-semibold text-[#0A175C] mb-4">
+      Advanced Fabrication Excellence for Precision Engineering
+    </h2>
+    <p class="text-gray-700 text-base leading-relaxed mb-4">
+      Suresupply’s Fabrication Division combines cutting-edge technologies with engineering expertise 
+      to deliver precision-crafted components that meet stringent industrial standards. 
+      From sheet metal and structural fabrication to complex assemblies, every process is designed 
+      to achieve unmatched accuracy, consistency, and performance.
+    </p>
+
+    <h3 class="text-xl font-semibold text-[#0A175C] mb-3">
+      End-to-End Fabrication Capabilities
+    </h3>
+    <p class="text-gray-700 text-base leading-relaxed mb-4">
+      Our comprehensive fabrication suite includes die press, plasma, laser, and waterjet cutting, precision welding, and advanced EDM processes. 
+      Each technique is optimized through automation, digital control, and strict quality validation 
+      to deliver components that perform flawlessly under demanding conditions.
+    </p>
+
+    <h3 class="text-xl font-semibold text-[#0A175C] mb-3">
+      Engineered for Performance and Reliability
+    </h3>
+    <p class="text-gray-700 text-base leading-relaxed">
+      With a relentless focus on precision, repeatability, and cost efficiency, 
+      Suresupply ensures that every fabricated part meets or exceeds your performance expectations.
+    </p>
+  `,
+
+  // QUALITY ASSURANCE
+  qualityAssurance: {
+    title: "Quality Assurance",
+    description: `
+      At Suresupply, quality is engineered into every process. 
+      Our in-house validation systems, advanced metrology, and real-time process monitoring guarantee traceable, consistent, and repeatable outcomes across all fabrication disciplines.
+    `,
+    points: [
+      {
+        title: "Coordinate Measuring Machine (CMM) Verification",
+        desc: "Automated dimensional inspection for complex geometries with micron-level accuracy."
+      },
+      {
+        title: "Weld Penetration & Macro-Etch Testing",
+        desc: "Ensures weld fusion integrity, geometry accuracy, and defect-free joints."
+      },
+      {
+        title: "Surface Roughness & Flatness Validation",
+        desc: "Confirms surface finish and planarity for sealing and assembly precision."
+      },
+      {
+        title: "Comprehensive Mechanical Testing",
+        desc: "Verifies tensile strength, hardness, impact resistance, and chemical composition."
+      }
+    ],
+    beyondTesting: [
+      {
+        title: "Rigorous Process Audits",
+        desc: "Frequent internal audits maintain consistency and eliminate deviations."
+      },
+      {
+        title: "Statistical Process Control (SPC)",
+        desc: "Monitors and stabilizes process variables for zero-defect manufacturing."
+      },
+      {
+        title: "PPAP & Traceability",
+        desc: "Comprehensive documentation ensures part compliance and production validation."
+      }
+    ]
+  },
+
+  // ==============================
+  // SUBCATEGORIES
+  // ==============================
+  subs: [
+    // ------------------------------
+    // 1️⃣ Die Press Fabrication
+    // ------------------------------
+    {
+      id: "fabrication-diepress",
+      title: "Die Press Fabrication",
+      img: sub6,
+      content:
+        "At Suresupply, our Die Press Fabrication process represents the foundation of precision sheet metal manufacturing. We combine advanced hydraulic and mechanical presses with state-of-the-art tooling to produce components that meet the most demanding dimensional and structural specifications. By employing progressive, compound, and deep-draw die setups, we ensure efficient, repeatable production across complex geometries and variable thicknesses.",
+      advantages: [
+  {
+    title: "Precision & Repeatability",
+    points: [
+      "Hard tooling guarantees unmatched dimensional accuracy.",
+      "Ensures consistent results even in complex, high-volume production."
+    ]
+  },
+  {
+    title: "Cost-Effective High Volume",
+    points: [
+      "Rapid cycle times make it ideal for mass production.",
+      "Tooling cost is efficiently distributed across millions of components."
+    ]
+  },
+  {
+    title: "Superior Finish",
+    points: [
+      "Controlled stamping delivers clean edges and uniform quality.",
+      "Often removes the need for additional finishing processes."
+    ]
+  },
+  {
+    title: "Complex Versatility",
+    points: [
+      "Supports progressive, compound, and transfer dies for multiple operations.",
+      "Handles piercing, blanking, bending, and deep drawing with precision."
+    ]
+  },
+  {
+    title: "Material Efficiency",
+    points: [
+      "Optimized die design and automated nesting reduce material waste.",
+      "Ensures maximum sheet utilization and lower cost per part."
+    ]
+  }
+],
+
+      expertise: [
+  "Versatile Press Operations: Equipped with mechanical and hydraulic presses from 10 to 800 tons, handling varied part sizes and materials.",
+  "Advanced Die Technology: Expertise in progressive, compound, and transfer dies for efficient, high-volume production.",
+  "Comprehensive Stamping: Skilled in deep drawing, blanking, piercing, and controlled bending with precision and repeatability.",
+  "Full-Service Die Management: Complete in-house lifecycle control—from CAD-based design to manufacturing and maintenance—for consistent quality.",
+  "Integrated Post-Forming: Offering trimming, deburring, and surface finishing for ready-to-assemble components."
+]
+
+
+    },
+
+    // ------------------------------
+    // 2️⃣ Laser Cutting
+    // ------------------------------
+    {
+      id: "fabrication-laser",
+      title: "Laser Cutting",
+      img: sub7,
+      content:
+        "Suresupply’s Laser Cutting systems deliver unmatched precision and speed through advanced fiber laser technology. This non-contact process achieves superior edge quality, minimal distortion, and extremely tight tolerances — perfect for complex profiles and high-volume production with consistent repeatability.",
+      advantages: [
+  {
+    title: "Exceptional Cutting Depth",
+    points: [
+      "Handles diverse requirements with cutting capacity up to 25 mm thickness.",
+      "Delivers uniform quality even on thicker materials."
+    ]
+  },
+  {
+    title: "Unrivaled Accuracy",
+    points: [
+      "Achieves complex geometries with ±0.1 mm precision tolerance.",
+      "Ensures clean, burr-free edges for high-quality components."
+    ]
+  },
+  {
+    title: "Versatile Material Expertise",
+    points: [
+      "Processes stainless steel, mild steel, aluminum, and copper efficiently.",
+      "Suitable for varied industrial and design applications."
+    ]
+  },
+  {
+    title: "Cost-Optimized Production",
+    points: [
+      "Automated nesting and smart material utilization minimize waste.",
+      "Reduces overall production costs for high-volume runs."
+    ]
+  },
+  {
+    title: "Seamless Fabrication Prep",
+    points: [
+      "Provides accurate edge preparation ready for welding or assembly.",
+      "Eliminates secondary finishing needs for faster turnaround."
+    ]
+  }
+],
+
+      expertise: [
+  "Exceptional Cutting Depth: Handle diverse requirements with cutting capacity up to 25 mm thickness.",
+  "Unrivaled Accuracy: Achieve complex geometries with high-precision cutting and a minimal ±0.1 mm tolerance.",
+  "Versatile Material Expertise: Expertly process a full range of materials, including stainless steel, mild steel, aluminum, and copper.",
+  "Cost-Optimized Production: Our automated nesting and material optimization processes guarantee minimal waste and lower production costs.",
+  "Seamless Fabrication Prep: We provide precise edge preparation, making your components immediately ready for welding or final assembly."
+]
+
+    },
+
+    // ------------------------------
+    // 3️⃣ Plasma Cutting
+    // ------------------------------
+    {
+      id: "fabrication-plasma",
+      title: "Plasma Cutting",
+      img: sub8,
+      content:
+        "Suresupply’s Plasma Cutting technology delivers high-speed, precise thermal cutting for conductive metals. Using high-velocity plasma jets, this method ensures clean cuts, tight tolerances, and minimal heat distortion — making it ideal for medium to heavy-gauge steel fabrication.",
+     advantages: [
+  {
+    title: "Exceptional Speed",
+    points: [
+      "Operates at much faster travel speeds than oxy-fuel cutting.",
+      "Reduces lead times significantly for repetitive or long straight cuts."
+    ]
+  },
+  {
+    title: "Cost-Effectiveness",
+    points: [
+      "High cutting speed and low consumable usage minimize production costs.",
+      "Requires minimal post-processing, ideal for large-volume runs."
+    ]
+  },
+  {
+    title: "Reliable Accuracy",
+    points: [
+      "Controlled plasma arc ensures tight tolerances and excellent cut quality.",
+      "Produces minimal heat-affected zones for precision fit-up in welding and assembly."
+    ]
+  },
+  {
+    title: "Material Versatility",
+    points: [
+      "Cuts any electrically conductive material, including carbon steel, stainless steel, aluminum, copper, and brass.",
+      "Performs equally well across thin to thick material ranges."
+    ]
+  },
+  {
+    title: "Thick Plate Capability",
+    points: [
+      "Handles medium to heavy-gauge plates efficiently.",
+      "Ideal for structural and heavy machinery component fabrication."
+    ]
+  }
+],
+
+      expertise: [
+  "Heavy-Duty Capacity: CNC plasma cutting for materials up to 50 mm thickness.",
+  "High-Speed Versatility: Rapid and efficient cutting for Mild Steel, Stainless Steel, and Aluminum.",
+  "Unmatched Consistency: Automated Torch Height Control (ATHC) guarantees consistent quality and minimal material waste.",
+  "Complex Geometry Expertise: Seamless ability to cut intricate contours and precise profiles.",
+  "Full Post-Processing: Comprehensive services including grinding, edge finishing, and part marking to deliver ready-to-use components."
+]
+
+    },
+
+    // ------------------------------
+    // 4️⃣ Waterjet Cutting
+    // ------------------------------
+    {
+      id: "fabrication-waterjet",
+      title: "Waterjet Cutting",
+      img: sub9,
+      content:
+        "Suresupply’s Waterjet Cutting process harnesses ultra-high-pressure water streams mixed with abrasive garnet to deliver cold, burr-free cutting across virtually any material. It eliminates thermal distortion, preserves structural integrity, and achieves exceptional precision and surface quality.",
+      advantages: [
+  {
+    title: "Zero Heat-Affected Zone (HAZ) & Material Preservation",
+    points: [
+      "Cold-cutting process eliminates thermal stress, warping, and micro-cracking.",
+      "Preserves the material’s structural integrity and metallurgical properties—ideal for heat-sensitive alloys and composites."
+    ]
+  },
+  {
+    title: "Ultimate Versatility Across All Materials",
+    points: [
+      "Processes virtually any material, including reflective metals, stainless steel, glass, stone, and composites.",
+      "No tool changes required, ensuring seamless transitions between material types."
+    ]
+  },
+  {
+    title: "Exceptional Edge Quality & Minimal Post-Processing",
+    points: [
+      "Delivers smooth, clean, burr-free edges that often eliminate secondary finishing.",
+      "Reduces total production time and cost with ready-to-use precision cuts."
+    ]
+  },
+  {
+    title: "Tight Tolerances and High Precision",
+    points: [
+      "Ultra-high-pressure stream with controlled abrasive mixing provides micron-level accuracy.",
+      "Ideal for complex geometries requiring high dimensional precision."
+    ]
+  },
+  {
+    title: "Optimized Material Yield through Minimal Kerf",
+    points: [
+      "Fine, focused stream produces a narrow kerf for efficient material use.",
+      "Maximizes nesting efficiency and reduces material waste."
+    ]
+  }
+],
+
+      expertise: [
+  "Exceptional Material Thickness: Effortlessly cut metal and composite materials up to 150 mm thick.",
+  "Unrivaled Accuracy: Achieve complex, intricate shapes with tight tolerances of just ±0.2 mm.",
+  "Heat-Free Integrity (Cold Cutting): Our process eliminates the heat-affected zone (HAZ), preserving the material's properties and structural integrity.",
+  "Sustainable and Efficient: An environmentally clean process that minimizes material waste, supporting your sustainability goals.",
+  "Flexible Production Runs: Equipped to handle both rapid prototyping and low-volume production needs."
+]
+
+    },
+
+    // ------------------------------
+    // 5️⃣ EDM & Wire EDM
+    // ------------------------------
+    {
+      id: "fabrication-edm",
+      title: "EDM & Wire EDM",
+      img: sub10,
+      content:
+        "At Suresupply, Electrical Discharge Machining (EDM) and Wire EDM redefine precision manufacturing. These non-contact, electrical erosion processes shape the hardest conductive materials into complex geometries with micron-level accuracy and superior surface finishes.",
+      advantages: [
+  {
+    title: "Extreme Precision on Hard Materials",
+    points: [
+      "Machines the hardest conductive materials like steel, titanium, and carbide with micron-level accuracy.",
+      "Enables production of complex geometries unattainable with conventional machining."
+    ]
+  },
+  {
+    title: "Zero Mechanical Stress & Burrs",
+    points: [
+      "Spark erosion process prevents mechanical stress, heat distortion, and burr formation.",
+      "Preserves material integrity and reduces post-processing needs."
+    ]
+  },
+  {
+    title: "Intricate Geometry Creation",
+    points: [
+      "Excels in cutting tight radii, sharp corners, and intricate internal contours.",
+      "Provides superior flexibility for molds, dies, and precision components."
+    ]
+  },
+  {
+    title: "Superior Surface Finish",
+    points: [
+      "Achieves surface finishes up to Ra 0.2 µm through controlled spark parameters.",
+      "Often eliminates the need for grinding or polishing."
+    ]
+  },
+  {
+    title: "Cost-Effective for Complex Tooling",
+    points: [
+      "Creates near-perfect geometries in a single setup, reducing labor and machining time.",
+      "Ideal for high-precision, low-volume manufacturing and toolmaking."
+    ]
+  }
+],
+
+     expertise: [
+  "Advanced Wire EDM: Precision cutting up to 400 mm thickness for complex, high-tolerance components.",
+  "High-Precision Tooling: Expert in durable, repeatable die and mold manufacturing.",
+  "Superior Surface Finish: Achieves fine finishes up to Ra 0.2 µm for critical applications.",
+  "Complex Geometry Machining: Accurately produces intricate contours and tight radii.",
+  "Specialty Material Expertise: Skilled in machining tool steel, titanium, and carbide."
+]
+
+
+    },
+
+    // ------------------------------
+    // 6️⃣ Welding
+    // ------------------------------
+    {
+      id: "fabrication-welding",
+      title: "Welding",
+      img: sub11,
+      content:
+        "Suresupply’s Welding Division combines advanced automation with metallurgical expertise to produce high-strength, defect-free welds across diverse materials. We specialize in MIG, TIG, Spot, and Arc welding processes for complex assemblies and precision structural fabrication.",
+      advantages: [
+  {
+    title: "Superior Structural Integrity",
+    points: [
+      "Controlled process ensures molecular coalescence for a perfect, monolithic bond.",
+      "Delivers maximum joint integrity, fatigue resistance, and reliability in critical applications."
+    ]
+  },
+  {
+    title: "Automated Precision & Consistency",
+    points: [
+      "Robotic welding guarantees precise bead placement and optimal heat control.",
+      "Eliminates human variability, ensuring repeatable, high-quality welds across all production volumes."
+    ]
+  },
+  {
+    title: "Comprehensive Multi-Material Versatility",
+    points: [
+      "Expertise in MIG, TIG, Spot, and Arc processes for a wide range of materials.",
+      "Capable of welding aluminum, stainless steel, and high-strength alloys with precision."
+    ]
+  },
+  {
+    title: "Integrated Assembly & Fixture Expertise",
+    points: [
+      "In-house fixture design ensures tight dimensional control and seamless fit-up.",
+      "Efficiently manages complex assemblies for superior fabrication quality."
+    ]
+  },
+  {
+    title: "Rigorous Quality Validation",
+    points: [
+      "Each weld undergoes NDT and metallurgical testing for structural integrity.",
+      "Ensures compliance with global standards and a defect-free final product."
+    ]
+  }
+],
+
+      expertise: [
+  "Comprehensive Welding Capabilities: Advanced MIG, TIG, Spot, and Arc welding for diverse project needs.",
+  "Automated Precision: Robotic systems ensure consistent speed, accuracy, and repeatability.",
+  "Material Expertise: Skilled in welding aluminum, stainless steel, and high-strength alloys.",
+  "Large Assembly Handling: In-house fixtures guarantee dimensional precision and fit-up quality.",
+  "Assured Quality: In-house inspection, NDT, and metallurgical testing ensure structural integrity."
+]
+
+    }
+  ]
+},
+// ==============================
+// ⚙️ PLASTIC MODLDING
+// ==============================
+{
+  id: "plastic-molding",
+  title: "Plastic Molding",
+  img: main3,
+  content: `
+    <h2 class="text-2xl font-semibold text-[#0A175C] mb-4">
+      Your Trusted Partner for All Your Plastic Molding Needs
+    </h2>
+    <p class="text-gray-700 text-base leading-relaxed mb-4">
+      Suresupply’s Plastic Molding Division is your reliable partner for high-precision polymer component fabrication. 
+      We specialize in advanced injection molding and polymer processing technologies, serving critical sectors such as 
+      automotive, consumer goods, electrical, medical, and industrial applications. 
+      Working with a wide range of engineering plastics, thermosets, and thermoplastics, 
+      we ensure every component meets rigorous standards for dimensional accuracy, superior finish, and durability.
+    </p>
+
+    <h3 class="text-xl font-semibold text-[#0A175C] mb-3">
+      From Concept to Completion: Our End-to-End Solutions
+    </h3>
+    <p class="text-gray-700 text-base leading-relaxed mb-4">
+      We deliver a complete product development cycle—from concept design and mold prototyping to precision mass production and assembly. 
+      Our integrated capabilities streamline your supply chain, reduce costs, and accelerate time-to-market for your products.
+    </p>
+
+    <h3 class="text-xl font-semibold text-[#0A175C] mb-3">
+      Engineering Integrated Polymer Solutions
+    </h3>
+    <p class="text-gray-700 text-base leading-relaxed">
+      Beyond parts manufacturing, we engineer functional polymer systems that meet complex performance and aesthetic requirements. 
+      Through advanced materials and processing expertise, we deliver high-performance, application-specific solutions 
+      that combine precision, functionality, and longevity.
+    </p>
+  `,
+
+  // ====================================
+  // QUALITY ASSURANCE
+  // ====================================
+  qualityAssurance: {
+    title: "Quality Assurance",
+    description: `
+      At Suresupply, Quality Assurance is the foundation of our plastic molding excellence. 
+      We are committed to a zero-defect manufacturing culture, ensuring every molded part meets the most stringent global standards. 
+      Our multi-layered quality system integrates dimensional validation, visual inspection, and performance testing for flawless outcomes.
+    `,
+    points: [
+      {
+        title: "Dimensional Verification",
+        desc: "Using advanced 3D scanning and CMM systems, we ensure all critical dimensions are maintained within tight tolerances for perfect assembly fit and functionality."
+      },
+      {
+        title: "Visual and Aesthetic Inspection",
+        desc: "Controlled lighting inspections detect any surface imperfections. We ensure consistent gloss, color, and texture using spectrophotometers and gloss meters."
+      },
+      {
+        title: "Functional Testing",
+        desc: "Each molded part undergoes real-world functional assessments such as snap-fit testing, leak detection, and load evaluations for guaranteed reliability."
+      },
+      {
+        title: "Mechanical Property Testing",
+        desc: "Routine Melt Flow Index (MFI) and tensile tests confirm consistent viscosity, strength, and elasticity to meet engineering-grade performance specifications."
+      }
+    ],
+    beyondTesting: [
+      {
+        title: "Rigorous Process Audits",
+        desc: "Ongoing audits throughout the production cycle ensure continuous improvement and process consistency."
+      },
+      {
+        title: "Statistical Process Control (SPC)",
+        desc: "Advanced statistical monitoring maintains stable process variables, proactively preventing defects."
+      },
+      {
+        title: "PPAP & Compliance Documentation",
+        desc: "Comprehensive PPAP records provide proof of process capability, material traceability, and quality conformance."
+      }
+    ]
+  },
+
+  // ====================================
+  // SUBCATEGORIES
+  // ====================================
+  subs: [
+    // ------------------------------
+    // 1️⃣ Injection Molding
+    // ------------------------------
+    {
+      id: "plastic-injection",
+      title: "Injection Molding",
+      img: sub12,
+      content:
+        "Suresupply’s Injection Molding delivers exceptional precision and repeatability for complex plastic components. Our advanced systems enable high-volume, cost-effective production of intricate geometries using both thermoplastic and thermoset materials, ensuring optimal mechanical and aesthetic performance.",
+      advantages: [
+        {
+          title: "Unmatched Precision & Repeatability",
+          points: [
+            "Micron-level dimensional accuracy across millions of cycles.",
+            "Ensures seamless fitment for critical assemblies."
+          ]
+        },
+        {
+          title: "Cost-Effective High-Volume Production",
+          points: [
+            "Multi-cavity and automated systems achieve rapid cycle times.",
+            "Ideal for mass production with fast tooling cost recovery."
+          ]
+        },
+        {
+          title: "Intricate Design Flexibility",
+          points: [
+            "Supports complex geometries, varied wall thicknesses, and insert molding.",
+            "Allows integration of metal inserts for enhanced performance."
+          ]
+        },
+        {
+          title: "Superior Surface Finish",
+          points: [
+            "Polished mold cavities produce excellent finishes and visual appeal.",
+            "Eliminates need for secondary finishing in most cases."
+          ]
+        },
+        {
+          title: "Broad Material Range",
+          points: [
+            "Processes a wide variety of thermoplastics and thermosets, including engineering-grade resins.",
+            "Tailored to meet requirements for strength, heat resistance, and flexibility."
+          ]
+        }
+      ],
+      expertise: [
+        "Machine Range: 80–800 tons for both small precision and large complex components.",
+        "Advanced Molding Techniques: Multi-cavity, insert, and overmolding processes for integrated designs.",
+        "Material Expertise: ABS, PP, Nylon, PC, PBT, and glass-filled polymers.",
+        "Integrated Automation: Robotic part removal and inline quality control systems.",
+        "Design Optimization: Mold flow simulation and DFM to minimize risk and enhance efficiency."
+      ]
+    },
+
+    // ------------------------------
+    // 2️⃣ Blow Molding
+    // ------------------------------
+    {
+      id: "plastic-blow",
+      title: "Blow Molding",
+      img: sub13,
+      content:
+        "At Suresupply, Blow Molding is a core strength that enables the production of high-quality hollow plastic parts such as bottles, tanks, and reservoirs. Our expertise spans extrusion, injection, and stretch blow molding technologies, offering exceptional strength-to-weight ratios and design flexibility.",
+      advantages: [
+        {
+          title: "High-Volume Cost Efficiency",
+          points: [
+            "Ideal for mass production of hollow parts with rapid cycle times.",
+            "Lower tooling costs ensure economical scalability."
+          ]
+        },
+        {
+          title: "Superior Hollow Part Design",
+          points: [
+            "Easily creates complex hollow geometries with integrated handles and threads.",
+            "Supports customized designs for diverse functional needs."
+          ]
+        },
+        {
+          title: "Lightweight & Durable",
+          points: [
+            "Excellent strength-to-weight ratio suitable for high-impact applications.",
+            "Delivers long-lasting, resilient components."
+          ]
+        },
+        {
+          title: "Multi-Layer Co-Extrusion",
+          points: [
+            "Enables barrier layers for fuel tanks and food containers.",
+            "Enhances chemical resistance and shelf life."
+          ]
+        },
+        {
+          title: "Material & Size Versatility",
+          points: [
+            "Processes HDPE, PET, PVC, and other engineering plastics.",
+            "Suitable for parts from small bottles to large containers."
+          ]
+        }
+      ],
+      expertise: [
+  "Precision Molding: Advanced Extrusion and Injection Blow Molding for complex, high-precision parts.",
+  "High-Volume Production: Reliable manufacturing of containers and reservoirs with consistent quality.",
+  "Multi-Layer Co-Extrusion: Superior barrier properties for enhanced product protection.",
+  "Automated Quality Control: Trimming and leak testing for zero-defect assurance.",
+  "Material Versatility: Expertise with HDPE, LDPE, PET, and PVC for diverse applications."
+]
+
+
+    },
+
+    // ------------------------------
+    // 3️⃣ Vacuum Forming
+    // ------------------------------
+    {
+      id: "plastic-vacuum",
+      title: "Vacuum Forming",
+      img: sub14,
+      content:
+        "Suresupply’s Vacuum Forming service delivers large-format, cost-effective thermoplastic components through precise thermal forming. This technique produces durable parts with smooth finishes, ideal for enclosures, trays, and structural covers.",
+      advantages: [
+        {
+          title: "Low-Cost Tooling & Fast Setup",
+          points: [
+            "Uses single-sided molds for economical tooling.",
+            "Ideal for low to medium production volumes."
+          ]
+        },
+        {
+          title: "Perfect for Large & Deep-Drawn Parts",
+          points: [
+            "Capable of forming large, deep components cost-effectively.",
+            "Suited for industrial panels, trays, and housings."
+          ]
+        },
+        {
+          title: "Rapid Prototyping",
+          points: [
+            "Simple tooling enables quick concept validation.",
+            "Reduces lead time for new product introductions."
+          ]
+        },
+        {
+          title: "Versatile Material Options",
+          points: [
+            "Processes HIPS, ABS, PMMA, PETG, and Polycarbonate.",
+            "Supports UV-stabilized and fire-rated materials."
+          ]
+        },
+        {
+          title: "Consistent Quality",
+          points: [
+            "Controlled heating and vacuum cycle ensure repeatable outcomes.",
+            "Delivers consistent wall thickness and dimensional integrity."
+          ]
+        }
+      ],
+   expertise: [
+  "Precision Forming: Handles sheets up to 6mm with exceptional dimensional accuracy.",
+  "Rapid Production: Aluminum tooling enables quick prototyping and cost-efficient low-volume runs.",
+  "Material Range: Skilled in HIPS, ABS, PMMA, PETG, and Polycarbonate for varied applications.",
+  "Secondary Operations: Trimming, drilling, and assembly deliver complete, ready-to-use parts.",
+  "Flexible Manufacturing: Fast mold change systems ensure shorter lead times and high efficiency."
+]
+
+
+    },
+
+    // ------------------------------
+    // 4️⃣ Compression Molding
+    // ------------------------------
+    {
+      id: "plastic-compression",
+      title: "Compression Molding",
+      img: sub15,
+      content:
+        "Suresupply’s Compression Molding service specializes in high-performance, fiber-reinforced, and thermoset components that demand exceptional strength and dimensional stability. This process ensures optimal curing, precision, and material integrity for structural and electrical applications.",
+      advantages: [
+        {
+          title: "Superior Material Integrity",
+          points: [
+            "High pressure and controlled curing deliver void-free, uniform parts.",
+            "Ideal for high-strength composite and thermoset materials."
+          ]
+        },
+        {
+          title: "Excellent Dimensional Stability",
+          points: [
+            "Ensures consistent thickness, density, and structural uniformity.",
+            "Perfect for performance-critical components."
+          ]
+        },
+        {
+          title: "Cost-Effective for Medium to High Volumes",
+          points: [
+            "Low scrap generation and reusable tooling reduce overall costs.",
+            "Suited for repeatable production runs."
+          ]
+        },
+        {
+          title: "Material Versatility",
+          points: [
+            "Processes phenolic, epoxy, and fiber-reinforced composites.",
+            "Offers superior heat and chemical resistance."
+          ]
+        },
+        {
+          title: "High-Capacity Production",
+          points: [
+            "Hydraulic presses up to 1000 tons handle large components.",
+            "Supports precision molding for complex parts."
+          ]
+        }
+      ],
+      expertise: [
+  "High-Capacity Pressing: Hydraulic systems up to 1000 tons for large and high-volume production.",
+  "Advanced Materials: Expertise in phenolic, epoxy, and fiber-reinforced composites.",
+  "Optimized Preparation: Preforming and preheating ensure uniform density and defect-free molding.",
+  "Precision Control: Accurate temperature and pressure management for superior structural integrity.",
+  "Complete Finishing: Post-curing and dimensional finishing deliver consistent, high-quality results."
+]
+
+    },
+
+    // ------------------------------
+    // 5️⃣ Extrusion Molding
+    // ------------------------------
+    {
+      id: "plastic-extrusion",
+      title: "Extrusion Molding",
+      img: sub16,
+      content:
+        "Suresupply’s Extrusion Molding delivers high-efficiency continuous production of plastic profiles, pipes, and tubes with exceptional consistency. Our process ensures dimensional uniformity, material homogeneity, and superior surface finish.",
+      advantages: [
+        {
+          title: "Continuous High-Volume Output",
+          points: [
+            "Ideal for long, consistent profiles such as pipes and seals.",
+            "Ensures uninterrupted, cost-efficient production."
+          ]
+        },
+        {
+          title: "Exceptional Dimensional Consistency",
+          points: [
+            "Precision dies maintain tight tolerances along entire length.",
+            "Ensures repeatable profile geometry and surface quality."
+          ]
+        },
+        {
+          title: "Cost-Effective Tooling",
+          points: [
+            "Simple die design reduces tooling investment.",
+            "Fast setup accelerates production readiness."
+          ]
+        },
+        {
+          title: "Material Customization",
+          points: [
+            "Processes PVC, HDPE, PP, Nylon, and co-extruded blends.",
+            "Supports multi-layer and multi-color combinations."
+          ]
+        },
+        {
+          title: "Enhanced Material Properties",
+          points: [
+            "Controlled extrusion yields consistent melt and mechanical strength.",
+            "Produces smooth surfaces with minimal internal stress."
+          ]
+        }
+      ],
+      expertise: [
+  "Integrated Processing: Inline sizing, cooling, and cutting ensure dimensional accuracy and high throughput.",
+  "Material Flexibility: Capable of processing PVC, HDPE, PP, Nylon, and TPE for diverse industry needs.",
+  "Co-Extrusion Expertise: Multi-layer and multi-color extrusion enhances both functionality and aesthetics.",
+  "Post-Processing: Precision surface finishing, automated coiling, and packaging for ready-to-use delivery.",
+  "Trusted Reliability: Consistent quality and performance backed by advanced extrusion technology."
+]
+
+    },
+
+    // ------------------------------
+    // 6️⃣ Reaction Injection Molding
+    // ------------------------------
+    {
+      id: "plastic-rim",
+      title: "Reaction Injection Molding (RIM)",
+      img: sub17,
+      content:
+        "Suresupply’s Reaction Injection Molding (RIM) process enables the production of lightweight, durable polyurethane and composite components with intricate geometries. This low-pressure, high-efficiency technique provides excellent dimensional stability and surface quality for industrial and automotive applications.",
+      advantages: [
+        {
+          title: "Complex Design Flexibility",
+          points: [
+            "Low-pressure process supports intricate geometries and large parts.",
+            "Ideal for dashboards, bumpers, and protective enclosures."
+          ]
+        },
+        {
+          title: "Superior Material Properties",
+          points: [
+            "Produces tough, lightweight parts with excellent impact resistance.",
+            "Delivers dimensional stability and chemical resistance."
+          ]
+        },
+        {
+          title: "Cost-Efficient Production",
+          points: [
+            "Low-pressure tooling reduces mold wear and maintenance costs.",
+            "Ideal for both prototypes and low-to-medium volumes."
+          ]
+        },
+        {
+          title: "Aesthetic & Functional Finishes",
+          points: [
+            "Supports smooth, paintable surfaces and detailed texturing.",
+            "Offers excellent adhesion for coatings and paints."
+          ]
+        },
+        {
+          title: "Rapid Cycle Time",
+          points: [
+            "Quick polymerization enables faster production cycles.",
+            "Accelerates time-to-market for customized parts."
+          ]
+        }
+      ],
+      expertise: [
+  "Advanced Material Systems: Specializing in Polyurethane, Epoxy, and Polyurea for diverse applications.",
+  "Precision Mixing: Low-pressure metering ensures consistent, high-quality component output.",
+  "Component Expertise: Manufacturing durable bumpers, dashboards, and protective enclosures.",
+  "Versatile Finishing: Paintable surfaces, fine textures, and strong structural finishes available.",
+  "Agile Production: Rapid prototyping and low-volume runs accelerate product development."
+]
+
+    }
+  ]
+}
+
+
 
 ];
 
