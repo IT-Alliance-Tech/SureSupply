@@ -4,7 +4,6 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function HeroSection() {
-  // 🎞 Video URLs
   const videos = [
     "https://res.cloudinary.com/drqsy21yw/video/upload/v1761647355/welding_kijyqz.mp4",
     "https://res.cloudinary.com/drqsy21yw/video/upload/v1761647829/foundry_zybgbv.mp4",
@@ -16,12 +15,11 @@ export default function HeroSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const videoRefs = useRef([]);
 
-  // 🔄 Cycle through videos every 5s
+  // 🔁 Change every 6 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % videos.length);
-    }, 5000);
-
+    }, 6000);
     return () => clearInterval(interval);
   }, [videos.length]);
 
@@ -32,17 +30,17 @@ export default function HeroSection() {
     if (nextVideo && nextVideo.readyState === 0) {
       nextVideo.load();
     }
-  }, [currentIndex, videos.length]);
+  }, [currentIndex]);
 
   const wordVariants = {
-    initial: { opacity: 0, y: 20 },
+    initial: { opacity: 0, y: 15 },
     animate: { opacity: 1, y: 0 },
-    exit: { opacity: 0, y: -20 },
+    exit: { opacity: 0, y: -15 },
   };
 
   return (
     <section className="relative w-full h-[650px] flex items-center justify-start overflow-hidden">
-      {/* ===== Background Videos (fade + rotate animation) ===== */}
+      {/* ===== Background Videos (Cinematic Fade) ===== */}
       <div className="absolute inset-0">
         <AnimatePresence mode="wait">
           <motion.video
@@ -55,18 +53,21 @@ export default function HeroSection() {
             playsInline
             preload="auto"
             className="absolute inset-0 w-full h-full object-cover"
-            initial={{ opacity: 0, rotate: 5, scale: 5 }}
-            animate={{ opacity: 1, rotate: 0, scale: 1 }}
-            exit={{ opacity: 0, rotate: -5, scale: 0.95 }}
-            transition={{ duration: 1, ease: "easeOut" }}
+            initial={{ opacity: 0, scale: 1.05 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 1.05 }}
+            transition={{
+              duration: 1.8,
+              ease: [0.4, 0, 0.2, 1], // smooth curve
+            }}
           />
         </AnimatePresence>
       </div>
 
-      {/* Overlay */}
+      {/* Dark Overlay */}
       <div className="absolute inset-0 bg-black/50"></div>
 
-      {/* Content */}
+      {/* ===== CONTENT ===== */}
       <div className="relative z-10 px-10 lg:px-24 py-20 max-w-2xl">
         <h1 className="text-white text-5xl lg:text-6xl font-bold leading-snug">
           Manufacturing
@@ -80,7 +81,7 @@ export default function HeroSection() {
                 initial="initial"
                 animate="animate"
                 exit="exit"
-                transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }}
+                transition={{ duration: 0.6, ease: "easeInOut" }}
               >
                 {words[currentIndex % words.length]}
               </motion.span>
@@ -88,7 +89,7 @@ export default function HeroSection() {
           </span>
         </h1>
 
-        {/* Button */}
+        {/* CTA Button */}
         <motion.button
           onClick={() => {
             const element = document.getElementById("quoteForm");
@@ -97,10 +98,10 @@ export default function HeroSection() {
           className="mt-8 bg-[#F05023] text-white px-8 py-4 rounded-lg font-semibold shadow-lg transition-all duration-300 cursor-pointer relative overflow-hidden"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.8, ease: 'easeInOut' }}
+          transition={{ delay: 0.5, duration: 0.8, ease: "easeInOut" }}
           whileHover={{
             scale: 1.05,
-            boxShadow: "0 0 20px rgba(240, 80, 35, 0.6)",
+            boxShadow: "0 0 25px rgba(240, 80, 35, 0.7)",
           }}
           whileTap={{ scale: 0.95 }}
         >
