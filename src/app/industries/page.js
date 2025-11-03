@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -120,198 +119,241 @@ export default function IndustriesNetworksPage() {
   const [index, setIndex] = useState(0);
   const handleNext = () => setIndex((prev) => (prev + 1) % supplierSlides.length);
   const handlePrev = () => setIndex((prev) => (prev - 1 + supplierSlides.length) % supplierSlides.length);
-
   const slide = supplierSlides[index];
 
   return (
     <div className="flex flex-col font-outfit">
       {/* ================= HERO SECTION ================= */}
-      <section className="relative w-full h-[500px] flex items-center justify-center overflow-hidden">
-        <Image
-          src={bannerImg}
-          alt="Industries Banner"
-          fill
-          priority
-          className="object-cover object-left absolute inset-0 -z-10"
-        />
+      <section className="relative w-full h-[400px] md:h-[500px] flex items-center justify-center overflow-hidden">
+  <Image
+    src={bannerImg}
+    alt="Industries Banner"
+    fill
+    priority
+    className="object-cover object-left absolute inset-0 -z-10"
+  />
 
-        <div className="text-left text-white z-10 px-6 lg:px-24">
-          <h1 className="text-[48px] font-bold tracking-wide mb-4 leading-tight">
-            OUR{" "}
-            <span className="text-white">
-              INDUSTRIES AND <br /> NETWORKS
-            </span>
-          </h1>
+  <div className="z-10 px-6 md:px-24 flex flex-col items-center md:items-start text-center md:text-left text-white">
+    <h1 className="text-[28px] sm:text-[32px] md:text-[48px] font-bold tracking-wide mb-4 leading-tight">
+      OUR{" "}
+      <span className="text-white">
+        INDUSTRIES AND <br className="hidden md:block" /> NETWORKS
+      </span>
+    </h1>
 
-          <div className="text-base font-medium flex items-center gap-2">
-            <Link href="/" className="hover:text-white transition-colors">
-              Home
-            </Link>
-            <span className="text-[#F05023]">/</span>
-            <span className="text-[#F05023]">Our Industries & Networks</span>
-          </div>
-        </div>
-      </section>
+    <div className="text-xs sm:text-sm md:text-base font-medium flex flex-wrap justify-center md:justify-start items-center gap-2">
+      <Link href="/" className="hover:text-white transition-colors">
+        Home
+      </Link>
+      <span className="text-[#F05023]">/</span>
+      <span className="text-[#F05023]">Our Industries & Networks</span>
+    </div>
+  </div>
+</section>
+
 
       {/* ================= OUR SUCCESSFUL PROJECT INITIATIVES ================= */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-6 md:px-12 lg:px-20">
-          <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-10 gap-10">
-            <div className="md:w-1/2 max-w-md">
-              <div className="flex items-center gap-2 mb-2">
-                <Image src={iconWork} alt="Icon" width={20} height={20} />
-                <h5 className="text-sm font-semibold text-[#0A175C] uppercase">
-                  Our Work
-                </h5>
-              </div>
-
-              <h2 className="text-3xl md:text-4xl font-bold text-[#0A175C] leading-snug mb-4">
-                Our Successful Project <br />
-                <span className="text-[#F05023] block mt-2">Initiatives</span>
-              </h2>
-            </div>
-
-            <div className="md:w-1/2 max-w-lg text-[#0A175C] text-left flex flex-col justify-start">
-              <div className="mt-6 md:mt-12">
-                <p className="leading-relaxed">
-                  We help businesses across industries manage their supplies smarter.
-                  From vendor management to seamless delivery tracking, our work revolves
-                  around creating a smooth and reliable experience.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Filter Buttons */}
-          <div className="flex flex-wrap justify-center items-center gap-8 mb-10 text-sm font-medium">
-            {categories.map((cat, idx) => (
-              <span key={cat} className="flex items-center gap-9">
-                <button
-                  onClick={() => setActiveCategory(cat)}
-                  className={`transition-colors pb-1 ${
-                    activeCategory === cat
-                      ? "text-[#F05023] border-b-2 border-[#F05023]"
-                      : "text-[#0A175C] border-b-2 border-transparent hover:text-[#F05023]"
-                  }`}
-                >
-                  {cat}
-                </button>
-                {idx < categories.length - 1 && (
-                  <span className="text-[#0A175C]">/</span>
-                )}
-              </span>
-            ))}
-          </div>
-
-          {/* Projects Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 justify-items-center">
-            {filteredProjects.map((project) => (
-              <div
-                key={project.id}
-                className="w-full max-w-sm flex flex-col items-center"
-              >
-                <div className="relative w-full h-64 rounded-2xl overflow-hidden">
-                  <Image
-                    src={project.image || "/placeholder.png"}
-                    alt={project.title}
-                    fill
-                    className="object-cover"
-                  />
-                  <span className="absolute top-3 left-3 bg-white/80 text-[#0A175C] text-xs px-3 py-1 rounded shadow-sm font-outfit">
-                    {project.category}
-                  </span>
-                </div>
-                <h4 className="text-sm font-semibold text-[#0A175C] mt-4 text-center font-outfit">
-                  {project.title}
-                </h4>
-              </div>
-            ))}
-          </div>
+      <section className="py-12 md:py-16 bg-white">
+  <div className="container mx-auto px-6 md:px-12 lg:px-20">
+    {/* Heading Section */}
+    <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-10 gap-10 text-center md:text-left">
+      {/* Left Side */}
+      <div className="md:w-1/2 max-w-md mx-auto md:mx-0">
+        <div className="flex justify-center md:justify-start items-center gap-2 mb-2">
+          <Image src={iconWork} alt="Icon" width={20} height={20} />
+          <h5 className="text-xs md:text-sm font-semibold text-[#0A175C] uppercase">
+            Our Work
+          </h5>
         </div>
-      </section>
+
+        <h2 className="text-3xl md:text-4xl font-bold text-[#0A175C] leading-snug mb-4">
+          Our Successful Project <br className="hidden md:block" />
+          <span className="text-[#F05023] block mt-2">Initiatives</span>
+        </h2>
+      </div>
+
+      {/* Right Side */}
+      <div className="md:w-1/2 max-w-lg mx-auto md:mx-0 text-[#0A175C] mt-6 md:mt-0 md:self-center">
+  <p className="leading-relaxed text-sm md:text-base">
+    We help businesses across industries manage their supplies smarter.
+    From vendor management to seamless delivery tracking, our work revolves
+    around creating a smooth and reliable experience.
+  </p>
+</div>
+
+    </div>
+
+    {/* Filter Buttons */}
+<div className="mb-8 text-[16px] font-medium cursor-pointer">
+  {/* Mobile View */}
+  <div className="flex md:hidden overflow-x-auto gap-4 pb-2 no-scrollbar ">
+    {categories.map((cat) => (
+      <button
+        key={cat}
+        onClick={() => setActiveCategory(cat)}
+        className={`whitespace-nowrap px-4 py-2 rounded-full border transition-colors ${
+          activeCategory === cat
+            ? "bg-[#F05023] text-white border-[#F05023]"
+            : "bg-white text-[#0A175C] border-[#0A175C] hover:bg-[#F05023] hover:text-white"
+        }`}
+      >
+        {cat}
+      </button>
+    ))}
+  </div>
+
+  {/* Desktop View */}
+<div className="hidden md:flex flex-wrap justify-center items-center gap-8 text-center text-base md:text-lg font-semibold">
+  {categories.map((cat, idx) => (
+    <span key={cat} className="flex items-center gap-9">
+      <button
+        onClick={() => setActiveCategory(cat)}
+        className={`transition-colors pb-1 cursor-pointer ${
+          activeCategory === cat
+            ? "text-[#F05023] border-b-2 border-[#F05023]"
+            : "text-[#0A175C] border-b-2 border-transparent hover:text-[#F05023]"
+        }`}
+      >
+        {cat}
+      </button>
+      {idx < categories.length - 1 && (
+        <span className="text-[#0A175C] hidden md:inline">/</span>
+      )}
+    </span>
+  ))}
+</div>
+
+
+</div>
+
+
+    {/* Projects Grid */}
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 justify-items-center">
+      {filteredProjects.map((project) => (
+        <div key={project.id} className="w-full max-w-sm flex flex-col items-center">
+          <div className="relative w-full h-56 md:h-64 rounded-2xl overflow-hidden">
+            <Image
+              src={project.image || "/placeholder.png"}
+              alt={project.title}
+              fill
+              className="object-cover"
+            />
+            <span className="absolute top-3 left-3 bg-white/80 text-[#0A175C] text-sm px-3 py-1 rounded shadow-sm font-semibold">
+              {project.category}
+            </span>
+          </div>
+          <h4 className="text-[16px] font-semibold text-[#0A175C] mt-4 text-center">
+            {project.title}
+          </h4>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* ================= SUPPLIER NETWORK SECTION ================= */}
-      <section className="py-20 bg-white font-outfit overflow-hidden">
+      <section className="py-12 md:py-20 bg-white font-outfit overflow-hidden">
         <div className="container mx-auto px-6 md:px-12 lg:px-20 relative">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            {/* Left Side */}
+          {/* Heading */}
+          <h5 className="text-[28px] md:text-[40px] font-bold tracking-wide text-center md:text-left mb-8">
+            <span className="text-[#0A175C]">SUPPLIER </span>
+            <span className="text-[#F05023]">NETWORK</span>
+          </h5>
+
+          {/* ===== MOBILE VIEW ===== */}
+          <div className="md:hidden flex flex-col items-center text-center">
+            <Image
+              src={slide.image}
+              alt={slide.highlight}
+              width={320}
+              height={220}
+              className="object-contain rounded-xl shadow-md mb-4"
+            />
+
+            <h2 className="text-[26px] font-bold text-[#0A175C] mb-3">
+              {slide.heading} <span className="text-[#F05023]">{slide.highlight}</span>
+            </h2>
+
+            <p className="text-gray-600 leading-relaxed text-[16px] mb-3 px-2">
+              {slide.description}
+            </p>
+
+            <p className="font-semibold text-gray-800 mb-2">{slide.subheading}</p>
+
+            <ul className="list-disc text-left pl-6 space-y-2 text-gray-600 text-[16px] mb-4">
+              {slide.list.map((item, idx) => (
+                <li key={idx}>{item}</li>
+              ))}
+            </ul>
+
+            <div className="flex justify-center gap-6 mt-4">
+              <button
+                onClick={handlePrev}
+                className="w-10 h-10 bg-[#F05023] text-white flex items-center justify-center rounded-md hover:bg-[#d6431e] transition"
+              >
+                ←
+              </button>
+              <button
+                onClick={handleNext}
+                className="w-10 h-10 bg-[#F05023] text-white flex items-center justify-center rounded-md hover:bg-[#d6431e] transition"
+              >
+                →
+              </button>
+            </div>
+          </div>
+
+          {/* ===== DESKTOP VIEW ===== */}
+          <div className="hidden md:grid md:grid-cols-2 gap-12 items-center">
+            {/* Left Side (Image) */}
             <div className="space-y-8 relative">
-              <h5 className="text-[40px] font-bold tracking-wide text-left font-outfit whitespace-nowrap">
-  <span className="text-[#0A175C]">SUPPLIER </span>
-  <span className="text-[#F05023]">NETWORK</span>
-</h5>
-
-
-              <div className="flex items-center justify-center h-[400px] relative">
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={slide.id}
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.95 }}
-                    transition={{ duration: 0.4 }}
-                    className="absolute inset-0 flex items-center justify-center"
-                  >
-                    <Image
-                      src={slide.image}
-                      alt={slide.highlight}
-                      width={400}
-                      height={300}
-                      className="object-contain rounded-xl shadow-md"
-                    />
-                  </motion.div>
-                </AnimatePresence>
+              <div className="flex items-center justify-center h-[400px]">
+                <Image
+                  src={slide.image}
+                  alt={slide.highlight}
+                  width={400}
+                  height={300}
+                  className="object-contain rounded-xl shadow-md"
+                />
               </div>
             </div>
 
-            {/* Right Side */}
+            {/* Right Side (Text) */}
             <div className="relative min-h-[400px] top-10">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={slide.id}
-                  initial={{ opacity: 0, x: 50 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -50 }}
-                  transition={{ duration: 0.4 }}
-                  className="absolute inset-0"
-                >
-                  <h2 className="text-[36px] font-bold font-outfit text-[#0A175C] leading-snug mb-4">
-                    {slide.heading} <br />
-                    <span className="text-[#F05023]">{slide.highlight}</span>
-                  </h2>
+  <h2 className="text-[36px] font-bold text-[#0A175C] leading-snug mb-4">
+    {slide.heading} <br />
+    <span className="text-[#F05023]">{slide.highlight}</span>
+  </h2>
 
-                  <p className="text-gray-600 leading-relaxed max-w-lg text-sm md:text-base mb-3">
-                    {slide.description}
-                  </p>
+  <p className="text-gray-600 leading-relaxed max-w-lg text-[16px] mb-3">
+    {slide.description}
+  </p>
 
-                  <p className="font-semibold text-gray-800 mb-3">
-                    {slide.subheading}
-                  </p>
+  <p className="font-semibold text-gray-800 mb-3 text-[16px]">
+    {slide.subheading}
+  </p>
 
-                  <ul className="list-disc pl-5 space-y-2 text-gray-600 mb-4">
-                    {slide.list.map((item, idx) => (
-                      <li key={idx}>{item}</li>
-                    ))}
-                  </ul>
-                </motion.div>
-              </AnimatePresence>
+  <ul className="list-disc pl-5 space-y-2 text-gray-600 mb-4 text-[16px]">
+    {slide.list.map((item, idx) => (
+      <li key={idx}>{item}</li>
+    ))}
+  </ul>
 
-              {/* Fixed Navigation Buttons */}
-              <div className="absolute bottom-0 right-0 flex gap-4">
-                <button
-                  onClick={handlePrev}
-                  className="w-10 h-10 bg-[#F05023] text-white flex items-center justify-center rounded-md hover:bg-[#d6431e] transition"
-                >
-                  ←
-                </button>
-                <button
-                  onClick={handleNext}
-                  className="w-10 h-10 bg-[#F05023] text-white flex items-center justify-center rounded-md hover:bg-[#d6431e] transition"
-                >
-                  →
-                </button>
-              </div>
-            </div>
+  <div className="absolute bottom-0 right-0 flex gap-4">
+    <button
+      onClick={handlePrev}
+      className="w-10 h-10 bg-[#F05023] text-white flex items-center justify-center rounded-md hover:bg-[#d6431e] transition"
+    >
+      ←
+    </button>
+    <button
+      onClick={handleNext}
+      className="w-10 h-10 bg-[#F05023] text-white flex items-center justify-center rounded-md hover:bg-[#d6431e] transition"
+    >
+      →
+    </button>
+  </div>
+</div>
+
           </div>
         </div>
       </section>
