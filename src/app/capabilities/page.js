@@ -7,6 +7,7 @@ import Button from "@mui/material/Button";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import { Menu, X } from "lucide-react";
 
+
 /* ====== IMPORT CONTENT ====== */
 import bannerImg from "../../../public/bannerC.png";
 import pointIcon from "../../../public/icon.svg";
@@ -179,30 +180,31 @@ const CapabilitiesPage = () => {
         </div>
 
         {/* ===== Beyond Testing block (restored) ===== */}
-        <div className="mt-12 bg-[#0A175C] text-white rounded-2xl p-8 sm:p-10 shadow-lg hover:shadow-2xl transition-shadow duration-300">
-          <h4 className="text-2xl sm:text-3xl font-outfit font-semibold text-[#F05023] mb-8 text-center drop-shadow-md">
-            {`Beyond Testing: A Culture of Zero-Defect Manufacturing`}
-          </h4>
+        <div className="mt-12 bg-[#0A175C] text-white rounded-2xl p-8 sm:p-10 shadow-lg transition-shadow duration-300">
+  <h4 className="text-2xl sm:text-3xl font-outfit font-semibold text-[#F05023] mb-8 text-center drop-shadow-md">
+    {`Beyond Testing: A Culture of Zero-Defect Manufacturing`}
+  </h4>
 
-          <div className="flex flex-col gap-6">
-            {qa.beyondTesting.map((item, i) => (
-              <div
-                key={i}
-                className="flex items-start gap-4 bg-white/10 hover:bg-white/20 transition-colors duration-300 p-4 sm:p-6 rounded-xl shadow-md hover:shadow-lg"
-              >
-                <span className="text-[#F05023] text-lg mt-1">✔</span>
-                <div>
-                  <h5 className="text-[16px] sm:text-[18px] font-outfit font-semibold text-[#F05023] mb-1">
-                    {item.title}
-                  </h5>
-                  <p className="text-[15px] sm:text-[17px] font-lato text-gray-100 leading-[1.8]">
-                    {item.desc}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
+  <div className="flex flex-col gap-6">
+    {qa.beyondTesting.map((item, i) => (
+      <div
+        key={i}
+        className="flex items-start gap-4 bg-white text-[#0A175C] hover:bg-gray-50 transition-all duration-300 p-5 sm:p-6 rounded-xl shadow-md hover:shadow-lg"
+      >
+        <span className="text-[#F05023] text-lg mt-1">✔</span>
+        <div>
+          <h5 className="text-[16px] sm:text-[18px] font-outfit font-semibold text-[#F05023] mb-1">
+            {item.title}
+          </h5>
+          <p className="text-[15px] sm:text-[17px] font-lato text-gray-700 leading-[1.8]">
+            {item.desc}
+          </p>
         </div>
+      </div>
+    ))}
+  </div>
+</div>
+
       </div>
     </section>
   );

@@ -147,7 +147,7 @@ function StepsModal({ isOpen, onClose, stepsData }) {
           <button
             onClick={expandedStep ? () => setExpandedStep(null) : onClose}
             className="absolute top-5 right-5 text-white hover:text-orange-500 z-50 
-                       w-10 h-10 flex items-center justify-center 
+                       w-9 h-8 flex items-center justify-center 
                        border-2 border-orange-500 rounded-full 
                        transition-all duration-200 hover:scale-110 hover:border-orange-400 cursor-pointer"
             aria-label="Close"
