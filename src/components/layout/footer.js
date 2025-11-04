@@ -26,7 +26,7 @@ export default function Footer() {
   return (
     <footer className="relative bg-white text-[#0A175C] overflow-hidden border-t border-gray-200">
       {/* ===== Background Image ===== */}
-      <div className="absolute bottom-10 right-0 w-[480px] opacity-20 pointer-events-none">
+      <div className="absolute bottom-10 right-0 w-[480px] opacity-20 pointer-events-none hidden sm:block">
         <Image
           src={BgImage}
           alt="Background Pattern"
@@ -37,14 +37,14 @@ export default function Footer() {
       </div>
 
       {/* ===== Footer Content ===== */}
-      <div className="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-4 gap-14 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-14 relative z-10 text-left">
         {/* ========= COLUMN 1: Logo + Address ========= */}
-        <div className="ml-8">
-          <div>
+        <div>
+          <div className="mb-4">
             <img src="/logo.png" alt="SureSupply Logo" className="w-36" />
           </div>
 
-          <div>
+          <div className="mb-4">
             <h3 className="font-bold text-lg mb-2">Address</h3>
             <p className="text-sm leading-relaxed text-gray-700">
               237, Second Floor, Copper Crown Building, Mahavir Circle, Phase-3
@@ -53,7 +53,7 @@ export default function Footer() {
             </p>
           </div>
 
-          <div>
+          <div className="mb-4">
             <h3 className="font-bold text-lg mb-2">Contact</h3>
             <p className="text-sm text-[#0A175C] leading-relaxed">
               +91 87809 52559
@@ -85,7 +85,7 @@ export default function Footer() {
         </div>
 
         {/* ========= COLUMN 2: Quick Links ========= */}
-        <div className="pl-6">
+        <div>
           <h3
             className="font-bold text-lg mb-4"
             style={{ fontFamily: "Outfit, sans-serif" }}
@@ -111,42 +111,43 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* ========= COLUMN 3: Our Capabilities ========= */}
-        <div className="-ml-25">
-          <h3
-            className="font-bold text-lg mb-4"
-            style={{ fontFamily: "Outfit, sans-serif" }}
-          >
-            Our Capabilities
-          </h3>
-          <div className="grid grid-cols-2 gap-x-8 gap-y-3">
-            <div className="space-y-3">
-              {firstColumn.map((cap) => (
-                <Link
-                  key={cap.href}
-                  href={cap.href}
-                  className="hover:underline block cursor-pointer"
-                >
-                  {cap.title}
-                </Link>
-              ))}
-            </div>
-            <div className="space-y-3">
-              {secondColumn.map((cap) => (
-                <Link
-                  key={cap.href}
-                  href={cap.href}
-                  className="hover:underline block cursor-pointer"
-                >
-                  {cap.title}
-                </Link>
-              ))}
-            </div>
-          </div>
-        </div>
+        {/* ========= COLUMN 3: Our Capabilities (HIDDEN on mobile) ========= */}
+       <div className="hidden md:block -ml-25">
+  <h3
+    className="font-bold text-lg mb-4"
+    style={{ fontFamily: "Outfit, sans-serif" }}
+  >
+    Our Capabilities
+  </h3>
+  <div className="grid grid-cols-2 gap-x-8 gap-y-3">
+    <div className="space-y-3">
+      {firstColumn.map((cap) => (
+        <Link
+          key={cap.href}
+          href={cap.href}
+          className="hover:underline block cursor-pointer"
+        >
+          {cap.title}
+        </Link>
+      ))}
+    </div>
+    <div className="space-y-3">
+      {secondColumn.map((cap) => (
+        <Link
+          key={cap.href}
+          href={cap.href}
+          className="hover:underline block cursor-pointer"
+        >
+          {cap.title}
+        </Link>
+      ))}
+    </div>
+  </div>
+</div>
+
 
         {/* ========= COLUMN 4: Investors / Resources ========= */}
-        <div className="ml-8">
+        <div>
           <h3
             className="font-bold text-lg mb-4"
             style={{ fontFamily: "Outfit, sans-serif" }}
@@ -179,7 +180,7 @@ export default function Footer() {
       </div>
 
       {/* ========= FOOTER BOTTOM ========= */}
-      <div className="border-t border-gray-200 mt-6 py-4 text-sm text-gray-600 flex flex-col md:flex-row justify-between items-center px-6 max-w-7xl mx-auto relative z-10">
+      <div className="border-t border-gray-200 mt-6 py-4 text-sm text-gray-600 flex flex-col md:flex-row justify-between items-start md:items-center px-6 max-w-7xl mx-auto relative z-10">
         <p>© 2025 SureSupply. All rights reserved.</p>
         <div className="flex space-x-6 mt-2 md:mt-0">
           <Link href="/privacy" className="hover:underline">
