@@ -9,11 +9,10 @@ import {
   FaLinkedinIn,
   FaYoutube,
 } from "react-icons/fa";
-import { categories } from "../capabilitiesContent"; // ✅ dynamic capabilities import
-import BgImage from "../../../public/Bg.png"; // ✅ background image
+import { categories } from "../capabilitiesContent";
+import BgImage from "../../../public/Bg.png";
 
 export default function Footer() {
-  // ✅ Split capabilities into two columns dynamically
   const mainCapabilities = categories.map((item) => ({
     title: item.title,
     href: `/capabilities#${item.id}`,
@@ -41,7 +40,13 @@ export default function Footer() {
         {/* ========= COLUMN 1: Logo + Address ========= */}
         <div>
           <div className="mb-4">
-            <img src="/logo.png" alt="SureSupply Logo" className="w-36" />
+            <Image
+              src="/logo.png"
+              alt="SureSupply Logo"
+              width={150}
+              height={60}
+              className="w-36 h-auto"
+            />
           </div>
 
           <div className="mb-4">
@@ -112,39 +117,38 @@ export default function Footer() {
         </div>
 
         {/* ========= COLUMN 3: Our Capabilities (HIDDEN on mobile) ========= */}
-       <div className="hidden md:block -ml-25">
-  <h3
-    className="font-bold text-lg mb-4"
-    style={{ fontFamily: "Outfit, sans-serif" }}
-  >
-    Our Capabilities
-  </h3>
-  <div className="grid grid-cols-2 gap-x-8 gap-y-3">
-    <div className="space-y-3">
-      {firstColumn.map((cap) => (
-        <Link
-          key={cap.href}
-          href={cap.href}
-          className="hover:underline block cursor-pointer"
-        >
-          {cap.title}
-        </Link>
-      ))}
-    </div>
-    <div className="space-y-3">
-      {secondColumn.map((cap) => (
-        <Link
-          key={cap.href}
-          href={cap.href}
-          className="hover:underline block cursor-pointer"
-        >
-          {cap.title}
-        </Link>
-      ))}
-    </div>
-  </div>
-</div>
-
+        <div className="hidden md:block -ml-25">
+          <h3
+            className="font-bold text-lg mb-4"
+            style={{ fontFamily: "Outfit, sans-serif" }}
+          >
+            Our Capabilities
+          </h3>
+          <div className="grid grid-cols-2 gap-x-8 gap-y-3">
+            <div className="space-y-3">
+              {firstColumn.map((cap) => (
+                <Link
+                  key={cap.href}
+                  href={cap.href}
+                  className="hover:underline block cursor-pointer"
+                >
+                  {cap.title}
+                </Link>
+              ))}
+            </div>
+            <div className="space-y-3">
+              {secondColumn.map((cap) => (
+                <Link
+                  key={cap.href}
+                  href={cap.href}
+                  className="hover:underline block cursor-pointer"
+                >
+                  {cap.title}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
 
         {/* ========= COLUMN 4: Investors / Resources ========= */}
         <div>

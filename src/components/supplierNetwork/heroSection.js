@@ -2,7 +2,7 @@
 import { Box, Container, Typography, Button } from "@mui/material";
 import Link from "next/link";
 import Image from "next/image";
-import HeroBg from "../../../public/bannerc.png";
+import HeroBg from "../../../public/bannerC.png";
 
 export default function HeroSection() {
   return (
