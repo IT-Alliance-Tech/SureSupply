@@ -116,7 +116,7 @@ export default function CustomSolutionPage() {
                 <li key={sol.id}>
                   <button
                     onClick={() => handleCategoryClick(i)}
-                    className={`w-full flex items-center justify-between px-4 py-3 rounded-lg text-[16px] font-outfit font-medium transition-all duration-300 cursor-pointer border-l-4 ${
+                    className={`w-full flex items-center justify-between px-4 py-3 rounded-lg text-[14px] font-outfit font-medium transition-all duration-300 cursor-pointer border-l-4 ${
                       active === i
                         ? "border-[#F05023] bg-[#FFF8F6] text-[#F05023] shadow-sm"
                         : "border-transparent text-[#0A175C] hover:bg-gray-50"
@@ -177,31 +177,34 @@ export default function CustomSolutionPage() {
               </div>
 
               {/* ===== WHAT WE OFFER ===== */}
-              <section className="text-center w-full px-2 sm:px-6 py-16 bg-gradient-to-b from-white to-[#f9fafc]">
-                <h3 className="text-3xl sm:text-4xl font-outfit font-bold text-[#0A175C] mb-3">
-                  What We <span className="text-[#F05023]">Offer</span>
-                </h3>
-                <div className="w-20 h-[3px] bg-[#F05023] mx-auto mb-10 rounded-full"></div>
+              <section className="text-center w-full px-4 sm:px-6 py-14 sm:py-16 bg-gradient-to-b from-white to-[#f9fafc]">
+  {/* Heading */}
+  <h3 className="text-[26px] sm:text-[38px] font-outfit font-bold text-[#0A175C] mb-3">
+    What We <span className="text-[#F05023]">Offer</span>
+  </h3>
+  <div className="w-20 h-[3px] bg-[#F05023] mx-auto mb-8 sm:mb-10 rounded-full"></div>
 
-                <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 justify-center">
-                  {solutions[active].whatWeOffer.map((item, idx) => (
-                    <div
-                      key={idx}
-                      className="flex flex-col gap-3 p-5 sm:p-6 bg-white border border-gray-200 rounded-2xl shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-500"
-                    >
-                      <div className="flex items-center gap-3 mb-2">
-                        <span className="text-[#F05023] text-xl">★</span>
-                        <h4 className="text-[#F05023] font-outfit font-semibold text-[18px] sm:text-[20px]">
-                          {item.title}
-                        </h4>
-                      </div>
-                      <p className="text-gray-600 text-[16px] sm:text-[18px] leading-relaxed font-lato text-left">
-                        {item.desc}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </section>
+  {/* Cards Grid */}
+  <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-8 justify-center">
+    {solutions[active].whatWeOffer.map((item, idx) => (
+      <div
+        key={idx}
+        className="flex flex-col gap-3 p-5 sm:p-6 bg-white border border-gray-200 rounded-2xl shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-500 text-left"
+      >
+        <div className="flex items-center gap-3 mb-1 sm:mb-2">
+          <span className="text-[#F05023] text-lg sm:text-xl">★</span>
+          <h4 className="text-[#F05023] font-outfit font-semibold text-[17px] sm:text-[20px]">
+            {item.title}
+          </h4>
+        </div>
+        <p className="text-gray-600 text-[15px] sm:text-[17px] leading-relaxed font-lato">
+          {item.desc}
+        </p>
+      </div>
+    ))}
+  </div>
+</section>
+
             </>
           ) : (
             /* ===== ADVANCED SERVICES (STATIC) ===== */
