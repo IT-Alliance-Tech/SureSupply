@@ -95,9 +95,8 @@ const Navbar = () => {
       {/* ====== SLIDE-OUT MENU ====== */}
       {menuOpen && (
         <div className="fixed inset-0 z-40 flex flex-col md:flex-row">
-          {/* ====== LEFT SIDE (IMAGE + DESKTOP RESOURCES OVERLAY) ====== */}
+          {/* ====== LEFT SIDE (IMAGE) ====== */}
           <div className="w-full md:w-[60%] relative bg-black flex-shrink-0">
-            {/* Desktop image */}
             <div className="hidden md:block w-full h-full relative">
               <Image
                 src={MenuLeftImg}
@@ -108,7 +107,6 @@ const Navbar = () => {
               />
             </div>
 
-            {/* Mobile image */}
             <div className="md:hidden w-full h-48 relative">
               <Image
                 src={MenuLeftImg}
@@ -128,12 +126,7 @@ const Navbar = () => {
                     { title: "Support", items: supportItems },
                   ].map((section, i) => (
                     <div key={i}>
-                      <h3
-                        className="text-2xl font-semibold mb-6 text-white"
-                        style={{ fontFamily: "Outfit, sans-serif" }}
-                      >
-                        {section.title}
-                      </h3>
+                      <h3 className="text-2xl font-semibold mb-6">{section.title}</h3>
                       <ul className="space-y-6">
                         {section.items.map((item, j) => (
                           <li
@@ -141,12 +134,7 @@ const Navbar = () => {
                             className="cursor-pointer hover:text-[#F05023] transition"
                             onClick={() => navigateTo(item.path)}
                           >
-                            <h5
-                              className="font-semibold text-lg"
-                              style={{ fontFamily: "Outfit, sans-serif" }}
-                            >
-                              {item.title}
-                            </h5>
+                            <h5 className="font-semibold text-lg">{item.title}</h5>
                             <p className="text-gray-300 text-sm">{item.desc}</p>
                           </li>
                         ))}
@@ -163,7 +151,6 @@ const Navbar = () => {
             ref={menuRef}
             className="w-full md:w-[40%] bg-white p-8 flex flex-col overflow-y-auto relative"
           >
-            {/* Cancel Icon */}
             <button
               onClick={() => setMenuOpen(false)}
               className="absolute top-4 right-4 text-blue-600 hover:text-blue-800 transition cursor-pointer"
@@ -171,78 +158,66 @@ const Navbar = () => {
               <FaTimes size={24} />
             </button>
 
-            <h3
-              className="text-2xl font-semibold mb-6 text-black mt-2"
-              style={{ fontFamily: "Outfit, sans-serif" }}
-            >
-              Menu
-            </h3>
+            <h3 className="text-2xl font-semibold mb-6 text-black mt-2">Menu</h3>
 
             <ul className="flex-1 space-y-5">
               {[
                 { label: "Home", path: "/" },
-                // { label: "Services", path: "/ourservices" },
+                { label: "Company", path: "/aboutUs" },
                 { label: "Capabilities", path: "/capabilities" },
-                { label: "Industries & Network", path: "/industries" },
-                { label: "Our Solutions", path: "/ourSolution" },
+                { label: "Industries We Serve", path: "/industries" },
+                { label: "Our Solution", path: "/ourSolution" },
+                { label: "Supplier Networks", path: "/supplierNetwork" },
                 { label: "Contact Us", path: "/contactUs" },
               ].map((item, i) => (
                 <li key={i}>
                   <button
                     onClick={() => navigateTo(item.path)}
                     className="text-black font-semibold text-lg hover:text-blue-800 w-full text-left cursor-pointer"
-                    style={{ fontFamily: "Outfit, sans-serif" }}
                   >
                     {item.label}
                   </button>
                 </li>
               ))}
 
-              {/* Resources button */}
+              {/* Resources Button */}
               <li className="relative">
                 <button
                   onClick={toggleResources}
                   className="flex items-center w-full text-left text-black font-semibold text-lg hover:text-blue-800 cursor-pointer"
-                  style={{ fontFamily: "Outfit, sans-serif" }}
                 >
                   <span>Resources</span>
                   <FaChevronDown
-                    className={`ml-2 w-full transform transition-transform ${
+                    className={`ml-2 transform transition-transform ${
                       resourcesOpen ? "rotate-180" : "rotate-0"
                     }`}
                   />
                 </button>
 
-                {/* Mobile dropdown */}
                 {resourcesOpen && (
                   <div className="md:hidden mt-2 pl-2 flex flex-col space-y-4 border-l-2 border-gray-200">
-                    {[companyItems, insightsItems, supportItems].map(
-                      (group, gi) => (
-                        <div key={gi}>
-                          <h4
-                            className="font-semibold text-lg mb-2"
-                            style={{ fontFamily: "Outfit, sans-serif" }}
+                    {[companyItems, insightsItems, supportItems].map((group, gi) => (
+                      <div key={gi}>
+                        <h4 className="font-semibold text-lg mb-2">
+                          {["Company", "Insights", "Support"][gi]}
+                        </h4>
+                        {group.map((item, i) => (
+                          <button
+                            key={i}
+                            onClick={() => navigateTo(item.path)}
+                            className="text-black font-normal hover:text-blue-600 text-left w-full mb-1 cursor-pointer"
                           >
-                            {["Company", "Insights", "Support"][gi]}
-                          </h4>
-                          {group.map((item, i) => (
-                            <button
-                              key={i}
-                              onClick={() => navigateTo(item.path)}
-                              className="text-black font-normal hover:text-blue-600 text-left w-full mb-1 cursor-pointer"
-                            >
-                              {item.title}
-                            </button>
-                          ))}
-                        </div>
-                      )
-                    )}
+                            {item.title}
+                          </button>
+                        ))}
+                      </div>
+                    ))}
                   </div>
                 )}
               </li>
             </ul>
 
-            {/* Buttons inside menu */}
+            {/* Buttons */}
             <div className="mt-auto flex flex-col gap-3">
               <button className="px-5 py-3 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition text-base font-medium cursor-pointer">
                 Login

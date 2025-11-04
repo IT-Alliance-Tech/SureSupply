@@ -58,31 +58,32 @@ const CapabilitiesPage = () => {
 
       {/* Key Advantages Section */}
       <section className="py-10 sm:py-16 px-4 sm:px-6 bg-gradient-to-b from-white to-[#f8f9fc]">
-        <h3 className="text-[28px] sm:text-[38px] font-outfit font-semibold text-[#0A175C] mb-10 text-center relative">
-          Quality Forged by SureSupply
-          <span className="absolute left-1/2 -translate-x-1/2 -bottom-2 w-[70px] sm:w-[80px] h-[4px] bg-[#F05023] rounded-full"></span>
-        </h3>
+  <h3 className="text-[28px] sm:text-[38px] font-outfit font-semibold text-[#0A175C] mb-10 text-center relative">
+    Advantages of {subItem.title || "SureSupply"}
+    <span className="absolute left-1/2 -translate-x-1/2 -bottom-2 w-[70px] sm:w-[80px] h-[4px] bg-[#F05023] rounded-full"></span>
+  </h3>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 perspective-[1200px]">
-          {subItem.advantages.map((adv, i) => (
-            <div
-              key={i}
-              className="relative bg-[#0A175C] text-white rounded-2xl p-6 sm:p-8 shadow-lg
-        hover:-translate-y-5 hover:scale-[1.08] hover:shadow-2xl transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]"
-            >
-              <h4 className="text-[22px] sm:text-[26px] font-outfit font-bold text-[#F05023] mb-3 sm:mb-4">
-                {adv.title}
-              </h4>
+  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 perspective-[1200px]">
+    {subItem.advantages.map((adv, i) => (
+      <div
+        key={i}
+        className="relative bg-[#0A175C] text-white rounded-2xl p-6 sm:p-8 shadow-lg
+          hover:-translate-y-5 hover:scale-[1.08] hover:shadow-2xl transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]"
+      >
+        <h4 className="text-[22px] sm:text-[26px] font-outfit font-bold text-[#F05023] mb-3 sm:mb-4">
+          {adv.title}
+        </h4>
 
-              <ul className="list-disc pl-5 space-y-2 text-[16px] sm:text-[18px] font-lato text-gray-200 leading-relaxed">
-                {adv.points?.map((point, idx) => (
-                  <li key={idx}>{point}</li>
-                ))}
-              </ul>
-            </div>
+        <ul className="list-disc pl-5 space-y-2 text-[16px] sm:text-[18px] font-lato text-gray-200 leading-relaxed">
+          {adv.points?.map((point, idx) => (
+            <li key={idx}>{point}</li>
           ))}
-        </div>
-      </section>
+        </ul>
+      </div>
+    ))}
+  </div>
+</section>
+
 
       {/* Our Expertise Section */}
       <section className="px-4 sm:px-0">
