@@ -1,4 +1,5 @@
 "use client";
+
 import { motion } from "framer-motion";
 import {
   FaTimesCircle,
@@ -40,6 +41,7 @@ export default function ProblemSection() {
           {`Why It’s Tough to Be a`}{" "}
           <span className="text-[#F05023]">Manufacturer</span> Today
         </h2>
+
         <p className="text-gray-700 text-lg sm:text-[18px] font-lato leading-relaxed">
           {`Running a manufacturing business is harder than ever. Even great
           manufacturers struggle with:`}
@@ -49,7 +51,7 @@ export default function ProblemSection() {
       {/* ===== Timeline ===== */}
       <div className="relative max-w-3xl mx-auto">
         {/* Center Line */}
-        <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-[3px] bg-[#F05023]/40 rounded-full"></div>
+        <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-[3px] bg-[#F05023]/40 rounded-full" />
 
         {/* Problem Cards */}
         <div className="flex flex-col gap-10">
@@ -58,14 +60,14 @@ export default function ProblemSection() {
               key={index}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className={`relative flex items-center gap-4 ${
                 index % 2 === 0 ? "flex-row-reverse text-right" : "text-left"
               }`}
             >
               {/* Connector Dot */}
-              <div className="absolute left-1/2 transform -translate-x-1/2 bg-[#F05023] w-4 h-4 rounded-full shadow-md border-4 border-white"></div>
+              <div className="absolute left-1/2 transform -translate-x-1/2 bg-[#F05023] w-4 h-4 rounded-full shadow-md border-4 border-white" />
 
               {/* Card */}
               <div className="bg-white rounded-2xl shadow-md p-5 w-[85%] sm:w-[45%] hover:shadow-lg transition-all duration-300">
@@ -85,6 +87,7 @@ export default function ProblemSection() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
         transition={{ duration: 0.4, delay: 0.2 }}
         className="mt-12 text-center max-w-2xl mx-auto"
       >

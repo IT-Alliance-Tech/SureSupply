@@ -2,7 +2,7 @@
 import { Box, Container, Typography, Button } from "@mui/material";
 import Link from "next/link";
 import Image from "next/image";
-import HeroBg from "../../../public/bannerc.png"; // ✅ your background image
+import HeroBg from "../../../public/bannerc.png";
 
 export default function HeroSection() {
   return (
@@ -29,7 +29,6 @@ export default function HeroSection() {
           style={{ objectFit: "cover" }}
           priority
         />
-        Overlay Gradient
         <Box
           sx={{
             position: "absolute",
@@ -66,19 +65,19 @@ export default function HeroSection() {
         </Typography>
 
         <Typography
-  variant="h6"
-  sx={{
-    fontFamily: "Lato, sans-serif",
-    color: "rgba(255,255,255,0.9)",
-    mb: 3,
-    fontSize: { xs: "0.9rem", sm: "1.1rem" },
-    lineHeight: 1.5,
-  }}
->
-  {`Manufacture with confidence. <br />
-  SureSupply takes care of sales, logistics, and payments — so you can focus on production.`}
-</Typography>
-
+          variant="h6"
+          sx={{
+            fontFamily: "Lato, sans-serif",
+            color: "rgba(255,255,255,0.9)",
+            mb: 3,
+            fontSize: { xs: "0.9rem", sm: "1.1rem" },
+            lineHeight: 1.5,
+          }}
+        >
+          Manufacture with confidence. <br />
+          SureSupply takes care of sales, logistics, and payments — so you can
+          focus on production.
+        </Typography>
 
         <Button
           component={Link}
@@ -97,7 +96,7 @@ export default function HeroSection() {
             "&:hover": { backgroundColor: "#d6401d" },
           }}
         >
-           {`Become a Supplier`}
+          Become a Supplier
         </Button>
       </Container>
     </Box>
