@@ -6,12 +6,19 @@ import Link from "next/link";
 import Button from "@mui/material/Button";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import { Menu, X } from "lucide-react";
+import { 
+  Truck, Network, Factory, Cpu, BarChart3, Globe, 
+  Handshake, Clock, Leaf, TrendingUp 
+} from "lucide-react";
 
 
 /* ====== IMPORT CONTENT ====== */
 import bannerImg from "../../../public/bannerC.png";
 import pointIcon from "../../../public/icon.svg";
 import { categories } from "../../components/capabilitiesContent";
+import supplyChaindummy  from "../../../public/img.jpeg"; 
+
+
 
 const CapabilitiesPage = () => {
   const [activeMain, setActiveMain] = useState(categories?.[0]?.id || null);
@@ -210,37 +217,215 @@ const CapabilitiesPage = () => {
   );
 
   /* ====== MAIN CATEGORY CONTENT ====== */
-  const renderMainContent = (item) => (
-    <div className="flex flex-col gap-10 group transition-all duration-500 px-3 sm:px-0 text-left">
-  {/* Image */}
-  <div className="flex justify-center">
-    <div className="relative h-[240px] sm:h-[360px] w-full sm:w-[80%] rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500">
-      <Image
-        src={item.img}
-        alt={item.title}
-        fill
-        className="object-cover rounded-2xl transition-transform duration-700 group-hover:scale-105"
-      />
+const renderMainContent = (item) => (
+  <div className="flex flex-col gap-12 group transition-all duration-500 px-3 sm:px-0 text-left">
+    {/* ================= IMAGE ================= */}
+    <div className="flex justify-center">
+      <div className="relative h-[240px] sm:h-[360px] w-full sm:w-[80%] rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500">
+        <Image
+          src={item.img}
+          alt={item.title}
+          fill
+          className="object-cover rounded-2xl transition-transform duration-700 group-hover:scale-105"
+        />
+      </div>
     </div>
+
+    {/* ================= TITLE ================= */}
+    <h3 className="text-[24px] sm:text-[40px] font-outfit font-bold text-[#0A175C] relative inline-block mx-auto text-center">
+      {item.title}
+      <span className="absolute left-1/2 -translate-x-1/2 -bottom-2 w-[70px] sm:w-[80px] h-[4px] bg-[#F05023] rounded-full"></span>
+    </h3>
+
+    {/* ================= MAIN CONTENT ================= */}
+    <div
+      className="text-[16px] sm:text-[18px] font-lato leading-[1.8] text-[#1A2A6C] space-y-4"
+      dangerouslySetInnerHTML={{ __html: item.content }}
+    ></div>
+
+    {/* ================= QUALITY ASSURANCE ================= */}
+    {item.qualityAssurance && renderQualityAssurance(item.qualityAssurance)}
+
+    {/* ================= CARDS SECTION ================= */}
+    {item.cards && (
+      <div className="mt-10">
+        <h3 className="text-2xl sm:text-3xl font-semibold text-[#0A175C] mb-6 text-center">
+          Our Core Quality Principles
+          <div className="mx-auto mt-2 w-[80px] h-[4px] bg-[#F05023] rounded-full"></div>
+        </h3>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+          {item.cards.map((card, index) => (
+            <div
+              key={index}
+              className="bg-gradient-to-b from-[#ffffff] to-[#f9fafc] rounded-2xl shadow-md p-6 border border-gray-200 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+            >
+              <div className="flex items-start gap-3">
+                <div className="w-[10px] h-[10px] bg-[#F05023] rounded-full mt-2"></div>
+                <h4 className="text-lg sm:text-xl font-semibold text-[#F05023]">
+                  {card.title}
+                </h4>
+              </div>
+              <p className="text-gray-700 text-base leading-relaxed mt-3">
+                {card.desc}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    )}
+
+    {/* ================= OFFERINGS SECTION ================= */}
+    {item.offerings && (
+      <div className="mt-16 bg-gradient-to-b from-[#F9FBFF] to-[#FFFFFF] rounded-2xl p-10 sm:p-14 shadow-md border border-[#E5ECFF] transition-all duration-500 hover:shadow-lg">
+        <div className="text-center mb-8">
+          <h3 className="text-2xl sm:text-3xl font-bold text-[#0A175C] tracking-tight">
+            {item.offerings.title}
+          </h3>
+          <div className="mx-auto mt-3 w-[80px] h-[4px] bg-[#F05023] rounded-full"></div>
+        </div>
+
+        <p className="text-gray-700 text-base sm:text-lg leading-relaxed max-w-3xl mx-auto text-center mb-10 font-lato">
+          {item.offerings.description}
+        </p>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-4xl mx-auto">
+          {item.offerings.list.map((offer, i) => (
+            <div
+              key={i}
+              className="flex items-start gap-3 bg-white p-4 sm:p-5 rounded-xl shadow-sm border border-[#EEF3FF] hover:shadow-md hover:scale-[1.02] transition-all duration-300"
+            >
+              <div className="flex-shrink-0 w-3 h-3 mt-1.5 bg-[#F05023] rounded-full"></div>
+              <p className="text-[#1A2A6C] text-[16px] sm:text-[17px] font-lato leading-relaxed">
+                {offer}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    )}
+
+    {/* ================= SUPPLY CHAIN SECTION ================= */}
+    {item.supplyChain && (
+  <div className="mt-16 bg-gradient-to-r from-[#FFFFFF] via-[#F9FBFF] to-[#FFFFFF] rounded-3xl p-8 sm:p-12 md:p-16 shadow-md border border-[#E7EDFF] hover:shadow-lg transition-all duration-500">
+    
+    {/* ================= HEADER ================= */}
+    <div className="text-center mb-10">
+      <h3 className="text-[26px] sm:text-[34px] md:text-[40px] font-bold text-[#0A175C] leading-tight">
+        {item.supplyChain.title}
+      </h3>
+      <div className="mx-auto mt-3 w-[80px] sm:w-[90px] h-[4px] bg-[#F05023] rounded-full"></div>
+      <p className="text-gray-700 text-[15px] sm:text-[17px] md:text-[18px] leading-relaxed mt-6 max-w-3xl mx-auto px-2">
+        {item.supplyChain.description}
+      </p>
+    </div>
+
+    {/* ================= IMAGE ================= */}
+    <div className="relative w-full mb-10 flex justify-center">
+      <div className="relative w-full sm:w-[90%] md:w-[85%] h-[240px] sm:h-[340px] md:h-[420px] rounded-2xl overflow-hidden shadow-md border border-[#E7EDFF] hover:scale-[1.02] transition-transform duration-500">
+        <Image
+          src={supplyChaindummy}
+          alt="Global Supply Chain"
+          fill
+          className="object-cover rounded-2xl"
+          priority
+        />
+      </div>
+    </div>
+
+    {/* ================= SUPPLY CHAIN FEATURES ================= */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
+      {item.supplyChain.features.map((feature, i) => {
+        const icons = [Truck, Network, Factory, Cpu, BarChart3, Globe];
+        const IconComponent = icons[i % icons.length];
+
+        return (
+          <div
+            key={i}
+            className="bg-white p-5 sm:p-6 rounded-2xl border border-[#E9F0FF] shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex items-start gap-4"
+          >
+            {/* Icon */}
+            <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-xl bg-[#F7F9FF] border border-[#E1E8FF] shadow-sm">
+              <IconComponent className="text-[#F05023]" size={24} strokeWidth={2.2} />
+            </div>
+
+            {/* Text */}
+            <div>
+              <h4 className="text-base sm:text-lg font-semibold text-[#F05023] mb-1 sm:mb-2">
+                {feature.title}
+              </h4>
+              <p className="text-[#1A2A6C] leading-relaxed text-[15px] sm:text-[16px] font-lato">
+                {feature.desc}
+              </p>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+
+    {/* ================= BEYOND LOGISTICS SECTION ================= */}
+    {item.supplyChain.beyondLogistics && (
+      <div className="mt-16 sm:mt-20 text-center">
+        <h3 className="text-[24px] sm:text-[32px] md:text-[38px] font-bold text-[#0A175C] mb-6 leading-tight">
+          {item.supplyChain.beyondLogistics.title}
+        </h3>
+        <div className="mx-auto mt-3 w-[80px] sm:w-[90px] h-[4px] bg-[#F05023] rounded-full"></div>
+        <p className="text-gray-700 text-[15px] sm:text-[17px] md:text-[18px] leading-relaxed mt-6 max-w-3xl mx-auto mb-10 px-3">
+          {item.supplyChain.beyondLogistics.description}
+        </p>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
+          {item.supplyChain.beyondLogistics.highlights.map((highlight, i) => {
+            const icons = [Handshake, Clock, Leaf, TrendingUp];
+            const IconComponent = icons[i % icons.length];
+
+            return (
+              <div
+                key={i}
+                className="bg-white p-5 sm:p-6 rounded-2xl border border-[#E9F0FF] shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex items-start gap-4 text-left"
+              >
+                {/* Icon */}
+                <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-xl bg-[#F7F9FF] border border-[#E1E8FF] shadow-sm">
+                  <IconComponent className="text-[#F05023]" size={24} strokeWidth={2.2} />
+                </div>
+
+                {/* Text */}
+                <div>
+                  <h4 className="text-base sm:text-lg font-semibold text-[#F05023] mb-1 sm:mb-2">
+                    {highlight.title}
+                  </h4>
+                  <p className="text-[#1A2A6C] leading-relaxed text-[15px] sm:text-[16px] font-lato">
+                    {highlight.desc}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    )}
   </div>
+)}
 
-  {/* Title */}
-  <h3 className="text-[24px] sm:text-[40px] font-outfit font-bold text-[#0A175C] relative inline-block mx-auto text-center">
-  {item.title}
-  <span className="absolute left-1/2 -translate-x-1/2 -bottom-2 w-[70px] sm:w-[80px] h-[4px] bg-[#F05023] rounded-full"></span>
-</h3>
 
-  {/* Content */}
-  <div
-    className="text-[16px] sm:text-[18px] font-lato leading-[1.8] text-[#1A2A6C] space-y-4"
-    dangerouslySetInnerHTML={{ __html: item.content }}
-  ></div>
+    {/* ================= COMMITMENT SECTION ================= */}
+    {item.commitment && (
+      <div className="mt-14 text-center">
+        <h3 className="text-2xl sm:text-3xl font-semibold text-[#0A175C] mb-4">
+          {item.commitment.title}
+          <div className="mx-auto mt-2 w-[70px] h-[4px] bg-[#F05023] rounded-full"></div>
+        </h3>
+        <div
+          className="text-gray-700 text-[17px] leading-relaxed max-w-3xl mx-auto italic"
+          dangerouslySetInnerHTML={{ __html: item.commitment.description }}
+        ></div>
+      </div>
+    )}
+  </div>
+);
 
-  {/* Quality Assurance (if exists) */}
-  {item.qualityAssurance && renderQualityAssurance(item.qualityAssurance)}
-</div>
 
-  );
+
 
   return (
     <section className="flex flex-col font-outfit">

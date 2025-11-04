@@ -20,6 +20,17 @@ import sub14 from "../../public/dummy3.png";
 import sub15 from "../../public/dummy3.png";
 import sub16 from "../../public/dummy3.png";
 import sub17 from "../../public/dummy3.png";
+import main5 from "../../public/dummy3.png";
+import sub21 from "../../public/dummy3.png";
+import sub22 from "../../public/dummy3.png";
+import sub23 from "../../public/dummy3.png";
+import sub24 from "../../public/dummy3.png";
+import sub25 from "../../public/dummy3.png";
+import main6 from "../../public/dummy3.png";
+import sub26 from "../../public/dummy3.png";
+import sub27 from "../../public/dummy3.png";
+import sub28 from "../../public/dummy3.png";
+import sub29 from "../../public/dummy3.png";
 
 export const categories = [
   // ==============================
@@ -30,30 +41,31 @@ export const categories = [
     title: "Casting",
     img: main1,
     content: `
-      <h2 class="text-2xl font-semibold text-[#0A175C] mb-4">
-        Your Trusted Partner for Precision Casting Solutions
-      </h2>
-      <p class="text-gray-700 text-base leading-relaxed mb-4">
-        Our casting division is a hub where innovation seamlessly merges with meticulous execution. 
-        We leverage cutting-edge engineering methodologies, profound metallurgical expertise, and advanced manufacturing processes 
-        to consistently deliver components that meet and exceed the most stringent quality standards.
-      </p>
+      <h2 class="text-2xl font-semibold text-[#F05023] mb-4">
+  Your Trusted Partner for Precision Casting
+</h2>
+<p class="text-gray-700 text-base leading-relaxed mb-4">
+  Suresupply delivers high-quality cast components through advanced engineering, 
+  metallurgical expertise, and precision manufacturing. 
+  Every part is crafted to meet the highest standards of strength, accuracy, and reliability.
+</p>
 
-      <h3 class="text-xl font-semibold text-[#0A175C] mb-3">
-        From Concept to Completion: Our Comprehensive End-to-End Solutions
-      </h3>
-      <p class="text-gray-700 text-base leading-relaxed mb-4">
-        We offer a complete suite of services encompassing the entire casting lifecycle—from concept to finished product. 
-        Our simulations, pattern design, and precision finishing ensure optimal performance and cost-effectiveness.
-      </p>
+<h3 class="text-xl font-semibold text-[#F05023] mb-3">
+  From Concept to Completion
+</h3>
+<p class="text-gray-700 text-base leading-relaxed mb-4">
+  We manage the full casting lifecycle — from simulation and pattern design 
+  to final finishing — ensuring performance, efficiency, and cost-effectiveness.
+</p>
 
-      <h3 class="text-xl font-semibold text-[#0A175C] mb-3">
-        More Than Just Parts: We Engineer Integrated Solutions
-      </h3>
-      <p class="text-gray-700 text-base leading-relaxed">
-        We go beyond manufacturing parts—we engineer complete solutions that integrate seamlessly into your systems, 
-        reducing downtime, optimizing performance, and ensuring total reliability.
-      </p>
+<h3 class="text-xl font-semibold text-[#F05023] mb-3">
+  Beyond Parts — Engineered Solutions
+</h3>
+<p class="text-gray-700 text-base leading-relaxed">
+  More than manufacturing, we engineer integrated casting solutions 
+  that enhance system performance, reduce downtime, and ensure long-term reliability.
+</p>
+
     `,
 
     // QUALITY ASSURANCE
@@ -391,29 +403,31 @@ export const categories = [
   title: "Forging",
   img: main1,
   content: `
-    <h2 class="text-2xl font-semibold text-[#0A175C] mb-4">
-      Excellence in Forging Solutions for High-Performance Components
-    </h2>
-    <p class="text-gray-700 text-base leading-relaxed mb-4">
-      SureSupply’s Forging Division delivers precision-engineered components that combine superior strength, durability, and structural integrity. 
-      Utilizing advanced forging technologies, we produce parts that meet stringent industry requirements for performance, safety, and reliability.
-    </p>
+    <h2 class="text-2xl font-semibold text-[#F05023] mb-4">
+  Precision Forging for High-Performance Components
+</h2>
+<p class="text-gray-700 text-base leading-relaxed mb-4">
+  Suresupply delivers forged components with exceptional strength, durability, 
+  and structural integrity. Using advanced forging technologies, 
+  we meet the highest standards for performance, safety, and reliability.
+</p>
 
-    <h3 class="text-xl font-semibold text-[#0A175C] mb-3">
-      End-to-End Forging Capabilities
-    </h3>
-    <p class="text-gray-700 text-base leading-relaxed mb-4">
-      Our capabilities span the entire production cycle—from material selection and billet preparation to heat treatment and machining. 
-      Each process is controlled to ensure consistent quality, optimal grain flow, and excellent mechanical properties.
-    </p>
+<h3 class="text-xl font-semibold text-[#F05023] mb-3">
+  End-to-End Capabilities
+</h3>
+<p class="text-gray-700 text-base leading-relaxed mb-4">
+  From material selection and billet preparation to heat treatment and machining, 
+  every stage is optimized to ensure consistent quality and superior mechanical properties.
+</p>
 
-    <h3 class="text-xl font-semibold text-[#0A175C] mb-3">
-      Engineered Strength, Guaranteed Quality
-    </h3>
-    <p class="text-gray-700 text-base leading-relaxed">
-      SureSupply’s forging expertise ensures products that perform under the most demanding conditions. 
-      Every component is engineered to deliver precision, performance, and long service life.
-    </p>
+<h3 class="text-xl font-semibold text-[#F05023] mb-3">
+  Engineered for Strength and Precision
+</h3>
+<p class="text-gray-700 text-base leading-relaxed">
+  Each forged part is built to deliver lasting performance and reliability, 
+  even in the most demanding applications.
+</p>
+
   `,
 
   // QUALITY ASSURANCE
@@ -753,32 +767,31 @@ expertise: [
   title: "Fabrication",
   img: main2,
   content: `
-    <h2 class="text-2xl font-semibold text-[#0A175C] mb-4">
-      Advanced Fabrication Excellence for Precision Engineering
-    </h2>
-    <p class="text-gray-700 text-base leading-relaxed mb-4">
-      Suresupply’s Fabrication Division combines cutting-edge technologies with engineering expertise 
-      to deliver precision-crafted components that meet stringent industrial standards. 
-      From sheet metal and structural fabrication to complex assemblies, every process is designed 
-      to achieve unmatched accuracy, consistency, and performance.
-    </p>
+    <h2 class="text-2xl font-semibold text-[#F05023] mb-4">
+  Advanced Fabrication for Precision Engineering
+</h2>
+<p class="text-gray-700 text-base leading-relaxed mb-4">
+  Suresupply delivers precision fabrication with cutting-edge technology and expert craftsmanship. 
+  From sheet metal and structural components to complex assemblies, we ensure exceptional accuracy, 
+  consistency, and performance across every project.
+</p>
 
-    <h3 class="text-xl font-semibold text-[#0A175C] mb-3">
-      End-to-End Fabrication Capabilities
-    </h3>
-    <p class="text-gray-700 text-base leading-relaxed mb-4">
-      Our comprehensive fabrication suite includes die press, plasma, laser, and waterjet cutting, precision welding, and advanced EDM processes. 
-      Each technique is optimized through automation, digital control, and strict quality validation 
-      to deliver components that perform flawlessly under demanding conditions.
-    </p>
+<h3 class="text-xl font-semibold text-[#F05023] mb-3">
+  End-to-End Capabilities
+</h3>
+<p class="text-gray-700 text-base leading-relaxed mb-4">
+  Our full-service fabrication includes laser, plasma, and waterjet cutting, precision welding, 
+  and EDM processing — all optimized through automation and rigorous quality control.
+</p>
 
-    <h3 class="text-xl font-semibold text-[#0A175C] mb-3">
-      Engineered for Performance and Reliability
-    </h3>
-    <p class="text-gray-700 text-base leading-relaxed">
-      With a relentless focus on precision, repeatability, and cost efficiency, 
-      Suresupply ensures that every fabricated part meets or exceeds your performance expectations.
-    </p>
+<h3 class="text-xl font-semibold text-[#F05023] mb-3">
+  Built for Performance and Reliability
+</h3>
+<p class="text-gray-700 text-base leading-relaxed">
+  Every component we produce is engineered for precision, repeatability, 
+  and long-term reliability under the most demanding conditions.
+</p>
+
   `,
 
   // QUALITY ASSURANCE
@@ -1179,33 +1192,31 @@ expertise: [
   title: "Plastic Molding",
   img: main3,
   content: `
-    <h2 class="text-2xl font-semibold text-[#0A175C] mb-4">
-      Your Trusted Partner for All Your Plastic Molding Needs
-    </h2>
-    <p class="text-gray-700 text-base leading-relaxed mb-4">
-      Suresupply’s Plastic Molding Division is your reliable partner for high-precision polymer component fabrication. 
-      We specialize in advanced injection molding and polymer processing technologies, serving critical sectors such as 
-      automotive, consumer goods, electrical, medical, and industrial applications. 
-      Working with a wide range of engineering plastics, thermosets, and thermoplastics, 
-      we ensure every component meets rigorous standards for dimensional accuracy, superior finish, and durability.
-    </p>
+    <h2 class="text-2xl font-semibold text-[#F05023] mb-4">
+  Your Trusted Partner for Plastic Molding
+</h2>
+<p class="text-gray-700 text-base leading-relaxed mb-4">
+  Suresupply delivers precision-engineered polymer components through advanced injection molding 
+  and polymer processing. Serving industries like automotive, consumer, medical, and industrial, 
+  we ensure every part meets exacting standards for accuracy, finish, and durability.
+</p>
 
-    <h3 class="text-xl font-semibold text-[#0A175C] mb-3">
-      From Concept to Completion: Our End-to-End Solutions
-    </h3>
-    <p class="text-gray-700 text-base leading-relaxed mb-4">
-      We deliver a complete product development cycle—from concept design and mold prototyping to precision mass production and assembly. 
-      Our integrated capabilities streamline your supply chain, reduce costs, and accelerate time-to-market for your products.
-    </p>
+<h3 class="text-xl font-semibold text-[#F05023] mb-3">
+  From Concept to Completion
+</h3>
+<p class="text-gray-700 text-base leading-relaxed mb-4">
+  We manage the full cycle — from design and mold prototyping to production and assembly — 
+  streamlining your supply chain and reducing time-to-market.
+</p>
 
-    <h3 class="text-xl font-semibold text-[#0A175C] mb-3">
-      Engineering Integrated Polymer Solutions
-    </h3>
-    <p class="text-gray-700 text-base leading-relaxed">
-      Beyond parts manufacturing, we engineer functional polymer systems that meet complex performance and aesthetic requirements. 
-      Through advanced materials and processing expertise, we deliver high-performance, application-specific solutions 
-      that combine precision, functionality, and longevity.
-    </p>
+<h3 class="text-xl font-semibold text-[#F05023] mb-3">
+  Beyond Parts — Engineered Polymer Solutions
+</h3>
+<p class="text-gray-700 text-base leading-relaxed">
+  More than manufacturing, we engineer functional polymer systems tailored to your performance 
+  and aesthetic needs — delivering durable, high-precision results every time.
+</p>
+
   `,
 
   // ====================================
@@ -1593,7 +1604,810 @@ expertise: [
 
     }
   ]
+},
+
+{
+  id: "machining",
+  title: "Machining",
+  img: main5,
+  content: `
+    <h2 class="text-2xl font-semibold text-[#F05023] mb-4">
+  Your Trusted Partner for Precision Machining
+</h2>
+<p class="text-gray-700 text-base leading-relaxed mb-4">
+  Suresupply delivers precision-engineered parts with advanced CNC technology, skilled operators, 
+  and strict quality control. From complex prototypes to large-scale production, we ensure accuracy, 
+  consistency, and superior surface finish at every stage.
+</p>
+
+<h3 class="text-xl font-semibold text-[#F05023] mb-3">
+  From Concept to Completion
+</h3>
+<p class="text-gray-700 text-base leading-relaxed mb-4">
+  We handle the entire machining process — from design validation to final production — 
+  using integrated CNC and automation systems for reliable, high-quality results every time.
+</p>
+
+<h3 class="text-xl font-semibold text-[#F05023] mb-3">
+  Beyond Parts — Engineered Solutions
+</h3>
+<p class="text-gray-700 text-base leading-relaxed">
+  More than just fabrication, we engineer precision components that fit seamlessly 
+  into your assemblies, enhancing performance and reliability.
+</p>
+
+  `,
+
+  // ====================================
+  // QUALITY ASSURANCE
+  // ====================================
+  qualityAssurance: {
+    title: "Quality Assurance",
+    description: `
+      At Suresupply, Quality Assurance is integral to our machining excellence. Every part is validated for 
+      dimensional accuracy, surface finish, and tolerance using advanced metrology and process control systems. 
+      Our commitment to traceability and precision ensures zero-defect manufacturing for mission-critical components.
+    `,
+    points: [
+      {
+        title: "CMM Inspection",
+        desc: "High-precision Coordinate Measuring Machines verify dimensional accuracy within microns."
+      },
+      {
+        title: "Tool Calibration & Process Validation",
+        desc: "Regular calibration and audits maintain consistent machining accuracy across production cycles."
+      },
+      {
+        title: "Surface Roughness Testing",
+        desc: "Precision-controlled surface finish checks ensure functional and aesthetic Ra values."
+      },
+      {
+        title: "Material Traceability",
+        desc: "Full traceability from raw material to finished component guarantees process accountability."
+      }
+    ],
+    beyondTesting: [
+      {
+        title: "Process-Integrated Quality",
+        desc: "Quality checks are embedded throughout machining — from setup to final inspection — ensuring zero deviations."
+      },
+      {
+        title: "Operator Accountability",
+        desc: "Highly skilled machinists conduct in-process checks to prevent defects and ensure consistency."
+      },
+      {
+        title: "Precision Monitoring",
+        desc: "Real-time SPC (Statistical Process Control) and tool wear tracking maintain dimensional accuracy."
+      },
+      {
+        title: "Continuous Improvement",
+        desc: "Kaizen-driven process optimization ensures sustained precision and efficiency."
+      }
+    ]
+  },
+
+  // ====================================
+  // SUBCATEGORIES
+  // ====================================
+  subs: [
+    // ------------------------------
+    // 1️⃣ CNC Lathe Machining
+    // ------------------------------
+    {
+      id: "machining-cnc-lathe",
+      title: "CNC Lathe Machining",
+      img: sub21,
+      content:
+        "At Suresupply, CNC Lathe Machining defines our precision promise. Utilizing advanced CNC technology, we produce flawless cylindrical, conical, and complex contoured components with exceptional accuracy. Our process ensures unmatched dimensional repeatability, superior finishes, and rapid throughput.",
+      advantages: [
+        {
+          title: "Unmatched Dimensional Accuracy and Repeatability",
+          points: [
+            "Micron-level precision across high-volume runs.",
+            "Guarantees perfect fitment and consistent quality."
+          ]
+        },
+        {
+          title: "Superior Surface Finish",
+          points: [
+            "Optimized tooling and rigid setups achieve mirror-like finishes.",
+            "Often eliminates need for additional polishing."
+          ]
+        },
+        {
+          title: "Versatility in Material and Geometry",
+          points: [
+            "Capable of machining alloys, steels, brass, and aluminum.",
+            "Handles complex internal/external features and threads."
+          ]
+        },
+        {
+          title: "High Efficiency and Rapid Throughput",
+          points: [
+            "Automated bar feeders and quick-change tooling minimize cycle time.",
+            "Ideal for lights-out operation and large-scale production."
+          ]
+        },
+        {
+          title: "Complex Multi-Axis Capability",
+          points: [
+            "Multi-axis CNC lathes enable full machining in a single setup.",
+            "Improves accuracy and eliminates secondary operations."
+          ]
+        }
+      ],
+      expertise: [
+        "Precision Turning: Ferrous and non-ferrous materials machined to ultra-tight tolerances.",
+        "Advanced Multi-Operation Capability: Single-setup turning, threading, and boring for efficiency.",
+        "Diverse Product Range: Shafts, bushings, and custom components.",
+        "Speed & Tolerance: Maintains ultra-high tolerance standards across high-speed runs."
+      ]
+    },
+
+    // ------------------------------
+    // 2️⃣ Multi-Axis VMC
+    // ------------------------------
+    {
+      id: "machining-vmc",
+      title: "Multi-Axis VMC (Vertical Machining Center)",
+      img: sub22,
+      content:
+        "Suresupply’s Multi-Axis Vertical Machining Centers redefine precision through simultaneous 4 and 5-axis movement. These advanced systems enable complex contouring, deep cavity milling, and intricate drilling in one setup, ensuring unmatched accuracy and reduced production time.",
+      advantages: [
+        {
+          title: "Single-Setup Manufacturing for Superior Accuracy",
+          points: [
+            "Eliminates re-fixturing and cumulative errors.",
+            "Achieves superior geometric accuracy in minimal time."
+          ]
+        },
+        {
+          title: "Intricate Geometry and Undercut Capability",
+          points: [
+            "4 and 5-axis systems enable deep cavity and complex surface machining.",
+            "Expands design flexibility and reduces manual intervention."
+          ]
+        },
+        {
+          title: "Flawless Surface Finish and Contouring",
+          points: [
+            "Optimal tool orientation ensures exceptional finish and contour precision.",
+            "Reduces need for post-machining finishing operations."
+          ]
+        },
+        {
+          title: "Reduced Tooling and Fixturing Costs",
+          points: [
+            "Single-setup operation reduces custom jig and fixture expenses.",
+            "Simplifies process flow for efficiency."
+          ]
+        },
+        {
+          title: "Optimized Cycle Time and Efficiency",
+          points: [
+            "Simultaneous movements and advanced tool paths shorten production cycles.",
+            "Ideal for high-value precision components."
+          ]
+        }
+      ],
+    expertise: [
+  "Advanced VMC Machining: Utilizing 3, 4, and 5-axis Vertical Machining Centers (VMC) for complex, high-precision component fabrication.",
+  "High-Speed Material Processing: Specialized in rapid, efficient machining of challenging materials such as aluminum, steel, and advanced composites.",
+  "Optimized Production Workflow: Seamless integration of CAD/CAM systems with sophisticated tool path optimization to ensure maximum efficiency and accuracy from design to production.",
+  "Precision Tooling and Housing: Expertise in producing high-quality molds, dies, and custom precision housings for diverse industrial applications."
+]
+
+    },
+
+    // ------------------------------
+    // 3️⃣ Grinding
+    // ------------------------------
+    {
+      id: "machining-grinding",
+      title: "Grinding",
+      img: sub23,
+      content:
+        "Suresupply’s Precision Grinding services ensure exceptional dimensional accuracy and superior surface finishes. Using cylindrical, surface, and centerless grinding, we achieve micrometer-level precision ideal for aerospace, automotive, and medical components.",
+      advantages: [
+        {
+          title: "Extreme Dimensional Accuracy",
+          points: [
+            "Micron-level tolerances for critical assemblies.",
+            "Essential for aerospace and high-performance parts."
+          ]
+        },
+        {
+          title: "Immaculate Surface Finish",
+          points: [
+            "Delivers low Ra values minimizing friction and wear.",
+            "Enhances part life and functional performance."
+          ]
+        },
+        {
+          title: "Refinement of Hardened Materials",
+          points: [
+            "Corrects heat-treatment distortions for final precision.",
+            "Retains material strength and hardness."
+          ]
+        },
+        {
+          title: "Geometric Control",
+          points: [
+            "Ensures superior flatness, roundness, and parallelism.",
+            "Critical for sealing and rotating applications."
+          ]
+        },
+        {
+          title: "Cost-Effective for High Precision",
+          points: [
+            "Efficient finishing minimizes need for secondary polishing.",
+            "Ideal for high-precision, medium-to-high volume runs."
+          ]
+        }
+      ],
+      expertise: [
+  "Advanced Grinding: Expertise in surface, cylindrical, and centerless grinding for diverse applications.",
+  "Dimensional Accuracy: Achieving ultra-high precision in flatness and roundness control for critical components.",
+  "Superior Finishes: Delivering mirror-like, ultra-smooth finishes, even on the hardest materials.",
+  "Comprehensive Support: Reliable partnership for both high-volume production and specialized tool room requirements."
+]
+
+    },
+
+    // ------------------------------
+    // 4️⃣ Gear Cutting
+    // ------------------------------
+    {
+      id: "machining-gear-cutting",
+      title: "Gear Cutting",
+      img: sub24,
+      content:
+        "Our advanced Gear Cutting capabilities deliver high-precision tooth profiles with minimal backlash and vibration. Using CNC hobbing, shaping, and grinding, we produce gears that meet and exceed AGMA and ISO standards for accuracy and durability.",
+      advantages: [
+        {
+          title: "Optimized Power Transmission",
+          points: [
+            "Precision tooth geometry ensures smooth, efficient motion.",
+            "Minimizes noise, vibration, and power loss."
+          ]
+        },
+        {
+          title: "Exceptional Durability",
+          points: [
+            "Post-cutting grinding enhances strength and reduces stress points.",
+            "Extends service life in demanding applications."
+          ]
+        },
+        {
+          title: "Global Standard Compliance",
+          points: [
+            "Meets AGMA, ISO, and DIN precision standards.",
+            "Ensures interchangeability and reliability."
+          ]
+        },
+        {
+          title: "Versatility in Design and Material",
+          points: [
+            "Produces spur, helical, bevel, and worm gears.",
+            "Works with steels, alloys, and engineering plastics."
+          ]
+        },
+        {
+          title: "High-Volume Repeatability",
+          points: [
+            "CNC automation ensures consistent, scalable production.",
+            "Maintains accuracy over large runs."
+          ]
+        }
+      ],
+      expertise: [
+  "Diverse Gear Types: We expertly manufacture Spur, Helical, Bevel, and Worm gears.",
+  "Advanced Machining: Utilizing precision Hobbing, Shaping, and Broaching techniques.",
+  "Quality & Durability: Offering professional Heat Treatment and highly accurate Tooth Grinding support.",
+  "Rigorous Inspection: Guaranteeing quality with precise Inspection using state-of-the-art Profile and Lead Measurement tools."
+]
+
+    },
+
+    // ------------------------------
+    // 5️⃣ Super Finishing
+    // ------------------------------
+    {
+      id: "machining-super-finishing",
+      title: "Super Finishing",
+      img: sub25,
+      content:
+        "Suresupply’s Super Finishing process perfects the final surface of critical components by eliminating micro-imperfections and enhancing performance characteristics such as fatigue strength, wear resistance, and lubrication retention.",
+      advantages: [
+        {
+          title: "Reduced Friction and Wear",
+          points: [
+            "Achieves Ra values down to 0.05 µm.",
+            "Minimizes friction, heat, and component wear."
+          ]
+        },
+        {
+          title: "Enhanced Fatigue Strength",
+          points: [
+            "Removes surface stress points, improving endurance.",
+            "Increases component lifespan under cyclic loads."
+          ]
+        },
+        {
+          title: "Superior Sealing Capability",
+          points: [
+            "Creates ultra-flat surfaces for hydraulic and pneumatic sealing.",
+            "Ensures minimal leakage and improved efficiency."
+          ]
+        },
+        {
+          title: "Improved Lubrication Retention",
+          points: [
+            "Plateau-like finishes enhance oil film formation.",
+            "Optimizes hydrostatic and hydrodynamic lubrication."
+          ]
+        },
+        {
+          title: "Correction of Geometric Errors",
+          points: [
+            "Refines roundness, straightness, and dimensional accuracy.",
+            "Ensures perfect final form."
+          ]
+        }
+      ],
+      expertise: [
+  "Ultra-Fine Surface Finishes: Achieve exceptional smoothness with finishes down to Ra 0.05 µm.",
+  "Enhanced Component Performance: Our finishing improves lubrication retention and ensures excellent dimensional stability, extending component life.",
+  "Ideal for Critical Applications: Specializing in precision shafts, bearing races, and high-performance hydraulic parts.",
+  "Flexible Production: Utilizing both cutting-edge automated and expert manual finishing setups to meet any volume or complexity requirement."
+]
+
+    }
+  ]
+},
+
+{
+  id: "rapid-prototyping",
+  title: "Rapid Prototyping",
+  img: main6,
+  content: `
+    <h2 class="text-2xl font-semibold text-[#F05023] mb-4">
+  Your Trusted Partner for Rapid Prototyping
+</h2>
+<p class="text-gray-700 text-base leading-relaxed mb-4">
+  Suresupply turns ideas into reality with precision and speed. 
+  Using advanced additive manufacturing, casting, and machining, 
+  we create high-quality prototypes that validate design, test functionality, 
+  and accelerate your path to production.
+</p>
+
+<h3 class="text-xl font-semibold text-[#F05023] mb-3">
+  From Concept to Completion
+</h3>
+<p class="text-gray-700 text-base leading-relaxed mb-4">
+  We manage the entire prototyping process — from design intent 
+  to functional, production-ready parts — ensuring accuracy, consistency, 
+  and faster development cycles.
+</p>
+
+<h3 class="text-xl font-semibold text-[#F05023] mb-3">
+  Beyond Parts — Integrated Solutions
+</h3>
+<p class="text-gray-700 text-base leading-relaxed">
+  We deliver complete system-level prototypes, engineered for precision 
+  and seamless fit within your final product.
+</p>
+
+  `,
+
+  // ====================================
+  // QUALITY ASSURANCE
+  // ====================================
+  qualityAssurance: {
+    title: "Quality Assurance",
+    description: `
+      In Rapid Prototyping, we uphold the same uncompromising quality standards that define our production excellence. 
+      Each prototype undergoes dimensional validation, structural integrity checks, and material consistency evaluation to ensure it accurately represents final production intent.
+    `,
+    points: [
+      {
+        title: "Surface Finish & Texture Validation",
+        desc: "Layer resolution and post-processing checks ensure smooth, production-ready surfaces that reflect final product aesthetics."
+      },
+      {
+        title: "Dimensional Accuracy Verification",
+        desc: "3D scanning and digital comparison against CAD models guarantee precision fit and geometric accuracy."
+      },
+      {
+        title: "Material Property Testing",
+        desc: "Evaluation of tensile strength, hardness, and durability ensures prototypes meet functional performance standards."
+      },
+      {
+        title: "Visual & Structural Inspection",
+        desc: "Detailed inspection detects any layer adhesion issues, warping, or surface defects for flawless prototype quality."
+      }
+    ],
+    beyondTesting: [
+      {
+        title: "Design-to-Print Accuracy",
+        desc: "CAD data validation and build orientation optimization eliminate print errors and dimensional mismatches."
+      },
+      {
+        title: "Layer-by-Layer Verification",
+        desc: "Continuous process monitoring ensures consistent material deposition and structural uniformity."
+      },
+      {
+        title: "Post-Processing Precision",
+        desc: "Standardized sanding, coating, and finishing achieve production-representative results every time."
+      },
+      {
+        title: "Feedback-Driven Refinement",
+        desc: "Each prototype iteration refines print parameters and improves future production reliability."
+      }
+    ]
+  },
+
+  // ====================================
+  // SUBCATEGORIES
+  // ====================================
+  subs: [
+    // ------------------------------
+    // 1️⃣ 3D Printing (Additive Manufacturing)
+    // ------------------------------
+    {
+      id: "rapid-3dprinting",
+      title: "3D Printing (Additive Manufacturing)",
+      img: sub26,
+      content:
+        "Suresupply leads the industrial revolution with advanced 3D printing (Additive Manufacturing), creating intricate, functional, and lightweight parts directly from digital designs. By building components layer by layer, we achieve design freedom and complex internal structures that traditional methods cannot match. This technology enables rapid prototyping, customization, and sustainable production with minimal waste.",
+      advantages: [
+        {
+          title: "Unparalleled Design Freedom and Complexity",
+          points: [
+            "Create intricate geometries, lattices, and organic shapes impossible with traditional manufacturing.",
+            "Achieve lightweight yet highly functional components."
+          ]
+        },
+        {
+          title: "Accelerated Time-to-Market",
+          points: [
+            "Move rapidly from digital file to physical prototype or final part in hours or days.",
+            "Facilitates quick design iteration and functional testing."
+          ]
+        },
+        {
+          title: "Minimal Material Waste (Sustainability)",
+          points: [
+            "Additive process deposits material only where needed, minimizing scrap.",
+            "Optimizes material utilization and reduces cost."
+          ]
+        },
+        {
+          title: "On-Demand, Customized Production",
+          points: [
+            "Supports low-volume, personalized, or spare-part manufacturing without expensive tooling.",
+            "Ideal for short runs and mass customization."
+          ]
+        },
+        {
+          title: "Part Consolidation and Simplification",
+          points: [
+            "Multiple components can be redesigned into a single complex printed part.",
+            "Reduces assembly time and potential failure points."
+          ]
+        }
+      ],
+      expertise: [
+        "Rapid Prototyping Excellence: Accelerated concept-to-model delivery for design validation.",
+        "Diverse 3D Printing Technologies: FDM, SLA, and SLS systems for every complexity level.",
+        "Comprehensive Material Selection: ABS, Nylon, PLA, PETG, and Resin for varied mechanical and aesthetic needs.",
+        "Professional Finishing: Expert sanding, painting, and surface finishing for production-quality appearance."
+      ]
+    },
+
+    // ------------------------------
+    // 2️⃣ Metal 3D Printing
+    // ------------------------------
+    {
+      id: "rapid-metalprinting",
+      title: "Metal 3D Printing",
+      img: sub27,
+      content:
+        "Suresupply’s Metal Additive Manufacturing (MAM) delivers fully functional, end-use metal parts that rival or exceed traditionally manufactured components. Our process enables complex internal geometries, lattice structures, and integrated features with superior mechanical performance and minimal material waste. This technology revolutionizes how critical components are designed and manufactured across aerospace, automotive, and tooling industries.",
+      advantages: [
+        {
+          title: "Unmatched Strength-to-Weight Ratio",
+          points: [
+            "Creates lightweight lattice and topology-optimized designs with exceptional structural integrity.",
+            "Delivers strength equal to or greater than cast or forged parts."
+          ]
+        },
+        {
+          title: "Consolidation of Multi-Part Assemblies",
+          points: [
+            "Redesigns multiple components into a single, integrated printed part.",
+            "Eliminates welding, fastening, and reduces labor and defect risks."
+          ]
+        },
+        {
+          title: "Customization and On-Demand Tooling",
+          points: [
+            "Ideal for low-volume, high-performance parts and tooling inserts with conformal cooling channels.",
+            "Reduces lead times and cost of conventional molds or dies."
+          ]
+        },
+        {
+          title: "High-Performance Material Capability",
+          points: [
+            "Processes advanced alloys like Titanium, Inconel, Aluminum, and Stainless Steel.",
+            "Enables production of high-precision aerospace and energy components."
+          ]
+        },
+        {
+          title: "Integrated Functional Features",
+          points: [
+            "Incorporates conformal cooling or internal channels for superior thermal management.",
+            "Improves cycle times and enhances part quality in downstream molding processes."
+          ]
+        }
+      ],
+      expertise: [
+        "Diverse Material Portfolio: Stainless Steel, Aluminum, Titanium, and Inconel for high-performance applications.",
+        "Near-Net Shape Precision: Produces parts requiring minimal post-machining and reduced lead time.",
+        "Industry-Ready Solutions: Tailored for aerospace, automotive, and tooling industries demanding precision and performance."
+      ]
+    },
+
+    // ------------------------------
+    // 3️⃣ Vacuum Casting
+    // ------------------------------
+    {
+      id: "rapid-vacuum",
+      title: "Vacuum Casting",
+      img: sub28,
+      content:
+        "Suresupply’s Vacuum Casting provides high-quality, production-like parts quickly and affordably, ideal for small to medium batch production. Using silicone molds from a master model, this process replicates fine details, smooth finishes, and material properties close to final production standards — making it a premium alternative to 3D printing for select applications.",
+      advantages: [
+        {
+          title: "Functional and Mechanical Testing",
+          points: [
+            "Produces engineering-grade polyurethane parts mimicking final material properties.",
+            "Enables accurate stress, fit, and functional validation."
+          ]
+        },
+        {
+          title: "Aesthetic and Ergonomic Evaluation",
+          points: [
+            "Delivers parts with production-like finishes for realistic design reviews.",
+            "Supports paint, texture, and color evaluation for CMF assessments."
+          ]
+        },
+        {
+          title: "Low-Volume Market Entry (Pilot Runs)",
+          points: [
+            "Ideal for short-run launches, investor samples, or early market testing.",
+            "Bridges the gap between prototype and mass production."
+          ]
+        },
+        {
+          title: "High-Quality Marketing Samples",
+          points: [
+            "Creates near-production-quality samples for presentations and stakeholder demonstrations.",
+            "Enhances confidence in product design and readiness."
+          ]
+        },
+        {
+          title: "Versatility in Material Mimicry",
+          points: [
+            "Uses polyurethane resins to replicate varying hardness and flexibility levels.",
+            "Accurately simulates final production materials."
+          ]
+        }
+      ],
+      expertise: [
+        "Precision Silicone Tooling: Durable, accurate molds crafted directly from master patterns.",
+        "Versatile Polyurethane Casting: Wide range of durometers and finishes for exact material replication.",
+        "Exceptional Finish & Consistency: High-quality, consistent color and texture replication.",
+        "Speed & Efficiency: Cost-effective short lead-time production for rapid product launches."
+      ]
+    },
+
+    // ------------------------------
+    // 4️⃣ CNC Pattern Making
+    // ------------------------------
+    {
+      id: "rapid-cncpattern",
+      title: "CNC Pattern Making",
+      img: sub29,
+      content:
+        "Suresupply’s CNC Pattern Making service ensures unmatched precision and repeatability in master pattern creation — the foundation of superior casting and molding. Our advanced 3- and 5-axis CNC technology guarantees accuracy, consistency, and optimal surface finish for flawless downstream manufacturing.",
+      advantages: [
+        {
+          title: "Unmatched Sub-Millimeter Accuracy",
+          points: [
+            "Achieves high-fidelity geometry directly from CAD data using multi-axis CNC machining.",
+            "Eliminates rework and ensures perfect dimensional accuracy."
+          ]
+        },
+        {
+          title: "Perfect Repeatability and Consistency",
+          points: [
+            "Digital file-to-part manufacturing ensures zero variation across production runs.",
+            "Critical for high-volume, uniform production."
+          ]
+        },
+        {
+          title: "Mastery of Complex Geometries",
+          points: [
+            "Effortlessly handles intricate curves, deep pockets, and variable wall thicknesses.",
+            "Ideal for sophisticated pattern designs with tight parting lines."
+          ]
+        },
+        {
+          title: "Superior Surface Finish for Mold Readiness",
+          points: [
+            "Delivers burr-free surfaces, minimizing manual polishing needs.",
+            "Ensures smoother cavity surfaces and enhanced final product finish."
+          ]
+        },
+        {
+          title: "Accelerated Lead Times and Cost Efficiency",
+          points: [
+            "Reduces manual finishing time while ensuring first-time accuracy.",
+            "Shortens design-to-production cycle and lowers tooling cost."
+          ]
+        }
+      ],
+      expertise: [
+        "Advanced Pattern Manufacturing: Expertise in wood, aluminum, and resin patterns tailored for diverse applications.",
+        "Ultra-High Precision Machining: Equipped with 3- and 5-axis CNC routers for complex geometries and tight tolerances.",
+        "Seamless Digital Integration: Direct CAD/CAM integration ensures precise dimensional replication.",
+        "Finished for Performance: Includes expert texturing, polishing, and mold preparation for production readiness."
+      ]
+    }
+  ]
+}, 
+
+
+
+{
+  id: "quality-certification",
+  title: "Quality & Certification",
+  img: main6,
+
+  content: `
+    <h2 class="text-2xl font-semibold text-[#F05023] mb-4">
+      Excellence by Design, Reliability by Process
+    </h2>
+    <p class="text-gray-700 text-base leading-relaxed mb-4">
+      Quality for us isn’t an endpoint — it’s woven into every step of our process. 
+      From concept to delivery, every decision, component, and collaboration is guided by precision and reliability. 
+      We treat quality as a culture, not a checkpoint.
+    </p>
+    <p class="text-gray-700 text-base leading-relaxed mb-4">
+      Our system integrates proven methodologies like <strong>Lean</strong>, <strong>Six Sigma</strong>, 
+      <strong>Kaizen</strong>, and <strong>TQM</strong>, driving continuous improvement and operational excellence 
+      across every process.
+    </p>
+  `,
+
+  // ==========================
+  // QUALITY PRINCIPLES / CARDS
+  // ==========================
+  cards: [
+    {
+      title: "Continuous Process Improvement",
+      desc: "We apply Lean and Kaizen principles to eliminate waste and improve efficiency through regular audits, Gemba walks, and root-cause analysis."
+    },
+    {
+      title: "Data-Driven Quality Management",
+      desc: "Six Sigma and DMAIC frameworks help us maintain process stability and deliver measurable, lasting improvements."
+    },
+    {
+      title: "Standardized Procedures",
+      desc: "All operations follow clear SOPs and process maps to ensure consistency, traceability, and compliance with ISO and IATF standards."
+    },
+    {
+      title: "Certification & Validation",
+      desc: "Our processes are verified by NABL-certified labs and third-party auditors, ensuring transparency and trust in every report."
+    }
+  ],
+
+  // ==========================
+  // WHAT WE OFFER
+  // ==========================
+  offerings: {
+    title: "What We Offer",
+    description: `
+      Our quality systems ensure precision, traceability, and continuous improvement across all operations.
+    `,
+    list: [
+      "Process Capability & Statistical Process Control (SPC).",
+      "Lean & Six Sigma Implementation Support.",
+      "FMEA, Control Plan, and Risk Analysis Development.",
+      "Training in Kaizen, 8D, and Problem Solving.",
+      "Digital Quality Dashboards & Analytics.",
+      "Vendor Qualification & Improvement Programs."
+    ]
+  },
+
+  // ==========================
+  // OUR COMMITMENT
+  // ==========================
+  commitment: {
+    title: "Our Commitment",
+    description: `
+      True quality is confidence — in our products, our processes, and our people. 
+      Through certified systems and a culture of improvement, we ensure every outcome reflects our philosophy: 
+      <strong>“Excellence by Design, Reliability by Process.”</strong>
+    `
+  }
+},
+
+{
+  id: "supply-chain",
+  title: "World-Class Supply Chain",
+  img: main6, // your image import
+  content: `
+    <p>
+      At Suresupply, our World-Class Supply Chain is the backbone of reliable delivery and operational excellence. Powered by integrated technology and strategic partnerships, we ensure seamless coordination from raw material sourcing to final product dispatch. Our data-driven systems and global vendor network enable agility, transparency, and cost efficiency across every stage of production.
+    </p>
+  `,
+  supplyChain: {
+    title: "World-Class Supply Chain",
+    description:
+      "Powered by integrated technology and strategic partnerships, our data-driven operations ensure agility, transparency, and cost efficiency across every stage of production.",
+    features: [
+      {
+        title: "Smart ERP Integration",
+        desc: "End-to-end digital tracking of material flow, inventory, and logistics for real-time visibility.",
+      },
+      {
+        title: "Vendor Management System",
+        desc: "Centralized platform for supplier qualification, audits, and performance analytics.",
+      },
+      {
+        title: "AI-Driven Forecasting",
+        desc: "Predictive tools optimize inventory levels and procurement planning for on-time delivery.",
+      },
+      {
+        title: "Digital Traceability",
+        desc: "QR-based product tracking ensures transparency and accountability across the chain.",
+      },
+    ],
+
+    // 🌍 New section: Beyond Logistics
+    beyondLogistics: {
+      title: "Beyond Logistics: A Culture of Operational Excellence",
+      description:
+        "Our culture of excellence extends beyond logistics — driving collaboration, efficiency, and sustainability across our supply network.",
+      highlights: [
+        {
+          title: "Collaborative Partnerships",
+          desc: "Long-term relationships with trusted global suppliers for consistency and mutual growth.",
+          icon: "Handshake",
+        },
+        {
+          title: "Zero-Delay Commitment",
+          desc: "Streamlined workflows and JIT (Just-In-Time) systems minimize downtime and enhance responsiveness.",
+          icon: "Clock",
+        },
+        {
+          title: "Sustainability Focus",
+          desc: "Eco-conscious sourcing and optimized transport routes reduce carbon footprint and material waste.",
+          icon: "Leaf",
+        },
+        {
+          title: "Continuous Process Optimization",
+          desc: "Data analytics and feedback loops drive ongoing improvements in cost, speed, and reliability.",
+          icon: "TrendingUp",
+        },
+      ],
+    },
+  },
 }
+
+
 
 
 
