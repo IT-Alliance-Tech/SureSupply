@@ -1,5 +1,3 @@
-// components/solutionContent.js
-
 // ===== MAIN SOLUTION IMAGES =====
 import solutionImg1 from "../../public/solutions/dummy1.png";
 import solutionImg2 from "../../public/solutions/dummy1.png";
@@ -20,27 +18,27 @@ export const solutions = [
     title: "End-to-End Manufacturing",
     image: solutionImg1,
     shortDesc:
-      "From concept to mass production — we manage the entire lifecycle with flexibility, precision, and speed.",
+      "SureSupply offers complete product realization — from concept design to large-scale production. We combine advanced engineering, proven supplier partnerships, and robust project management to deliver components that meet the highest standards of quality, cost, and precision.",
     whatWeOffer: [
       {
         img: sub1,
-        title: "Multi-Process Manufacturing",
-        desc: "Casting, forging, machining, molding, and more — all under one network. (Linked with Capabilities section)",
+        title: "Design for Manufacturability (DFM)",
+        desc: "Expert support to refine your designs for optimal cost, performance, and ease of production.",
       },
       {
         img: sub2,
-        title: "Tooling & Fixture Development",
-        desc: "Custom tooling support to enhance production accuracy and reduce lead time.",
+        title: "Prototype to Production Transition",
+        desc: "Rapid prototyping, pilot runs, and scalable mass production with full process validation.",
       },
       {
         img: sub3,
-        title: "Flexible Batch Sizes",
-        desc: "From prototype quantities to large-scale production batches.",
+        title: "Multi-Process Expertise",
+        desc: "Access to CNC machining, molding, casting, fabrication, finishing, and assembly — all under one platform.",
       },
       {
         img: sub4,
-        title: "Vendor Development",
-        desc: "Sourcing and managing partners for cost-efficient manufacturing.",
+        title: "Lifecycle Ownership",
+        desc: "End-to-end traceability and accountability from RFQ to delivery, ensuring consistent outcomes across batches.",
       },
     ],
   },
@@ -49,27 +47,27 @@ export const solutions = [
     title: "Inventory Management",
     image: solutionImg2,
     shortDesc:
-      "Optimized and lean supply chain management ensuring uninterrupted production flow.",
+      "We help you maintain a resilient and lean supply chain with intelligent inventory systems tailored to your production dynamics. Our goal is to reduce idle capital, prevent shortages, and ensure materials and components are always available when needed.",
     whatWeOffer: [
       {
         img: sub1,
-        title: "JIT & VMI Programs",
-        desc: "Just-in-Time and Vendor Managed Inventory for lean operations.",
+        title: "Just-in-Time & Kanban Systems",
+        desc: "Delivery synchronized with your production schedules to minimize inventory holding and maximize efficiency.",
       },
       {
         img: sub2,
-        title: "Real-Time Tracking",
-        desc: "Monitor stock levels and movement with warehouse management systems.",
+        title: "Vendor Managed Inventory (VMI)",
+        desc: "Automated replenishment based on real-time consumption and forecast data.",
       },
       {
         img: sub3,
-        title: "Strategic Stocking",
-        desc: "Stock planning for domestic and export requirements.",
+        title: "Safety & Buffer Stock Programs",
+        desc: "Strategic stocking for critical or high-turnover components to ensure continuity in production.",
       },
       {
         img: sub4,
-        title: "Packaging & Barcoding",
-        desc: "Customized packaging and barcoding for easy identification.",
+        title: "Smart Inventory Tracking",
+        desc: "Digitally monitored stock levels with batch traceability, shelf-life monitoring, and location mapping.",
       },
     ],
   },
@@ -78,27 +76,27 @@ export const solutions = [
     title: "Logistics & Delivery",
     image: solutionImg3,
     shortDesc:
-      "We handle global logistics for timely, cost-optimized, and safe product delivery.",
+      "SureSupply ensures every shipment arrives on time, intact, and optimized for cost and reliability. Our logistics ecosystem integrates technology, planning, and partnerships to guarantee seamless movement of materials — from supplier to your production floor, anywhere in the world.",
     whatWeOffer: [
       {
         img: sub1,
-        title: "Domestic & Export Logistics",
-        desc: "Seamless coordination for global shipping.",
+        title: "Global Delivery Network",
+        desc: "Established logistics channels for domestic and international distribution with end-to-end reliability.",
       },
       {
         img: sub2,
-        title: "Consolidated Shipments",
-        desc: "Multi-location dispatch and freight optimization.",
+        title: "Engineered Packaging Solutions",
+        desc: "Custom-designed packaging for mechanical, electronic, and delicate components ensuring zero damage in transit.",
       },
       {
         img: sub3,
-        title: "Freight Optimization",
-        desc: "Smart packaging and route planning to reduce cost.",
+        title: "Optimized Freight Planning",
+        desc: "Multi-mode transport options (air, sea, surface) with route and cost optimization for time-sensitive deliveries.",
       },
       {
         img: sub4,
-        title: "Tracking & Documentation",
-        desc: "Transparent updates and complete export compliance.",
+        title: "Real-Time Shipment Visibility",
+        desc: "Tracking dashboards, proactive updates, and proof-of-delivery confirmations for complete transparency.",
       },
     ],
   },
@@ -107,27 +105,27 @@ export const solutions = [
     title: "Quality Assurance",
     image: solutionImg4,
     shortDesc:
-      "Every part is inspected and certified to meet the highest industry standards.",
+      "At SureSupply, quality isn’t an inspection step — it’s a mindset embedded into every process. We combine in-house precision testing, supplier audits, and certified third-party validation to ensure each component meets or exceeds your specifications.",
     whatWeOffer: [
       {
         img: sub1,
-        title: "Comprehensive Testing",
-        desc: "Dimensional, metallurgical, and performance testing with NABL certification.",
+        title: "Advanced Metrology Capabilities",
+        desc: "3D CMM measurement, surface finish testing, profile measurement, and dimensional validation.",
       },
       {
         img: sub2,
-        title: "Global Quality Standards",
-        desc: "PPAP, FMEA, and SPC compliance documentation.",
+        title: "Material & Reliability Testing",
+        desc: "Tensile, hardness, and chemical composition tests through accredited third-party labs.",
       },
       {
         img: sub3,
-        title: "Continuous Improvement",
-        desc: "Root cause analysis and CAPA-driven improvements.",
+        title: "Supplier Quality Framework",
+        desc: "Regular process audits, PPAP submissions, and statistical process control (SPC) monitoring.",
       },
       {
         img: sub4,
-        title: "Third-Party Verification",
-        desc: "Independent audits and lab tests to ensure reliability.",
+        title: "Zero-Defect Manufacturing Culture",
+        desc: "Root cause analysis, FMEA reviews, and continuous improvement initiatives built into every project.",
       },
     ],
   },
@@ -136,27 +134,27 @@ export const solutions = [
     title: "Project Management Support",
     image: solutionImg5,
     shortDesc:
-      "Dedicated project coordination ensuring delivery, cost, and quality targets are met efficiently.",
+      "We go beyond manufacturing coordination — we provide full-cycle project management that integrates engineering, procurement, quality, and logistics into one cohesive flow. Each project is monitored through defined KPIs to ensure delivery on time, within cost, and to specification.",
     whatWeOffer: [
       {
         img: sub1,
-        title: "Dedicated Project Leads",
-        desc: "One point of contact for every client project.",
+        title: "Dedicated Project Managers",
+        desc: "Single point of contact managing suppliers, schedules, and communication for total accountability.",
       },
       {
         img: sub2,
-        title: "Real-Time Tracking",
-        desc: "Milestone-based progress visibility and status reports.",
+        title: "Comprehensive Planning & Reporting",
+        desc: "Gantt-based timelines, progress dashboards, and regular milestone tracking.",
       },
       {
         img: sub3,
-        title: "Cross-Team Collaboration",
-        desc: "Smooth coordination between design, production, and QA teams.",
+        title: "Cross-Functional Expertise",
+        desc: "Integration of engineering, quality, supply chain, and commercial teams for end-to-end control.",
       },
       {
         img: sub4,
-        title: "Change Management",
-        desc: "Managing technical updates and documentation during project lifecycle.",
+        title: "Continuous Performance Reviews",
+        desc: "Periodic reviews on cost, delivery, and quality metrics with proactive risk mitigation strategies.",
       },
     ],
   },

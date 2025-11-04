@@ -23,6 +23,9 @@ export default function CustomSolutionPage() {
     }, 200);
   };
 
+  // total categories = all solutions + 1 (for advanced services)
+  const totalCategories = [...solutions, { id: "adv", title: "Advanced Engineering Services" }];
+
   return (
     <div className="font-outfit relative">
       {/* ===== HERO SECTION ===== */}
@@ -41,10 +44,7 @@ export default function CustomSolutionPage() {
           </h1>
 
           <div className="text-[14px] sm:text-[18px] font-lato flex justify-center items-center gap-2">
-            <Link
-              href="/"
-              className="hover:text-white transition-colors cursor-pointer"
-            >
+            <Link href="/" className="hover:text-white transition-colors cursor-pointer">
               Home
             </Link>
             <span className="text-[#F05023]">/</span>
@@ -84,7 +84,7 @@ export default function CustomSolutionPage() {
 
             {/* Category List */}
             <ul className="space-y-4">
-              {solutions.map((sol, i) => (
+              {totalCategories.map((sol, i) => (
                 <li key={sol.id}>
                   <button
                     onClick={() => handleCategoryClick(i)}
@@ -112,7 +112,7 @@ export default function CustomSolutionPage() {
               Solution Category
             </div>
             <ul className="space-y-3">
-              {solutions.map((sol, i) => (
+              {totalCategories.map((sol, i) => (
                 <li key={sol.id}>
                   <button
                     onClick={() => handleCategoryClick(i)}
@@ -132,20 +132,14 @@ export default function CustomSolutionPage() {
                     </div>
                     <svg
                       className={`w-4 h-4 transition-transform duration-300 ${
-                        active === i
-                          ? "rotate-90 text-[#F05023]"
-                          : "text-gray-400"
+                        active === i ? "rotate-90 text-[#F05023]" : "text-gray-400"
                       }`}
                       fill="none"
                       stroke="currentColor"
                       strokeWidth="2"
                       viewBox="0 0 24 24"
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M9 5l7 7-7 7"
-                      />
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                     </svg>
                   </button>
                 </li>
@@ -155,96 +149,92 @@ export default function CustomSolutionPage() {
         </div>
 
         {/* ===== RIGHT CONTENT ===== */}
-        <div
-          ref={mainSectionRef}
-          className="col-span-7 flex flex-col gap-14 items-center w-full relative"
-        >
-          {/* ===== IMAGE ===== */}
-          <div className="flex justify-center w-full px-2 sm:px-6">
-            <div className="relative w-full sm:w-[80%] lg:w-[85%] max-w-[900px] h-[220px] sm:h-[350px] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
-              <Image
-                src={solutions[active].image}
-                alt={solutions[active].title}
-                fill
-                className="object-cover object-center transition-transform duration-700 hover:scale-105"
-                priority
-              />
-            </div>
-          </div>
-
-          {/* ===== TITLE + DESC ===== */}
-          <div className="text-center max-w-4xl px-4">
-            <h2 className="text-[#0A175C] font-outfit font-semibold text-[24px] sm:text-[30px] mb-3">
-              {solutions[active].title}
-            </h2>
-            <div className="w-20 h-[3px] bg-[#F05023] mx-auto mb-6 rounded-full"></div>
-            <p className="text-gray-600 leading-relaxed text-[16px] sm:text-[18px] font-lato">
-              {solutions[active].shortDesc}
-            </p>
-          </div>
-
-          {/* ===== WHAT WE OFFER ===== */}
-          <section className="text-center w-full px-2 sm:px-6 py-16 bg-gradient-to-b from-white to-[#f9fafc]">
-  <h3 className="text-3xl sm:text-4xl font-outfit font-bold text-[#0A175C] mb-3">
-    What We <span className="text-[#F05023]">Offer</span>
-  </h3>
-  <div className="w-20 h-[3px] bg-[#F05023] mx-auto mb-10 rounded-full"></div>
-
-  <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 justify-center">
-    {solutions[active].whatWeOffer.map((item, idx) => (
-      <div
-        key={idx}
-        className="flex flex-col gap-3 p-5 sm:p-6 bg-white border border-gray-200 rounded-2xl shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-500"
-      >
-        {/* Icon and title in a row */}
-        <div className="flex items-center gap-3 mb-2">
-          {/* <div className="flex items-center justify-center w-12 h-12 bg-[#F05023]/10 rounded-full"> */}
-            <span className="text-[#F05023] text-xl">★</span>
-          {/* </div> */}
-          <h4 className="text-[#F05023] font-outfit font-semibold text-[18px] sm:text-[20px]">
-            {item.title}
-          </h4>
-        </div>
-
-        <p className="text-gray-600 text-[16px] sm:text-[18px] leading-relaxed font-lato text-left">
-          {item.desc}
-        </p>
-      </div>
-    ))}
-  </div>
-</section>
-
-
-          {/* ===== ADVANCED SERVICES ===== */}
-          <section className="mt-12 bg-gray-50 py-12 px-4 sm:px-8 rounded-2xl shadow-sm text-center w-full">
-            <h3 className="text-3xl sm:text-4xl font-outfit font-bold text-[#0A175C] mb-3">
-              ADVANCED <span className="text-[#F05023]">ENGINEERING SERVICES</span>
-            </h3>
-            <div className="w-24 h-[3px] bg-[#F05023] mx-auto mb-10 rounded-full"></div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
-              {advancedServices.map((srv, i) => (
-                <div
-                  key={i}
-                  className="bg-white rounded-2xl p-5 sm:p-6 border border-gray-200 shadow-md hover:shadow-lg hover:-translate-y-2 transition-all duration-500 text-left"
-                >
-                  <h4 className="text-[#F05023] font-outfit font-semibold mb-3 text-[20px] sm:text-[22px]">
-                    {srv.title}
-                  </h4>
-                  <p className="text-gray-600 text-[16px] sm:text-[18px] mb-3 font-lato">
-                    {srv.desc}
-                  </p>
-                  {srv.points && (
-                    <ul className="list-disc list-inside text-gray-600 text-[15px] sm:text-[16px] space-y-1 font-lato">
-                      {srv.points.map((point, idx) => (
-                        <li key={idx}>{point}</li>
-                      ))}
-                    </ul>
-                  )}
+        <div ref={mainSectionRef} className="col-span-7 flex flex-col gap-14 items-center w-full relative">
+          {active < solutions.length ? (
+            <>
+              {/* ===== IMAGE ===== */}
+              <div className="flex justify-center w-full px-2 sm:px-6">
+                <div className="relative w-full sm:w-[80%] lg:w-[85%] max-w-[900px] h-[220px] sm:h-[350px] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
+                  <Image
+                    src={solutions[active].image}
+                    alt={solutions[active].title}
+                    fill
+                    className="object-cover object-center transition-transform duration-700 hover:scale-105"
+                    priority
+                  />
                 </div>
-              ))}
-            </div>
-          </section>
+              </div>
+
+              {/* ===== TITLE + DESC ===== */}
+              <div className="text-center max-w-4xl px-4">
+                <h2 className="text-[#0A175C] font-outfit font-semibold text-[24px] sm:text-[30px] mb-3">
+                  {solutions[active].title}
+                </h2>
+                <div className="w-20 h-[3px] bg-[#F05023] mx-auto mb-6 rounded-full"></div>
+                <p className="text-gray-600 leading-relaxed text-[16px] sm:text-[18px] font-lato">
+                  {solutions[active].shortDesc}
+                </p>
+              </div>
+
+              {/* ===== WHAT WE OFFER ===== */}
+              <section className="text-center w-full px-2 sm:px-6 py-16 bg-gradient-to-b from-white to-[#f9fafc]">
+                <h3 className="text-3xl sm:text-4xl font-outfit font-bold text-[#0A175C] mb-3">
+                  What We <span className="text-[#F05023]">Offer</span>
+                </h3>
+                <div className="w-20 h-[3px] bg-[#F05023] mx-auto mb-10 rounded-full"></div>
+
+                <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 justify-center">
+                  {solutions[active].whatWeOffer.map((item, idx) => (
+                    <div
+                      key={idx}
+                      className="flex flex-col gap-3 p-5 sm:p-6 bg-white border border-gray-200 rounded-2xl shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-500"
+                    >
+                      <div className="flex items-center gap-3 mb-2">
+                        <span className="text-[#F05023] text-xl">★</span>
+                        <h4 className="text-[#F05023] font-outfit font-semibold text-[18px] sm:text-[20px]">
+                          {item.title}
+                        </h4>
+                      </div>
+                      <p className="text-gray-600 text-[16px] sm:text-[18px] leading-relaxed font-lato text-left">
+                        {item.desc}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            </>
+          ) : (
+            /* ===== ADVANCED SERVICES (STATIC) ===== */
+            <section className="mt-12 bg-gray-50 py-12 px-4 sm:px-8 rounded-2xl shadow-sm text-center w-full">
+              <h3 className="text-3xl sm:text-4xl font-outfit font-bold text-[#0A175C] mb-3">
+                ADVANCED <span className="text-[#F05023]">ENGINEERING SERVICES</span>
+              </h3>
+              <div className="w-24 h-[3px] bg-[#F05023] mx-auto mb-10 rounded-full"></div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
+                {advancedServices.map((srv, i) => (
+                  <div
+                    key={i}
+                    className="bg-white rounded-2xl p-5 sm:p-6 border border-gray-200 shadow-md hover:shadow-lg hover:-translate-y-2 transition-all duration-500 text-left"
+                  >
+                    <h4 className="text-[#F05023] font-outfit font-semibold mb-3 text-[20px] sm:text-[22px]">
+                      {srv.title}
+                    </h4>
+                    <p className="text-gray-600 text-[16px] sm:text-[18px] mb-3 font-lato">
+                      {srv.desc}
+                    </p>
+                    {srv.points && (
+                      <ul className="list-disc list-inside text-gray-600 text-[15px] sm:text-[16px] space-y-1 font-lato">
+                        {srv.points.map((point, idx) => (
+                          <li key={idx}>{point}</li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
         </div>
       </section>
     </div>
