@@ -92,16 +92,31 @@ export default function CapabilitiesContent() {
   ];
 
   const [active, setActive] = useState(categories[0].id);
+
+// On first load — read URL hash (#processes) and set active accordingly
+useEffect(() => {
+  if (typeof window === "undefined") return;
+  const hash = window.location.hash.replace("#", "");
+  if (!hash) return;
+
+  const found = categories.find((c) => c.id === hash);
+  if (found) {
+    setActive(found.id);
+    // optional immediate scroll of the content area (covered below)
+  }
+}, []); // run once on mount
+
   const activeObj = categories.find((c) => c.id === active);
 
   const contentRef = useRef(null);
 
   // Scroll to top when category changes
   useEffect(() => {
-    if (contentRef.current) {
-      contentRef.current.scrollTop = 0;
-    }
-  }, [active]);
+  if (!contentRef.current) return;
+  // Smooth scroll top of the content area
+  contentRef.current.scrollTo({ top: 0, behavior: "smooth" });
+}, [active]);
+
 
   const whyChoosePoints = [
     "Tolerances as tight as ±0.003″",
@@ -205,6 +220,7 @@ export default function CapabilitiesContent() {
 
             {/* Main Content */}
             <main
+              id={activeObj.id}             // <-- add this if you want scrollIntoView to find it
               ref={contentRef}
               className="col-span-1 md:col-span-1 flex flex-col gap-12 overflow-y-auto"
               style={{ maxHeight: "calc(100vh - 150px)" }}
