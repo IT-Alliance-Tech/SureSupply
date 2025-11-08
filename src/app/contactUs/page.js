@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { TextField, Button } from "@mui/material";
 import { Phone, Mail, MapPin } from "lucide-react";
 import bannerImg from "../../../public/bannerC.png";
 import { useState } from "react";
@@ -20,45 +19,10 @@ export default function ContactUsPage() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-
-    try {
-      const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbxo-7k0lGIYan7qMXFu4n6xG16Kglc89o5C27qoFINZUaxwBnQ4JYm12S58BOtr2O0h/exec",
-        {
-          method: "POST",
-          mode: "cors",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      const result = await response.json();
-      console.log(result);
-
-      if (result.result === "success") {
-        alert("Form submitted successfully!");
-        setFormData({
-          firstName: "",
-          lastName: "",
-          email: "",
-          phone: "",
-          message: "",
-        });
-      } else {
-        alert("Something went wrong. Please try again.");
-      }
-    } catch (error) {
-      console.error("Error:", error);
-      alert("Failed to send data. Please check your internet or script permissions.");
-    }
+    alert("Form submitted! (No backend connected)");
+    setFormData({ firstName: "", lastName: "", email: "", phone: "", message: "" });
   };
 
   return (
@@ -75,9 +39,7 @@ export default function ContactUsPage() {
         <div className="text-center text-white z-10 px-4">
           <h1 className="text-5xl font-bold tracking-wide mb-4">CONTACT US</h1>
           <div className="text-[16px] font-medium flex justify-center items-center gap-2">
-            <Link href="/" className="hover:text-[#F05023] transition-colors">
-              Home
-            </Link>
+            <Link href="/" className="hover:text-[#F05023] transition-colors">Home</Link>
             <span className="text-[#F05023]">•</span>
             <span className="text-[#F05023]">Contact Us</span>
           </div>
@@ -90,15 +52,12 @@ export default function ContactUsPage() {
           {/* Left Section */}
           <div className="flex flex-col justify-center space-y-6 rounded-2xl p-6">
             <div>
-              <h5 className="text-[#F05023] uppercase tracking-wide font-semibold">
-                Contact Us
-              </h5>
+              <h5 className="text-[#F05023] uppercase tracking-wide font-semibold">Contact Us</h5>
               <h2 className="text-4xl font-bold text-gray-900 mt-2">
                 Get in Touch <span className="text-[#F05023]">With Us</span>
               </h2>
               <p className="text-gray-700 mt-4">
-                Reach out for any inquiries, support, or to discuss how we can
-                meet your industrial needs.
+                Reach out for any inquiries, support, or to discuss how we can meet your industrial needs.
               </p>
             </div>
 
@@ -130,8 +89,7 @@ export default function ContactUsPage() {
                 <div>
                   <p className="font-semibold text-gray-800">Our Address</p>
                   <p className="text-gray-600">
-                    237, Second Floor, Copper Crown Building, Mahavir Circle,
-                    Phase-3 Dared, Jamnagar Gujarat (INDIA)-361004
+                    237, Second Floor, Copper Crown Building, Mahavir Circle, Phase-3 Dared, Jamnagar Gujarat (INDIA)-361004
                   </p>
                 </div>
               </div>
@@ -143,67 +101,83 @@ export default function ContactUsPage() {
             <h2 className="text-3xl font-bold text-gray-900 mb-6">
               Contact <span className="text-[#F05023]">Me</span>
             </h2>
-            <form className="space-y-4" onSubmit={handleSubmit}>
+            <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <TextField
-                  name="firstName"
-                  label="First Name"
-                  fullWidth
-                  required
-                  value={formData.firstName}
+                <div className="flex flex-col">
+                  <label htmlFor="firstName" className="text-gray-800 font-semibold mb-1">First Name</label>
+                  <input
+                    id="firstName"
+                    type="text"
+                    name="firstName"
+                    value={formData.firstName}
+                    onChange={handleChange}
+                    required
+                    className="border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-[#F05023]"
+                  />
+                </div>
+                <div className="flex flex-col">
+                  <label htmlFor="lastName" className="text-gray-800 font-semibold mb-1">Last Name</label>
+                  <input
+                    id="lastName"
+                    type="text"
+                    name="lastName"
+                    value={formData.lastName}
+                    onChange={handleChange}
+                    required
+                    className="border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-[#F05023]"
+                  />
+                </div>
+              </div>
+
+              <div className="flex flex-col">
+                <label htmlFor="email" className="text-gray-800 font-semibold mb-1">E-mail</label>
+                <input
+                  id="email"
+                  type="email"
+                  name="email"
+                  value={formData.email}
                   onChange={handleChange}
-                />
-                <TextField
-                  name="lastName"
-                  label="Last Name"
-                  fullWidth
                   required
-                  value={formData.lastName}
-                  onChange={handleChange}
+                  className="border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-[#F05023]"
                 />
               </div>
 
-              <TextField
-                name="email"
-                label="E-mail"
-                fullWidth
-                type="email"
-                required
-                value={formData.email}
-                onChange={handleChange}
-              />
+              <div className="flex flex-col">
+                <label htmlFor="phone" className="text-gray-800 font-semibold mb-1">Phone Number</label>
+                <input
+                  id="phone"
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  required
+                  className="border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-[#F05023]"
+                />
+              </div>
 
-              <TextField
-                name="phone"
-                label="Phone Number"
-                fullWidth
-                type="tel"
-                required
-                value={formData.phone}
-                onChange={handleChange}
-              />
+              <div className="flex flex-col">
+  <label htmlFor="message" className="text-gray-800 font-semibold mb-1">
+    Message
+  </label>
+  <textarea
+    id="message"
+    name="message"
+    rows={4}
+    value={formData.message}
+    onChange={handleChange}
+    required
+    className="border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-[#F05023] resize-none text-gray-900 bg-white"
+    placeholder="Type your message here..."
+  ></textarea>
+</div>
 
-              <TextField
-                name="message"
-                label="Message"
-                fullWidth
-                multiline
-                rows={4}
-                required
-                value={formData.message}
-                onChange={handleChange}
-              />
 
-              <Button
+              <button
                 type="submit"
-                variant="contained"
-                sx={{
-                  backgroundColor: "#F05023",
-                  "&:hover": { backgroundColor: "#d9451f" },
-                }}
+                className="bg-[#F05023] hover:bg-[#d9451f] text-white font-semibold py-3 rounded-lg transition-colors"
               >
                 Send Message
-              </Button>
+              </button>
             </form>
           </div>
         </div>
@@ -212,7 +186,7 @@ export default function ContactUsPage() {
       {/* ===== MAP SECTION ===== */}
       <section className="w-full h-[400px] md:h-[500px]">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!..."
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3670.123456789!2d70.0645!3d22.4701!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395c3d0f1234567%3A0xabcdef123456789!2sCopper%20Crown%20Building%2C%20Jamnagar!5e0!3m2!1sen!2sin!4v1699999999999!5m2!1sen!2sin"
           width="100%"
           height="100%"
           style={{ border: 0 }}
