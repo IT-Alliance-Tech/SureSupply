@@ -83,7 +83,7 @@ export default function HomeAbout() {
 
           {/* Button (center on mobile, left on desktop) */}
           <div className="flex justify-center lg:justify-start">
-            <Link href="/aboutUs" passHref>
+            <Link href="/aboutUs2" passHref>
               <Button
                 variant="outlined"
                 sx={{
