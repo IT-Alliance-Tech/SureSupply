@@ -6,6 +6,7 @@ import OurPromise from "@/components/supplierNetwork/ourPromise";
 import ValueWeCreate from "@/components/supplierNetwork/valueWeCreate";
 import HowItWorks from "@/components/supplierNetwork/howItWorks";
 import Testimonals from "@/components/supplierNetwork/testimonals";
+import CTASection from "@/components/supplierNetwork/ctaSection";
 
 
 export default function SupplierNetworkPage() {
@@ -18,6 +19,7 @@ export default function SupplierNetworkPage() {
       <HowItWorks />
       <Section6_WhyChooseSureSupply />
       <Testimonals />
+      <CTASection />
     </main>
   );
 }
