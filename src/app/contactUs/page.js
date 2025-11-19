@@ -97,89 +97,90 @@ export default function ContactUsPage() {
           </div>
 
           {/* Right Section (Form) */}
-          <div className="bg-white rounded-2xl shadow-xl p-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">
-              Contact <span className="text-[#F05023]">Me</span>
-            </h2>
-            <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="flex flex-col">
-                  <label htmlFor="firstName" className="text-gray-800 font-semibold mb-1">First Name</label>
-                  <input
-                    id="firstName"
-                    type="text"
-                    name="firstName"
-                    value={formData.firstName}
-                    onChange={handleChange}
-                    required
-                    className="border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-[#F05023]"
-                  />
-                </div>
-                <div className="flex flex-col">
-                  <label htmlFor="lastName" className="text-gray-800 font-semibold mb-1">Last Name</label>
-                  <input
-                    id="lastName"
-                    type="text"
-                    name="lastName"
-                    value={formData.lastName}
-                    onChange={handleChange}
-                    required
-                    className="border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-[#F05023]"
-                  />
-                </div>
-              </div>
+          <div className="w-full flex justify-center">
+  <div className="bg-white rounded-2xl shadow-xl p-8 max-w-xl w-full">
+    <h2 className="text-3xl font-bold text-gray-900 mb-6">
+      {`Let’s Build `}<span className="text-[#F05023]">Something Together</span>
+    </h2>
 
-              <div className="flex flex-col">
-                <label htmlFor="email" className="text-gray-800 font-semibold mb-1">E-mail</label>
-                <input
-                  id="email"
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-[#F05023]"
-                />
-              </div>
+    <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="flex flex-col">
+          <label htmlFor="firstName" className="text-gray-800 font-semibold mb-1">First Name</label>
+          <input
+            id="firstName"
+            type="text"
+            name="firstName"
+            value={formData.firstName}
+            onChange={handleChange}
+            required
+            className="border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-[#F05023]"
+          />
+        </div>
+        <div className="flex flex-col">
+          <label htmlFor="lastName" className="text-gray-800 font-semibold mb-1">Last Name</label>
+          <input
+            id="lastName"
+            type="text"
+            name="lastName"
+            value={formData.lastName}
+            onChange={handleChange}
+            required
+            className="border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-[#F05023]"
+          />
+        </div>
+      </div>
 
-              <div className="flex flex-col">
-                <label htmlFor="phone" className="text-gray-800 font-semibold mb-1">Phone Number</label>
-                <input
-                  id="phone"
-                  type="tel"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  required
-                  className="border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-[#F05023]"
-                />
-              </div>
+      <div className="flex flex-col">
+        <label htmlFor="email" className="text-gray-800 font-semibold mb-1">E-mail</label>
+        <input
+          id="email"
+          type="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          required
+          className="border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-[#F05023]"
+        />
+      </div>
 
-              <div className="flex flex-col">
-  <label htmlFor="message" className="text-gray-800 font-semibold mb-1">
-    Message
-  </label>
-  <textarea
-    id="message"
-    name="message"
-    rows={4}
-    value={formData.message}
-    onChange={handleChange}
-    required
-    className="border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-[#F05023] resize-none text-gray-900 bg-white"
-    placeholder="Type your message here..."
-  ></textarea>
+      <div className="flex flex-col">
+        <label htmlFor="phone" className="text-gray-800 font-semibold mb-1">Phone Number</label>
+        <input
+          id="phone"
+          type="tel"
+          name="phone"
+          value={formData.phone}
+          onChange={handleChange}
+          required
+          className="border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-[#F05023]"
+        />
+      </div>
+
+      <div className="flex flex-col">
+        <label htmlFor="message" className="text-gray-800 font-semibold mb-1">Message</label>
+        <textarea
+          id="message"
+          name="message"
+          rows={4}
+          value={formData.message}
+          onChange={handleChange}
+          required
+          className="border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-[#F05023] resize-none text-gray-900 bg-white"
+          placeholder="Type your message here..."
+        ></textarea>
+      </div>
+
+      <button
+        type="submit"
+        className="bg-[#F05023] hover:bg-[#d9451f] text-white font-semibold py-3 rounded-lg transition-colors"
+      >
+        Send Message
+      </button>
+    </form>
+  </div>
 </div>
 
-
-              <button
-                type="submit"
-                className="bg-[#F05023] hover:bg-[#d9451f] text-white font-semibold py-3 rounded-lg transition-colors"
-              >
-                Send Message
-              </button>
-            </form>
-          </div>
         </div>
       </section>
 

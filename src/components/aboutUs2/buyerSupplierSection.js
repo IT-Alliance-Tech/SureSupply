@@ -63,14 +63,14 @@ export default function BuyerSupplierPortal() {
 
   return (
     <section
-      className="w-full py-20 px-6 lg:px-20 bg-gradient-to-b from-white to-[#f5f8ff] overflow-hidden"
+      className="w-full py-20 px-4 sm:px-6 lg:px-20 bg-gradient-to-b from-white to-[#f5f8ff] overflow-hidden"
       id="portal"
     >
-      <div className="max-w-6xl mx-auto bg-white rounded-3xl shadow-lg p-10 md:p-16">
+      <div className="max-w-6xl mx-auto bg-white rounded-3xl shadow-lg p-6 sm:p-10 md:p-16">
         {/* Top row: buttons + heading */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-10">
           {/* Toggle Buttons */}
-          <div className="flex gap-3">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center md:justify-start">
             {["buyer", "supplier"].map((type) => (
               <button
                 key={type}
@@ -87,26 +87,23 @@ export default function BuyerSupplierPortal() {
           </div>
 
           {/* Dynamic Heading */}
-          {/* Dynamic Heading */}
-<motion.div key={role} className="flex flex-col md:items-end max-w-full">
-  <motion.h3
-    initial={{ opacity: 0, x: 30 }}
-    animate={{ opacity: 1, x: 0 }}
-    exit={{ opacity: 0, x: -30 }}
-    transition={{ duration: 0.6 }}
-    className="font-outfit text-3xl lg:text-4xl font-semibold text-[#0A175C] text-right leading-tight"
-  >
-    {current.heading}
-  </motion.h3>
-  {/* Orange underline aligned with heading end */}
-  <motion.div
-    initial={{ width: 0 }}
-    animate={{ width: 64 }}
-    transition={{ duration: 0.5 }}
-    className="h-1 bg-[#F05023] rounded-full mt-2 self-end"
-  ></motion.div>
-</motion.div>
-
+          <motion.div key={role} className="flex flex-col items-center md:items-end max-w-full mt-4 md:mt-0">
+            <motion.h3
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -30 }}
+              transition={{ duration: 0.6 }}
+              className="font-outfit text-2xl sm:text-3xl lg:text-4xl font-semibold text-[#0A175C] text-center md:text-right leading-tight"
+            >
+              {current.heading}
+            </motion.h3>
+            <motion.div
+              initial={{ width: 0 }}
+              animate={{ width: 64 }}
+              transition={{ duration: 0.5 }}
+              className="h-1 bg-[#F05023] rounded-full mt-2 self-center md:self-end"
+            ></motion.div>
+          </motion.div>
         </div>
 
         {/* Animated Content */}
@@ -122,7 +119,7 @@ export default function BuyerSupplierPortal() {
             <motion.p
               variants={fade}
               custom={0.2}
-              className="font-lato text-gray-700 text-lg md:text-xl font-medium mb-8 leading-relaxed text-center max-w-3xl mx-auto"
+              className="font-lato text-gray-700 text-base sm:text-lg md:text-xl font-medium mb-8 leading-relaxed text-center md:text-center max-w-3xl mx-auto"
             >
               {current.subline}
             </motion.p>
@@ -131,7 +128,7 @@ export default function BuyerSupplierPortal() {
             <motion.h4
               variants={fade}
               custom={0.3}
-              className="font-outfit text-xl md:text-2xl font-bold mb-8 text-[#0A175C] text-center"
+              className="font-outfit text-xl sm:text-2xl md:text-2xl font-bold mb-8 text-[#0A175C] text-center"
             >
               {current.title}
             </motion.h4>
@@ -140,7 +137,7 @@ export default function BuyerSupplierPortal() {
             <motion.div
               variants={fade}
               custom={0.4}
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12"
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12"
             >
               {current.cards.map((card, index) => {
                 const Icon = card.icon;
@@ -155,15 +152,15 @@ export default function BuyerSupplierPortal() {
                       boxShadow: "0 10px 25px rgba(0,0,0,0.08)",
                     }}
                     transition={{ type: "spring", stiffness: 120 }}
-                    className="bg-[#fdfdff] border border-gray-100 rounded-2xl p-6 text-center shadow-sm"
+                    className="bg-[#fdfdff] border border-gray-100 rounded-2xl p-5 sm:p-6 text-center shadow-sm"
                   >
                     <div
                       className="w-12 h-12 mx-auto mb-4 flex items-center justify-center rounded-full"
                       style={{ backgroundColor: "#F0502320" }}
                     >
-                      <Icon size={26} strokeWidth={2.2} style={{ color: "#F05023" }} />
+                      <Icon size={22} strokeWidth={2.2} style={{ color: "#F05023" }} />
                     </div>
-                    <p className="font-lato text-gray-700 font-medium leading-relaxed text-base">
+                    <p className="font-lato text-gray-700 font-medium leading-relaxed text-base sm:text-base">
                       {card.text}
                     </p>
                   </motion.div>
@@ -175,7 +172,7 @@ export default function BuyerSupplierPortal() {
             <motion.p
               variants={fade}
               custom={0.5}
-              className="font-lato text-gray-600 text-base md:text-lg max-w-3xl mx-auto leading-relaxed text-center"
+              className="font-lato text-gray-600 text-base sm:text-lg md:text-lg max-w-3xl mx-auto leading-relaxed text-center"
             >
               {current.footer}
             </motion.p>

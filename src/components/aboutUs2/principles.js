@@ -21,7 +21,6 @@ export default function Principles() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Values with two bullet points each
   const values = [
     {
       icon: <FaCheckCircle size={28} className="text-[#F05023]" />,
@@ -80,7 +79,7 @@ export default function Principles() {
     >
       {/* Section Heading */}
       <motion.h1
-        className={`text-3xl md:text-4xl font-bold text-[#0A175C] mb-8 ${outfit.className}`}
+        className={`text-3xl md:text-4xl font-bold text-[#0A175C] mb-8 ${outfit.className} text-center`}
         initial={{ opacity: 0, y: 20 }}
         animate={isVisible ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.6 }}
@@ -88,7 +87,7 @@ export default function Principles() {
         Core Principles of SureSupply
       </motion.h1>
 
-      {/* Vision & Mission Side by Side */}
+      {/* Vision & Mission */}
       <div className="w-full max-w-6xl flex flex-col md:flex-row gap-8">
         {/* Vision */}
         <motion.div
@@ -123,7 +122,7 @@ export default function Principles() {
 
       {/* Our Values Heading */}
       <motion.h2
-        className={`text-3xl md:text-4xl font-bold text-[#0A175C] mb-8 ${outfit.className}`}
+        className={`text-3xl md:text-4xl font-bold text-[#0A175C] mb-8 ${outfit.className} text-center`}
         initial={{ opacity: 0, y: 20 }}
         animate={isVisible ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.6, delay: 0.4 }}
