@@ -69,14 +69,14 @@ const Navbar = () => {
         {/* Right Side */}
         <div className="flex items-center space-x-3">
           {/* Desktop Buttons */}
-          <div className="hidden md:flex space-x-3">
+          {/* <div className="hidden md:flex space-x-3">
             <button className="px-5 py-2 text-blue-600 border border-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition text-base font-medium cursor-pointer">
               Login
             </button>
             <button className="px-5 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition text-base font-medium cursor-pointer">
-              Signup
+              Signup     
             </button>
-          </div>
+          </div> */}
 
           {/* Menu Icon */}
           <button
@@ -218,14 +218,14 @@ const Navbar = () => {
             </ul>
 
             {/* Buttons */}
-            <div className="mt-auto flex flex-col gap-3">
+            {/* <div className="mt-auto flex flex-col gap-3">
               <button className="px-5 py-3 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition text-base font-medium cursor-pointer">
                 Login
               </button>
               <button className="px-5 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition text-base font-medium cursor-pointer">
                 Signup
               </button>
-            </div>
+            </div> */}
           </div>
         </div>
       )}
