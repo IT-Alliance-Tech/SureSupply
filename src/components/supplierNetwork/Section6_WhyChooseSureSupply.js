@@ -70,11 +70,11 @@ export default function Section6_WhyChooseSureSupply() {
       <div className="text-center mb-12">
         <h2 className="text-3xl sm:text-4xl font-bold text-[#0A175C] font-outfit mb-3">
           Why Choose <span className="text-[#F05023]">SureSupply</span> Over
-          {`Traditional Platforms?`}
+          {` Traditional Platforms?`}
         </h2>
       </div>
 
-      {/* ===== Comparison Table ===== */}
+      {/* ===== Responsive Table Wrapper ===== */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -82,7 +82,7 @@ export default function Section6_WhyChooseSureSupply() {
         transition={{ duration: 0.6 }}
         className="overflow-x-auto"
       >
-        <table className="w-full max-w-6xl mx-auto text-left border border-gray-200 rounded-2xl overflow-hidden shadow-md bg-white border-collapse">
+        <table className="w-full min-w-[700px] max-w-6xl mx-auto text-left border border-gray-200 rounded-2xl overflow-hidden shadow-md bg-white border-collapse">
           <thead className="bg-[#0A175C] text-white font-outfit">
             <tr>
               <th className="py-4 px-6 text-center w-[6%]"></th>

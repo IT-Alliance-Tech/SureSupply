@@ -52,12 +52,10 @@ export default function ValueWeCreate() {
     },
   ];
 
-  // Use useMemo to make 'words' stable across renders
   const words = useMemo(() => ["Reliable", "Transparent", "Accountable"], []);
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Loop words every 2.5 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % words.length);
@@ -86,9 +84,8 @@ export default function ValueWeCreate() {
           <span className="text-[#F05023]">Suppliers</span>
         </motion.h2>
 
-        {/* ✅ Animated tagline */}
         <div className="flex justify-center items-center text-xl sm:text-2xl font-semibold font-outfit text-gray-700">
-          <span>Your Growth Partner —&nbsp;</span>
+          <span>{`Your Growth Partner —`}&nbsp;</span>
           <span
             className="text-[#F05023] inline-block w-[180px] text-left relative"
             style={{ height: "1.5em" }}
@@ -119,9 +116,10 @@ export default function ValueWeCreate() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: index * 0.1 }}
-            className={`flex flex-col items-center sm:items-start lg:flex-row justify-center gap-10 ${
-              index % 2 === 1 ? "lg:flex-row-reverse" : ""
-            }`}
+            className={`flex flex-col items-center justify-center gap-10 w-full
+              lg:flex-row ${index % 2 === 1 ? "lg:flex-row-reverse" : "lg:flex-row"}
+              text-center lg:text-left
+            `}
           >
             {/* Image Section */}
             <div className="w-full lg:w-1/2 flex justify-center">
@@ -138,7 +136,7 @@ export default function ValueWeCreate() {
             </div>
 
             {/* Text Section */}
-            <div className="w-full lg:w-1/2 text-center sm:text-left">
+            <div className="w-full lg:w-1/2 text-center">
               <h4 className="text-[#F05023] text-2xl font-bold mb-2 font-outfit">
                 {item.num}
               </h4>

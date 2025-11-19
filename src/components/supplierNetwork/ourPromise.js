@@ -69,36 +69,39 @@ export default function OurPromise() {
         What We Handle for You
       </h3>
 
-      {/* ===== First Three Cards ===== */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-        {items.slice(0, 3).map((item, index) => (
-          <motion.div
-            key={index}
-            whileHover={{ scale: 1.05 }}
-            transition={{ type: "spring", stiffness: 200 }}
-            className="bg-white rounded-2xl shadow-md p-8 flex flex-col items-center text-center border border-gray-200 hover:shadow-xl transition-all duration-300"
-          >
-            {item.icon}
-            <h4 className="text-lg font-semibold text-[#0A175C] mb-2 font-outfit">{item.title}</h4>
-            <p className="text-gray-700 text-sm font-lato">{item.desc}</p>
-          </motion.div>
-        ))}
-      </div>
+      {/* ===== Grid for All Items ===== */}
+      <div className="max-w-6xl mx-auto">
+        {/* First Row (Items 1-3) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+          {items.slice(0, 3).map((item, index) => (
+            <motion.div
+              key={index}
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 200 }}
+              className="bg-white rounded-2xl shadow-md p-8 flex flex-col items-center text-center border border-gray-200 hover:shadow-xl transition-all duration-300"
+            >
+              {item.icon}
+              <h4 className="text-lg font-semibold text-[#0A175C] mb-2 font-outfit">{item.title}</h4>
+              <p className="text-gray-700 text-sm font-lato">{item.desc}</p>
+            </motion.div>
+          ))}
+        </div>
 
-      {/* ===== Centered Last Two Cards ===== */}
-      <div className="flex flex-wrap justify-center gap-8 mt-10">
-        {items.slice(3).map((item, index) => (
-          <motion.div
-            key={index}
-            whileHover={{ scale: 1.05 }}
-            transition={{ type: "spring", stiffness: 200 }}
-            className="bg-white rounded-2xl shadow-md p-8 w-[90%] sm:w-[45%] lg:w-[30%] flex flex-col items-center text-center border border-gray-200 hover:shadow-xl transition-all duration-300"
-          >
-            {item.icon}
-            <h4 className="text-lg font-semibold text-[#0A175C] mb-2 font-outfit">{item.title}</h4>
-            <p className="text-gray-700 text-sm font-lato">{item.desc}</p>
-          </motion.div>
-        ))}
+        {/* Second Row (Items 4-5) */}
+        <div className="flex flex-wrap justify-center gap-8">
+          {items.slice(3).map((item, index) => (
+            <motion.div
+              key={index + 3}
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 200 }}
+              className="bg-white rounded-2xl shadow-md p-8 w-full sm:w-[45%] lg:w-[30%] flex flex-col items-center text-center border border-gray-200 hover:shadow-xl transition-all duration-300"
+            >
+              {item.icon}
+              <h4 className="text-lg font-semibold text-[#0A175C] mb-2 font-outfit">{item.title}</h4>
+              <p className="text-gray-700 text-sm font-lato">{item.desc}</p>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

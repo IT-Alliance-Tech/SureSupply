@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { ChevronRight, Car, Plane, Cpu, Tv, Zap } from "lucide-react";
+import { ChevronRight, ChevronDown, ChevronUp, Menu, X, Car, Plane, Cpu, Tv, Zap } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
@@ -58,21 +58,69 @@ const SAMPLE_CARDS = [
 export default function IndustriesWeServeSection() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [flipped, setFlipped] = useState(null);
+  const [menuOpen, setMenuOpen] = useState(false);
   const mainRef = useRef(null);
 
   const activeIndustry = INDUSTRIES[activeIndex];
 
   const handleSelect = (i) => {
     setActiveIndex(i);
+    setMenuOpen(false);
+    setFlipped(null);
     setTimeout(() => mainRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }), 150);
   };
 
   return (
     <section className="w-full bg-white py-12 sm:py-20 px-4 sm:px-8">
       <div className="max-w-7xl mx-auto w-[90%]">
-        <div className="flex items-start justify-between gap-10">
-          {/* ===== LEFT TABLE ===== */}
-          <div className="hidden lg:block lg:w-[35%]">
+        {/* MOBILE MENU BUTTON */}
+        <div className="lg:hidden fixed top-24 left-4 z-50">
+          <button
+            onClick={() => setMenuOpen(true)}
+            className="p-3 rounded-full bg-[#F05023] text-white shadow-lg hover:bg-[#d9481f] transition-all"
+          >
+            <Menu size={24} />
+          </button>
+        </div>
+
+        {/* MOBILE OVERLAY MENU */}
+        {menuOpen && (
+          <div className="fixed inset-0 z-50 bg-white overflow-y-auto">
+            <div className="max-w-[600px] mx-auto px-6 py-6">
+              <div className="flex items-center justify-between mb-6">
+                <h3 className="text-[20px] font-semibold text-[#0A175C]">Industries</h3>
+                <button onClick={() => setMenuOpen(false)} className="p-2 rounded-md text-[#0A175C] hover:bg-gray-100">
+                  <X size={26} />
+                </button>
+              </div>
+
+              <div className="space-y-4">
+                {INDUSTRIES.map((item, i) => {
+                  const Icon = item.icon;
+                  return (
+                    <button
+                      key={item.id}
+                      onClick={() => handleSelect(i)}
+                      className={`w-full flex items-center justify-between px-4 py-3 rounded-md text-left ${
+                        activeIndex === i ? "bg-[#F05023] text-white" : "text-[#0A175C] hover:bg-gray-100"
+                      }`}
+                    >
+                      <div className="flex items-center gap-2">
+                        <Icon size={18} className={activeIndex === i ? "text-white" : "text-gray-500"} />
+                        {item.title}
+                      </div>
+                      {activeIndex === i ? <ChevronUp /> : <ChevronDown />}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        )}
+
+        <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-10">
+          {/* DESKTOP SIDEBAR */}
+          <aside className="hidden lg:block sticky top-28">
             <div className="rounded-xl overflow-hidden shadow-lg">
               <div className="bg-[#F05023] text-white px-5 py-3 font-semibold text-lg">
                 Industries We Serve
@@ -85,63 +133,49 @@ export default function IndustriesWeServeSection() {
                       key={item.id}
                       onClick={() => handleSelect(i)}
                       className={`w-full flex items-center justify-between px-5 py-4 border-b text-left transition-all duration-300 ${
-                        activeIndex === i
-                          ? "bg-[#FFF3EE] text-[#F05023]"
-                          : "hover:bg-gray-50 text-[#0A175C]"
+                        activeIndex === i ? "bg-[#FFF3EE] text-[#F05023]" : "hover:bg-gray-50 text-[#0A175C]"
                       }`}
                     >
                       <div className="flex items-center gap-3">
-                        <Icon
-                          size={18}
-                          className={`${
-                            activeIndex === i ? "text-[#F05023]" : "text-gray-400"
-                          }`}
-                        />
+                        <Icon size={18} className={activeIndex === i ? "text-[#F05023]" : "text-gray-400"} />
                         <span className="font-medium">{item.title}</span>
                       </div>
                       <ChevronRight
-                        className={`w-5 h-5 transition-transform ${
-                          activeIndex === i ? "rotate-90 text-[#F05023]" : "text-gray-400"
-                        }`}
+                        className={`w-5 h-5 transition-transform ${activeIndex === i ? "rotate-90 text-[#F05023]" : "text-gray-400"}`}
                       />
                     </button>
                   );
                 })}
               </div>
             </div>
-          </div>
+          </aside>
 
-          {/* ===== RIGHT CONTENT ===== */}
-          <div className="w-full lg:w-[65%]" ref={mainRef}>
+          {/* MAIN CONTENT */}
+          <main className="w-full flex flex-col gap-10" ref={mainRef}>
             <motion.div
               key={activeIndex}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.45 }}
             >
-              {/* === Dynamic Main Heading === */}
+              {/* === DYNAMIC HEADING === */}
               <div className="flex flex-col items-center text-center mb-6">
-  <h2 className="text-3xl font-bold text-[#0A175C] mb-2">
-    {activeIndustry.title}
-  </h2>
-  <div className="w-20 h-[3px] bg-[#F05023] rounded-full" />
-</div>
+                <h2 className="text-3xl font-bold text-[#0A175C] mb-2">{activeIndustry.title}</h2>
+                <div className="w-20 h-[3px] bg-[#F05023] rounded-full" />
+              </div>
 
-
-              {/* === Description === */}
+              {/* === DESCRIPTION === */}
               <p className="text-gray-700 mb-10 leading-relaxed text-center lg:text-left">
                 {activeIndustry.desc}
               </p>
 
               {/* === STATIC SUBHEADING === */}
               <div className="text-center mb-10">
-                <h3 className="text-2xl font-semibold text-[#0A175C] mb-2">
-                  Casting Parts
-                </h3>
+                <h3 className="text-2xl font-semibold text-[#0A175C] mb-2">Casting Parts</h3>
                 <div className="w-16 h-[3px] bg-[#F05023] mx-auto rounded-full"></div>
               </div>
 
-              {/* ===== WHAT WE OFFER CARDS ===== */}
+              {/* === WHAT WE OFFER CARDS === */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {SAMPLE_CARDS.map((card, idx) => (
                   <motion.div
@@ -156,22 +190,15 @@ export default function IndustriesWeServeSection() {
                       style={{ transformStyle: "preserve-3d" }}
                       className="relative w-full h-full"
                     >
-                      {/* Front side */}
+                      {/* FRONT SIDE */}
                       <div className="absolute inset-0 rounded-2xl overflow-hidden backface-hidden">
-                        <Image
-                          src={card.img}
-                          alt={card.title}
-                          fill
-                          className="object-cover rounded-2xl"
-                        />
+                        <Image src={card.img} alt={card.title} fill className="object-cover rounded-2xl" />
                         <div className="absolute inset-0 bg-black/40 flex items-center justify-center rounded-2xl">
-                          <h4 className="text-white font-semibold text-lg drop-shadow-md">
-                            {card.title}
-                          </h4>
+                          <h4 className="text-white font-semibold text-lg drop-shadow-md">{card.title}</h4>
                         </div>
                       </div>
 
-                      {/* Back side */}
+                      {/* BACK SIDE */}
                       <div className="absolute inset-0 rounded-2xl bg-[#F05023] text-white shadow-md flex items-center justify-center p-4 backface-hidden rotate-y-180">
                         <p className="text-center text-sm">{card.desc}</p>
                       </div>
@@ -180,7 +207,7 @@ export default function IndustriesWeServeSection() {
                 ))}
               </div>
             </motion.div>
-          </div>
+          </main>
         </div>
       </div>
     </section>
