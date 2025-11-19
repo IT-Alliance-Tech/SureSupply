@@ -63,10 +63,10 @@ export default function DigitalPlatform() {
         <div className="max-w-6xl mx-auto mt-6 sm:mt-10 flex flex-col lg:flex-row items-center gap-8 sm:gap-10">
           <div className="space-y-4 text-gray-700 leading-relaxed text-base sm:text-base lg:w-1/2 text-center lg:text-left">
             <p>
-              Modern manufacturing demands speed, transparency, and coordination — yet many supply chains still depend on fragmented communication, manual follow-ups, and limited visibility.
+              {`Modern manufacturing demands speed, transparency, and coordination — yet many supply chains still depend on fragmented communication, manual follow-ups, and limited visibility.`}
             </p>
             <p>
-              SureSupply’s digital platform bridges this gap by bringing together buyers, suppliers, and internal teams into one connected ecosystem that transforms how manufacturing operates every day.
+              {`SureSupply’s digital platform bridges this gap by bringing together buyers, suppliers, and internal teams into one connected ecosystem that transforms how manufacturing operates every day.`}
             </p>
           </div>
 
@@ -83,7 +83,7 @@ export default function DigitalPlatform() {
 
         <div className="max-w-6xl mx-auto mt-6 sm:mt-8 space-y-3 text-gray-700 leading-relaxed text-base text-center lg:text-left">
           <p>
-            In today’s world of global competition and shortened product cycles, manufacturers can’t rely on phone calls, scattered spreadsheets, or unverified suppliers. Our platform introduces data-driven decision-making, process standardization, and end-to-end traceability, turning traditional workflows into real-time, insight-driven operations.
+            {`In today’s world of global competition and shortened product cycles, manufacturers can’t rely on phone calls, scattered spreadsheets, or unverified suppliers. Our platform introduces data-driven decision-making, process standardization, and end-to-end traceability, turning traditional workflows into real-time, insight-driven operations.`}
           </p>
           <p>
             By combining digital visibility with human accountability, SureSupply empowers every stakeholder in the supply chain to operate with clarity, confidence, and trust.
@@ -101,7 +101,7 @@ export default function DigitalPlatform() {
           style={{ backgroundColor: "#F05023" }}
         ></div>
         <p className="text-gray-700 font-medium max-w-3xl mx-auto text-base sm:text-lg leading-relaxed">
-          Unlike generic B2B marketplaces, SureSupply is a managed manufacturing ecosystem. Our platform doesn’t just connect buyers and suppliers — it takes ownership of outcomes. Every RFQ, order, and inspection passes through structured digital workflows backed by on-ground teams, ensuring quality, compliance, and timely delivery every time.
+          {`Unlike generic B2B marketplaces, SureSupply is a managed manufacturing ecosystem. Our platform doesn’t just connect buyers and suppliers — it takes ownership of outcomes. Every RFQ, order, and inspection passes through structured digital workflows backed by on-ground teams, ensuring quality, compliance, and timely delivery every time.`}
         </p>
 
         <div className="max-w-6xl mx-auto space-y-14 sm:space-y-20 mt-8 sm:mt-12">

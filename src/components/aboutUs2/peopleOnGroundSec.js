@@ -64,7 +64,7 @@ export default function PeopleOnGroundSection() {
           <p className="font-lato text-gray-700 text-base md:text-lg leading-relaxed max-w-3xl">
             Behind every successful order is a team that shows up on the ground, in the factory, and by your side.
             <br /><br />
-            We believe manufacturing success comes from the right balance of digital precision and human experience. That’s why SureSupply combines platform intelligence with on-site presence to deliver confidence you can see, measure, and rely on.
+            {`We believe manufacturing success comes from the right balance of digital precision and human experience. That’s why SureSupply combines platform intelligence with on-site presence to deliver confidence you can see, measure, and rely on.`}
             <br /><br />
             Our field teams visit supplier facilities, oversee quality control, validate production setups, and ensure that every commitment made digitally is fulfilled physically.
           </p>
