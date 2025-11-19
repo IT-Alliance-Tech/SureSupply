@@ -14,10 +14,23 @@ export default function AboutUsSection() {
   };
 
   return (
-    <section className="w-full bg-[#F9FAFB] py-20 px-6 md:px-12">
+    <section className="w-full bg-[#F9FAFB] py-16 px-6 md:px-12">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-12">
+
+        {/* Image: Top on mobile, right on desktop */}
+        <div className="flex-1 flex justify-center md:justify-end w-full order-1 md:order-2">
+          <div className="relative w-[250px] sm:w-[300px] md:w-[300px] lg:w-[350px] h-auto">
+            <Image
+              src={heroImg}
+              alt="Global supply transformation"
+              className="object-contain w-full h-full"
+              priority
+            />
+          </div>
+        </div>
+
         {/* Left Content */}
-        <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left">
+        <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left order-2 md:order-1">
           <h1
             className={`font-bold uppercase text-[#0A175C] leading-[110%] mb-4 text-[clamp(24px,4vw,36px)] ${outfit.className}`}
             style={{ letterSpacing: '-0.5px' }}
@@ -29,10 +42,11 @@ export default function AboutUsSection() {
             className={`mb-6 max-w-full text-[clamp(14px,2.2vw,16px)] leading-[1.6] ${lato.className}`}
             style={{ color: '#0A175C' }}
           >
-            {`Founded by IIT and IIM alumni, SureSupply is redefining how products are made by removing manufacturing barriers.
-            We connect creators with India’s most capable suppliers to deliver precision-engineered components reliably and transparently.
-            Backed by engineering expertise, we take full ownership of every RFQ — matching the right supplier, process, and ensuring top-quality outcomes.
-            With a human-first approach, we collaborate on design, technical consulting, and production, empowering innovation without limits.`}
+            {`SureSupply is more than a digital sourcing platform — it’s your dedicated manufacturing partner, delivering precision-engineered components through India’s top suppliers. Founded by IIT and IIM alumni, we combine deep engineering expertise with business insight to simplify complex manufacturing.`}
+
+            <br /><br />
+
+            {`Our human-first approach blends digital precision with real-world expertise. We offer DFM support, technical consulting, and complete transparency, ensuring every project meets tight tolerances, complex geometries, and mission-critical timelines with reliability and excellence.`}
           </p>
 
           {/* Buttons */}
@@ -52,17 +66,6 @@ export default function AboutUsSection() {
           </div>
         </div>
 
-        {/* Right Image */}
-        <div className="flex-1 flex justify-center md:justify-end w-full md:-ml-8">
-          <div className="relative w-[200px] sm:w-[400px] md:w-[300px] lg:w-[350px] h-auto">
-            <Image
-              src={heroImg}
-              alt="Global supply transformation"
-              className="object-contain w-full h-full"
-              priority
-            />
-          </div>
-        </div>
       </div>
     </section>
   );
