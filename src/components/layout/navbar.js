@@ -25,7 +25,7 @@ const Navbar = () => {
   };
 
   const companyItems = [
-    { title: "About", desc: "Manufacturing expertise you can trust", path: "/about" },
+    { title: "About", desc: "Manufacturing expertise you can trust", path: "/aboutUs2" },
     { title: "Contact", desc: "Get in touch with our team", path: "/contact" },
     { title: "Careers", desc: "Join our innovative team", path: "/careers" },
     { title: "Investors", desc: "Financial insights", path: "/investors" },
@@ -163,9 +163,9 @@ const Navbar = () => {
             <ul className="flex-1 space-y-5">
               {[
                 { label: "Home", path: "/" },
-                { label: "Company", path: "/aboutUs" },
+                { label: "Company", path: "/aboutUs2" },
                 { label: "Capabilities", path: "/capabilities" },
-                { label: "Industries We Serve", path: "/industries" },
+                { label: "Industries We Serve", path: "/industriesWeServe" },
                 { label: "Our Solution", path: "/ourSolution" },
                 { label: "Supplier Networks", path: "/supplierNetwork" },
                 { label: "Contact Us", path: "/contactUs" },
