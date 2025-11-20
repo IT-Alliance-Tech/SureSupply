@@ -10,8 +10,8 @@ export default function Home() {
       <ResourcesHeroSection />
       <OurBlogs />
       <CaseStudies />
-      <BuyersGuide />
-      <SupplierHandbook />
+      {/* <BuyersGuide /> */}
+      {/* <SupplierHandbook /> */}
       <NewsEvents />
     </main>
   );
