@@ -1,34 +1,47 @@
 'use client';
 
+import Image from "next/image";
+import Link from "next/link";
+import { Outfit, Lato } from "next/font/google";
 import heroImg from '../../../public/bannerC.png';
+
+// Fonts
+const outfit = Outfit({ subsets: ["latin"], weight: ["600", "700"] });
+const lato = Lato({ subsets: ["latin"], weight: ["400", "700"] });
 
 export default function AboutHero() {
   return (
-    <section
-      className="relative bg-gray-50 py-40 text-center bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: `url(${heroImg.src})` }}
-    >
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black opacity-40"></div>
+    <section className="relative w-full h-[600px] flex items-center justify-center overflow-hidden">
+      {/* Background Image */}
+      <Image
+        src={heroImg}
+        alt="About Banner"
+        fill
+        className="object-cover object-center absolute inset-0 -z-10"
+        priority
+      />
 
-      <div className="relative z-10 container mx-auto px-4">
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/40"></div>
+
+      {/* Content */}
+      <div className="text-center text-white z-10 px-4">
         {/* Headline */}
-        <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 drop-shadow-lg">
+        <h1 className={`text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg ${outfit.className}`}>
           Empowering Manufacturers Across India
         </h1>
 
         {/* Tagline */}
-        <p className="text-lg md:text-xl text-white mb-8 drop-shadow-md">
+        <p className={`text-lg md:text-xl mb-8 drop-shadow-md ${lato.className}`}>
           Connecting you to growth, efficiency, and trusted partners.
         </p>
 
-        {/* CTA Button */}
-        <a
-          href="#about-details"
-          className="inline-block bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-700 transition"
-        >
-           Learn More About Us
-        </a>
+        {/* Breadcrumb / Lines */}
+        <div className={`text-[16px] font-medium flex justify-center items-center gap-2 ${lato.className}`}>
+          <Link href="/" className="hover:text-[#F05023] transition-colors">Home</Link>
+          <span className="text-[#F05023]">•</span>
+          <span className="text-[#F05023]">About Us</span>
+        </div>
       </div>
     </section>
   );

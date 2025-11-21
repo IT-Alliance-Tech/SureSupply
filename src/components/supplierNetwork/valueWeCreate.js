@@ -130,7 +130,7 @@ export default function ValueWeCreate() {
                 <Image
                   src={item.image}
                   alt={item.title}
-                  className="w-[85%] max-h-[280px] object-contain rounded-2xl shadow-lg"
+                  className="w-[85%] max-h-[280px] object-contain rounded-2xl shadow-lg mx-auto block"
                 />
               </motion.div>
             </div>

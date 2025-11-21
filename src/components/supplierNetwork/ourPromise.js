@@ -49,7 +49,8 @@ export default function OurPromise() {
         className="text-3xl sm:text-4xl font-bold text-[#0A175C] mb-4 font-outfit"
       >
         Our Promise:{" "}
-        <span className="text-[#F05023]">You Focus on Production,</span> We Handle the Rest
+        <span className="text-[#F05023]">You Focus on Production,</span> We Handle
+        the Rest
       </motion.h2>
 
       {/* ===== Subline ===== */}
@@ -69,39 +70,69 @@ export default function OurPromise() {
         What We Handle for You
       </h3>
 
-      {/* ===== Grid for All Items ===== */}
+      {/* ===== Unified Grid on Mobile & Tablet — KEEP DESKTOP SAME ===== */}
       <div className="max-w-6xl mx-auto">
-        {/* First Row (Items 1-3) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
-          {items.slice(0, 3).map((item, index) => (
+        
+        {/* === Unified Grid for Mobile/Tablet (1 or 2 columns) === */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:hidden gap-8">
+          {items.map((item, index) => (
             <motion.div
               key={index}
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 200 }}
-              className="bg-white rounded-2xl shadow-md p-8 flex flex-col items-center text-center border border-gray-200 hover:shadow-xl transition-all duration-300"
+              className="bg-white rounded-2xl shadow-md p-8 flex flex-col items-center text-center 
+              border border-gray-200 hover:shadow-xl transition-all duration-300"
             >
               {item.icon}
-              <h4 className="text-lg font-semibold text-[#0A175C] mb-2 font-outfit">{item.title}</h4>
+              <h4 className="text-lg font-semibold text-[#0A175C] mb-2 font-outfit">
+                {item.title}
+              </h4>
               <p className="text-gray-700 text-sm font-lato">{item.desc}</p>
             </motion.div>
           ))}
         </div>
 
-        {/* Second Row (Items 4-5) */}
-        <div className="flex flex-wrap justify-center gap-8">
-          {items.slice(3).map((item, index) => (
-            <motion.div
-              key={index + 3}
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 200 }}
-              className="bg-white rounded-2xl shadow-md p-8 w-full sm:w-[45%] lg:w-[30%] flex flex-col items-center text-center border border-gray-200 hover:shadow-xl transition-all duration-300"
-            >
-              {item.icon}
-              <h4 className="text-lg font-semibold text-[#0A175C] mb-2 font-outfit">{item.title}</h4>
-              <p className="text-gray-700 text-sm font-lato">{item.desc}</p>
-            </motion.div>
-          ))}
+        {/* === ORIGINAL DESKTOP LAYOUT (unchanged) === */}
+        <div className="hidden lg:block">
+          {/* First Row (1–3) */}
+          <div className="grid grid-cols-3 gap-8 mb-8">
+            {items.slice(0, 3).map((item, index) => (
+              <motion.div
+                key={index}
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 200 }}
+                className="bg-white rounded-2xl shadow-md p-8 flex flex-col items-center text-center 
+                border border-gray-200 hover:shadow-xl transition-all duration-300"
+              >
+                {item.icon}
+                <h4 className="text-lg font-semibold text-[#0A175C] mb-2 font-outfit">
+                  {item.title}
+                </h4>
+                <p className="text-gray-700 text-sm font-lato">{item.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Second Row (4–5) */}
+          <div className="flex justify-center gap-8">
+            {items.slice(3).map((item, index) => (
+              <motion.div
+                key={index + 3}
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 200 }}
+                className="bg-white rounded-2xl shadow-md p-8 w-[30%] flex flex-col items-center text-center 
+                border border-gray-200 hover:shadow-xl transition-all duration-300"
+              >
+                {item.icon}
+                <h4 className="text-lg font-semibold text-[#0A175C] mb-2 font-outfit">
+                  {item.title}
+                </h4>
+                <p className="text-gray-700 text-sm font-lato">{item.desc}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
+
       </div>
     </section>
   );

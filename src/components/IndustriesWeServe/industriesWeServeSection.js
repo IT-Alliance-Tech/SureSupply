@@ -26,12 +26,12 @@ const INDUSTRIES = [
     icon: Plane,
     desc: "Where precision meets performance, we take flight. Our solutions are built for the extreme—crafted to meet the rigorous standards of air, space, and defence applications. With advanced materials, meticulous engineering, and flawless quality control, we ensure every component soars above expectations—literally.",
   },
-  {
-    id: "electronics",
-    title: "Electrical & Electronics",
-    icon: Cpu,
-    desc: "Powering possibilities, one connection at a time. From high-density enclosures to precision housings and thermal management solutions, we bring design agility and manufacturing precision to the electronics ecosystem. Our innovations ensure smarter, safer, and more efficient systems for the world’s next-gen technology.",
-  },
+  // {
+  //   id: "electronics",
+  //   title: "Electrical & Electronics",
+  //   icon: Cpu,
+  //   desc: "Powering possibilities, one connection at a time. From high-density enclosures to precision housings and thermal management solutions, we bring design agility and manufacturing precision to the electronics ecosystem. Our innovations ensure smarter, safer, and more efficient systems for the world’s next-gen technology.",
+  // },
   {
     id: "consumer",
     title: "Consumer Appliances",
@@ -168,13 +168,7 @@ export default function IndustriesWeServeSection() {
               <p className="text-gray-700 mb-10 leading-relaxed text-center lg:text-left">
                 {activeIndustry.desc}
               </p>
-
-              {/* === STATIC SUBHEADING === */}
-              <div className="text-center mb-10">
-                <h3 className="text-2xl font-semibold text-[#0A175C] mb-2">Casting Parts</h3>
-                <div className="w-16 h-[3px] bg-[#F05023] mx-auto rounded-full"></div>
-              </div>
-
+              
               {/* === WHAT WE OFFER CARDS === */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {SAMPLE_CARDS.map((card, idx) => (

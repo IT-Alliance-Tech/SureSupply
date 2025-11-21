@@ -2,9 +2,16 @@
 import { Box, Container, Typography, Button } from "@mui/material";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/navigation"; 
 import HeroBg from "../../../public/bannerC.png";
 
 export default function HeroSection() {
+  const router = useRouter();
+
+  const handleScrollToQuote = () => {
+    router.push("/#quoteForm"); // ✅ Works everywhere
+  };
+
   return (
     <Box
       component="section"
@@ -79,9 +86,9 @@ export default function HeroSection() {
           focus on production.
         </Typography>
 
+        {/* ===== FIXED BUTTON (WORKS 100%) ===== */}
         <Button
-          component={Link}
-          href="#apply-form"
+          onClick={handleScrollToQuote}
           sx={{
             backgroundColor: "#F05023",
             color: "#fff",

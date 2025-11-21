@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -17,7 +17,7 @@ export default function BuyerSupplierPortal() {
 
   const portals = {
     supplier: {
-      heading: "Supplier Portal — Empowering Partners for Growth",
+      heading: "Supplier Portal - Empowering Partners for Growth",
       subline:
         "SureSupply’s Supplier Portal enables manufacturers to showcase their capabilities, receive matched RFQs, and grow with consistent, qualified business.",
       title: "Key Benefits for Suppliers:",
@@ -33,7 +33,7 @@ export default function BuyerSupplierPortal() {
     },
 
     buyer: {
-      heading: "Buyer Portal — Simplifying Procurement Like Never Before",
+      heading: "Buyer Portal - Simplifying Procurement Like Never Before",
       subline:
         "The Buyer Portal brings all your sourcing and manufacturing requirements into one smart workspace. From raising RFQs to tracking order progress and verifying inspections, buyers experience total transparency and control.",
       title: "Key Benefits for Buyers:",
@@ -67,9 +67,9 @@ export default function BuyerSupplierPortal() {
       id="portal"
     >
       <div className="max-w-6xl mx-auto bg-white rounded-3xl shadow-lg p-6 sm:p-10 md:p-16">
-        {/* Top row: buttons + heading */}
+
+        {/* Top row: role switch + heading */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-10">
-          {/* Toggle Buttons */}
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center md:justify-start">
             {["buyer", "supplier"].map((type) => (
               <button
@@ -86,27 +86,20 @@ export default function BuyerSupplierPortal() {
             ))}
           </div>
 
-          {/* Dynamic Heading */}
-          <motion.div key={role} className="flex flex-col items-center md:items-end max-w-full mt-4 md:mt-0">
+          <motion.div key={role} className="flex flex-col items-center max-w-full mt-4">
             <motion.h3
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -30 }}
               transition={{ duration: 0.6 }}
-              className="font-outfit text-2xl sm:text-3xl lg:text-4xl font-semibold text-[#0A175C] text-center md:text-right leading-tight"
+              className="font-outfit text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#0A175C] text-center leading-tight break-words"
             >
               {current.heading}
             </motion.h3>
-            <motion.div
-              initial={{ width: 0 }}
-              animate={{ width: 64 }}
-              transition={{ duration: 0.5 }}
-              className="h-1 bg-[#F05023] rounded-full mt-2 self-center md:self-end"
-            ></motion.div>
           </motion.div>
         </div>
 
-        {/* Animated Content */}
+        {/* Animated content */}
         <AnimatePresence mode="wait">
           <motion.div
             key={role}
@@ -115,69 +108,98 @@ export default function BuyerSupplierPortal() {
             animate="visible"
             exit="exit"
           >
+
             {/* Subline */}
             <motion.p
               variants={fade}
               custom={0.2}
-              className="font-lato text-gray-700 text-base sm:text-lg md:text-xl font-medium mb-8 leading-relaxed text-center md:text-center max-w-3xl mx-auto"
+              className="font-lato text-gray-700 text-base sm:text-lg md:text-xl font-medium mb-8 leading-relaxed text-center max-w-3xl mx-auto"
             >
               {current.subline}
             </motion.p>
 
-            {/* Section Title */}
+            {/* Title */}
             <motion.h4
               variants={fade}
               custom={0.3}
-              className="font-outfit text-xl sm:text-2xl md:text-2xl font-bold mb-8 text-[#0A175C] text-center"
+              className="font-outfit text-xl sm:text-2xl font-bold mb-8 text-[#0A175C] text-center"
             >
               {current.title}
             </motion.h4>
 
-            {/* Cards Grid */}
-            <motion.div
-              variants={fade}
-              custom={0.4}
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12"
-            >
-              {current.cards.map((card, index) => {
-                const Icon = card.icon;
-                return (
-                  <motion.div
-                    key={index}
-                    variants={fade}
-                    custom={index * 0.1}
-                    whileHover={{
-                      y: -5,
-                      scale: 1.03,
-                      boxShadow: "0 10px 25px rgba(0,0,0,0.08)",
-                    }}
-                    transition={{ type: "spring", stiffness: 120 }}
-                    className="bg-[#fdfdff] border border-gray-100 rounded-2xl p-5 sm:p-6 text-center shadow-sm"
-                  >
-                    <div
-                      className="w-12 h-12 mx-auto mb-4 flex items-center justify-center rounded-full"
-                      style={{ backgroundColor: "#F0502320" }}
+            {/* 🌟 NEW RESPONSIVE LAYOUT 🌟 */}
+            <motion.div variants={fade} custom={0.4}>
+
+              {/* TOP ROW → 1 2 3 (desktop), stacked on mobile */}
+              <div className="flex flex-col md:flex-row justify-center gap-8 mb-8">
+                {current.cards.slice(0, 3).map((card, index) => {
+                  const Icon = card.icon;
+                  return (
+                    <motion.div
+                      key={index}
+                      whileHover={{
+                        y: -5,
+                        scale: 1.03,
+                        boxShadow: "0 10px 25px rgba(0,0,0,0.08)",
+                      }}
+                      className="bg-[#fdfdff] border border-gray-100 rounded-2xl p-6 text-center shadow-sm w-full md:w-72"
                     >
-                      <Icon size={22} strokeWidth={2.2} style={{ color: "#F05023" }} />
-                    </div>
-                    <p className="font-lato text-gray-700 font-medium leading-relaxed text-base sm:text-base">
-                      {card.text}
-                    </p>
-                  </motion.div>
-                );
-              })}
+                      <div
+                        className="w-12 h-12 mx-auto mb-4 flex items-center justify-center rounded-full"
+                        style={{ backgroundColor: "#F0502320" }}
+                      >
+                        <Icon size={22} strokeWidth={2.2} style={{ color: "#F05023" }} />
+                      </div>
+                      <p className="font-lato text-gray-700 font-medium leading-relaxed">
+                        {card.text}
+                      </p>
+                    </motion.div>
+                  );
+                })}
+              </div>
+
+              {/* BOTTOM ROW → 4 5 (desktop centered), stacked on mobile */}
+              <div className="flex flex-col md:flex-row justify-center gap-8">
+                {current.cards.slice(3, 5).map((card, index) => {
+                  const Icon = card.icon;
+                  return (
+                    <motion.div
+                      key={index}
+                      whileHover={{
+                        y: -5,
+                        scale: 1.03,
+                        boxShadow: "0 10px 25px rgba(0,0,0,0.08)",
+                      }}
+                      className="bg-[#fdfdff] border border-gray-100 rounded-2xl p-6 text-center shadow-sm w-full md:w-72"
+                    >
+                      <div
+                        className="w-12 h-12 mx-auto mb-4 flex items-center justify-center rounded-full"
+                        style={{ backgroundColor: "#F0502320" }}
+                      >
+                        <Icon size={22} strokeWidth={2.2} style={{ color: "#F05023" }} />
+                      </div>
+                      <p className="font-lato text-gray-700 font-medium leading-relaxed">
+                        {card.text}
+                      </p>
+                    </motion.div>
+                  );
+                })}
+              </div>
+
             </motion.div>
 
-            {/* Footer Text */}
+            {/* Footer */}
             <motion.p
               variants={fade}
               custom={0.5}
-              className="font-lato text-gray-600 text-base sm:text-lg md:text-lg max-w-3xl mx-auto leading-relaxed text-center"
+              className="font-lato text-gray-600 text-base sm:text-lg max-w-3xl mx-auto leading-relaxed text-center mt-12"
             >
               {current.footer}
             </motion.p>
+
           </motion.div>
         </AnimatePresence>
+
       </div>
     </section>
   );
