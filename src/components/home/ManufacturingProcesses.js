@@ -206,7 +206,7 @@ export default function OurExpertise() {
       { title: "Low pressure die casting (LPDC)", image: casting2, expandedImage: castingExpanded, details: "Molten metal is carefully poured into pre-heated molds." },
       { title: "Gravity die Casting (GDC)", image: casting3, expandedImage: castingExpanded, details: "Controlled cooling ensures uniform grain structure." },
       { title: "Investment casting", image: casting4, expandedImage: castingExpanded, details: "Castings are cleaned, trimmed, and inspected." },
-      { title: "Heat Treatment", image: casting5, expandedImage: castingExpanded, details: "Enhances mechanical properties through controlled heating and cooling." },
+      { title: "Sand Casting", image: casting5, expandedImage: castingExpanded, details: "Enhances mechanical properties through controlled heating and cooling." },
     ],
     Forging: [
       { title: "Open die forging", image: forging1, expandedImage: forgingExpanded, details: "Forging between flat dies to produce large, custom-shaped components." },

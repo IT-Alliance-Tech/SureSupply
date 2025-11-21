@@ -5,7 +5,7 @@ import { ChevronRight, ChevronDown, ChevronUp, Menu, X, Car, Plane, Cpu, Tv, Zap
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-// === Import Images ===
+// ====== IMPORT YOUR IMAGE PLACEHOLDERS ======
 import castingImg from "../../../public/dummy3.png";
 import forgingImg from "../../../public/dummy3.png";
 import fabricationImg from "../../../public/dummy3.png";
@@ -13,87 +13,121 @@ import plasticImg from "../../../public/dummy3.png";
 import machiningImg from "../../../public/dummy3.png";
 import rapidImg from "../../../public/dummy3.png";
 
+// ---- 6 images for each card ----
+import castingImg1 from "../../../public/dummy3.png";
+import castingImg2 from "../../../public/dummy3.png";
+import castingImg3 from "../../../public/dummy3.png";
+import castingImg4 from "../../../public/dummy3.png";
+import castingImg5 from "../../../public/dummy3.png";
+import castingImg6 from "../../../public/dummy3.png";
+
+import forgingImg1 from "../../../public/dummy3.png";
+import forgingImg2 from "../../../public/dummy3.png";
+import forgingImg3 from "../../../public/dummy3.png";
+import forgingImg4 from "../../../public/dummy3.png";
+import forgingImg5 from "../../../public/dummy3.png";
+import forgingImg6 from "../../../public/dummy3.png";
+
+import fabricationImg1 from "../../../public/dummy3.png";
+import fabricationImg2 from "../../../public/dummy3.png";
+import fabricationImg3 from "../../../public/dummy3.png";
+import fabricationImg4 from "../../../public/dummy3.png";
+import fabricationImg5 from "../../../public/dummy3.png";
+import fabricationImg6 from "../../../public/dummy3.png";
+
+import plasticImg1 from "../../../public/dummy3.png";
+import plasticImg2 from "../../../public/dummy3.png";
+import plasticImg3 from "../../../public/dummy3.png";
+import plasticImg4 from "../../../public/dummy3.png";
+import plasticImg5 from "../../../public/dummy3.png";
+import plasticImg6 from "../../../public/dummy3.png";
+
+import machiningImg1 from "../../../public/dummy3.png";
+import machiningImg2 from "../../../public/dummy3.png";
+import machiningImg3 from "../../../public/dummy3.png";
+import machiningImg4 from "../../../public/dummy3.png";
+import machiningImg5 from "../../../public/dummy3.png";
+import machiningImg6 from "../../../public/dummy3.png";
+
+import rapidImg1 from "../../../public/dummy3.png";
+import rapidImg2 from "../../../public/dummy3.png";
+import rapidImg3 from "../../../public/dummy3.png";
+import rapidImg4 from "../../../public/dummy3.png";
+import rapidImg5 from "../../../public/dummy3.png";
+import rapidImg6 from "../../../public/dummy3.png";
+
+// ============================================
+
 const INDUSTRIES = [
-  {
-    id: "automotive",
-    title: "Automotive",
-    icon: Car,
-    desc: "From precision-machined components to lightweight structural systems, we power the evolution of mobility. Our expertise fuels innovation in EV, hybrid, and conventional platforms—delivering reliability, performance, and scalability from concept to production. We don’t just make parts; we help shape the future of motion.",
+  { 
+    id: "automotive", 
+    title: "Automotive", 
+    icon: Car, 
+    desc: "From precision-machined components to lightweight structural systems, we power the evolution of mobility. Our expertise fuels innovation in EV, hybrid, and conventional platforms—delivering reliability, performance, and scalability from concept to production. We don’t just make parts; we help shape the future of motion." 
   },
-  {
-    id: "aerospace",
-    title: "Aerospace & Defence",
-    icon: Plane,
-    desc: "Where precision meets performance, we take flight. Our solutions are built for the extreme—crafted to meet the rigorous standards of air, space, and defence applications. With advanced materials, meticulous engineering, and flawless quality control, we ensure every component soars above expectations—literally.",
+  { 
+    id: "aerospace", 
+    title: "Aerospace & Defence", 
+    icon: Plane, 
+    desc: "Where precision meets performance, we take flight. Our solutions are built for the extreme—crafted to meet the rigorous standards of air, space, and defence applications. With advanced materials, meticulous engineering, and flawless quality control, we ensure every component soars above expectations—literally." 
   },
-  {
-    id: "electronics",
-    title: "Electrical & Electronics",
-    icon: Cpu,
-    desc: "Powering possibilities, one connection at a time. From high-density enclosures to precision housings and thermal management solutions, we bring design agility and manufacturing precision to the electronics ecosystem. Our innovations ensure smarter, safer, and more efficient systems for the world’s next-gen technology.",
+  { 
+    id: "consumer", 
+    title: "Consumer Appliances", 
+    icon: Tv, 
+    desc: "Performance meets design. We help brands transform everyday appliances into durable, stylish, and sustainable experiences. Through superior material selection, flawless surface finishes, and reliable engineering, we turn innovative ideas into consumer-ready products that blend function and aesthetics seamlessly." 
   },
-  {
-    id: "consumer",
-    title: "Consumer Appliances",
-    icon: Tv,
-    desc: "Performance meets design. We help brands transform everyday appliances into durable, stylish, and sustainable experiences. Through superior material selection, flawless surface finishes, and reliable engineering, we turn innovative ideas into consumer-ready products that blend function and aesthetics seamlessly.",
-  },
-  {
-    id: "energy",
-    title: "Energy",
-    icon: Zap,
-    desc: "Building the future of sustainable power. From renewable energy components to storage and infrastructure systems, we deliver precision-engineered solutions that drive cleaner, smarter, and more efficient energy ecosystems. Our focus on reliability and scalability empowers industries to energize a sustainable tomorrow.",
+  { 
+    id: "energy", 
+    title: "Energy", 
+    icon: Zap, 
+    desc: "Building the future of sustainable power. From renewable energy components to storage and infrastructure systems, we deliver precision-engineered solutions that drive cleaner, smarter, and more efficient energy ecosystems. Our focus on reliability and scalability empowers industries to energize a sustainable tomorrow." 
   },
 ];
 
 const SAMPLE_CARDS = [
-  { title: "Casting", desc: "Casting details...", img: castingImg },
-  { title: "Forging", desc: "Forging details...", img: forgingImg },
-  { title: "Fabrication", desc: "Fabrication details...", img: fabricationImg },
-  { title: "Plastic Molding", desc: "Plastic molding details...", img: plasticImg },
-  { title: "Machining", desc: "Machining details...", img: machiningImg },
-  { title: "Rapid Prototyping", desc: "Rapid prototyping details...", img: rapidImg },
+  { title: "Casting", desc: "Casting details...", img: castingImg, images: [castingImg1, castingImg2, castingImg3, castingImg4, castingImg5, castingImg6] },
+  { title: "Forging", desc: "Forging details...", img: forgingImg, images: [forgingImg1, forgingImg2, forgingImg3, forgingImg4, forgingImg5, forgingImg6] },
+  { title: "Fabrication", desc: "Fabrication details...", img: fabricationImg, images: [fabricationImg1, fabricationImg2, fabricationImg3, fabricationImg4, fabricationImg5, fabricationImg6] },
+  { title: "Plastic Molding", desc: "Plastic molding details...", img: plasticImg, images: [plasticImg1, plasticImg2, plasticImg3, plasticImg4, plasticImg5, plasticImg6] },
+  { title: "Machining", desc: "Machining details...", img: machiningImg, images: [machiningImg1, machiningImg2, machiningImg3, machiningImg4, machiningImg5, machiningImg6] },
+  { title: "Rapid Prototyping", desc: "Rapid prototyping details...", img: rapidImg, images: [rapidImg1, rapidImg2, rapidImg3, rapidImg4, rapidImg5, rapidImg6] },
 ];
 
 export default function IndustriesWeServeSection() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [flipped, setFlipped] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
-  const mainRef = useRef(null);
+  const [popupCard, setPopupCard] = useState(null);
 
+  const mainRef = useRef(null);
   const activeIndustry = INDUSTRIES[activeIndex];
 
   const handleSelect = (i) => {
     setActiveIndex(i);
     setMenuOpen(false);
-    setFlipped(null);
     setTimeout(() => mainRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }), 150);
   };
 
   return (
-    <section className="w-full bg-white py-12 sm:py-20 px-4 sm:px-8">
+    <section className="w-full bg-white py-12 sm:py-20 px-4 sm:px-8 font-lato">
       <div className="max-w-7xl mx-auto w-[90%]">
-        {/* MOBILE MENU BUTTON */}
+        {/* ===== MOBILE BUTTON ===== */}
         <div className="lg:hidden fixed top-24 left-4 z-50">
-          <button
-            onClick={() => setMenuOpen(true)}
-            className="p-3 rounded-full bg-[#F05023] text-white shadow-lg hover:bg-[#d9481f] transition-all"
-          >
+          <button onClick={() => setMenuOpen(true)} className="p-3 rounded-full bg-[#F05023] text-white shadow-lg hover:bg-[#d9481f]">
             <Menu size={24} />
           </button>
         </div>
 
-        {/* MOBILE OVERLAY MENU */}
+        {/* ===== MOBILE MENU ===== */}
         {menuOpen && (
           <div className="fixed inset-0 z-50 bg-white overflow-y-auto">
             <div className="max-w-[600px] mx-auto px-6 py-6">
               <div className="flex items-center justify-between mb-6">
                 <h3 className="text-[20px] font-semibold text-[#0A175C]">Industries</h3>
-                <button onClick={() => setMenuOpen(false)} className="p-2 rounded-md text-[#0A175C] hover:bg-gray-100">
+                <button onClick={() => setMenuOpen(false)} className="p-2 rounded-md text-[#0A175C]">
                   <X size={26} />
                 </button>
               </div>
-
               <div className="space-y-4">
                 {INDUSTRIES.map((item, i) => {
                   const Icon = item.icon;
@@ -101,9 +135,7 @@ export default function IndustriesWeServeSection() {
                     <button
                       key={item.id}
                       onClick={() => handleSelect(i)}
-                      className={`w-full flex items-center justify-between px-4 py-3 rounded-md text-left ${
-                        activeIndex === i ? "bg-[#F05023] text-white" : "text-[#0A175C] hover:bg-gray-100"
-                      }`}
+                      className={`w-full flex items-center justify-between px-4 py-3 rounded-md text-left ${activeIndex === i ? "bg-[#F05023] text-white" : "text-[#0A175C]"}`}
                     >
                       <div className="flex items-center gap-2">
                         <Icon size={18} className={activeIndex === i ? "text-white" : "text-gray-500"} />
@@ -118,11 +150,12 @@ export default function IndustriesWeServeSection() {
           </div>
         )}
 
+        {/* ===== GRID LAYOUT ===== */}
         <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-10">
-          {/* DESKTOP SIDEBAR */}
-          <aside className="hidden lg:block sticky top-28">
+          {/* ===== DESKTOP SIDEBAR ===== */}
+          <aside className="hidden lg:block sticky top-28 self-start">
             <div className="rounded-xl overflow-hidden shadow-lg">
-              <div className="bg-[#F05023] text-white px-5 py-3 font-semibold text-lg">
+              <div className="bg-[#F05023] text-white px-5 py-3 font-semibold text-lg font-outfit">
                 Industries We Serve
               </div>
               <div className="bg-white border border-t-0 border-gray-100">
@@ -132,17 +165,13 @@ export default function IndustriesWeServeSection() {
                     <button
                       key={item.id}
                       onClick={() => handleSelect(i)}
-                      className={`w-full flex items-center justify-between px-5 py-4 border-b text-left transition-all duration-300 ${
-                        activeIndex === i ? "bg-[#FFF3EE] text-[#F05023]" : "hover:bg-gray-50 text-[#0A175C]"
-                      }`}
+                      className={`w-full flex items-center justify-between px-5 py-4 border-b ${activeIndex === i ? "bg-[#FFF3EE] text-[#F05023]" : "text-[#0A175C]"}`}
                     >
                       <div className="flex items-center gap-3">
                         <Icon size={18} className={activeIndex === i ? "text-[#F05023]" : "text-gray-400"} />
                         <span className="font-medium">{item.title}</span>
                       </div>
-                      <ChevronRight
-                        className={`w-5 h-5 transition-transform ${activeIndex === i ? "rotate-90 text-[#F05023]" : "text-gray-400"}`}
-                      />
+                      <ChevronRight className={`w-5 h-5 ${activeIndex === i ? "rotate-90 text-[#F05023]" : "text-gray-400"}`} />
                     </button>
                   );
                 })}
@@ -150,59 +179,28 @@ export default function IndustriesWeServeSection() {
             </div>
           </aside>
 
-          {/* MAIN CONTENT */}
+          {/* ===== MAIN CONTENT ===== */}
           <main className="w-full flex flex-col gap-10" ref={mainRef}>
-            <motion.div
-              key={activeIndex}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.45 }}
-            >
-              {/* === DYNAMIC HEADING === */}
+            <motion.div key={activeIndex} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45 }}>
               <div className="flex flex-col items-center text-center mb-6">
-                <h2 className="text-3xl font-bold text-[#0A175C] mb-2">{activeIndustry.title}</h2>
-                <div className="w-20 h-[3px] bg-[#F05023] rounded-full" />
+                <h2 className="text-3xl font-bold text-[#0A175C] mb-2 font-outfit">{activeIndustry.title}</h2>
+                <div className="w-20 h-[3px] bg-[#F05023]" />
               </div>
+              <p className="text-gray-700 mb-10 leading-relaxed text-center lg:text-left">{activeIndustry.desc}</p>
 
-              {/* === DESCRIPTION === */}
-              <p className="text-gray-700 mb-10 leading-relaxed text-center lg:text-left">
-                {activeIndustry.desc}
-              </p>
-
-              {/* === STATIC SUBHEADING === */}
-              <div className="text-center mb-10">
-                <h3 className="text-2xl font-semibold text-[#0A175C] mb-2">Casting Parts</h3>
-                <div className="w-16 h-[3px] bg-[#F05023] mx-auto rounded-full"></div>
-              </div>
-
-              {/* === WHAT WE OFFER CARDS === */}
+              {/* ===== CARDS ===== */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {SAMPLE_CARDS.map((card, idx) => (
+                {SAMPLE_CARDS.map((card) => (
                   <motion.div
                     key={card.title}
-                    onClick={() => setFlipped(flipped === idx ? null : idx)}
                     whileHover={{ translateY: -6 }}
-                    className="relative h-[230px] rounded-2xl perspective cursor-pointer shadow-md hover:shadow-xl transition-shadow"
+                    className="relative h-[230px] rounded-2xl cursor-pointer shadow-md hover:shadow-xl transition-shadow overflow-hidden"
+                    onClick={() => setPopupCard(card)}
                   >
-                    <motion.div
-                      animate={{ rotateY: flipped === idx ? 180 : 0 }}
-                      transition={{ duration: 0.6 }}
-                      style={{ transformStyle: "preserve-3d" }}
-                      className="relative w-full h-full"
-                    >
-                      {/* FRONT SIDE */}
-                      <div className="absolute inset-0 rounded-2xl overflow-hidden backface-hidden">
-                        <Image src={card.img} alt={card.title} fill className="object-cover rounded-2xl" />
-                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center rounded-2xl">
-                          <h4 className="text-white font-semibold text-lg drop-shadow-md">{card.title}</h4>
-                        </div>
-                      </div>
-
-                      {/* BACK SIDE */}
-                      <div className="absolute inset-0 rounded-2xl bg-[#F05023] text-white shadow-md flex items-center justify-center p-4 backface-hidden rotate-y-180">
-                        <p className="text-center text-sm">{card.desc}</p>
-                      </div>
-                    </motion.div>
+                    <Image src={card.img} alt={card.title} fill className="object-cover rounded-2xl" />
+                    <div className="absolute inset-0 flex items-center justify-center rounded-2xl">
+                      <h4 className="text-black font-semibold text-lg drop-shadow-lg">{card.title}</h4>
+                    </div>
                   </motion.div>
                 ))}
               </div>
@@ -210,6 +208,39 @@ export default function IndustriesWeServeSection() {
           </main>
         </div>
       </div>
+
+      {/* ===== POPUP MODAL ===== */}
+      {popupCard && (
+        <div className="fixed inset-0 bg-black/60 z-[999] flex items-center justify-center p-4">
+          <div className="bg-white rounded-2xl p-6 w-full max-w-[950px] max-h-[90vh] overflow-y-auto shadow-2xl relative animate-[fadeIn_0.25s_ease]">
+
+            {/* CLOSE BUTTON */}
+            <button
+              className="absolute top-4 right-4 text-[#F05023] border-2 border-[#F05023] hover:bg-[#F05023] hover:text-white transition cursor-pointer rounded-full w-10 h-10 flex items-center justify-center shadow-md"
+              onClick={() => setPopupCard(null)}
+            >
+              <X size={24} />
+            </button>
+
+            {/* DYNAMIC HEADING */}
+            <h3
+              onClick={() => window.location.href = "/capabilities"}
+              className="text-2xl font-bold text-[#0A175C] mb-6 text-center tracking-wide cursor-pointer hover:underline font-outfit"
+            >
+              {popupCard.title} Parts
+            </h3>
+
+            {/* IMAGE GRID */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-5">
+              {popupCard.images.map((img, index) => (
+                <div key={index} className="relative w-full h-[180px] sm:h-[220px] rounded-xl overflow-hidden shadow-lg">
+                  <Image src={img} alt="popup" fill className="object-cover" />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
