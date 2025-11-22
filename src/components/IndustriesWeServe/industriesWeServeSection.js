@@ -86,12 +86,48 @@ const INDUSTRIES = [
 ];
 
 const SAMPLE_CARDS = [
-  { title: "Casting", desc: "Casting details...", img: castingImg, images: [castingImg1, castingImg2, castingImg3, castingImg4, castingImg5, castingImg6] },
-  { title: "Forging", desc: "Forging details...", img: forgingImg, images: [forgingImg1, forgingImg2, forgingImg3, forgingImg4, forgingImg5, forgingImg6] },
-  { title: "Fabrication", desc: "Fabrication details...", img: fabricationImg, images: [fabricationImg1, fabricationImg2, fabricationImg3, fabricationImg4, fabricationImg5, fabricationImg6] },
-  { title: "Plastic Molding", desc: "Plastic molding details...", img: plasticImg, images: [plasticImg1, plasticImg2, plasticImg3, plasticImg4, plasticImg5, plasticImg6] },
-  { title: "Machining", desc: "Machining details...", img: machiningImg, images: [machiningImg1, machiningImg2, machiningImg3, machiningImg4, machiningImg5, machiningImg6] },
-  { title: "Rapid Prototyping", desc: "Rapid prototyping details...", img: rapidImg, images: [rapidImg1, rapidImg2, rapidImg3, rapidImg4, rapidImg5, rapidImg6] },
+  { 
+    title: "Casting", 
+    desc: "Casting details...", 
+    img: castingImg, 
+    images: [castingImg1, castingImg2, castingImg3, castingImg4, castingImg5, castingImg6],
+    names: ["Casting 1", "Casting 2", "Casting 3", "Casting 4", "Casting 5", "Casting 6"]
+  },
+  { 
+    title: "Forging", 
+    desc: "Forging details...", 
+    img: forgingImg, 
+    images: [ forgingImg1, forgingImg2, forgingImg3, forgingImg4, forgingImg5, forgingImg6],
+    names: ["Forging 1", "Forging 2", "Forging 3", "Forging 4", "Forging 5", "Forging 6"]
+  },
+  { 
+    title: "Fabrication", 
+    desc: "Fabrication details...", 
+    img: fabricationImg, 
+    images: [fabricationImg1, fabricationImg2, fabricationImg3, fabricationImg4, fabricationImg5, fabricationImg6],
+    names: ["Fabrication 1", "Fabrication 2", "Fabrication 3", "Fabrication 4", "Fabrication 5", "Fabrication 6"]
+  },
+  { 
+    title: "Plastic Molding", 
+    desc: "Plastic molding details...", 
+    img: plasticImg, 
+    images: [plasticImg1, plasticImg2, plasticImg3, plasticImg4, plasticImg5, plasticImg6],
+    names: ["Plastic 1", "Plastic 2", "Plastic 3", "Plastic 4", "Plastic 5", "Plastic 6"]
+  },
+  { 
+    title: "Machining", 
+    desc: "Machining details...", 
+    img: machiningImg, 
+    images: [machiningImg1, machiningImg2, machiningImg3, machiningImg4, machiningImg5, machiningImg6],
+    names: ["Machining 1", "Machining 2", "Machining 3", "Machining 4", "Machining 5", "Machining 6"]
+  },
+  { 
+    title: "Rapid Prototyping", 
+    desc: "Rapid prototyping details...", 
+    img: rapidImg, 
+    images: [rapidImg1, rapidImg2, rapidImg3, rapidImg4, rapidImg5, rapidImg6],
+    names: ["Rapid 1", "Rapid 2", "Rapid 3", "Rapid 4", "Rapid 5", "Rapid 6"]
+  },
 ];
 
 export default function IndustriesWeServeSection() {
@@ -230,11 +266,16 @@ export default function IndustriesWeServeSection() {
               {popupCard.title} Parts
             </h3>
 
-            {/* IMAGE GRID */}
+            {/* IMAGE GRID WITH NAMES */}
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-5">
               {popupCard.images.map((img, index) => (
-                <div key={index} className="relative w-full h-[180px] sm:h-[220px] rounded-xl overflow-hidden shadow-lg">
-                  <Image src={img} alt="popup" fill className="object-cover" />
+                <div key={index} className="flex flex-col items-center">
+                  <div className="relative w-full h-[180px] sm:h-[220px] rounded-xl overflow-hidden shadow-lg">
+                    <Image src={img} alt={`popup-${index}`} fill className="object-cover" />
+                  </div>
+                  <p className="mt-2 text-center text-gray-700 font-medium">
+                    {popupCard.names ? popupCard.names[index] : `Image ${index + 1}`}
+                  </p>
                 </div>
               ))}
             </div>
