@@ -143,9 +143,10 @@ export default function ValueWeCreate() {
               <h3 className="text-[#0A175C] text-2xl sm:text-3xl font-semibold mb-4 font-outfit">
                 {item.title}
               </h3>
-              <p className="text-gray-700 text-base sm:text-lg leading-relaxed font-lato">
-                {item.desc}
-              </p>
+              <p className="text-gray-700 text-base sm:text-lg leading-relaxed font-lato mx-auto lg:mx-0 max-w-[500px]">
+  {item.desc}
+</p>
+
             </div>
           </motion.div>
         ))}
