@@ -74,23 +74,31 @@ export default function OurPromise() {
       <div className="max-w-6xl mx-auto">
         
         {/* === Unified Grid for Mobile/Tablet (1 or 2 columns) === */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:hidden gap-8">
-          {items.map((item, index) => (
-            <motion.div
-              key={index}
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 200 }}
-              className="bg-white rounded-2xl shadow-md p-8 flex flex-col items-center text-center 
-              border border-gray-200 hover:shadow-xl transition-all duration-300"
-            >
-              {item.icon}
-              <h4 className="text-lg font-semibold text-[#0A175C] mb-2 font-outfit">
-                {item.title}
-              </h4>
-              <p className="text-gray-700 text-sm font-lato">{item.desc}</p>
-            </motion.div>
-          ))}
-        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:hidden gap-8 place-items-center">
+  {items.map((item, index) => (
+    <div
+      key={index}
+      className={
+        index === 4
+          ? "sm:col-span-2 flex justify-center"
+          : ""
+      }
+    >
+      <motion.div
+        whileHover={{ scale: 1.05 }}
+        transition={{ type: "spring", stiffness: 200 }}
+        className="bg-white rounded-2xl shadow-md p-8 flex flex-col items-center text-center
+        border border-gray-200 hover:shadow-xl transition-all duration-300 w-full max-w-[350px]"
+      >
+        {item.icon}
+        <h4 className="text-lg font-semibold text-[#0A175C] mb-2 font-outfit">
+          {item.title}
+        </h4>
+        <p className="text-gray-700 text-sm font-lato">{item.desc}</p>
+      </motion.div>
+    </div>
+  ))}
+</div>
 
         {/* === ORIGINAL DESKTOP LAYOUT (unchanged) === */}
         <div className="hidden lg:block">
