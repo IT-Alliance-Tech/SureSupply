@@ -1,6 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import { Suspense } from "react"; // ⬅️ ADDED
 
 // ✅ Common Loading Component
 const LoadingSpinner = () => (
@@ -31,6 +32,8 @@ const ProcurementSection = dynamic(
   () => import("@/components/home/procurementSection"),
   { loading: LoadingSpinner }
 );
+
+// ⬇️ QuoteForm stays dynamic but wrapped in Suspense later
 const QuoteForm = dynamic(() => import("@/components/home/quote"), {
   loading: LoadingSpinner,
 });
@@ -44,7 +47,11 @@ export default function Home() {
       <WhyChooseUs />
       <Roadmap />
       <ProcurementSection />
-      <QuoteForm />
+
+      {/* ⬇️ REQUIRED FIX FOR build + useSearchParams */}
+      <Suspense fallback={<LoadingSpinner />}>
+        <QuoteForm />
+      </Suspense>
     </main>
   );
 }

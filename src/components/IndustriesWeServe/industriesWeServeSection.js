@@ -59,10 +59,10 @@ import rapidImg6 from "../../../public/dummy3.png";
 // ============================================
 
 const INDUSTRIES = [
-  { id: "automotive", title: "Automotive", icon: null, desc: "From precision-machined components to lightweight structural systems..." },
-  { id: "aerospace", title: "Aerospace & Defence", icon: null, desc: "Where precision meets performance, we take flight..." },
-  { id: "consumer", title: "Consumer Appliances", icon: null, desc: "Performance meets design. We help brands transform everyday appliances..." },
-  { id: "energy", title: "Energy", icon: null, desc: "Building the future of sustainable power..." },
+  { id: "automotive", title: "Automotive", icon: null, desc: "From precision-machined components to lightweight structural systems, we power the evolution of mobility. Our expertise fuels innovation in EV, hybrid, and conventional platforms—delivering reliability, performance, and scalability from concept to production. We don’t just make parts; we help shape the future of motion." },
+  { id: "aerospace", title: "Aerospace & Defence", icon: null, desc: "Where precision meets performance, we take flight. Our solutions are built for the extreme—crafted to meet the rigorous standards of air, space, and defence applications. With advanced materials, meticulous engineering, and flawless quality control, we ensure every component soars above expectations—literally." },
+  { id: "consumer", title: "Consumer Appliances", icon: null, desc: "Performance meets design. We help brands transform everyday appliances into durable, stylish, and sustainable experiences. Through superior material selection, flawless surface finishes, and reliable engineering, we turn innovative ideas into consumer-ready products that blend function and aesthetics seamlessly." },
+  { id: "energy", title: "Energy", icon: null, desc: "Building the future of sustainable power. From renewable energy components to storage and infrastructure systems, we deliver precision-engineered solutions that drive cleaner, smarter, and more efficient energy ecosystems. Our focus on reliability and scalability empowers industries to energize a sustainable tomorrow." },
 ];
 
 const SAMPLE_CARDS = [
@@ -174,19 +174,19 @@ export default function IndustriesWeServeSection() {
         {/* ===== GRID LAYOUT ===== */}
         <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-10">
           {/* ===== DESKTOP SIDEBAR ===== */}
-          <aside className="hidden lg:block sticky top-28 self-start">
+          <aside className="hidden lg:block sticky top-28 self-start ">
             <div className="rounded-xl overflow-hidden shadow-lg">
               <div className="bg-[#F05023] text-white px-5 py-3 font-semibold text-lg font-outfit">
                 Industries We Serve
               </div>
-              <div className="bg-white border border-t-0 border-gray-100">
+              <div className="bg-white border border-t-0 border-gray-100 ">
                 {INDUSTRIES.map((item, i) => (
                   <button
                     key={item.id}
                     onClick={() => handleSelect(i)}
                     className={`w-full flex items-center justify-between px-5 py-4 border-b ${activeIndex === i ? "bg-[#FFF3EE] text-[#F05023]" : "text-[#0A175C]"}`}
                   >
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-3 cursor-pointer">
                       <span className={activeIndex === i ? "text-[#F05023]" : "text-gray-400"} />
                       <span className="font-medium">{item.title}</span>
                     </div>

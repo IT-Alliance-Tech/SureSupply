@@ -8,9 +8,19 @@ import HeroBg from "../../../public/bannerC.png";
 export default function HeroSection() {
   const router = useRouter();
 
-  const handleScrollToQuote = () => {
-    router.push("/#quoteForm"); // ✅ Works everywhere
-  };
+const handleScrollToQuote = () => {
+  // Update URL query without full reload
+  router.replace("/?type=vendor", { scroll: false });
+
+  // Scroll after a short delay (to let React update state)
+  setTimeout(() => {
+    const element = document.getElementById("quoteForm");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  }, 200);
+};
+
 
   return (
     <Box
