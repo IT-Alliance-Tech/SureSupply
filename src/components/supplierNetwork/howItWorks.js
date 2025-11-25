@@ -1,8 +1,25 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 
 export default function HowItWorks() {
+  const router = useRouter();
+
+  const handleScrollToQuote = () => {
+  router.replace("/?type=vendor", { scroll: false });
+
+  window.scrollTo({ top: 0, behavior: "instant" });
+  
+  setTimeout(() => {
+    const element = document.getElementById("quoteForm");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }, 200);
+};
+
+
   const steps = [
     {
       step: "Step 1:",
@@ -23,6 +40,7 @@ export default function HowItWorks() {
 
   return (
     <section className="py-20 px-6 sm:px-12 bg-[#F9FAFB] relative overflow-hidden">
+      
       {/* ===== Header ===== */}
       <div className="text-center mb-16">
         <motion.h2
@@ -32,7 +50,7 @@ export default function HowItWorks() {
           transition={{ duration: 0.6 }}
           className="text-3xl sm:text-4xl font-bold text-[#0A175C] font-outfit mb-3"
         >
-          How It Works 
+          How It Works
         </motion.h2>
         <p className="text-gray-600 text-lg font-lato">
           Getting started is simple.
@@ -100,7 +118,8 @@ export default function HowItWorks() {
           }}
           whileTap={{ scale: 0.95 }}
           transition={{ type: "spring", stiffness: 200 }}
-          className="bg-[#F05023] text-white px-10 py-4 rounded-lg font-semibold shadow-md text-lg font-outfit transition-all"
+          onClick={handleScrollToQuote}
+          className="bg-[#F05023] text-white px-10 py-4 rounded-lg font-semibold shadow-md text-lg font-outfit transition-all cursor-pointer"
         >
           Join the Network Today
         </motion.button>

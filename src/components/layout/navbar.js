@@ -182,7 +182,7 @@ const Navbar = () => {
 
               {/* Resources Button */}
               <li className="relative">
-                <button
+                {/* <button
                   onClick={toggleResources}
                   className="flex items-center w-full text-left text-black font-semibold text-lg hover:text-blue-800 cursor-pointer"
                 >
@@ -192,7 +192,7 @@ const Navbar = () => {
                       resourcesOpen ? "rotate-180" : "rotate-0"
                     }`}
                   />
-                </button>
+                </button> */}
 
                 {resourcesOpen && (
                   <div className="md:hidden mt-2 pl-2 flex flex-col space-y-4 border-l-2 border-gray-200">

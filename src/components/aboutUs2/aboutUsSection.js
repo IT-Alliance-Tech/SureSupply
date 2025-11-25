@@ -3,21 +3,39 @@
 import Image from 'next/image';
 import heroImg from '../../../public/dummy3.png';
 import { Outfit, Lato } from 'next/font/google';
+import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
 
 const outfit = Outfit({ subsets: ['latin'], weight: ['600', '700'] });
 const lato = Lato({ subsets: ['latin'], weight: ['400'] });
 
 export default function AboutUsSection() {
-  const handleScrollToQuote = () => {
-    const el = document.getElementById('quoteForm');
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  };
+  const router = useRouter();
+
+  // Smooth scroll once on page load
+  const scrollToQuoteForm = () => {
+  const el = document.getElementById('quoteForm');
+  if (el) el.scrollIntoView({ behavior: 'smooth' });
+};
+
+
+ const handleScrollToQuote = () => {
+  if (window.location.pathname === '/') {
+    scrollToQuoteForm(); // already on homepage
+  } else {
+    router.push('/');  // redirect
+    setTimeout(() => {
+      scrollToQuoteForm(); // run after navigation
+    }, 400); // slight delay to ensure page loads
+  }
+};
+
 
   return (
     <section className="w-full bg-[#F9FAFB] py-16 px-6 md:px-12">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-12">
 
-        {/* Image: Top on mobile, right on desktop */}
+        {/* Image */}
         <div className="flex-1 flex justify-center md:justify-end w-full order-1 md:order-2">
           <div className="relative w-[250px] sm:w-[300px] md:w-[300px] lg:w-[350px] h-auto">
             <Image
@@ -29,7 +47,7 @@ export default function AboutUsSection() {
           </div>
         </div>
 
-        {/* Left Content */}
+        {/* Text */}
         <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left order-2 md:order-1">
           <h1
             className={`font-bold uppercase text-[#0A175C] leading-[110%] mb-4 text-[clamp(24px,4vw,36px)] ${outfit.className}`}

@@ -1,9 +1,10 @@
-"use client";
+'use client';
 
 import { useState, useRef } from "react";
-import { ChevronRight, ChevronDown, ChevronUp, Menu, X, Car, Plane, Cpu, Tv, Zap } from "lucide-react";
+import { ChevronRight, ChevronDown, ChevronUp, Menu, X } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 // ====== IMPORT YOUR IMAGE PLACEHOLDERS ======
 import castingImg from "../../../public/dummy3.png";
@@ -13,7 +14,7 @@ import plasticImg from "../../../public/dummy3.png";
 import machiningImg from "../../../public/dummy3.png";
 import rapidImg from "../../../public/dummy3.png";
 
-// ---- 6 images for each card ----
+// ---- 6 images for each card (placeholders you already imported) ----
 import castingImg1 from "../../../public/dummy3.png";
 import castingImg2 from "../../../public/dummy3.png";
 import castingImg3 from "../../../public/dummy3.png";
@@ -55,38 +56,18 @@ import rapidImg3 from "../../../public/dummy3.png";
 import rapidImg4 from "../../../public/dummy3.png";
 import rapidImg5 from "../../../public/dummy3.png";
 import rapidImg6 from "../../../public/dummy3.png";
-
 // ============================================
 
 const INDUSTRIES = [
-  { 
-    id: "automotive", 
-    title: "Automotive", 
-    icon: Car, 
-    desc: "From precision-machined components to lightweight structural systems, we power the evolution of mobility. Our expertise fuels innovation in EV, hybrid, and conventional platforms—delivering reliability, performance, and scalability from concept to production. We don’t just make parts; we help shape the future of motion." 
-  },
-  { 
-    id: "aerospace", 
-    title: "Aerospace & Defence", 
-    icon: Plane, 
-    desc: "Where precision meets performance, we take flight. Our solutions are built for the extreme—crafted to meet the rigorous standards of air, space, and defence applications. With advanced materials, meticulous engineering, and flawless quality control, we ensure every component soars above expectations—literally." 
-  },
-  { 
-    id: "consumer", 
-    title: "Consumer Appliances", 
-    icon: Tv, 
-    desc: "Performance meets design. We help brands transform everyday appliances into durable, stylish, and sustainable experiences. Through superior material selection, flawless surface finishes, and reliable engineering, we turn innovative ideas into consumer-ready products that blend function and aesthetics seamlessly." 
-  },
-  { 
-    id: "energy", 
-    title: "Energy", 
-    icon: Zap, 
-    desc: "Building the future of sustainable power. From renewable energy components to storage and infrastructure systems, we deliver precision-engineered solutions that drive cleaner, smarter, and more efficient energy ecosystems. Our focus on reliability and scalability empowers industries to energize a sustainable tomorrow." 
-  },
+  { id: "automotive", title: "Automotive", icon: null, desc: "From precision-machined components to lightweight structural systems, we power the evolution of mobility. Our expertise fuels innovation in EV, hybrid, and conventional platforms—delivering reliability, performance, and scalability from concept to production. We don’t just make parts; we help shape the future of motion." },
+  { id: "aerospace", title: "Aerospace & Defence", icon: null, desc: "Where precision meets performance, we take flight. Our solutions are built for the extreme—crafted to meet the rigorous standards of air, space, and defence applications. With advanced materials, meticulous engineering, and flawless quality control, we ensure every component soars above expectations—literally." },
+  { id: "consumer", title: "Consumer Appliances", icon: null, desc: "Performance meets design. We help brands transform everyday appliances into durable, stylish, and sustainable experiences. Through superior material selection, flawless surface finishes, and reliable engineering, we turn innovative ideas into consumer-ready products that blend function and aesthetics seamlessly." },
+  { id: "energy", title: "Energy", icon: null, desc: "Building the future of sustainable power. From renewable energy components to storage and infrastructure systems, we deliver precision-engineered solutions that drive cleaner, smarter, and more efficient energy ecosystems. Our focus on reliability and scalability empowers industries to energize a sustainable tomorrow." },
 ];
 
 const SAMPLE_CARDS = [
   { 
+    id: "casting",
     title: "Casting", 
     desc: "Casting details...", 
     img: castingImg, 
@@ -94,6 +75,7 @@ const SAMPLE_CARDS = [
     names: ["Casting 1", "Casting 2", "Casting 3", "Casting 4", "Casting 5", "Casting 6"]
   },
   { 
+    id: "forging",
     title: "Forging", 
     desc: "Forging details...", 
     img: forgingImg, 
@@ -101,6 +83,7 @@ const SAMPLE_CARDS = [
     names: ["Forging 1", "Forging 2", "Forging 3", "Forging 4", "Forging 5", "Forging 6"]
   },
   { 
+    id: "fabrication",
     title: "Fabrication", 
     desc: "Fabrication details...", 
     img: fabricationImg, 
@@ -108,6 +91,7 @@ const SAMPLE_CARDS = [
     names: ["Fabrication 1", "Fabrication 2", "Fabrication 3", "Fabrication 4", "Fabrication 5", "Fabrication 6"]
   },
   { 
+    id: "plastic-molding",
     title: "Plastic Molding", 
     desc: "Plastic molding details...", 
     img: plasticImg, 
@@ -115,6 +99,7 @@ const SAMPLE_CARDS = [
     names: ["Plastic 1", "Plastic 2", "Plastic 3", "Plastic 4", "Plastic 5", "Plastic 6"]
   },
   { 
+    id: "machining",
     title: "Machining", 
     desc: "Machining details...", 
     img: machiningImg, 
@@ -122,6 +107,7 @@ const SAMPLE_CARDS = [
     names: ["Machining 1", "Machining 2", "Machining 3", "Machining 4", "Machining 5", "Machining 6"]
   },
   { 
+    id: "rapid-prototyping",
     title: "Rapid Prototyping", 
     desc: "Rapid prototyping details...", 
     img: rapidImg, 
@@ -134,8 +120,9 @@ export default function IndustriesWeServeSection() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
   const [popupCard, setPopupCard] = useState(null);
-
   const mainRef = useRef(null);
+  const router = useRouter();
+
   const activeIndustry = INDUSTRIES[activeIndex];
 
   const handleSelect = (i) => {
@@ -165,22 +152,20 @@ export default function IndustriesWeServeSection() {
                 </button>
               </div>
               <div className="space-y-4">
-                {INDUSTRIES.map((item, i) => {
-                  const Icon = item.icon;
-                  return (
-                    <button
-                      key={item.id}
-                      onClick={() => handleSelect(i)}
-                      className={`w-full flex items-center justify-between px-4 py-3 rounded-md text-left ${activeIndex === i ? "bg-[#F05023] text-white" : "text-[#0A175C]"}`}
-                    >
-                      <div className="flex items-center gap-2">
-                        <Icon size={18} className={activeIndex === i ? "text-white" : "text-gray-500"} />
-                        {item.title}
-                      </div>
-                      {activeIndex === i ? <ChevronUp /> : <ChevronDown />}
-                    </button>
-                  );
-                })}
+                {INDUSTRIES.map((item, i) => (
+                  <button
+                    key={item.id}
+                    onClick={() => handleSelect(i)}
+                    className={`w-full flex items-center justify-between px-4 py-3 rounded-md text-left ${activeIndex === i ? "bg-[#F05023] text-white" : "text-[#0A175C]"}`}
+                  >
+                    <div className="flex items-center gap-2">
+                      {/* icon placeholder if you want */}
+                      <span className={activeIndex === i ? "text-white" : "text-gray-500"} />
+                      {item.title}
+                    </div>
+                    {activeIndex === i ? <ChevronUp /> : <ChevronDown />}
+                  </button>
+                ))}
               </div>
             </div>
           </div>
@@ -189,28 +174,25 @@ export default function IndustriesWeServeSection() {
         {/* ===== GRID LAYOUT ===== */}
         <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-10">
           {/* ===== DESKTOP SIDEBAR ===== */}
-          <aside className="hidden lg:block sticky top-28 self-start">
+          <aside className="hidden lg:block sticky top-28 self-start ">
             <div className="rounded-xl overflow-hidden shadow-lg">
               <div className="bg-[#F05023] text-white px-5 py-3 font-semibold text-lg font-outfit">
                 Industries We Serve
               </div>
-              <div className="bg-white border border-t-0 border-gray-100">
-                {INDUSTRIES.map((item, i) => {
-                  const Icon = item.icon;
-                  return (
-                    <button
-                      key={item.id}
-                      onClick={() => handleSelect(i)}
-                      className={`w-full flex items-center justify-between px-5 py-4 border-b ${activeIndex === i ? "bg-[#FFF3EE] text-[#F05023]" : "text-[#0A175C]"}`}
-                    >
-                      <div className="flex items-center gap-3">
-                        <Icon size={18} className={activeIndex === i ? "text-[#F05023]" : "text-gray-400"} />
-                        <span className="font-medium">{item.title}</span>
-                      </div>
-                      <ChevronRight className={`w-5 h-5 ${activeIndex === i ? "rotate-90 text-[#F05023]" : "text-gray-400"}`} />
-                    </button>
-                  );
-                })}
+              <div className="bg-white border border-t-0 border-gray-100 ">
+                {INDUSTRIES.map((item, i) => (
+                  <button
+                    key={item.id}
+                    onClick={() => handleSelect(i)}
+                    className={`w-full flex items-center justify-between px-5 py-4 border-b ${activeIndex === i ? "bg-[#FFF3EE] text-[#F05023]" : "text-[#0A175C]"}`}
+                  >
+                    <div className="flex items-center gap-3 cursor-pointer">
+                      <span className={activeIndex === i ? "text-[#F05023]" : "text-gray-400"} />
+                      <span className="font-medium">{item.title}</span>
+                    </div>
+                    <ChevronRight className={`w-5 h-5 ${activeIndex === i ? "rotate-90 text-[#F05023]" : "text-gray-400"}`} />
+                  </button>
+                ))}
               </div>
             </div>
           </aside>
@@ -228,7 +210,7 @@ export default function IndustriesWeServeSection() {
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {SAMPLE_CARDS.map((card) => (
                   <motion.div
-                    key={card.title}
+                    key={card.id}
                     whileHover={{ translateY: -6 }}
                     className="relative h-[230px] rounded-2xl cursor-pointer shadow-md hover:shadow-xl transition-shadow overflow-hidden"
                     onClick={() => setPopupCard(card)}
@@ -260,7 +242,13 @@ export default function IndustriesWeServeSection() {
 
             {/* DYNAMIC HEADING */}
             <h3
-              onClick={() => window.location.href = "/capabilities"}
+              onClick={() => {
+                // Navigate to capabilities page and scroll to matching section id
+                if (popupCard?.id) {
+                  router.push(`/capabilities?main=${popupCard.id}`);
+                  setPopupCard(null);
+                }
+              }}
               className="text-2xl font-bold text-[#0A175C] mb-6 text-center tracking-wide cursor-pointer hover:underline font-outfit"
             >
               {popupCard.title} Parts

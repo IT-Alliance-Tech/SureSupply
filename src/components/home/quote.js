@@ -1,10 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";   // ⬅️ UPDATED (added useEffect)
+import { useSearchParams } from "next/navigation"; // ⬅️ ADDED
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function QuoteForm() {
+
+  const searchParams = useSearchParams(); // ⬅️ ADDED
+
   const [userType, setUserType] = useState("customer");
   const [formData, setFormData] = useState({
     fullName: "",
@@ -23,6 +27,15 @@ export default function QuoteForm() {
   });
   const [isHuman, setIsHuman] = useState(false);
   const [errors, setErrors] = useState({});
+
+  // ⬇️ URL Based Auto Switching (NEW LOGIC)
+  useEffect(() => {
+    const type = searchParams.get("type");
+
+    if (type === "vendor" || type === "customer") {
+      setUserType(type);
+    }
+  }, [searchParams]); // ⬅️ REQUIRED FOR BUILD
 
   // Handle input changes
   const handleChange = (e) => {
@@ -100,9 +113,9 @@ export default function QuoteForm() {
         hideProgressBar: false,
         theme: "colored",
         style: {
-      backgroundColor: "#000",
-      color: "#fff",
-    },
+          backgroundColor: "#000",
+          color: "#fff",
+        },
       }
     );
   };
@@ -443,3 +456,4 @@ export default function QuoteForm() {
     </section>
   );
 }
+

@@ -27,7 +27,7 @@ export default function AboutHero() {
       {/* Content */}
       <div className="text-center text-white z-10 px-4">
         {/* Headline */}
-        <h1 className={`text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg ${outfit.className}`}>
+        <h1 className={`text-5xl md:text-6xl font-bold mb-4 drop-shadow-lg ${outfit.className}`}>
           Empowering Manufacturers Across India
         </h1>
 
