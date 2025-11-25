@@ -39,7 +39,7 @@ export default function CustomSolutionPage() {
         />
 
         <div className="relative text-center text-white z-10 px-4 sm:px-6 lg:px-24 max-w-[1200px]">
-          <h1 className="text-[36px] sm:text-[50px] font-outfit font-bold tracking-wide mb-4 leading-tight drop-shadow-md">
+          <h1 className="text-[42px] sm:text-[50px] font-outfit font-bold tracking-wide mb-4 leading-tight drop-shadow-md">
             OUR <span className="text-white">CUSTOM SOLUTIONS</span>
           </h1>
 

@@ -2407,10 +2407,6 @@ expertise: [
   },
 }
 
-
-
-
-
 ];
 
 export default categories;

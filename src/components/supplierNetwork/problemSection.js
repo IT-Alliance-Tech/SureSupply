@@ -9,6 +9,8 @@ import {
   FaRegSadCry,
 } from "react-icons/fa";
 
+import problemBg from "../../../public/bg2.png"; // ⬅️ your BG image
+
 export default function ProblemSection() {
   const problems = [
     {
@@ -34,7 +36,12 @@ export default function ProblemSection() {
   ];
 
   return (
-    <section className="relative py-16 px-6 sm:px-12 bg-gradient-to-b from-gray-50 to-white">
+    <section
+      className="relative py-16 px-6 sm:px-12 bg-cover bg-center bg-no-repeat"
+      style={{
+        backgroundImage: `url(${problemBg.src})`,
+      }}
+    >
       {/* ===== Header ===== */}
       <div className="max-w-4xl mx-auto text-center mb-14">
         <h2 className="text-3xl sm:text-4xl font-bold text-[#0A175C] font-outfit mb-3">
