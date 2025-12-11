@@ -7,12 +7,12 @@ import NewsEvents from "@/components/resources/newsEvents";
 export default function Home() {
   return (
     <main className="flex flex-col">
-      <ResourcesHeroSection />
+      {/* <ResourcesHeroSection />
       <OurBlogs />
       <CaseStudies />
-      {/* <BuyersGuide /> */}
-      {/* <SupplierHandbook /> */}
-      <NewsEvents />
+      <BuyersGuide />
+      <SupplierHandbook />
+      <NewsEvents /> */}
     </main>
   );
 }

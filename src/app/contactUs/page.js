@@ -15,20 +15,81 @@ export default function ContactUsPage() {
     message: "",
   });
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const [errors, setErrors] = useState({});
+
+  const handleStrictInput = (name, value) => {
+    let newValue = value;
+
+    // STRICT VALIDATIONS
+    if (name === "firstName" || name === "lastName") {
+      newValue = newValue.replace(/[^A-Za-z]/g, ""); // only letters
+    }
+
+    if (name === "phone") {
+      newValue = newValue.replace(/[^0-9]/g, ""); // only digits
+    }
+
+    if (name === "email") {
+      newValue = newValue.replace(/\s/g, ""); // no spaces allowed
+    }
+
+    if (name === "message") {
+      if (newValue.startsWith(" ")) newValue = newValue.trimStart(); // no leading space
+    }
+
+    setFormData({ ...formData, [name]: newValue });
+    setErrors({ ...errors, [name]: "" });
+  };
+
+  const validate = () => {
+    let newErrors = {};
+
+    if (!formData.firstName.trim()) newErrors.firstName = "First name is required";
+
+    if (!formData.lastName.trim()) newErrors.lastName = "Last name is required";
+
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
+      newErrors.email = "Enter a valid email";
+    }
+
+    if (formData.phone.length !== 10) {
+      newErrors.phone = "Phone number must be exactly 10 digits";
+    }
+
+    if (!formData.message.trim()) {
+      newErrors.message = "Message is required";
+    } else if (formData.message.trim().length < 10) {
+      newErrors.message = "Message must be at least 10 characters";
+    }
+
+    setErrors(newErrors);
+
+    return Object.keys(newErrors).length === 0;
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert("Form submitted! (No backend connected)");
-    setFormData({ firstName: "", lastName: "", email: "", phone: "", message: "" });
+
+    if (!validate()) return;
+
+    alert("Form submitted successfully!");
+
+    setFormData({
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      message: "",
+    });
   };
 
   return (
     <div className="flex flex-col">
+
       {/* ===== TOP BANNER SECTION ===== */}
-      <section className="relative w-full h-[500px] flex items-center justify-center overflow-hidden">
+      <section className="relative w-full h-[600px] flex items-center justify-center overflow-hidden">
         <Image
           src={bannerImg}
           alt="Contact Banner"
@@ -49,7 +110,8 @@ export default function ContactUsPage() {
       {/* ===== CONTACT SECTION ===== */}
       <section className="py-16 bg-white">
         <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 px-6">
-          {/* Left Section */}
+
+          {/* LEFT SIDE */}
           <div className="flex flex-col justify-center space-y-6 rounded-2xl p-6">
             <div>
               <h5 className="text-[#F05023] uppercase tracking-wide font-semibold">Contact Us</h5>
@@ -96,106 +158,122 @@ export default function ContactUsPage() {
             </div>
           </div>
 
-          {/* Right Section (Form) */}
+          {/* RIGHT SIDE FORM */}
           <div className="w-full flex justify-center">
-  <div className="bg-white rounded-2xl shadow-xl p-8 max-w-xl w-full">
-    <h2 className="text-3xl font-bold text-gray-900 mb-6">
-      {`Let’s Build `}<span className="text-[#F05023]">Something Together</span>
-    </h2>
+            <div className="bg-white rounded-2xl shadow-xl p-8 max-w-xl w-full">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                {`Let’s Build `}<span className="text-[#F05023]">Something Together</span>
+              </h2>
 
-    <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="flex flex-col">
-          <label htmlFor="firstName" className="text-gray-800 font-semibold mb-1">First Name</label>
-          <input
-            id="firstName"
-            type="text"
-            name="firstName"
-            value={formData.firstName}
-            onChange={handleChange}
-            required
-            className="border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-[#F05023]"
-          />
-        </div>
-        <div className="flex flex-col">
-          <label htmlFor="lastName" className="text-gray-800 font-semibold mb-1">Last Name</label>
-          <input
-            id="lastName"
-            type="text"
-            name="lastName"
-            value={formData.lastName}
-            onChange={handleChange}
-            required
-            className="border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-[#F05023]"
-          />
-        </div>
-      </div>
+              <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
 
-      <div className="flex flex-col">
-        <label htmlFor="email" className="text-gray-800 font-semibold mb-1">E-mail</label>
-        <input
-          id="email"
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-          className="border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-[#F05023]"
-        />
-      </div>
+                {/* FIRST + LAST NAME */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 
-      <div className="flex flex-col">
-        <label htmlFor="phone" className="text-gray-800 font-semibold mb-1">Phone Number</label>
-        <input
-          id="phone"
-          type="tel"
-          name="phone"
-          value={formData.phone}
-          onChange={handleChange}
-          required
-          className="border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-[#F05023]"
-        />
-      </div>
+                  <div className="flex flex-col">
+                    <label className="text-gray-800 font-semibold mb-1">First Name</label>
+                    <input
+                      name="firstName"
+                      value={formData.firstName}
+                      onChange={(e) =>
+                        handleStrictInput("firstName", e.target.value)
+                      }
+                      maxLength={30}
+                      className="border border-gray-300 p-3 rounded-lg text-gray-900 focus:ring-2 focus:ring-[#F05023]"
+                      required
+                    />
+                    {errors.firstName && <p className="text-red-500 text-sm">{errors.firstName}</p>}
+                  </div>
 
-      <div className="flex flex-col">
-        <label htmlFor="message" className="text-gray-800 font-semibold mb-1">Message</label>
-        <textarea
-          id="message"
-          name="message"
-          rows={4}
-          value={formData.message}
-          onChange={handleChange}
-          required
-          className="border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-[#F05023] resize-none text-gray-900 bg-white"
-          placeholder="Type your message here..."
-        ></textarea>
-      </div>
+                  <div className="flex flex-col">
+                    <label className="text-gray-800 font-semibold mb-1">Last Name</label>
+                    <input
+                      name="lastName"
+                      value={formData.lastName}
+                      onChange={(e) =>
+                        handleStrictInput("lastName", e.target.value)
+                      }
+                      maxLength={30}
+                      className="border border-gray-300 p-3 rounded-lg text-gray-900 focus:ring-2 focus:ring-[#F05023]"
+                      required
+                    />
+                    {errors.lastName && <p className="text-red-500 text-sm">{errors.lastName}</p>}
+                  </div>
 
-      <button
-        type="submit"
-        className="bg-[#F05023] hover:bg-[#d9451f] text-white font-semibold py-3 rounded-lg transition-colors"
-      >
-        Send Message
-      </button>
-    </form>
-  </div>
-</div>
+                </div>
+
+                {/* EMAIL */}
+                <div className="flex flex-col">
+                  <label className="text-gray-800 font-semibold mb-1">Email</label>
+                  <input
+                    name="email"
+                    value={formData.email}
+                    onChange={(e) =>
+                      handleStrictInput("email", e.target.value)
+                    }
+                    className="border border-gray-300 p-3 rounded-lg text-gray-900 focus:ring-2 focus:ring-[#F05023]"
+                    required
+                  />
+                  {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
+                </div>
+
+                {/* PHONE */}
+                <div className="flex flex-col">
+                  <label className="text-gray-800 font-semibold mb-1">Phone</label>
+                  <input
+                    name="phone"
+                    value={formData.phone}
+                    onChange={(e) =>
+                      handleStrictInput("phone", e.target.value)
+                    }
+                    maxLength={10}
+                    className="border border-gray-300 p-3 rounded-lg text-gray-900 focus:ring-2 focus:ring-[#F05023]"
+                    required
+                  />
+                  {errors.phone && <p className="text-red-500 text-sm">{errors.phone}</p>}
+                </div>
+
+                {/* MESSAGE */}
+                <div className="flex flex-col">
+                  <label className="text-gray-800 font-semibold mb-1">Message</label>
+                  <textarea
+                    name="message"
+                    rows={4}
+                    value={formData.message}
+                    onChange={(e) =>
+                      handleStrictInput("message", e.target.value)
+                    }
+                    className="border border-gray-300 p-3 rounded-lg text-gray-900 focus:ring-2 focus:ring-[#F05023] resize-none bg-white"
+                    required
+                  />
+                  {errors.message && <p className="text-red-500 text-sm">{errors.message}</p>}
+                </div>
+
+                <button
+                  type="submit"
+                  className="bg-[#F05023] text-white py-3 rounded-lg hover:bg-[#D9451F] font-semibold"
+                >
+                  Send Message
+                </button>
+
+              </form>
+            </div>
+          </div>
 
         </div>
       </section>
 
-      {/* ===== MAP SECTION ===== */}
+      {/* MAP */}
       <section className="w-full h-[400px] md:h-[500px]">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3670.123456789!2d70.0645!3d22.4701!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395c3d0f1234567%3A0xabcdef123456789!2sCopper%20Crown%20Building%2C%20Jamnagar!5e0!3m2!1sen!2sin!4v1699999999999!5m2!1sen!2sin"
+          src="https://www.google.com/maps/embed?pb=!1m18..."
           width="100%"
           height="100%"
           style={{ border: 0 }}
-          allowFullScreen
           loading="lazy"
-          title="Our Location"
         ></iframe>
       </section>
+
     </div>
   );
 }

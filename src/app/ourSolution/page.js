@@ -7,6 +7,7 @@ import { Menu, X } from "lucide-react";
 import { solutions, advancedServices } from "../../components/solutionContent";
 import bannerImg from "../../../public/bannerC.png";
 
+
 export default function CustomSolutionPage() {
   const [active, setActive] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);

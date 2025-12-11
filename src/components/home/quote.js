@@ -37,15 +37,63 @@ export default function QuoteForm() {
     }
   }, [searchParams]); // ⬅️ REQUIRED FOR BUILD
 
+const strictValidateInput = (name, value) => {
+  let newValue = value;
+
+  // NAME FIELDS: only letters + single spaces
+  if (["fullName", "vendorName", "contactName"].includes(name)) {
+    newValue = newValue.replace(/[^A-Za-z ]/g, "");  // block digits + symbols
+    newValue = newValue.replace(/\s+/g, " ");        // no double spaces
+    newValue = newValue.trimStart();                 // no leading space
+  }
+
+  // PHONE: only digits
+  if (name === "phone") {
+    newValue = newValue.replace(/[^0-9]/g, "");      // numbers only
+    if (newValue.length > 10) newValue = newValue.slice(0, 10);
+  }
+
+  // EMAIL: no spaces
+  if (name === "email") {
+    newValue = newValue.replace(/\s/g, "");          // block spaces
+  }
+
+  // COMPANY NAME: letters, numbers, space
+  if (name === "company") {
+    newValue = newValue.replace(/[^A-Za-z0-9 ]/g, "");
+    newValue = newValue.trimStart();
+  }
+
+  // TEXTAREA FIELDS: no leading spaces
+  if (["details", "productService"].includes(name)) {
+    newValue = newValue.trimStart();
+  }
+
+  return newValue;
+};
+
   // Handle input changes
-  const handleChange = (e) => {
-    const { name, value, type, checked, files } = e.target;
+const handleChange = (e) => {
+  const { name, value, type, checked, files } = e.target;
+
+  if (type === "file") {
     setFormData((prev) => ({
       ...prev,
-      [name]: type === "checkbox" ? checked : type === "file" ? files[0] : value,
+      file: files[0],
     }));
-    setErrors((prev) => ({ ...prev, [name]: "" }));
-  };
+    return;
+  }
+
+  const validatedValue = strictValidateInput(name, value);
+
+  setFormData((prev) => ({
+    ...prev,
+    [name]: type === "checkbox" ? checked : validatedValue,
+  }));
+
+  setErrors((prev) => ({ ...prev, [name]: "" }));
+};
+
 
   // Validation
   const validate = () => {
@@ -278,11 +326,36 @@ export default function QuoteForm() {
                   <label className="bg-gray-200 hover:bg-gray-300 cursor-pointer px-4 py-2 rounded-md text-[#0a1a4f] font-medium w-fit">
                     Choose File
                     <input
-                      type="file"
-                      name="file"
-                      className="hidden"
-                      onChange={handleChange}
-                    />
+  type="file"
+  name="file"
+  className="hidden"
+  onChange={(e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const allowed = ["pdf", "doc", "docx", "jpg", "png", "jpeg"];
+      const ext = file.name.split(".").pop().toLowerCase();
+
+      if (!allowed.includes(ext)) {
+        toast.error("Invalid file format. Upload PDF, DOC, DOCX, JPG, PNG.", {
+          position: "bottom-right",
+          theme: "colored",
+        });
+        return;
+      }
+
+      if (file.size > 5 * 1024 * 1024) {
+        toast.error("File size must be less than 5MB.", {
+          position: "bottom-right",
+          theme: "colored",
+        });
+        return;
+      }
+
+      setFormData((prev) => ({ ...prev, file }));
+    }
+  }}
+/>
+
                   </label>
                   <span className="text-sm text-[#0a1a4f] break-words">
                     {formData.file ? formData.file.name : "No file chosen"}
@@ -384,11 +457,36 @@ export default function QuoteForm() {
                   <label className="bg-gray-200 hover:bg-gray-300 cursor-pointer px-4 py-2 rounded-md text-[#0a1a4f] font-medium w-fit">
                     Choose File
                     <input
-                      type="file"
-                      name="file"
-                      className="hidden"
-                      onChange={handleChange}
-                    />
+  type="file"
+  name="file"
+  className="hidden"
+  onChange={(e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const allowed = ["pdf", "doc", "docx", "jpg", "png", "jpeg"];
+      const ext = file.name.split(".").pop().toLowerCase();
+
+      if (!allowed.includes(ext)) {
+        toast.error("Invalid file format. Upload PDF, DOC, DOCX, JPG, PNG.", {
+          position: "bottom-right",
+          theme: "colored",
+        });
+        return;
+      }
+
+      if (file.size > 5 * 1024 * 1024) {
+        toast.error("File size must be less than 5MB.", {
+          position: "bottom-right",
+          theme: "colored",
+        });
+        return;
+      }
+
+      setFormData((prev) => ({ ...prev, file }));
+    }
+  }}
+/>
+
                   </label>
                   <span className="text-sm text-[#0a1a4f] break-words">
                     {formData.file ? formData.file.name : "No file chosen"}
